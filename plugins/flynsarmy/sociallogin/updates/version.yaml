@@ -1,0 +1,16 @@
+1.0.1:
+    - First version of SocialLogin
+    - create_flynsarmy_sociallogin_user_providers.php
+1.0.2: Require RainLab.User
+1.0.3: Fixed RainLab.User integration
+1.0.4: User registration bug fix
+1.0.5: Fix password confirmation error
+1.0.6: Add login details when registering users
+1.0.7: Rename login to username to match RainLab.Users latest update
+1.0.8: RC compatibility update
+1.0.9: Google login fix
+1.0.10: Don't add multiple Google associations to users
+1.0.11: Modified table key name
+1.0.12: Update login providers
+1.0.13: Deprecated code fix, settings page fix
+1.0.14: Singleton trait fix

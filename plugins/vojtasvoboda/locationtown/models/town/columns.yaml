@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: vojtasvoboda.locationtown::lang.fields.name
+        searchable: true
+    state:
+        label: vojtasvoboda.locationtown::lang.fields.state
+        relation: state
+        select: name
+    slug:
+        label: vojtasvoboda.locationtown::lang.fields.url
+        searchable: true
+    excerpt:
+        label: vojtasvoboda.locationtown::lang.fields.excerpt
+    is_enabled:
+        label: vojtasvoboda.locationtown::lang.fields.enabled
+        type: switch

@@ -1,0 +1,46 @@
+{% set MyWeek = __SELF__ %}
+{% set dayPointer = MyWeek.dayPointer %}
+{% set devents = MyWeek.events[MyWeek.year][MyWeek.monthNum] %}
+{% set dprops = MyWeek.dayprops[MyWeek.year][MyWeek.monthNum] %}
+{% set trailDays = 0 %}
+<table class="mycal" 
+       data-request-data="month:{{ MyWeek.monthNum }}">
+    <thead>
+        <tr class="daysHead">
+{% for hding in  MyWeek.calHeadings %}
+            <th>{{ hding }}</th>
+{% endfor %}
+        </tr>
+     </thead>
+     <tbody>
+
+
+
+        <tr class="days">
+{% for x in range(0, 6) %}
+{% set dayPointer = dayPointer + 1 %}
+
+{% set dayProp = dprops[dayPointer] %}
+            <td>
+{% if dayProp.link %}
+                <a {{ dayProp.link|raw }}>{% endif %}
+                <div class="{% if dayProp.class %}{{ dayProp.class|raw }}{% else %}dayLabel {{ MyWeek.color }}{% endif %}">{{ dayPointer }}</div>
+{% if dayProp.link %}
+                </a>
+{% endif %}
+{% if devents[dayPointer] %}
+                <ul class="eventList">
+{% for ev in devents[dayPointer] %}
+                    {% partial '@event' ev = ev %}
+{% endfor %}
+                </ul>
+{% endif %}
+            </td>
+{% endfor %}
+        </tr>
+
+
+
+
+    </tbody>
+</table>

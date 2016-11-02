@@ -1,0 +1,1 @@
+# Cộng đồng game thủ Boardgame360.
