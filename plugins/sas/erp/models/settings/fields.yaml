@@ -1,0 +1,112 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+tabs:
+    fields:
+        section_currency:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.section_currency
+            type: section
+        currency:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.currency
+            type: text
+            default: USD
+            comment: sas.erp::lang.settings.currency_description
+            span: left
+
+        section_vat:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.section_vat
+            type: section
+        vat_state:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.vat_state
+            type: switch
+        vat_value:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.vat_value
+            type: text
+            placeholder: %
+            comment: sas.erp::lang.settings.vat_value_description
+            span: left
+
+        section_pages:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.section_pages
+            type: section
+        productDisplayPage:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.product_display_page
+            type: dropdown
+            comment: sas.erp::lang.settings.product_display_page_description
+            default: product
+            span: left
+        categoryPage:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.category_page
+            type: dropdown
+            comment: sas.erp::lang.settings.category_page_description
+            default: category
+            span: right
+        cartPage:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.cart_page
+            type: dropdown
+            comment: sas.erp::lang.settings.cart_page_description
+            default: cart
+            span: left
+        checkoutPage:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.checkout_page
+            type: dropdown
+            comment: sas.erp::lang.settings.checkout_page_description
+            default: checkout
+            span: right
+        successPage:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.success_page
+            type: dropdown
+            comment: sas.erp::lang.settings.success_page_description
+            default: success
+            span: left
+        orderDisplayPage:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.order_display_page
+            type: dropdown
+            comment: sas.erp::lang.settings.order_display_page_description
+            default: order
+            span: right
+
+
+        section_redirect:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.section_redirect
+            type: section
+        redirect_user_after_add_to_cart:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.redirect_user_after_add_to_cart
+            type: text
+            default: cart
+            comment: sas.erp::lang.settings.redirect_user_after_add_to_cart_description
+            span: left
+
+        section_messages:
+            tab: sas.erp::lang.settings.tab_checkout
+            label: sas.erp::lang.settings.section_messages
+            type: section
+            comment: sas.erp::lang.settings.section_messages_description
+        admin_emails:
+            tab: sas.erp::lang.settings.tab_checkout
+            label: sas.erp::lang.settings.admin_emails
+            type: textarea
+            comment: sas.erp::lang.settings.admin_emails_description
+            span: left
+        send_user_message:
+            tab: sas.erp::lang.settings.tab_checkout
+            label: sas.erp::lang.settings.send_user_message
+            type: switch
+            span: right

@@ -1,0 +1,70 @@
+fields:
+    title:
+        label: 'sas.erp::lang.product.title'
+        span: left
+        placeholder: 'sas.erp::lang.product.title_placeholder'
+        required: true
+        type: text
+    slug:
+        label: 'sas.erp::lang.product.slug'
+        span: right
+        placeholder: 'sas.erp::lang.product.slug_placeholder'
+        required: true
+        preset:
+            field: title
+            type: slug
+        type: text
+    tagbox:
+        label: 'sas.erp::lang.common.tags'
+        type: owl-tagbox
+        slugify: false
+    place:
+        label: 'sas.erp::lang.common.owner'
+        type: relation
+        required: true
+tabs:
+    fields:
+        images:
+            label: 'sas.erp::lang.common.images'
+            mode: image
+            imageWidth: 200
+            imageHeight: 200
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            type: fileupload
+            tab: 'sas.erp::lang.product.tab_edit'
+        excerpt:
+            label: 'sas.erp::lang.common.excerpt'
+            size: tiny
+            span: full
+            type: textarea
+            tab: 'sas.erp::lang.product.tab_edit'
+        description:
+            label: 'sas.erp::lang.common.description'
+            size: huge
+            span: full
+            type: richeditor
+            tab: 'sas.erp::lang.product.tab_edit'
+        published:
+            label: 'sas.erp::lang.common.published'
+            span: left
+            type: checkbox
+            default: 1
+            tab: 'sas.erp::lang.product.tab_edit'
+        featured:
+            label: 'sas.erp::lang.common.featured'
+            span: right
+            type: checkbox
+            tab: 'sas.erp::lang.product.tab_edit'
+        productAttributes:
+            span: full
+            path: $/sas/erp/models/product/_attributes.htm
+            type: partial
+            tab: 'sas.erp::lang.product.tab_attributes'
+        productItems:
+            tab: 'sas.erp::lang.product.tab_inventory'
+            type: partial
+            path: $/sas/erp/models/product/_items.htm

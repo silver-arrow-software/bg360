@@ -1,0 +1,17 @@
+{
+    "name": "owl/owl",
+    "description": "October Widget Library",
+    "homepage": "http://scottbedard.net",
+    "keywords": ["laravel", "octobercms"],
+    "authors": [
+        {
+            "name": "Scott Bedard",
+            "email": "scottbedard90@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Owl\\": "src/"
+        }
+    }
+}

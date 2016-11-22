@@ -1,0 +1,50 @@
+# ===================================
+#  Extended Profile Field Definitions
+# ===================================
+
+mobile:
+    label: sas.erp::lang.profile.mobile
+    tab: sas.erp::lang.plugin.profile
+    span: right
+
+company:
+    label: sas.erp::lang.plugin.company
+    tab: sas.erp::lang.plugin.profile
+    type: relation
+    span: left
+
+street_addr:
+    label: sas.erp::lang.profile.street
+    tab: sas.erp::lang.plugin.profile
+
+district:
+    label: sas.erp::lang.profile.district
+    tab: sas.erp::lang.plugin.profile
+    span: left
+
+country:
+    label: rainlab.location::lang.country.label
+    placeholder: rainlab.location::lang.country.select
+    type: dropdown
+    tab: sas.erp::lang.plugin.profile
+    span: left
+
+state:
+    label: rainlab.location::lang.state.label
+    placeholder: rainlab.location::lang.state.select
+    type: dropdown
+    tab: sas.erp::lang.plugin.profile
+    span: right
+    dependsOn: country
+
+code:
+    label: sas.erp::lang.common.code_id
+    tab: rainlab.user::lang.user.account
+    type: text
+    readOnly: true
+
+profile:
+    label: sas.erp::lang.plugin.profile
+    tab: rainlab.user::lang.user.account
+    type: relation
+    #span: auto

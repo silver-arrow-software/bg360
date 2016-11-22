@@ -1,0 +1,27 @@
+columns:
+    id:
+        label: 'sas.erp::lang.common.id'
+        type: number
+        sortable: true
+    
+    name:
+        label: 'sas.erp::lang.place.name'
+        type: text
+        searchable: true
+        sortable: true
+    
+    code_id:
+        label: sas.erp::lang.common.code_id
+        type: text
+        searchable: true
+        
+    created_at:
+        label: sas.erp::lang.common.created_at
+        type: date
+        sortable: true
+        invisible: true
+
+    updated_at:
+        label: sas.erp::lang.common.updated_at
+        type: date
+        sortable: true

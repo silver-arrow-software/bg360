@@ -1,0 +1,14 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+productAttributes:
+    label: sas.erp::lang.attributes.list_title
+    list: ~/plugins/sas/erp/models/productattribute/columns.yaml
+    form: ~/plugins/sas/erp/models/productattribute/fields.yaml
+    emptyMessage: backend::lang.list.no_records
+productItems:
+    label: sas.erp::lang.product.item_list_title
+    list: ~/plugins/sas/erp/models/productitem/columns.yaml
+    form: ~/plugins/sas/erp/models/productitem/fields.yaml
+    emptyMessage: backend::lang.list.no_records

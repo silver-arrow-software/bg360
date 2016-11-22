@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Tag
+
+# Model Form Field configuration
+form: $/sas/erp/models/tag/fields.yaml
+
+# Model Class name
+modelClass: Sas\Erp\Models\Tag
+
+# Default redirect location
+defaultRedirect: sas/erp/tags
+
+# Create page
+create:
+    title: Create Tag
+    redirect: sas/erp/tags/update/:id
+    redirectClose: sas/erp/tags
+
+# Update page
+update:
+    title: Edit Tag
+    redirect: sas/erp/tags
+    redirectClose: sas/erp/tags
+
+# Preview page
+preview:
+    title: Preview Tag

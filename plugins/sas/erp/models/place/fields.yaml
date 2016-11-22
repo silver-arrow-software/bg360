@@ -1,0 +1,43 @@
+fields:
+    name:
+        label: 'sas.erp::lang.common.name'
+        span: full
+        required: 1
+        type: text
+    phone:
+        label: 'sas.erp::lang.profile.phone'
+        span: left
+        type: number
+    code_id:
+        label: 'sas.erp::lang.common.code_id'
+        span: right
+        type: text
+        required: 1
+    description:
+        label: 'sas.erp::lang.common.description'
+        size: tiny
+        span: full
+        type: richeditor
+    street_addr:
+        label: 'sas.erp::lang.profile.street'
+        type: text
+        span: left
+    country:
+        label: 'rainlab.location::lang.country.label'
+        placeholder: 'rainlab.location::lang.country.select'
+        type: dropdown
+        span: right
+    state:
+        label: 'rainlab.location::lang.state.label'
+        placeholder: 'rainlab.location::lang.state.select'
+        type: dropdown
+        span: left
+        dependsOn: country
+    district:
+        label: 'sas.erp::lang.profile.district'
+        span: right
+        type: text
+    tagbox:
+        label: 'sas.erp::lang.common.tags'
+        type: owl-tagbox
+        slugify: false

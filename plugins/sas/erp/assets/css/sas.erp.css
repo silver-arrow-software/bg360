@@ -1,0 +1,6 @@
+div[data-field-name="productAttributes"] .btn:nth-child(2),
+div[data-field-name="productAttributes"] .btn:nth-child(4),
+div[data-field-name="productItems"] .btn:nth-child(2),
+div[data-field-name="productItems"] .btn:nth-child(4) {
+    display: none;
+}

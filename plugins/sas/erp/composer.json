@@ -1,0 +1,16 @@
+{
+    "name": "sas/erp",
+    "description": "ERP for everyone.",
+    "homepage": "http://github.com/sas/erp",
+    "keywords": ["october", "rainlab", "blog", "sas"],
+    "authors": [
+        {
+            "name": "Silver Arrow Software",
+            "email": "admin@silverarrowsoftware.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "owl/library": "dev-master"
+    }
+}

@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    code:
+        label: sas.erp::lang.common.code_id
+        searchable: true
+    price:
+        label: sas.erp::lang.common.price
+        searchable: true
+        type: currency
+    quantity:
+        label: sas.erp::lang.common.quantity
+        searchable: false
+        type: format_number

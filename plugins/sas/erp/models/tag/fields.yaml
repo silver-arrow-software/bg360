@@ -1,0 +1,28 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Tag
+
+tabs:
+  fields:
+    posts:
+        #label: sas.erp::lang.plugin.posts
+        type: relation
+        nameFrom: title
+        emptyOption: sas.erp::lang.common.empty
+        tab: sas.erp::lang.plugin.posts
+
+    places:
+        type: relation
+        nameFrom: name
+        emptyOption: sas.erp::lang.common.empty
+        tab: sas.erp::lang.plugin.places
+
+    products:
+        type: relation
+        nameFrom: name
+        emptyOption: sas.erp::lang.common.empty
+        tab: sas.erp::lang.plugin.products

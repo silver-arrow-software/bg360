@@ -1,0 +1,28 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    title:
+        label: sas.erp::lang.product.title
+        searchable: true
+    place:
+        label: sas.erp::lang.place.name
+        relation: place
+        select: name
+        searchable: true
+    published:
+        label: sas.erp::lang.common.published
+        searchable: false
+        invisible: true
+        type: switch
+    created_at:
+        label: sas.erp::lang.common.created_at
+        searchable: true
+        invisible: true
+    updated_at:
+        label: sas.erp::lang.common.updated_at
+        searchable: true

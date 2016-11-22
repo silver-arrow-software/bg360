@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: sas.erp::lang.products.create_product
+
+# Model Form Field configuration
+form: $/sas/erp/models/product/fields.yaml
+
+# Model Class name
+modelClass: Sas\Erp\Models\Product
+
+# Default redirect location
+defaultRedirect: sas/erp/products
+
+# Create page
+create:
+    title: sas.erp::lang.products.create_product
+    redirect: sas/erp/products/update/:id
+    redirectClose: sas/erp/products
+
+# Update page
+update:
+    title: sas.erp::lang.products.edit_product
+    redirect: sas/erp/products
+    redirectClose: sas/erp/products

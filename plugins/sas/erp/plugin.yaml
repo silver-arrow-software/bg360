@@ -1,0 +1,37 @@
+plugin:
+    name: 'sas.erp::lang.plugin.name'
+    description: 'sas.erp::lang.plugin.description'
+    author: 'Man Lu'
+    icon: oc-icon-location-arrow
+    homepage: 'http://silverarrowsoftware.com'
+navigation:
+    sas-erp-main-menu-item:
+        label: 'sas.erp::lang.plugin.name'
+        url: sas/erp/places
+        icon: icon-location-arrow
+        sideMenu:
+            sas-erp-side-menu-places:
+                label: 'sas.erp::lang.plugin.places'
+                url: sas/erp/places
+                icon: icon-building
+            sas-erp-side-menu-tags:
+                label: 'sas.erp::lang.common.tags'
+                url: sas/erp/tags
+                icon: icon-tags
+            sas-erp-side-menu-products:
+                label: 'sas.erp::lang.plugin.products'
+                url: sas/erp/products
+                icon: icon-dropbox
+permissions:
+    sas.erp.manage_profiles:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_profiles'
+    sas.erp.create_place:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.perm_create_place'
+    sas.erp.edit_place:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.perm_edit_place'
+    sas.erp.delete_place:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.perm_delete_place'

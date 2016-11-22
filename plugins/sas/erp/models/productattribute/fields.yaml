@@ -1,0 +1,11 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: sas.erp::lang.attribute.name
+        span: left
+    value:
+        label: sas.erp::lang.attribute.value
+        span: right

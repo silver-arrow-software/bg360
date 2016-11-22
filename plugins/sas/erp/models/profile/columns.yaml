@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: ID
+        type: number
+        invisible: true
+    name:
+        label: 'sas.erp::lang.common.name'
+        type: text
+        searchable: true
+        sortable: true

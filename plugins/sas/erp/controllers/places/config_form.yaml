@@ -1,0 +1,10 @@
+name: Places
+form: $/sas/erp/models/place/fields.yaml
+modelClass: Sas\Erp\Models\Place
+defaultRedirect: sas/erp/places
+create:
+    redirect: 'sas/erp/places/update/:id'
+    redirectClose: sas/erp/places
+update:
+    redirect: sas/erp/places
+    redirectClose: sas/erp/places

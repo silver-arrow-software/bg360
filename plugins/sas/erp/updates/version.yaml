@@ -1,0 +1,12 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'New feature: Profile.'
+    - create_sas_erp_profiles.php
+    - add_profile_to_users.php
+1.0.3:
+    - 'New features: Place, Product.'
+    - create_tags_table.php
+    - create_places_table.php
+    - create_products_table.php
+    - create_orders_table.php

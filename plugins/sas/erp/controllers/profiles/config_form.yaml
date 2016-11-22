@@ -1,0 +1,10 @@
+name: Profiles
+form: $/sas/erp/models/profile/fields.yaml
+modelClass: Sas\Erp\Models\Profile
+defaultRedirect: sas/erp/profiles
+create:
+    redirect: 'sas/erp/profiles/update/:id'
+    redirectClose: sas/erp/profiles
+update:
+    redirect: sas/erp/profiles
+    redirectClose: sas/erp/profiles

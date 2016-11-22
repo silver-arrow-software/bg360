@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    code:
+        label: sas.erp::lang.common.code_id
+        type: text
+        span: full
+        readOnly: true
+    price:
+        label: sas.erp::lang.common.price
+        type: owl-money
+        suffix: ' đ'
+        thousand: '.'
+        decimal: ','
+        placeholder: '1.000 đ'
+        precision: 0
+        allowNegative: false
+        span: left
+    quantity:
+        label: sas.erp::lang.common.quantity
+        type: number
+        default: 1
+        span: right

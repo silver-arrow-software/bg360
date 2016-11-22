@@ -1,0 +1,14 @@
+fields:
+    name:
+        label: 'sas.erp::lang.profile.name'
+        span: auto
+        required: 1
+        type: text
+tabs:
+    fields:
+        description:
+            label: 'sas.erp::lang.common.description'
+            size: tiny
+            span: auto
+            type: textarea
+            tab: 'sas.erp::lang.common.general'

@@ -1,0 +1,11 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: sas.erp::lang.attribute.name
+        searchable: true
+    value:
+        label: sas.erp::lang.attribute.value
+        searchable: true

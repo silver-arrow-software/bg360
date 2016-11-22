@@ -1,0 +1,11 @@
+list: $/sas/erp/models/place/columns.yaml
+modelClass: Sas\Erp\Models\Place
+title: Places
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'sas/erp/places/update/:id'
