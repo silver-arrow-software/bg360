@@ -23,8 +23,27 @@
     tagbox.prototype.init = function () {
         var self = this
 
+        // Autocomplete
+        if (this.config.ajax) {
+            var onAjaxRequest = this.config.ajax;
+            this.$input.autocomplete({
+                minLength: 3,
+                delay: 1000,
+                source: function(query, process) {
+                    $.request(onAjaxRequest, {
+                        data: {
+                            q: query
+                        },
+                        success: function(data) {
+                            process( data );
+                        }
+                    });
+                }
+            });
+        }
+
         // Listen for break keys
-        this.$input.unbind().on('keydown', function(e) {
+        this.$input.on('keyup', function(e) {
             var code = e.keyCode || e.which
             if ($.inArray(code, self.config.breakCodes) !== -1) {
                 e.preventDefault()
@@ -63,6 +82,7 @@
                 self.$list.removeClass('focused')
             })
         }
+
     }
 
     /**

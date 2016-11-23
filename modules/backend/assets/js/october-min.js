@@ -1165,7 +1165,7 @@ var old=$.fn.autocomplete
 $.fn.autocomplete=function(option){return this.each(function(){var $this=$(this),data=$this.data('autocomplete'),options=typeof option=='object'&&option
 if(!data)$this.data('autocomplete',(data=new Autocomplete(this,options)))
 if(typeof option=='string')data[option]()})}
-$.fn.autocomplete.defaults={source:[],items:8,menu:'<ul class="autocomplete dropdown-menu"></ul>',item:'<li><a href="#"></a></li>',minLength:1,bodyContainer:false}
+$.fn.autocomplete.defaults={source:[],items:8,menu:'<ul class="autocomplete dropdown-menu"></ul>',item:'<li><a href="#"></a></li>',minLength:1,delay:500,bodyContainer:false}
 $.fn.autocomplete.Constructor=Autocomplete
 $.fn.autocomplete.noConflict=function(){$.fn.autocomplete=old
 return this}
