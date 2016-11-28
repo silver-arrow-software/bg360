@@ -1,0 +1,36 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    parent:
+        label: sas.forum::lang.data.parent
+        type: relation
+        nameFrom: title
+        emptyOption: sas.forum::lang.data.noparent
+
+    title:
+        label: sas.forum::lang.data.title
+        span: left
+
+    slug:
+        label: sas.forum::lang.data.slug
+        span: right
+        preset: title
+
+    description:
+        label: sas.forum::lang.data.desc
+        type: textarea
+        size: tiny
+
+    is_moderated:
+        label: sas.forum::lang.data.moderated
+        comment: sas.forum::lang.data.is_mod
+        type: checkbox
+        span: auto
+
+    is_hidden:
+        label: sas.forum::lang.data.hidden
+        comment: sas.forum::lang.data.is_hidden
+        type: checkbox
+        span: auto

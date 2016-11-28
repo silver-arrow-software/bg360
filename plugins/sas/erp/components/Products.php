@@ -103,7 +103,7 @@ class Products extends ComponentBase
                 'default'     => 'created_at desc'
             ],
             'promote' => [
-                'title'       => 'sas.erp::lang.product.feature',
+                'title'       => 'sas.erp::lang.common.featured',
                 'type'        => 'checkbox',
                 'default'     => false
             ],

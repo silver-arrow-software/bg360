@@ -117,17 +117,19 @@
 
             self.$treevView.treeView('update')
             self.$treevView.treeView('fixSubItems')
+
+            $container.removeClass('popover-highlight')
         })
 
         $container.popup({
-            content: $('script[data-editor-template]', this.$el).html(),
-            placement: 'center',
-            modal: true,
-            closeOnPageClick: true,
-            highlightModalTarget: true,
-            useAnimation: true,
-            width: 600
+            content: $('script[data-editor-template]', this.$el).html()
         })
+
+        /*
+         * Highlight modal target
+         */
+        $container.addClass('popover-highlight')
+        $container.blur()
 
         return false
     }
@@ -329,7 +331,8 @@
                     && basicProperties[property] === undefined)
                     delete data[property]
             })
-        }  else {
+        }
+        else {
             $.each(propertyNames, function(){
                 if (this != 'url' && basicProperties[this] === undefined)
                     delete data[this]

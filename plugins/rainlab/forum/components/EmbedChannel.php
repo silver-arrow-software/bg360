@@ -51,7 +51,7 @@ class EmbedChannel extends ComponentBase
         ];
     }
 
-    protected function getChannelSlugOptions()
+    public function getChannelSlugOptions()
     {
         return ChannelModel::listsNested('title', 'slug', ' - ');
     }

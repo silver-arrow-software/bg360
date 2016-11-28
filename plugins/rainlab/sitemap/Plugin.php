@@ -25,6 +25,26 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * Registers administrator permissions for this plugin.
+     *
+     * @return array
+     */
+    public function registerPermissions()
+    {
+        return [
+            'rainlab.sitemap.access_definitions' => [
+                'tab'   => 'rainlab.sitemap::lang.plugin.name',
+                'label' => 'rainlab.sitemap::lang.plugin.permissions.access_definitions',
+            ],
+        ];
+    }
+
+    /**
+     * Registers settings for this plugin.
+     *
+     * @return array
+     */
     public function registerSettings()
     {
         return [
@@ -33,7 +53,8 @@ class Plugin extends PluginBase
                 'description' => 'rainlab.sitemap::lang.plugin.description',
                 'icon'        => 'icon-sitemap',
                 'url'         => Backend::url('rainlab/sitemap/definitions'),
-                'category'    => SettingsManager::CATEGORY_CMS
+                'category'    => SettingsManager::CATEGORY_CMS,
+                'permissions' => ['rainlab.sitemap.access_definitions'],
             ]
         ];
     }

@@ -17,11 +17,11 @@
 {% endif %}
 
 <p class="info">
-    Posted
-    {% if post.categories.count %} in
+    Đăng
+    {% if post.categories.count %} trong danh mục 
         {% for category in post.categories %}
             <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
         {% endfor %}
     {% endif %}
-    on {{ post.published_at|date('M d, Y') }}
+    vào ngày {{ post.published_at|date('d-m-Y') }}
 </p>

@@ -2,9 +2,39 @@
 
 use Backend\Classes\FormField;
 use Backend\Classes\FormWidgetBase;
+use Sas\Erp\Models\Tag;
 
 class Widget extends FormWidgetBase
 {
+
+    public function onTags()
+    {
+        // Search tags on DB
+        $term = input('q');
+
+        $searchField = 'name';
+        $tags = Tag::where($searchField, 'LIKE', '%'.$term.'%')
+            ->orderByRaw("CASE WHEN {$searchField} = '{$term}' THEN 0  
+                          WHEN {$searchField} LIKE '{$term}%' THEN 1  
+                          WHEN {$searchField} LIKE '%{$term}%' THEN 2  
+                          WHEN {$searchField} LIKE '%{$term}' THEN 3  
+                          ELSE 4
+                     END, {$searchField} ASC")
+            ->get()
+        ;
+
+        $result = [];
+
+        // add new result
+        $result[$term] = $term;
+
+        foreach ($tags as $tag){
+            $result[$tag->name] = $tag->name;
+        }
+
+        // Render the partial and return it as our list item
+        return $result;
+    }
 
     /**
      * Render the form widget
@@ -55,6 +85,9 @@ class Widget extends FormWidgetBase
 
         // Javascript configuration
         $config['fieldName'] = $this->fieldName;
+
+        // Ajax
+        $config['ajax'] = $this->getEventHandler('onTags');
         $this->vars['config'] = htmlspecialchars(json_encode($config));
 
         // Pre-populated tags

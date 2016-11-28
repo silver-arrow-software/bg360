@@ -1,4 +1,8 @@
 <?php return [
+    'sas' => [
+        'short_name' => 'SAS',
+        'name' => 'Silver Arrow Software',
+    ],
     'plugin' => [
         'name' => 'ERP',
         'description' => 'Enterprise resource planning for business.',
@@ -76,7 +80,7 @@
         'error' => 'An unknown error has occured.'
     ],
     'settings' => [
-        'menu_label' => 'Settings',
+        'menu_label' => 'Shop',
         'menu_description' => 'Configuration of ERP plugin',
         'product_display_page' => 'Product page',
         'product_display_page_description' => 'Name of the product display page file.',
@@ -121,6 +125,11 @@
     ],
     'place' => [
         'name' => 'Place name',
+        'component_desc' => 'Display a single place.',
+    ],
+    'places' => [
+        'component_name' => 'Places',
+        'component_desc' => 'Display a list of places.',
     ],
     'product' => [
         'component_name' => 'Product',
@@ -139,7 +148,7 @@
     'products' => [
         'menu_label' => 'Products',
         'name' => 'Products',
-        'description' => 'Displays a list of products on the page.',
+        'description' => 'Display a list of products on the page.',
         'pagination' => 'Page number',
         'pagination_description' => 'This value is used to determine what page the user is on.',
         'filter' => 'Category filter',

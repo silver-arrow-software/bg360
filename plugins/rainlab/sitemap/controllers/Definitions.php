@@ -22,6 +22,8 @@ class Definitions extends Controller
         'Backend.Behaviors.FormController'
     ];
 
+    public $requiredPermissions = ['rainlab.sitemap.access_definitions'];
+
     public $formConfig = 'config_form.yaml';
 
     public function __construct()
@@ -42,8 +44,9 @@ class Definitions extends Controller
     public function index()
     {
         try {
-            if (!$theme = Theme::getEditTheme())
+            if (!$theme = Theme::getEditTheme()) {
                 throw new ApplicationException('Unable to find the active theme.');
+            }
 
             return $this->redirectToThemeSitemap($theme);
         }
@@ -60,8 +63,9 @@ class Definitions extends Controller
         $this->bodyClass = 'compact-container';
 
         try {
-            if (!$editTheme = Theme::getEditTheme())
+            if (!$editTheme = Theme::getEditTheme()) {
                 throw new ApplicationException('Unable to find the active theme.');
+            }
 
             $result = $this->asExtension('FormController')->update($recordId, $context);
 
@@ -103,6 +107,7 @@ class Definitions extends Controller
     {
         $model = Definition::firstOrCreate(['theme' => $theme->getDirName()]);
         $updateUrl = sprintf('rainlab/sitemap/definitions/update/%s', $model->getKey());
+
         return Backend::redirect($updateUrl);
     }
 }
