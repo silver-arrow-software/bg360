@@ -1,0 +1,19 @@
+{
+    "name": "sas/blog",
+    "type": "october-plugin",
+    "description": "Sas Blog plugin for October CMS",
+    "homepage": "https://octobercms.com/plugin/rainlab-blog",
+    "keywords": ["october", "octobercms", "blog", "sas"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SanBT",
+            "email": "sanbt89@gmail.com",
+            "role": "Co-founder"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "minimum-stability": "dev"
+}

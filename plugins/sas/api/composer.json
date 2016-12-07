@@ -1,0 +1,19 @@
+{
+    "name": "sas/api",
+    "type": "october-plugin",
+    "description": "Sas API plugin for October CMS",
+    "homepage": "https://octobercms.com/plugin/sas-api",
+    "keywords": ["october", "octobercms", "api", "sas"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SanBT",
+            "email": "sanbt89@gmail.com",
+            "role": "Co-founder"
+        }
+    ],
+    "require": {
+        "tymon/jwt-auth": "0.5.*"
+    },
+    "minimum-stability": "dev"
+}
