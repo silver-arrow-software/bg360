@@ -12,6 +12,25 @@ pageNumber = "{{ :page }}"
 productsPerPage = 10
 noProductsMessage = "No products found"
 sortOrder = "created_at desc"
+
+[forumEmbedChannel]
+embedCode = 12345678
+channelSlug = "channel-orange"
+topicSlug = "{{ :topicSlug }}"
+memberPage = 404
+
+[newsForm]
+
+[sasBlogEmbedPost]
+slugCode = "octobercms-manage-permission"
+memberPage = 404
+
+[sasBlogCustomForm]
+modelClass = "RainLab\Forum\Models\Post"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "name"
+notFoundMessage = "Record not found"
 ==
 <div class="row">
     <div class="col-sm-6 col-md-4">
@@ -61,4 +80,16 @@ sortOrder = "created_at desc"
 </div>
 <div class="row">
     {% component "products" %}
+</div>
+
+<div class="row">
+    ++Post{% component "sasBlogEmbedPost" %}++
+</div>
+
+<div class="row">
+    ++CustomForm{% component "sasBlogCustomForm" %}++
+</div>
+
+<div class="row">
+    ++News{% component 'newsForm' %}++
 </div>

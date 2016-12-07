@@ -429,6 +429,7 @@ address{margin-bottom:20px;font-style:normal;line-height:1.42857143}
 .bg-s-s20{background-color:#ff7c09}
 .bg-a-s20{background-color:#1c9df3}
 .t-ww{word-wrap:break-word;word-break:break-word}
+.t-nw{white-space:nowrap}
 .pos-r{position:relative !important}
 .pos-a{position:absolute !important}
 .pos-f{position:fixed !important}
@@ -1415,10 +1416,10 @@ div.control-popover.placement-bottom .popover-head:before{content:'';display:blo
 div.control-popover.placement-left .popover-head:before{content:'';display:block;width:0;height:0;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent;border-left:8px solid #f9f9f9;right:-8px;top:7px}
 div.control-popover.placement-right .popover-head:before{content:'';display:block;width:0;height:0;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent;border-right:8px solid #f9f9f9;left:-8px;top:7px}
 div.control-popover.popover-danger > div{color:#fff;background-color:#ab2a1c}
-div.control-popover.popover-danger.placement-bottom > div:after{content:'';display:block;width:0;height:0;border-left:7.5px solid transparent;border-right:7.5px solid transparent;border-bottom:8px solid #ab2a1c}
-div.control-popover.popover-danger.placement-top > div:after{content:'';display:block;width:0;height:0;border-left:7.5px solid transparent;border-right:7.5px solid transparent;border-top:8px solid #ab2a1c;border-bottom-width:0}
-div.control-popover.popover-danger.placement-left > div:after{content:'';display:block;width:0;height:0;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent;border-left:8px solid #ab2a1c}
-div.control-popover.popover-danger.placement-right > div:after{content:'';display:block;width:0;height:0;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent;border-right:8px solid #ab2a1c}
+div.control-popover.popover-danger.placement-bottom > div:after,div.control-popover.popover-danger.placement-bottom .popover-head:before{content:'';display:block;width:0;height:0;border-left:7.5px solid transparent;border-right:7.5px solid transparent;border-bottom:8px solid #ab2a1c}
+div.control-popover.popover-danger.placement-top > div:after,div.control-popover.popover-danger.placement-top .popover-head:before{content:'';display:block;width:0;height:0;border-left:7.5px solid transparent;border-right:7.5px solid transparent;border-top:8px solid #ab2a1c;border-bottom-width:0}
+div.control-popover.popover-danger.placement-left > div:after,div.control-popover.popover-danger.placement-left .popover-head:before{content:'';display:block;width:0;height:0;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent;border-left:8px solid #ab2a1c}
+div.control-popover.popover-danger.placement-right > div:after,div.control-popover.popover-danger.placement-right .popover-head:before{content:'';display:block;width:0;height:0;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent;border-right:8px solid #ab2a1c}
 div.control-popover.popover-danger .popover-head{color:#fff;background-color:#ab2a1c;border-bottom:2px solid rgba(255,255,255,0.15)}
 div.control-popover.popover-danger .popover-head .close{color:#fff;text-shadow:none}
 div.control-popover div.popover-fixed-height{height:300px}
@@ -2428,6 +2429,7 @@ html.cssanimations .cursor-loading-indicator.hide{display:none}
 .custom-switch > span span:first-of-type{padding-left:13px;display:none;color:#666666}
 .form-preview{padding:20px;margin-bottom:20px;background:white;border:1px solid #eee}
 .form-preview > .form-group:last-child{padding-bottom:0}
+.form-preview > .form-group:last-child .radio,.form-preview > .form-group:last-child .checkbox{margin-bottom:0}
 .form-preview.form-flush{border-top:none}
 .form-preview .control-tabs.primary-tabs > ul.nav-tabs > li a > span.title:before,.form-preview .control-tabs.primary-tabs > div > ul.nav-tabs > li a > span.title:before,.form-preview .control-tabs.primary-tabs > div > div > ul.nav-tabs > li a > span.title:before,.form-preview .control-tabs.primary-tabs > ul.nav-tabs > li a > span.title:after,.form-preview .control-tabs.primary-tabs > div > ul.nav-tabs > li a > span.title:after,.form-preview .control-tabs.primary-tabs > div > div > ul.nav-tabs > li a > span.title:after{background:white}
 .form-preview .control-tabs.primary-tabs > ul.nav-tabs > li.active a:before,.form-preview .control-tabs.primary-tabs > div > ul.nav-tabs > li.active a:before,.form-preview .control-tabs.primary-tabs > div > div > ul.nav-tabs > li.active a:before{background-color:white}

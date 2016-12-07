@@ -2,6 +2,8 @@
 
 return [
     'plugin' => [
+        'name' => 'Sas Ext. Blog',
+        'description' => 'Extending RainLab Blog for embed and export pdf',
         'sas_embed_code' => 'Sas Embed Code'
     ],
     'member' => [

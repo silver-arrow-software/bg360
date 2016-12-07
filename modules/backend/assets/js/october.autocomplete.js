@@ -355,7 +355,6 @@
         menu: '<ul class="autocomplete dropdown-menu"></ul>',
         item: '<li><a href="#"></a></li>',
         minLength: 1,
-        delay: 500,
         bodyContainer: false
     }
 

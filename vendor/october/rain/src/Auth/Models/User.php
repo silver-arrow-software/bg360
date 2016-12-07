@@ -183,7 +183,7 @@ class User extends Model
      */
     public function checkPersistCode($persistCode)
     {
-        if (!$persistCode) {
+        if (!$persistCode || !$this->persist_code) {
             return false;
         }
 
@@ -555,7 +555,7 @@ class User extends Model
      */
     public function setPermissionsAttribute($permissions)
     {
-        $permissions = json_decode($permissions, true);
+        $permissions = json_decode($permissions, true) ?: [];
         foreach ($permissions as $permission => &$value) {
             if (!in_array($value = (int) $value, $this->allowedPermissionsValues)) {
                 throw new InvalidArgumentException(sprintf(

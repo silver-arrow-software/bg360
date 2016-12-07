@@ -26,16 +26,13 @@ trait HasOneOrMany
     }
 
     /**
-     * Attach an array of models to the parent instance with deferred binding support.
-     *
+     * Alias for the addMany() method.
      * @param  array  $models
      * @return array
      */
     public function saveMany($models, $sessionKey = null)
     {
-        foreach ($models as $model) {
-            $this->save($model, $sessionKey);
-        }
+        $this->addMany($models, $sessionKey);
 
         return $models;
     }
@@ -79,6 +76,18 @@ trait HasOneOrMany
     }
 
     /**
+     * Attach an array of models to the parent instance with deferred binding support.
+     * @param  array  $models
+     * @return void
+     */
+    public function addMany($models, $sessionKey = null)
+    {
+        foreach ($models as $model) {
+            $this->add($model, $sessionKey);
+        }
+    }
+
+    /**
      * Removes a model from this relationship type.
      */
     public function remove(Model $model, $sessionKey = null)
@@ -102,4 +111,12 @@ trait HasOneOrMany
         }
     }
 
+    /**
+     * Get the associated "other" key of the relationship.
+     * @return string
+     */
+    public function getOtherKey()
+    {
+        return $this->localKey;
+    }
 }

@@ -156,6 +156,9 @@ class Trash extends Controller
             'modules/system/assets/vendor/font-autumn' => [2, 803504],
             'modules/system/assets/vendor/syntaxhighlighter/LGPL-LICENSE' => [1, 7638],
             'modules/system/assets/vendor/syntaxhighlighter/MIT-LICENSE' => [1, 1061],
+            'modules/system/models/MailSettings.php' => [1, 4435],
+            'modules/system/models/mailsettings' => [2, 5121],
+            'modules/system/models/Parameters.php' => [1, 3904],
             // Plugins
             'plugins/anandpatel/wysiwygeditors/routes.php' => [1, 2406],
             'plugins/anandpatel/wysiwygeditors/config' => [2, 2262],
@@ -173,6 +176,7 @@ class Trash extends Controller
             'plugins/indikator/login/assets/css' => [2, 113000],
             'plugins/indikator/news/models/Post.php' => [1, 2283],
             'plugins/indikator/news/models/posts/_statistics.htm' => [1, 84],
+            'plugins/indikator/plugins/models/frontend/_name.htm' => [1, 354],
             'plugins/martin/adminer/classes/adminer-en.php' => [1, 289371],
             'plugins/martin/adminer/classes/adminer-4.2.4-en.php' => [1, 289386],
             'plugins/renatio/dynamicpdf/.gitignore' => [1, 45],
