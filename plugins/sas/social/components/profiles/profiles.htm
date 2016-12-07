@@ -1,0 +1,53 @@
+{% if profiles.count %}
+    <ul class="media-list">
+        {% for profile in profiles %}
+            <li>
+                <div class="media">
+                    {% if __SELF__.user and __SELF__.user.id != profile.id %}
+                        <div class="pull-right">
+                            <a
+                                href="javascript:;"
+                                id="button_follow_{{ profile.id }}"
+                                class="btn btn-sm btn-success{% if __SELF__.user.isFollowing(profile) %} hide{% endif %}"
+                                data-request="onFollow"
+                                data-toggle="button"
+                                data-request-data="id: {{ profile.id }}"
+                                data-request-success="setFollow({{ profile.id }})">
+                                Follow
+                            </a>
+                            <a
+                                href="javascript:;"
+                                id="button_unfollow_{{ profile.id }}"
+                                class="btn btn-sm btn-primary{% if __SELF__.user.isFollowing(profile) == false %} hide{% endif %}"
+                                data-request="onFollow"
+                                data-toggle="button"
+                                data-request-data="id: {{ profile.id }}"
+                                data-request-success="setUnfollow({{ profile.id }})">
+                                Unfollow
+                            </a>
+                        </div>
+                    {% endif %}
+                    <a href="{{ profile.url }}" class="pull-left">
+                        <img
+                            src="{{ profile.getAvatarThumb(50) }}"
+                            class="media-object img-rounded"
+                            alt="{{ profile.name }}" />
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="{{ profile.url }}">{{ profile.name }}</a>
+                        </h4>
+                        <h5>{{ profile.username }}</h5>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="pagination-container">
+        {% partial __SELF__ ~ "::pagination" %}
+    </div>
+{% else %}
+    <div class="panel-body">
+        <p>{{ __SELF__.noProfilesMessage }}</p>
+    </div>
+{% endif %}

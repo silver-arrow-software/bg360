@@ -2,7 +2,7 @@ title = "Blog Post"
 url = "/blog/post/:slug"
 layout = "default"
 description = "Viewing a single blog post"
-hidden = "0"
+is_hidden = 0
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -10,8 +10,8 @@ categoryPage = "blog/category"
 
 [forumEmbedTopic]
 embedCode = "{{ :slug }}"
-channelSlug = "channel-orange"
-memberPage = "404"
+channelSlug = "blog-comments"
+memberPage = 404
 ==
 <?php
 function onEnd()
@@ -23,9 +23,9 @@ function onEnd()
 {% component 'blogPost' %}
 
 <hr />
-<h4>Comments</h4>
+<h4>Thảo luận</h4>
 {% if user %}
     {% component 'forumEmbedTopic' %}
 {% else %}
-    <p>Please <a href="{{ 'account'|page }}">sign in</a> to comment!</p>
+    <p>Vui lòng <a href="{{ 'account'|page }}">đăng nhập</a> để tham gia thảo luận!</p>
 {% endif %}

@@ -2,7 +2,7 @@
     - 'Initialize plugin.'
 1.0.2:
     - 'New feature: Profile.'
-    - create_sas_erp_profiles.php
+    - create_profiles.php
     - add_profile_to_users.php
 1.0.3:
     - 'New features: Place, Product.'
@@ -10,3 +10,9 @@
     - create_places_table.php
     - create_products_table.php
     - create_orders_table.php
+1.0.4:
+    - 'New features: Team, Project, Task.'
+    - create_projects_table.php
+1.0.5:
+    - 'New features: Account, Income, Expense.'
+    - sas_create_accounts_table.php

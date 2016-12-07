@@ -1,0 +1,12 @@
+1.0.1:
+    - First version of sasSocial
+    - create_threads_table.php
+    - create_participants_table.php
+    - create_messages_table.php
+    - create_notifications_table.php
+    - create_likes_table.php
+    - create_comments_table.php
+    - create_follows_table.php
+    - create_posts_table.php
+    - create_activities_table.php
+    - users_add_slug_column.php

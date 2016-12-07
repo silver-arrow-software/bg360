@@ -41,3 +41,9 @@ fields:
         label: 'sas.erp::lang.common.tags'
         type: owl-tagbox
         slugify: false
+    logo:
+        label: sas.erp::lang.place.logo
+        type: fileupload
+        mode: image
+        imageHeight: 200
+        imageWidth: 200

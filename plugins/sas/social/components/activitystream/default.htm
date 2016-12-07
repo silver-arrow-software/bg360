@@ -1,0 +1,31 @@
+<div class="panel panel-activities">
+    <div class="panel-heading">
+        <strong>Latest</strong> activities
+    </div>
+    <div id="activityStream">
+        {% if activities.count %}
+            <ul id="activityContents" class="media-list activities">
+                {% for activity in activities %}
+                    <li class="activity-entry">
+                        <div class="media">
+                            <img
+                                src="{{ activity.user.getAvatarThumb(32) }}"
+                                class="media-object img-rounded pull-left"
+                                alt="{{ activity.user.name }}" />
+
+                            <div class="media-body">
+                                {% partial __SELF__ ~ '::type/' ~ activity.name activity = activity %}
+                                <br/>
+                                <time class="time" datetime="{{ activity.created_at }}">{{ activity.created_at }}</time>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div id="activityEmpty">
+                <div class="placeholder">There are no activities yet.</div>
+            </div>
+        {% endif %}
+    </div>
+</div>

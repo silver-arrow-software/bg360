@@ -15,7 +15,7 @@ use Illuminate\Foundation\AliasLoader;
 
 class Plugin extends PluginBase
 {
-    public $require = ['RainLab.User', 'RainLab.Location', 'RainLab.Blog'];
+    public $require = ['RainLab.User', 'RainLab.Location', 'RainLab.Blog', 'Sas.Forum'];
 
     /**
      * @var array   Container for tags to be attached
@@ -145,8 +145,14 @@ class Plugin extends PluginBase
      */
     public function registerComponents() {
         return [
+            'Sas\Erp\Components\Cart' => 'cart',
+            'Sas\Erp\Components\Orders' => 'orders',
+            'Sas\Erp\Components\Checkout' => 'checkout',
+            'Sas\Erp\Components\OrderDisplay' => 'orderDisplay',
             'Sas\Erp\Components\Products' => 'products',
             'Sas\Erp\Components\ProductDisplay' => 'productDisplay',
+            'Sas\Erp\Components\Places' => 'places',
+            'Sas\Erp\Components\Place' => 'place',
         ];
     }
 
@@ -155,7 +161,7 @@ class Plugin extends PluginBase
             'settings' => [
                 'label' => 'sas.erp::lang.settings.menu_label',
                 'description' => 'sas.erp::lang.settings.menu_description',
-                'category' => 'sas.erp::lang.plugin.name',
+                'category' => 'SAS',
                 'icon' => 'icon-cog',
                 'class' => 'Sas\Erp\Models\Settings',
                 'order' => 200

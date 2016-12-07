@@ -14,8 +14,7 @@ class Place extends Model
     /*
      * Validation
      */
-    public $rules = [
-    ];
+    public $rules = [];
 
     /**
      * @var string The database table used by the model.
@@ -43,6 +42,15 @@ class Place extends Model
             'table' => 'sas_erp_taggables',
             'name' => 'taggable'
         ],
+        'accounts' => [
+            'Sas\Erp\Models\Account',
+            'table' => 'sas_erp_accounts',
+            'name' => 'accountable'
+        ],
+    ];
+
+    public $attachOne = [
+        'logo' => ['System\Models\File']
     ];
 
     public function getOwnersOptions()
@@ -76,5 +84,47 @@ class Place extends Model
 
     public function getCodeIdAttribute($value) {
         return $value ? $value : uniqid();
+    }
+
+        /**
+     * Lists products for the front end
+     * @param  array $options Display options
+     * @return self
+     */
+    public function scopeListFrontEnd($query, $options) {
+        /*
+         * Default options
+         */
+        extract(array_merge([
+            'page'       => 1,
+            'perPage'    => 10,
+            'search'     => '',
+        ], $options));
+
+        $searchableFields = ['name', 'code_id', 'description'];
+
+        /*
+         * Search
+         */
+        $search = trim($search);
+        if (strlen($search)) {
+            $query->searchWhere($search, $searchableFields);
+        }
+
+        return $query->paginate($perPage, $page);
+    }
+
+    /**
+     * Sets the "url" attribute with a URL to this object
+     * @param string $pageName
+     * @param Cms\Classes\Controller $controller
+     */
+    public function setUrl($pageName, $controller) {
+        $params = [
+            'id' => $this->id,
+            'slug' => $this->code_id,
+        ];
+
+        return $this->url = $controller->pageUrl($pageName, $params);
     }
 }

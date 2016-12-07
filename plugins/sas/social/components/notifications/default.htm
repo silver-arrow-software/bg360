@@ -1,0 +1,20 @@
+<div class="btn-group">
+    <a href="#" id="icon-notifications" class="dropdown-toggle" data-toggle="dropdown" data-request="onGetNotifications">
+        <i class="fa fa-bell"></i>
+    </a>
+    <span
+        id="badge-notifications"
+        style="display:none;"
+        class="label label-danger label-notifications"></span>
+    <ul class="dropdown-menu dropdown-notifications">
+        <li class="dropdown-header">
+            <div class="arrow"></div> Notifications
+            <div class="dropdown-header-link">
+                <a href="javascript:;" data-request="onMarkAsRead">Mark all as seen</a>
+            </div>
+        </li>
+        <li>
+            <ul id="notifications-content" class="media-list"></ul>
+        </li>
+    </ul>
+</div>

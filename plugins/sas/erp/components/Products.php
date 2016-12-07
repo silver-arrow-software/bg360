@@ -103,7 +103,7 @@ class Products extends ComponentBase
                 'default'     => 'created_at desc'
             ],
             'promote' => [
-                'title'       => 'sas.erp::lang.product.feature',
+                'title'       => 'sas.erp::lang.common.featured',
                 'type'        => 'checkbox',
                 'default'     => false
             ],
@@ -196,7 +196,7 @@ class Products extends ComponentBase
             if (isset($params['attributes']) && is_array($params['attributes']) && !empty($params['attributes'])) {
                 $attributes = $params['attributes'];
             }
-            $cart = OctoCart::add($productId, $quantity, $attributes);
+            $cart = SasCart::add($productId, $quantity, $attributes);
         }
         else {
             Log::warning('SasCart: Products - onAddToCart().');

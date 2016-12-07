@@ -22,6 +22,10 @@ navigation:
                 label: 'sas.erp::lang.plugin.products'
                 url: sas/erp/products
                 icon: icon-dropbox
+            side-menu-item-orders:
+                label: 'sas.erp::lang.plugin.orders'
+                url: /sas/erp/orders
+                icon: icon-money
 permissions:
     sas.erp.manage_profiles:
         tab: 'sas.erp::lang.plugin.name'
