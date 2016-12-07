@@ -1,0 +1,45 @@
+{% if thread %}
+    <div class="panel-heading">
+        {{ thread.subject }}
+        <div class="pull-right">
+            {% for participant in thread.participants %}
+                {% set user = participant.user %}
+                <a href="javascript:;">
+                    <img
+                        src="{{ user.getAvatarThumb('32') }}"
+                        class="img-rounded img_margin"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="<strong>{{ user.name }}</strong><br>{{ user.login }}"
+                        alt="{{ user.name }}"/>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="panel-body">
+        <hr style="margin-top: 0;" />
+        <ul class="media-list" id="message-list">
+            {% partial __SELF__ ~ '::messages' %}
+        </ul>
+        <div class="row-fluid">
+            {{ form_ajax('onReplyMessage', {
+                success: '$("#reply_form_content").val("");',
+                update: { '@view': '#message-list'} })
+            }}
+                <div class="form-group">
+                    <textarea
+                        name="body"
+                        class="form-control"
+                        id="reply_form_content"
+                        placeholder="Write an answer..."
+                        rows="4"></textarea>
+                    </div>
+                    <hr/>
+                    <input type="submit" class="btn btn-primary" value="Send" />
+                </div>
+            {{ form_close() }}
+        </div>
+    </div>
+{% else %}
+    <div class="panel-body">There are no messages yet.</div>
+{% endif %}

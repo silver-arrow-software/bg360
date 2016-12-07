@@ -1,0 +1,18 @@
+<?php
+$items = (array) json_decode($value);
+if (!empty($items)):
+foreach ($items as $item):
+$product = \Sas\Erp\Models\Product::find($item->product);
+?>
+    <?= $product->title; ?>&nbsp;<?= $item->quantity; ?>&nbsp;x&nbsp;<?= $item->price; ?> <br>
+
+    <?php if ($item->attributes): ?>
+        <ul>
+            <?php foreach ($item->attributes as $name => $value): ?>
+                <li><?= $name; ?>:&nbsp;<?= $value; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+
+<?php endforeach; ?>
+<?php endif; ?>

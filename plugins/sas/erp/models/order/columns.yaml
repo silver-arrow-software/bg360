@@ -1,0 +1,40 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    user_id:
+        label: sas.erp::lang.orders.user
+        relation: user
+        select: name
+        searchable: true
+    email:
+        label: sas.erp::lang.orders.email
+        searchable: true
+    items:
+        label: sas.erp::lang.orders.items
+        type: partial
+        path: ~/plugins/sas/erp/models/order/_items.htm
+    billing_info:
+        label: sas.erp::lang.orders.billing_info
+        type: partial
+        path: ~/plugins/sas/erp/models/order/_billing_info.htm
+    shipping_info:
+        label: sas.erp::lang.orders.shipping_info
+        type: partial
+        path: ~/plugins/sas/erp/models/order/_shipping_info.htm
+    total:
+        label: sas.erp::lang.orders.total
+        searchable: false
+    vat:
+        label: sas.erp::lang.orders.vat
+        searchable: false
+    currency:
+        label: sas.erp::lang.orders.currency
+        searchable: false
+    created_at:
+        label: sas.erp::lang.orders.created_at
+        type: date

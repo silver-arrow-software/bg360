@@ -1,0 +1,32 @@
+{% if userMessages.count %}
+    {% for userMessage in userMessages %}
+        {% set thread = userMessage.thread %}
+        {% set participants = thread.participants %}
+
+        <li class="entry{% if thread.updated_at > userMessage.last_read %} new{% endif %}">
+            <a href="{{ messagesPage|page({'slug':thread.slug}) }}">
+                <div class="media">
+                    <!-- show user image -->
+                    <img
+                        src="{{ thread.last_message.user.getAvatarThumb('32') }}"
+                        class="media-object img-rounded pull-left"
+                        alt="{{ thread.last_message.user.name }}"
+                    />
+
+                    <!-- show content -->
+                    <div class="media-body">
+                        <strong>{{ thread.last_message.user.name }}
+                            <small>({{ participants.count }}) recipients</small>
+                        </strong>
+                        <h5>{{ thread.subject }}</h5>
+                        {{ thread.last_message.body|raw }}
+                        <br/>
+                        <time class="time" datetime="{{ thread.updated_at }}">{{ thread.updated_at }}</time>
+                    </div>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+{% else %}
+    <li class="placeholder">There are no messages yet.</li>
+{% endif %}

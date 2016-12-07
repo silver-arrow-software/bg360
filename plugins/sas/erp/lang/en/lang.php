@@ -16,6 +16,10 @@
         'posts' => 'Posts',
         'product' => 'Product',
         'products' => 'Products',
+        'order' => 'Order',
+        'orders' => 'Orders',
+        'accounts' => 'Accounts',
+        'account' => 'Account',
     ],
     'profile' => [
         'name' => 'Profile name',
@@ -126,6 +130,7 @@
     'place' => [
         'name' => 'Place name',
         'component_desc' => 'Display a single place.',
+        'logo' => 'Logo',
     ],
     'places' => [
         'component_name' => 'Places',
@@ -221,5 +226,8 @@
     'checkout' => [
         'name' => 'Checkout',
         'description' => 'Displays billing and shipping form on the page.',
+    ],
+    'account' => [
+        'name' => 'Account Name',
     ],
 ];

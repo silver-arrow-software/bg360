@@ -196,7 +196,7 @@ class Products extends ComponentBase
             if (isset($params['attributes']) && is_array($params['attributes']) && !empty($params['attributes'])) {
                 $attributes = $params['attributes'];
             }
-            $cart = OctoCart::add($productId, $quantity, $attributes);
+            $cart = SasCart::add($productId, $quantity, $attributes);
         }
         else {
             Log::warning('SasCart: Products - onAddToCart().');

@@ -1,0 +1,20 @@
+{% for notification in notifications %}
+    <li>
+        <div class="media">
+            <!-- show user image -->
+            <img
+                src="{{ notification.notification.sender.getAvatarThumb('32') }}"
+                class="media-object img-rounded pull-left"
+                alt="{{ notification.notification.sender.name }}"
+            />
+
+            <!-- show content -->
+            <div class="media-body">
+                {{ notification.render|raw }}
+                <br/>
+                <time class="time" datetime="{{ notification.created_at }}">{{ notification.created_at }}</time>
+                {% if notification.is_unread %}<span class="label label-danger">New</span>{% endif %}
+            </div>
+        </div>
+    </li>
+{% endfor %}

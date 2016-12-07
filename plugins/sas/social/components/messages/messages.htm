@@ -1,0 +1,33 @@
+{% for message in thread.messages %}
+    <div class="media" style="margin-top: 0;">
+        <a class="pull-left" href="javascript:;">
+            <img
+                src="{{ message.user.getAvatarThumb('50') }}"
+                class="media-object img-rounded"
+                alt="{{ message.user.name }}"/>
+        </a>
+        {% if __SELF__.user.id == message.user_id and not loop.first %}
+            <div class="pull-right">
+                <a
+                    href="javascript:;"
+                    class="btn btn-primary btn-sm"
+                    data-request="{{ __SELF__ }}::onDeleteMessage"
+                    data-request-confirm="Are you sure want to delete this message?"
+                    data-request-update="'{{ __SELF__ }}::view': '#message-list'"
+                    data-request-data="message_id: {{ message.id }}">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+            </div>
+        {% endif %}
+        <div class="media-body">
+            <h4 class="media-heading" style="font-size: 14px;">
+                {{ message.user.name }}
+                <small>
+                    <time class="time" datetime="{{ message.created_at }}">{{ message.created_at }}</time>
+                </small>
+            </h4>
+            <span class="content">{{ message.body|raw }}</span>
+        </div>
+    </div>
+    <hr/>
+{% endfor %}

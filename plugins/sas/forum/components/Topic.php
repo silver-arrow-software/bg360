@@ -104,6 +104,7 @@ class Topic extends ComponentBase
 
     public function onRun()
     {
+		$this->addJs('/modules/backend/formwidgets/richeditor/assets/js/richeditor.js', 'core');
         $this->addCss('assets/css/forum.css');
         $this->addJs('assets/js/forum.js');
 

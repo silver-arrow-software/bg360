@@ -42,6 +42,15 @@ class Place extends Model
             'table' => 'sas_erp_taggables',
             'name' => 'taggable'
         ],
+        'accounts' => [
+            'Sas\Erp\Models\Account',
+            'table' => 'sas_erp_accounts',
+            'name' => 'accountable'
+        ],
+    ];
+
+    public $attachOne = [
+        'logo' => ['System\Models\File']
     ];
 
     public function getOwnersOptions()

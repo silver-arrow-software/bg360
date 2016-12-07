@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="media">
+
+            <a href="{{ post.user.url }}" class="pull-left">
+                <img
+                    src="{{ post.user.getAvatarThumb(40) }}"
+                    class="media-object img-rounded user-image"
+                    alt="{{ post.user.name }}"/>
+            </a>
+
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <a href="{{ post.user.url }}">{{ post.user.name }}</a>
+                    <time class="time" datetime="{{ post.created_at }}">{{ post.created_at }}</time>
+                </h4>
+                <h5>{{ post.user.login }}</h5>
+            </div>
+        </div>
+
+        <hr/>
+        <div class="content">{{ post.content|raw }}</div>
+
+        <div class="wall-entry-controls">
+            <a
+                href="javascript:;"
+                id="post-{{ post.id }}-like"
+                class="like likeAnchor"
+                {% if __SELF__.user.isLiking(post) %}style="display:none"{% endif %}
+                data-request="onLikePost"
+                data-request-success="$('#post-{{ post.id }}-likecount').html(data.count);$('#post-{{ post.id }}-dislike').show();$('#post-{{ post.id }}-like').hide();"
+                data-request-data="id: {{ post.id }}">
+                Like
+            </a>
+            <a
+                href="javascript:;"
+                id="post-{{ post.id }}-dislike"
+                class="unlike likeAnchor"
+                {% if not __SELF__.user.isLiking(post) %}style="display:none"{% endif %}
+                data-request="onLikePost"
+                data-request-success="$('#post-{{ post.id }}-likecount').html(data.count);$('#post-{{ post.id }}-dislike').hide();$('#post-{{ post.id }}-like').show();"
+                data-request-data="id: {{ post.id }}">
+                Dislike
+            </a>
+            (<span id="post-{{ post.id }}-likecount">{{ post.likes.count }}</span>)
+            &nbsp;·&nbsp;
+            <a
+                href="javascript:;"
+                onclick="$('#post-{{ post.id }}-comments').parent().show();$('#post-{{ post.id }}-comment-content').focus();return false;">
+                Comment
+            </a>
+        </div>
+
+        <div class="well well-small"{% if not post.comments.count %} style="display: none;"{% endif %}>
+            <div class="comment" id="post-{{ post.id }}-comments">
+                {% partial __SELF__ ~ '::comments' post = post %}
+            </div>
+            {% partial __SELF__ ~ '::create_comment' post = post %}
+        </div>
+
+    </div>
+</div>

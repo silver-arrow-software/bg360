@@ -1,0 +1,11 @@
+<div class="spacer"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1"><h2>Your cart</h2></div>
+    </div>
+    <div id="octocart-items">
+        {% partial __SELF__ ~ "::items"
+        items = __SELF__.items
+        %}
+    </div>
+</div>

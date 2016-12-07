@@ -1,0 +1,22 @@
+<header class="panel-profile-header">
+
+    <figure class="image-upload-container" style="width: 100%; height: 100%;">
+        <div class="img-profile-header-background"></div>
+    </figure>
+
+    <div class="img-profile-data">
+        <h1>{{ profile.name }}</h1>
+        <h2>{{ profile.login }}</h2>
+    </div>
+
+    <figure class="image-upload-container profile-user-photo-container">
+
+        {% if user and user.id == profile.id %}
+            {% component 'imageUploader' %}
+        {% else %}
+            <img src="{{ profile.getAvatarThumb(150) }}"
+                alt="{{ profile.name }}"
+                class="img-rounded"/>
+        {% endif %}
+    </figure>
+</header>

@@ -145,6 +145,10 @@ class Plugin extends PluginBase
      */
     public function registerComponents() {
         return [
+            'Sas\Erp\Components\Cart' => 'cart',
+            'Sas\Erp\Components\Orders' => 'orders',
+            'Sas\Erp\Components\Checkout' => 'checkout',
+            'Sas\Erp\Components\OrderDisplay' => 'orderDisplay',
             'Sas\Erp\Components\Products' => 'products',
             'Sas\Erp\Components\ProductDisplay' => 'productDisplay',
             'Sas\Erp\Components\Places' => 'places',

@@ -1,7 +1,14 @@
 description = "Default layout"
 
+[viewBag]
+
 [session]
 security = "all"
+
+[cart basket]
+noProductsMessage = "No products found"
+
+[staticPage]
 ==
 <!DOCTYPE html>
 <html>
@@ -34,7 +41,7 @@ security = "all"
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ 'home'|page }}">Boardgame360</a>
+                        <a class="navbar-brand" href="{{ 'home'|page }}"></a>
                     </div>
                     <div class="collapse navbar-collapse navbar-main-collapse">
                         <ul class="nav navbar-nav">
@@ -46,6 +53,11 @@ security = "all"
                             {% if user %}
                                 <li><a href="#" data-request="onLogout">Logout</a></li>
                             {% endif %}
+							<li>
+								<a href="/{{ cartPage }}">
+									<i class="icon-shopping-cart"></i> <span class="shopping-cart-qty badge">{{ count }}</span>
+								</a>
+							</li>
                         </ul>
                     </div>
                 </div>

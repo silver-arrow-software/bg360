@@ -1,0 +1,40 @@
+<section class="panel">
+    <header class="panel-heading">Inbox
+        <a
+            href="javascript:;"
+            class="btn btn-info pull-right"
+            data-handler="onInit"
+            data-control="ajax-modal"
+            data-update-partial="{{ __SELF__ }}::create_message">
+            New message
+        </a>
+    </header>
+    <hr/>
+    <ul id="inbox" class="media-list">
+        {% if thread.count %}
+            {% for thread in threads %}
+                <li class="entry{% if __SELF__.param('slug') == thread.slug %} selected{% endif %}">
+                    <a href="{{ thread.url }}">
+                        <div class="media">
+                            <img
+                                src="{{ thread.last_message.user.getAvatarThumb('32') }}"
+                                class="media-object img-rounded pull-left"
+                                alt="{{ thread.last_message.user.name }}" />
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ thread.last_message.user.name }}
+                                    <small>
+                                        <time class="time" datetime="{{ thread.last_message.created_at }}">{{ thread.last_message.created_at }}</time>
+                                    </small>
+                                </h4>
+                                <h5>{{ thread.subject }}</h5>
+                                {{ thread.last_message.body|raw }}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="placeholder">There are no threads yet.</li>
+        {% endif %}
+    </ul>
+</section>
