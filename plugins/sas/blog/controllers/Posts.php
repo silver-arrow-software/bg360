@@ -133,7 +133,7 @@ class Posts extends Controller
             $this->pageTitle = trans('renatio.dynamicpdf::lang.templates.preview_pdf');
             $model = $this->formFindModelObject($id);
 
-            $model->setAttribute('content_html', $model->content);
+            $model->setAttribute('content_html', $model->formatHtml($model->content));
 
             if($layout = post('layout')){
                 $model->setAttribute('layout', $layout);
@@ -155,7 +155,7 @@ class Posts extends Controller
     {
         $model = $this->formFindModelObject($id);
 
-        return response($model->content);
+        return response($model->formatHtml($model->content));
     }
 
 }

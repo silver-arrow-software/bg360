@@ -1,6 +1,7 @@
 <?php namespace Sas\Blog;
 
 use Backend;
+use Backend\Classes\BackendController;
 use Controller;
 use Sas\Blog\Models\Post;
 use System\Classes\PluginBase;
@@ -187,6 +188,33 @@ class Plugin extends PluginBase
                     </span>
                 </span>',
             $input);
+        });
+
+        PostsController::extend(function($controller) {
+            if (!in_array(BackendController::$action, ['create', 'update'])) {
+                return;
+            }
+
+            $controller->addJs('/plugins/sas/blogvideo/assets/js/blog-video.js');
+            $controller->addCss('/plugins/sas/blogvideo/assets/css/blog-video.css');
+        });
+
+        /*
+         * Register the video tag processing callback
+         */
+        TagProcessor::instance()->registerCallback(function($input, $preview) {
+            if (!$preview) {
+                return $input;
+            }
+
+            $popup = file_get_contents(__DIR__.'/partials/popup.htm');
+
+            return preg_replace('|\<img src="video" alt="([0-9]+)" \/>|m',
+                '<span class="video-placeholder" data-index="$1">
+                    <a href="#">Click to embed a video...</a>
+                    '.$popup.'
+                </span>',
+                $input);
         });
     }
 
