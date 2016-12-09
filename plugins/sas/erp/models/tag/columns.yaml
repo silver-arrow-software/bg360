@@ -8,9 +8,9 @@ columns:
         label: Tag
 
     created_at:
-        label: rainlab.blog::lang.post.created
+        label: sas.blog::lang.post.created
         type: date
 
     updated_at:
-        label: rainlab.blog::lang.post.updated
+        label: sas.blog::lang.post.updated
         type: date

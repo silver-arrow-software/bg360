@@ -17,13 +17,13 @@
 
 class Google_Service_Logging_ListLogEntriesRequest extends Google_Collection
 {
-  protected $collection_key = 'projectIds';
+  protected $collection_key = 'resourceNames';
   public $filter;
   public $orderBy;
   public $pageSize;
   public $pageToken;
-  public $partialSuccess;
   public $projectIds;
+  public $resourceNames;
 
   public function setFilter($filter)
   {
@@ -57,14 +57,6 @@ class Google_Service_Logging_ListLogEntriesRequest extends Google_Collection
   {
     return $this->pageToken;
   }
-  public function setPartialSuccess($partialSuccess)
-  {
-    $this->partialSuccess = $partialSuccess;
-  }
-  public function getPartialSuccess()
-  {
-    return $this->partialSuccess;
-  }
   public function setProjectIds($projectIds)
   {
     $this->projectIds = $projectIds;
@@ -72,5 +64,13 @@ class Google_Service_Logging_ListLogEntriesRequest extends Google_Collection
   public function getProjectIds()
   {
     return $this->projectIds;
+  }
+  public function setResourceNames($resourceNames)
+  {
+    $this->resourceNames = $resourceNames;
+  }
+  public function getResourceNames()
+  {
+    return $this->resourceNames;
   }
 }

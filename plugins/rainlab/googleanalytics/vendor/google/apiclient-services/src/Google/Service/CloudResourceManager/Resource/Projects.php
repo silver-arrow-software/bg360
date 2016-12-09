@@ -26,6 +26,25 @@
 class Google_Service_CloudResourceManager_Resource_Projects extends Google_Service_Resource
 {
   /**
+   * Request that a new Project be created. The result is an Operation which can
+   * be used to track the creation process. It is automatically deleted after a
+   * few hours, so there is no need to call DeleteOperation. Our SLO permits
+   * Project creation to take up to 30 seconds at the 90th percentile. As of
+   * 2016-08-29, we are observing 6 seconds 50th percentile latency. 95th
+   * percentile latency is around 11 seconds. We recommend polling at the 5th
+   * second with an exponential backoff. (projects.create)
+   *
+   * @param Google_Service_CloudResourceManager_Project $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudResourceManager_Operation
+   */
+  public function create(Google_Service_CloudResourceManager_Project $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('create', array($params), "Google_Service_CloudResourceManager_Operation");
+  }
+  /**
    * Marks the Project identified by the specified `project_id` (for example, `my-
    * project-123`) for deletion. This method will only affect the Project if the
    * following criteria are met: + The Project does not have a billing account
@@ -72,10 +91,8 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * (projects.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `getIamPolicy`
-   * documentation.
+   * requested. `resource` is usually specified as a path. For example, a Project
+   * resource is specified as `projects/{project}`.
    * @param Google_Service_CloudResourceManager_GetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudResourceManager_Policy
@@ -130,8 +147,7 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * cannot be sent using `setIamPolicy()`; they must be sent only using the Cloud
    * Platform Console. + Membership changes that leave the project without any
    * owners that have accepted the Terms of Service (ToS) will be rejected. +
-   * Members cannot be added to more than one role in the same policy. + There
-   * must be at least one owner who has accepted the Terms of Service (ToS)
+   * There must be at least one owner who has accepted the Terms of Service (ToS)
    * agreement in the policy. Calling `setIamPolicy()` to to remove the last ToS-
    * accepted owner from the policy will fail. This restriction also applies to
    * legacy projects that no longer have owners who have accepted the ToS. Edits
@@ -143,10 +159,8 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * (projects.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `setIamPolicy`
-   * documentation.
+   * specified. `resource` is usually specified as a path. For example, a Project
+   * resource is specified as `projects/{project}`.
    * @param Google_Service_CloudResourceManager_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudResourceManager_Policy
@@ -162,10 +176,8 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * (projects.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `testIamPermissions`
-   * documentation.
+   * being requested. `resource` is usually specified as a path. For example, a
+   * Project resource is specified as `projects/{project}`.
    * @param Google_Service_CloudResourceManager_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudResourceManager_TestIamPermissionsResponse

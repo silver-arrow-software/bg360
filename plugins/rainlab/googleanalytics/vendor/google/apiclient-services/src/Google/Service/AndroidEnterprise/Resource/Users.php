@@ -108,7 +108,9 @@ class Google_Service_AndroidEnterprise_Resource_Users extends Google_Service_Res
    * Creates a new EMM-managed user.
    *
    * The Users resource passed in the body of the request should include an
-   * accountIdentifier and an accountType. (users.insert)
+   * accountIdentifier and an accountType. If a corresponding user already exists
+   * with the same account identifier, the user will be updated with the resource.
+   * In this case only the displayName field can be changed. (users.insert)
    *
    * @param string $enterpriseId The ID of the enterprise.
    * @param Google_Service_AndroidEnterprise_User $postBody

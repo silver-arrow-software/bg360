@@ -8,14 +8,14 @@ use App;
 use System\Classes\PluginBase;
 use RainLab\User\Models\User as UserModel;
 use RainLab\User\Controllers\Users as UsersController;
-use RainLab\Blog\Controllers\Posts as PostsController;
-use RainLab\Blog\Models\Post as PostModel;
+use Sas\Blog\Controllers\Posts as PostsController;
+use Sas\Blog\Models\Post as PostModel;
 use Sas\Erp\Models\Tag;
 use Illuminate\Foundation\AliasLoader;
 
 class Plugin extends PluginBase
 {
-    public $require = ['RainLab.User', 'RainLab.Location', 'RainLab.Blog', 'Sas.Forum'];
+    public $require = ['RainLab.User', 'RainLab.Location', 'Sas.Blog', 'Sas.Forum'];
 
     /**
      * @var array   Container for tags to be attached
@@ -88,7 +88,7 @@ class Plugin extends PluginBase
             $form->addSecondaryTabFields([
                 'tagbox' => [
                     'label'     => 'sas.erp::lang.common.tags',
-                    'tab'       => 'rainlab.blog::lang.post.tab_categories',
+                    'tab'       => 'sas.blog::lang.post.tab_categories',
                     'type'      => 'owl-tagbox',
                     'slugify'   => false
                 ]

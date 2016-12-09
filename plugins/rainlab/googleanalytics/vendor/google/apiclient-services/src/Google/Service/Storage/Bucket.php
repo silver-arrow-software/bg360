@@ -24,8 +24,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   protected $corsDataType = 'array';
   protected $defaultObjectAclType = 'Google_Service_Storage_ObjectAccessControl';
   protected $defaultObjectAclDataType = 'array';
-  protected $encryptionType = 'Google_Service_Storage_BucketEncryption';
-  protected $encryptionDataType = '';
   public $etag;
   public $id;
   public $kind;
@@ -71,14 +69,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   public function getDefaultObjectAcl()
   {
     return $this->defaultObjectAcl;
-  }
-  public function setEncryption(Google_Service_Storage_BucketEncryption $encryption)
-  {
-    $this->encryption = $encryption;
-  }
-  public function getEncryption()
-  {
-    return $this->encryption;
   }
   public function setEtag($etag)
   {

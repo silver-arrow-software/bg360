@@ -2,8 +2,8 @@
 /**
  * Blog Markdown tag processor.
  *
- * @package rainlab\blog
- * @author Alexey Bobkov, Samuel Georges
+ * @package sas\blog
+ * @author Silver Arrow Software
  */
 class TagProcessor
 {

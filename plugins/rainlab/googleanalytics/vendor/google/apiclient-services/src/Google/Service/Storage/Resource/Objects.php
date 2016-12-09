@@ -43,10 +43,6 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * whether the object's current generation matches the given value.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
-   * @opt_param string kmsKeyName Resource name of the Cloud KMS key, of the form
-   * projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
-   * will be used to encrypt the object. Overrides the object metadata's
-   * kms_key_name value, if any.
    * @return Google_Service_Storage_StorageObject
    */
   public function compose($destinationBucket, $destinationObject, Google_Service_Storage_ComposeRequest $postBody, $optParams = array())
@@ -184,10 +180,6 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
    * whether the object's current metageneration does not match the given value.
-   * @opt_param string kmsKeyName Resource name of the Cloud KMS key, of the form
-   * projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
-   * will be used to encrypt the object. Overrides the object metadata's
-   * kms_key_name value, if any.
    * @opt_param string name Name of the object. Required when the object metadata
    * is not otherwise provided. Overrides the object metadata's name value, if
    * any. For information about how to URL encode object names to be path safe,
@@ -282,10 +274,6 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @param Google_Service_Storage_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string destinationKmsKeyName Resource name of the Cloud KMS key,
-   * of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys
-   * /my-key, that will be used to encrypt the object. Overrides the object
-   * metadata's kms_key_name value, if any.
    * @opt_param string destinationPredefinedAcl Apply a predefined set of access
    * controls to the destination object.
    * @opt_param string ifGenerationMatch Makes the operation conditional on

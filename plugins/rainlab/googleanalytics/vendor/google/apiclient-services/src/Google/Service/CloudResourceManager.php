@@ -39,6 +39,7 @@ class Google_Service_CloudResourceManager extends Google_Service
       "https://www.googleapis.com/auth/cloud-platform.read-only";
 
   public $operations;
+  public $organizations;
   public $projects;
   
   /**
@@ -74,13 +75,71 @@ class Google_Service_CloudResourceManager extends Google_Service
           )
         )
     );
+    $this->organizations = new Google_Service_CloudResourceManager_Resource_Organizations(
+        $this,
+        $this->serviceName,
+        'organizations',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'getIamPolicy' => array(
+              'path' => 'v1/{+resource}:getIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'search' => array(
+              'path' => 'v1/organizations:search',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'setIamPolicy' => array(
+              'path' => 'v1/{+resource}:setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->projects = new Google_Service_CloudResourceManager_Resource_Projects(
         $this,
         $this->serviceName,
         'projects',
         array(
           'methods' => array(
-            'delete' => array(
+            'create' => array(
+              'path' => 'v1/projects',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'delete' => array(
               'path' => 'v1/projects/{projectId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(

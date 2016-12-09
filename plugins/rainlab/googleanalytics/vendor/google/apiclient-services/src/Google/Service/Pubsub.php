@@ -37,6 +37,7 @@ class Google_Service_Pubsub extends Google_Service
   const PUBSUB =
       "https://www.googleapis.com/auth/pubsub";
 
+  public $projects_snapshots;
   public $projects_subscriptions;
   public $projects_topics;
   public $projects_topics_subscriptions;
@@ -54,6 +55,46 @@ class Google_Service_Pubsub extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'pubsub';
 
+    $this->projects_snapshots = new Google_Service_Pubsub_Resource_ProjectsSnapshots(
+        $this,
+        $this->serviceName,
+        'snapshots',
+        array(
+          'methods' => array(
+            'getIamPolicy' => array(
+              'path' => 'v1/{+resource}:getIamPolicy',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setIamPolicy' => array(
+              'path' => 'v1/{+resource}:setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->projects_subscriptions = new Google_Service_Pubsub_Resource_ProjectsSubscriptions(
         $this,
         $this->serviceName,

@@ -28,24 +28,26 @@ class Google_Service_Logging_Resource_ProjectsSinks extends Google_Service_Resou
   /**
    * Creates a sink. (sinks.create)
    *
-   * @param string $projectName The resource name of the project in which to
-   * create the sink. Example: `"projects/my-project-id"`. The new sink must be
-   * provided in the request.
+   * @param string $parent Required. The resource in which to create the sink.
+   * Example: `"projects/my-project-id"`. The new sink must be provided in the
+   * request.
    * @param Google_Service_Logging_LogSink $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Logging_LogSink
    */
-  public function create($projectName, Google_Service_Logging_LogSink $postBody, $optParams = array())
+  public function create($parent, Google_Service_Logging_LogSink $postBody, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'postBody' => $postBody);
+    $params = array('parent' => $parent, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_Logging_LogSink");
   }
   /**
    * Deletes a sink. (sinks.delete)
    *
-   * @param string $sinkName The resource name of the sink to delete. Example:
-   * `"projects/my-project-id/sinks/my-sink-id"`.
+   * @param string $sinkName Required. The resource name of the sink to delete,
+   * including the parent resource and the sink identifier.  Example: `"projects
+   * /my-project-id/sinks/my-sink-id"`.  It is an error if the sink does not
+   * exist.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Logging_LoggingEmpty
    */
@@ -58,8 +60,8 @@ class Google_Service_Logging_Resource_ProjectsSinks extends Google_Service_Resou
   /**
    * Gets a sink. (sinks.get)
    *
-   * @param string $sinkName The resource name of the sink to return. Example:
-   * `"projects/my-project-id/sinks/my-sink-id"`.
+   * @param string $sinkName Required. The resource name of the sink to return.
+   * Example: `"projects/my-project-id/sinks/my-sink-id"`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Logging_LogSink
    */
@@ -72,35 +74,33 @@ class Google_Service_Logging_Resource_ProjectsSinks extends Google_Service_Resou
   /**
    * Lists sinks. (sinks.listProjectsSinks)
    *
-   * @param string $projectName Required. The resource name of the project
-   * containing the sinks. Example: `"projects/my-logging-project"`.
+   * @param string $parent Required. The cloud resource containing the sinks.
+   * Example: `"projects/my-logging-project"`.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Optional. If the `pageToken` parameter is
-   * supplied, then the next page of results is retrieved. The `pageToken`
-   * parameter must be set to the value of the `nextPageToken` from the previous
-   * response. The value of `projectName` must be the same as in the previous
-   * request.
    * @opt_param int pageSize Optional. The maximum number of results to return
-   * from this request. You must check for presence of `nextPageToken` to
-   * determine if additional results are available, which you can retrieve by
-   * passing the `nextPageToken` value as the `pageToken` parameter in the next
-   * request.
+   * from this request. Non-positive values are ignored.  The presence of
+   * `nextPageToken` in the response indicates that more results might be
+   * available.
+   * @opt_param string pageToken Optional. If present, then retrieve the next
+   * batch of results from the preceding call to this method.  `pageToken` must be
+   * the value of `nextPageToken` from the previous response.  The values of other
+   * method parameters should be identical to those in the previous call.
    * @return Google_Service_Logging_ListSinksResponse
    */
-  public function listProjectsSinks($projectName, $optParams = array())
+  public function listProjectsSinks($parent, $optParams = array())
   {
-    $params = array('projectName' => $projectName);
+    $params = array('parent' => $parent);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Logging_ListSinksResponse");
   }
   /**
-   * Creates or updates a sink. (sinks.update)
+   * Updates or creates a sink. (sinks.update)
    *
-   * @param string $sinkName The resource name of the sink to update. Example:
-   * `"projects/my-project-id/sinks/my-sink-id"`. The updated sink must be
-   * provided in the request and have the same name that is specified in
-   * `sinkName`. If the sink does not exist, it is created.
+   * @param string $sinkName Required. The resource name of the sink to update,
+   * including the parent resource and the sink identifier.  If the sink does not
+   * exist, this method creates the sink.  Example: `"projects/my-project-id/sinks
+   * /my-sink-id"`.
    * @param Google_Service_Logging_LogSink $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Logging_LogSink

@@ -55,6 +55,23 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
     return $this->call('append', array($params), "Google_Service_Sheets_AppendValuesResponse");
   }
   /**
+   * Clears one or more ranges of values from a spreadsheet. The caller must
+   * specify the spreadsheet ID and one or more ranges. Only values are cleared --
+   * all other properties of the cell (such as formatting, data validation, etc..)
+   * are kept. (values.batchClear)
+   *
+   * @param string $spreadsheetId The ID of the spreadsheet to update.
+   * @param Google_Service_Sheets_BatchClearValuesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Sheets_BatchClearValuesResponse
+   */
+  public function batchClear($spreadsheetId, Google_Service_Sheets_BatchClearValuesRequest $postBody, $optParams = array())
+  {
+    $params = array('spreadsheetId' => $spreadsheetId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchClear', array($params), "Google_Service_Sheets_BatchClearValuesResponse");
+  }
+  /**
    * Returns one or more ranges of values from a spreadsheet. The caller must
    * specify the spreadsheet ID and one or more ranges. (values.batchGet)
    *
@@ -96,6 +113,23 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
     $params = array('spreadsheetId' => $spreadsheetId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('batchUpdate', array($params), "Google_Service_Sheets_BatchUpdateValuesResponse");
+  }
+  /**
+   * Clears values from a spreadsheet. The caller must specify the spreadsheet ID
+   * and range. Only values are cleared -- all other properties of the cell (such
+   * as formatting, data validation, etc..) are kept. (values.clear)
+   *
+   * @param string $spreadsheetId The ID of the spreadsheet to update.
+   * @param string $range The A1 notation of the values to clear.
+   * @param Google_Service_Sheets_ClearValuesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Sheets_ClearValuesResponse
+   */
+  public function clear($spreadsheetId, $range, Google_Service_Sheets_ClearValuesRequest $postBody, $optParams = array())
+  {
+    $params = array('spreadsheetId' => $spreadsheetId, 'range' => $range, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('clear', array($params), "Google_Service_Sheets_ClearValuesResponse");
   }
   /**
    * Returns a range of values from a spreadsheet. The caller must specify the

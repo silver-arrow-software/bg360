@@ -220,7 +220,22 @@ class Google_Service_Directory extends Google_Service
         'chromeosdevices',
         array(
           'methods' => array(
-            'get' => array(
+            'action' => array(
+              'path' => 'customer/{customerId}/devices/chromeos/{resourceId}/action',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => 'customer/{customerId}/devices/chromeos/{deviceId}',
               'httpMethod' => 'GET',
               'parameters' => array(

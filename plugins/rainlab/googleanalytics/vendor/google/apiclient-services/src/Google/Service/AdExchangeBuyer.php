@@ -268,6 +268,21 @@ class Google_Service_AdExchangeBuyer extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'listDeals' => array(
+              'path' => 'creatives/{accountId}/{buyerCreativeId}/listDeals',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
+                  'required' => true,
+                ),
+                'buyerCreativeId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'removeDeal' => array(
               'path' => 'creatives/{accountId}/{buyerCreativeId}/removeDeal/{dealId}',
               'httpMethod' => 'POST',

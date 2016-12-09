@@ -26,6 +26,7 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   protected $buyerContactsDataType = 'array';
   protected $buyerPrivateDataType = 'Google_Service_AdExchangeBuyer_PrivateData';
   protected $buyerPrivateDataDataType = '';
+  public $dbmAdvertiserIds;
   public $hasBuyerSignedOff;
   public $hasSellerSignedOff;
   public $inventorySource;
@@ -79,6 +80,14 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   public function getBuyerPrivateData()
   {
     return $this->buyerPrivateData;
+  }
+  public function setDbmAdvertiserIds($dbmAdvertiserIds)
+  {
+    $this->dbmAdvertiserIds = $dbmAdvertiserIds;
+  }
+  public function getDbmAdvertiserIds()
+  {
+    return $this->dbmAdvertiserIds;
   }
   public function setHasBuyerSignedOff($hasBuyerSignedOff)
   {

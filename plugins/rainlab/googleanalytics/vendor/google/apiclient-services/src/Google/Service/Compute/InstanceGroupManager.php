@@ -31,6 +31,7 @@ class Google_Service_Compute_InstanceGroupManager extends Google_Collection
   public $name;
   protected $namedPortsType = 'Google_Service_Compute_NamedPort';
   protected $namedPortsDataType = 'array';
+  public $region;
   public $selfLink;
   public $targetPools;
   public $targetSize;
@@ -123,6 +124,14 @@ class Google_Service_Compute_InstanceGroupManager extends Google_Collection
   public function getNamedPorts()
   {
     return $this->namedPorts;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  public function getRegion()
+  {
+    return $this->region;
   }
   public function setSelfLink($selfLink)
   {

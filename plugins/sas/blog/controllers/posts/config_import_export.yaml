@@ -1,0 +1,41 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    # Page title
+    title: sas.blog::lang.posts.import_post
+
+    # Import List Column configuration
+    list: $/sas/blog/models/postimport/columns.yaml
+
+    # Import Form Field configuration
+    form: $/sas/blog/models/postimport/fields.yaml
+
+    # Import Model class
+    modelClass: Sas\Blog\Models\PostImport
+
+    # Redirect when finished
+    redirect: sas/blog/posts
+
+    # Required permissions
+    permissions: sas.blog.access_import_export
+
+export:
+    # Page title
+    title: sas.blog::lang.posts.export_post
+
+    # Output file name
+    fileName: posts.csv
+
+    # Export List Column configuration
+    list: $/sas/blog/models/postexport/columns.yaml
+
+    # Export Model class
+    modelClass: Sas\Blog\Models\PostExport
+
+    # Redirect when finished
+    redirect: sas/blog/posts
+
+    # Required permissions
+    permissions: sas.blog.access_import_export

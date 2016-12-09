@@ -26,20 +26,19 @@
 class Google_Service_Logging_Resource_MonitoredResourceDescriptors extends Google_Service_Resource
 {
   /**
-   * Lists monitored resource descriptors that are used by Cloud Logging.
+   * Lists the monitored resource descriptors used by Stackdriver Logging.
    * (monitoredResourceDescriptors.listMonitoredResourceDescriptors)
    *
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Optional. The maximum number of results to return
-   * from this request. You must check for presence of `nextPageToken` to
-   * determine if additional results are available, which you can retrieve by
-   * passing the `nextPageToken` value as the `pageToken` parameter in the next
-   * request.
-   * @opt_param string pageToken Optional. If the `pageToken` parameter is
-   * supplied, then the next page of results is retrieved. The `pageToken`
-   * parameter must be set to the value of the `nextPageToken` from the previous
-   * response.
+   * from this request. Non-positive values are ignored.  The presence of
+   * `nextPageToken` in the response indicates that more results might be
+   * available.
+   * @opt_param string pageToken Optional. If present, then retrieve the next
+   * batch of results from the preceding call to this method.  `pageToken` must be
+   * the value of `nextPageToken` from the previous response.  The values of other
+   * method parameters should be identical to those in the previous call.
    * @return Google_Service_Logging_ListMonitoredResourceDescriptorsResponse
    */
   public function listMonitoredResourceDescriptors($optParams = array())

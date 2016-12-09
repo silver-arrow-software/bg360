@@ -4,7 +4,7 @@ use Backend\Classes\FormWidgetBase;
 use System\Models\File;
 use System\Classes\SystemException;
 use October\Rain\Support\ValidationException;
-// use RainLab\Blog\Models\Post;
+// use Sas\Blog\Models\Post;
 use Validator;
 use Input;
 use Response;
@@ -16,8 +16,8 @@ use Owl\FormWidgets\Preview\Classes\TagProcessor;
 /**
  * Preview area for the Create/Edit Post form.
  *
- * @package rainlab\blog
- * @author Alexey Bobkov, Samuel Georges
+ * @package sas\blog
+ * @author Silver Arrow Software
  */
 class Widget extends FormWidgetBase
 {

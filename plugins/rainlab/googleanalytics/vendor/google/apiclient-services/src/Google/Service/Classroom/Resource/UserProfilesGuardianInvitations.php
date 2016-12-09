@@ -90,19 +90,22 @@ class Google_Service_Classroom_Resource_UserProfilesGuardianInvitations extends 
    * to view, filtered by the parameters provided. This method returns the
    * following error codes: * `PERMISSION_DENIED` if a `student_id` is specified,
    * and the requesting user is not permitted to view guardian invitations for
-   * that student, if guardians are not enabled for the domain in question, or for
-   * other access errors. * `INVALID_ARGUMENT` if a `student_id` is specified, but
-   * its format cannot be recognized (it is not an email address, nor a
-   * `student_id` from the API, nor the literal string `me`). May also be returned
-   * if an invalid `page_token` or `state` is provided. * `NOT_FOUND` if a
-   * `student_id` is specified, and its format can be recognized, but Classroom
-   * has no record of that student.
+   * that student, if `"-"` is specified as the `student_id` and the user is not a
+   * domain administrator, if guardians are not enabled for the domain in
+   * question, or for other access errors. * `INVALID_ARGUMENT` if a `student_id`
+   * is specified, but its format cannot be recognized (it is not an email
+   * address, nor a `student_id` from the API, nor the literal string `me`). May
+   * also be returned if an invalid `page_token` or `state` is provided. *
+   * `NOT_FOUND` if a `student_id` is specified, and its format can be recognized,
+   * but Classroom has no record of that student.
    * (guardianInvitations.listUserProfilesGuardianInvitations)
    *
    * @param string $studentId The ID of the student whose guardian invitations are
    * to be returned. The identifier can be one of the following: * the numeric
    * identifier for the user * the email address of the user * the string literal
-   * `"me"`, indicating the requesting user
+   * `"me"`, indicating the requesting user * the string literal `"-"`, indicating
+   * that results should be returned for all students that the requesting user is
+   * permitted to view guardian invitations.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string invitedEmailAddress If specified, only results with the

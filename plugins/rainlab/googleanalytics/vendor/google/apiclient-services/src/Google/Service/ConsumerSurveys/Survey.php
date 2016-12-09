@@ -27,6 +27,8 @@ class Google_Service_ConsumerSurveys_Survey extends Google_Collection
   public $owners;
   protected $questionsType = 'Google_Service_ConsumerSurveys_SurveyQuestion';
   protected $questionsDataType = 'array';
+  protected $rejectionReasonType = 'Google_Service_ConsumerSurveys_SurveyRejection';
+  protected $rejectionReasonDataType = '';
   public $state;
   public $surveyUrlId;
   public $title;
@@ -79,6 +81,14 @@ class Google_Service_ConsumerSurveys_Survey extends Google_Collection
   public function getQuestions()
   {
     return $this->questions;
+  }
+  public function setRejectionReason(Google_Service_ConsumerSurveys_SurveyRejection $rejectionReason)
+  {
+    $this->rejectionReason = $rejectionReason;
+  }
+  public function getRejectionReason()
+  {
+    return $this->rejectionReason;
   }
   public function setState($state)
   {

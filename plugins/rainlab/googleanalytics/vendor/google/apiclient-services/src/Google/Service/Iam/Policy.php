@@ -17,12 +17,10 @@
 
 class Google_Service_Iam_Policy extends Google_Collection
 {
-  protected $collection_key = 'rules';
+  protected $collection_key = 'bindings';
   protected $bindingsType = 'Google_Service_Iam_Binding';
   protected $bindingsDataType = 'array';
   public $etag;
-  protected $rulesType = 'Google_Service_Iam_Rule';
-  protected $rulesDataType = 'array';
   public $version;
 
   public function setBindings($bindings)
@@ -40,14 +38,6 @@ class Google_Service_Iam_Policy extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
-  }
-  public function setRules($rules)
-  {
-    $this->rules = $rules;
-  }
-  public function getRules()
-  {
-    return $this->rules;
   }
   public function setVersion($version)
   {

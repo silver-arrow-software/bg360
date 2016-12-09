@@ -38,6 +38,13 @@ class Google_Service_CloudRuntimeConfig_Resource_ProjectsConfigsWaiters extends 
    * `projects/[PROJECT_ID]/configs/[CONFIG_NAME]`.
    * @param Google_Service_CloudRuntimeConfig_Waiter $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional unique request_id. If server receives
+   * two Create requests with the same request_id then second request will be
+   * ignored and information stored in the backend will be returned. Empty
+   * request_id fields are ignored. It is responsibility of the client to ensure
+   * uniqueness of the request_id strings. The strings are limited to 64
+   * characters.
    * @return Google_Service_CloudRuntimeConfig_Operation
    */
   public function create($parent, Google_Service_CloudRuntimeConfig_Waiter $postBody, $optParams = array())

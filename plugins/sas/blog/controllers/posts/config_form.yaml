@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: sas.blog::lang.blog.create_post
+form: ~/plugins/sas/blog/models/post/fields.yaml
+modelClass: Sas\Blog\Models\Post
+defaultRedirect: sas/blog/posts
+
+create:
+    redirect: sas/blog/posts/update/:id
+    redirectClose: sas/blog/posts
+
+update:
+    redirect: sas/blog/posts
+    redirectClose: sas/blog/posts

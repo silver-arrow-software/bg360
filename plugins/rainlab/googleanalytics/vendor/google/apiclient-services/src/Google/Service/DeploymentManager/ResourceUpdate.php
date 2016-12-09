@@ -18,6 +18,8 @@
 class Google_Service_DeploymentManager_ResourceUpdate extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $accessControlType = 'Google_Service_DeploymentManager_ResourceAccessControl';
+  protected $accessControlDataType = '';
   protected $errorType = 'Google_Service_DeploymentManager_ResourceUpdateError';
   protected $errorDataType = '';
   public $finalProperties;
@@ -28,6 +30,14 @@ class Google_Service_DeploymentManager_ResourceUpdate extends Google_Collection
   protected $warningsType = 'Google_Service_DeploymentManager_ResourceUpdateWarnings';
   protected $warningsDataType = 'array';
 
+  public function setAccessControl(Google_Service_DeploymentManager_ResourceAccessControl $accessControl)
+  {
+    $this->accessControl = $accessControl;
+  }
+  public function getAccessControl()
+  {
+    return $this->accessControl;
+  }
   public function setError(Google_Service_DeploymentManager_ResourceUpdateError $error)
   {
     $this->error = $error;

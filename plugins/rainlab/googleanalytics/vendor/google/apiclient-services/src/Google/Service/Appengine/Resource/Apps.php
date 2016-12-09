@@ -40,6 +40,24 @@ class Google_Service_Appengine_Resource_Apps extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Appengine_Application");
   }
   /**
+   * Updates application parameters. (apps.patch)
+   *
+   * @param string $appsId Part of `name`. Name of the application to update.
+   * Example: `apps/myapp`.
+   * @param Google_Service_Appengine_Application $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask Standard field mask for the set of fields to be
+   * updated.
+   * @return Google_Service_Appengine_Operation
+   */
+  public function patch($appsId, Google_Service_Appengine_Application $postBody, $optParams = array())
+  {
+    $params = array('appsId' => $appsId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Appengine_Operation");
+  }
+  /**
    * Recreates the required App Engine features for the application in your
    * project, for example a Cloud Storage bucket or App Engine service account.
    * Use this method if you receive an error message about a missing feature, for

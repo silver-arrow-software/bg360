@@ -17,12 +17,22 @@
 
 class Google_Service_Iam_ServiceAccountKey extends Google_Model
 {
+  public $keyAlgorithm;
   public $name;
   public $privateKeyData;
   public $privateKeyType;
+  public $publicKeyData;
   public $validAfterTime;
   public $validBeforeTime;
 
+  public function setKeyAlgorithm($keyAlgorithm)
+  {
+    $this->keyAlgorithm = $keyAlgorithm;
+  }
+  public function getKeyAlgorithm()
+  {
+    return $this->keyAlgorithm;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -46,6 +56,14 @@ class Google_Service_Iam_ServiceAccountKey extends Google_Model
   public function getPrivateKeyType()
   {
     return $this->privateKeyType;
+  }
+  public function setPublicKeyData($publicKeyData)
+  {
+    $this->publicKeyData = $publicKeyData;
+  }
+  public function getPublicKeyData()
+  {
+    return $this->publicKeyData;
   }
   public function setValidAfterTime($validAfterTime)
   {

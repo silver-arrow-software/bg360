@@ -26,6 +26,20 @@
 class Google_Service_Directory_Resource_Chromeosdevices extends Google_Service_Resource
 {
   /**
+   * Take action on Chrome OS Device (chromeosdevices.action)
+   *
+   * @param string $customerId Immutable id of the Google Apps account
+   * @param string $resourceId Immutable id of Chrome OS Device
+   * @param Google_Service_Directory_ChromeOsDeviceAction $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function action($customerId, $resourceId, Google_Service_Directory_ChromeOsDeviceAction $postBody, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'resourceId' => $resourceId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('action', array($params));
+  }
+  /**
    * Retrieve Chrome OS Device (chromeosdevices.get)
    *
    * @param string $customerId Immutable id of the Google Apps account

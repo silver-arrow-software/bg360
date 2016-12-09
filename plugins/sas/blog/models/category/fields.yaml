@@ -1,0 +1,23 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: sas.blog::lang.category.name
+        placeholder: sas.blog::lang.category.name_placeholder
+        span: left
+
+    slug:
+        label: sas.blog::lang.category.slug
+        span: right
+        placeholder: sas.blog::lang.category.slug_placeholder
+        preset: name
+
+    description:
+        label: 'sas.blog::lang.category.description'
+        size: large
+        oc.commentPosition: ''
+        span: full
+        type: textarea

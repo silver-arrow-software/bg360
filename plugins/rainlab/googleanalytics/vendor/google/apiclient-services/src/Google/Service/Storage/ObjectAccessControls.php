@@ -18,7 +18,8 @@
 class Google_Service_Storage_ObjectAccessControls extends Google_Collection
 {
   protected $collection_key = 'items';
-  public $items;
+  protected $itemsType = 'Google_Service_Storage_ObjectAccessControl';
+  protected $itemsDataType = 'array';
   public $kind;
 
   public function setItems($items)

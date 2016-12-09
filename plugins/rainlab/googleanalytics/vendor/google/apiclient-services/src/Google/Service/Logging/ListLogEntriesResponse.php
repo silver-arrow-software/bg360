@@ -21,8 +21,6 @@ class Google_Service_Logging_ListLogEntriesResponse extends Google_Collection
   protected $entriesType = 'Google_Service_Logging_LogEntry';
   protected $entriesDataType = 'array';
   public $nextPageToken;
-  protected $projectIdErrorsType = 'Google_Service_Logging_Status';
-  protected $projectIdErrorsDataType = 'map';
 
   public function setEntries($entries)
   {
@@ -39,13 +37,5 @@ class Google_Service_Logging_ListLogEntriesResponse extends Google_Collection
   public function getNextPageToken()
   {
     return $this->nextPageToken;
-  }
-  public function setProjectIdErrors($projectIdErrors)
-  {
-    $this->projectIdErrors = $projectIdErrors;
-  }
-  public function getProjectIdErrors()
-  {
-    return $this->projectIdErrors;
   }
 }

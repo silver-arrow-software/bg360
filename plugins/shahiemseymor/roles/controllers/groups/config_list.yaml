@@ -3,7 +3,7 @@
 # ===================================
 
 title: Roles
-list: $/shahiemseymor/roles/models/groups/columns.yaml
+list: @/plugins/shahiemseymor/roles/models/groups/columns.yaml
 modelClass: ShahiemSeymor\Roles\Models\Group
 recordUrl: shahiemseymor/roles/groups/update/:id
 noRecordsMessage: backend::lang.list.no_records

@@ -22,27 +22,36 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   protected $applicationsType = 'Google_Service_Directory_MobileDeviceApplications';
   protected $applicationsDataType = 'array';
   public $basebandVersion;
+  public $bootloaderVersion;
+  public $brand;
   public $buildNumber;
   public $defaultLanguage;
   public $developerOptionsStatus;
   public $deviceCompromisedStatus;
   public $deviceId;
+  public $devicePasswordStatus;
   public $email;
+  public $encryptionStatus;
   public $etag;
   public $firstSync;
+  public $hardware;
   public $hardwareId;
   public $imei;
   public $kernelVersion;
   public $kind;
   public $lastSync;
   public $managedAccountIsOnOwnerProfile;
+  public $manufacturer;
   public $meid;
   public $model;
   public $name;
   public $networkOperator;
   public $os;
   public $otherAccountsInfo;
+  public $privilege;
+  public $releaseVersion;
   public $resourceId;
+  public $securityPatchLevel;
   public $serialNumber;
   public $status;
   public $supportsWorkProfile;
@@ -74,6 +83,22 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getBasebandVersion()
   {
     return $this->basebandVersion;
+  }
+  public function setBootloaderVersion($bootloaderVersion)
+  {
+    $this->bootloaderVersion = $bootloaderVersion;
+  }
+  public function getBootloaderVersion()
+  {
+    return $this->bootloaderVersion;
+  }
+  public function setBrand($brand)
+  {
+    $this->brand = $brand;
+  }
+  public function getBrand()
+  {
+    return $this->brand;
   }
   public function setBuildNumber($buildNumber)
   {
@@ -115,6 +140,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   {
     return $this->deviceId;
   }
+  public function setDevicePasswordStatus($devicePasswordStatus)
+  {
+    $this->devicePasswordStatus = $devicePasswordStatus;
+  }
+  public function getDevicePasswordStatus()
+  {
+    return $this->devicePasswordStatus;
+  }
   public function setEmail($email)
   {
     $this->email = $email;
@@ -122,6 +155,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getEmail()
   {
     return $this->email;
+  }
+  public function setEncryptionStatus($encryptionStatus)
+  {
+    $this->encryptionStatus = $encryptionStatus;
+  }
+  public function getEncryptionStatus()
+  {
+    return $this->encryptionStatus;
   }
   public function setEtag($etag)
   {
@@ -138,6 +179,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getFirstSync()
   {
     return $this->firstSync;
+  }
+  public function setHardware($hardware)
+  {
+    $this->hardware = $hardware;
+  }
+  public function getHardware()
+  {
+    return $this->hardware;
   }
   public function setHardwareId($hardwareId)
   {
@@ -187,6 +236,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   {
     return $this->managedAccountIsOnOwnerProfile;
   }
+  public function setManufacturer($manufacturer)
+  {
+    $this->manufacturer = $manufacturer;
+  }
+  public function getManufacturer()
+  {
+    return $this->manufacturer;
+  }
   public function setMeid($meid)
   {
     $this->meid = $meid;
@@ -235,6 +292,22 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   {
     return $this->otherAccountsInfo;
   }
+  public function setPrivilege($privilege)
+  {
+    $this->privilege = $privilege;
+  }
+  public function getPrivilege()
+  {
+    return $this->privilege;
+  }
+  public function setReleaseVersion($releaseVersion)
+  {
+    $this->releaseVersion = $releaseVersion;
+  }
+  public function getReleaseVersion()
+  {
+    return $this->releaseVersion;
+  }
   public function setResourceId($resourceId)
   {
     $this->resourceId = $resourceId;
@@ -242,6 +315,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getResourceId()
   {
     return $this->resourceId;
+  }
+  public function setSecurityPatchLevel($securityPatchLevel)
+  {
+    $this->securityPatchLevel = $securityPatchLevel;
+  }
+  public function getSecurityPatchLevel()
+  {
+    return $this->securityPatchLevel;
   }
   public function setSerialNumber($serialNumber)
   {

@@ -89,7 +89,7 @@ class Google_Service_Classroom extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://classroom.googleapis.com/';
+    $this->rootUrl = 'https://prod-day0-classroom.sandbox.googleapis.com/';
     $this->servicePath = '';
     $this->version = 'v1';
     $this->serviceName = 'classroom';
@@ -135,6 +135,11 @@ class Google_Service_Classroom extends Google_Service
                 'teacherId' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'courseStates' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
                 'pageSize' => array(
                   'location' => 'query',

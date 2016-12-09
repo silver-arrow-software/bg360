@@ -21,12 +21,14 @@ class Google_Service_Logging_HttpRequest extends Google_Model
   public $cacheHit;
   public $cacheLookup;
   public $cacheValidatedWithOriginServer;
+  public $latency;
   public $referer;
   public $remoteIp;
   public $requestMethod;
   public $requestSize;
   public $requestUrl;
   public $responseSize;
+  public $serverIp;
   public $status;
   public $userAgent;
 
@@ -61,6 +63,14 @@ class Google_Service_Logging_HttpRequest extends Google_Model
   public function getCacheValidatedWithOriginServer()
   {
     return $this->cacheValidatedWithOriginServer;
+  }
+  public function setLatency($latency)
+  {
+    $this->latency = $latency;
+  }
+  public function getLatency()
+  {
+    return $this->latency;
   }
   public function setReferer($referer)
   {
@@ -109,6 +119,14 @@ class Google_Service_Logging_HttpRequest extends Google_Model
   public function getResponseSize()
   {
     return $this->responseSize;
+  }
+  public function setServerIp($serverIp)
+  {
+    $this->serverIp = $serverIp;
+  }
+  public function getServerIp()
+  {
+    return $this->serverIp;
   }
   public function setStatus($status)
   {

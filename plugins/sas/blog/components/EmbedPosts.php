@@ -1,7 +1,7 @@
 <?php namespace Sas\Blog\Components;
 
-use RainLab\Blog\Components\Posts as ComponentBase;
-use RainLab\Blog\Models\Post as BlogPost;
+use Sas\Blog\Components\Posts as ComponentBase;
+use Sas\Blog\Models\Post as BlogPost;
 use Exception;
 use Str;
 use Config;

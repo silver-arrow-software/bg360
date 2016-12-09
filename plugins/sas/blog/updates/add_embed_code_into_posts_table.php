@@ -7,7 +7,7 @@ class AddEmbedCodeIntoPostsTable extends Migration {
 
     public function up()
     {
-        Schema::table('rainlab_blog_posts', function($table) {
+        Schema::table('sas_blog_posts', function($table) {
             $table->string('sas_embed_code')->nullable();
         });
     }

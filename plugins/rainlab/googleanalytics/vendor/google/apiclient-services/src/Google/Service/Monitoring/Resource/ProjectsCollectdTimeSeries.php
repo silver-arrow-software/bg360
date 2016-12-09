@@ -26,13 +26,12 @@
 class Google_Service_Monitoring_Resource_ProjectsCollectdTimeSeries extends Google_Service_Resource
 {
   /**
-   * Creates a new time series with the given data points. This method is only for
-   * use in `collectd`-related code, including the Google Monitoring Agent. See
-   * [google.monitoring.v3.MetricService.CreateTimeSeries] instead.
-   * (collectdTimeSeries.create)
+   * Stackdriver Monitoring Agent only: Creates a new time series.This method is
+   * only for use by the Stackdriver Monitoring Agent. Use
+   * projects.timeSeries.create instead. (collectdTimeSeries.create)
    *
    * @param string $name The project in which to create the time series. The
-   * format is `"projects/PROJECT_ID_OR_NUMBER"`.
+   * format is projects/PROJECT_ID_OR_NUMBER.
    * @param Google_Service_Monitoring_CreateCollectdTimeSeriesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Monitoring_MonitoringEmpty

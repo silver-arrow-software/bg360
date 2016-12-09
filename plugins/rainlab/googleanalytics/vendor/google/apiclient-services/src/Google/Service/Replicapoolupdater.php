@@ -19,7 +19,9 @@
  * Service definition for Replicapoolupdater (v1beta1).
  *
  * <p>
- * Updates groups of Compute Engine instances.</p>
+ * [Deprecated. Please use compute.instanceGroupManagers.update method.
+ * replicapoolupdater API will be disabled after December 30th, 2016] Updates
+ * groups of Compute Engine instances.</p>
  *
  * <p>
  * For more information about this service, see the API

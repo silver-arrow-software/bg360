@@ -17,7 +17,6 @@
 
 class Google_Service_Speech_RecognitionConfig extends Google_Model
 {
-  public $audioChannels;
   public $encoding;
   public $languageCode;
   public $maxAlternatives;
@@ -26,14 +25,6 @@ class Google_Service_Speech_RecognitionConfig extends Google_Model
   protected $speechContextType = 'Google_Service_Speech_SpeechContext';
   protected $speechContextDataType = '';
 
-  public function setAudioChannels($audioChannels)
-  {
-    $this->audioChannels = $audioChannels;
-  }
-  public function getAudioChannels()
-  {
-    return $this->audioChannels;
-  }
   public function setEncoding($encoding)
   {
     $this->encoding = $encoding;

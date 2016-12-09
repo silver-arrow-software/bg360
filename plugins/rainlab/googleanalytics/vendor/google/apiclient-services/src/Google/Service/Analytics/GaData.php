@@ -21,6 +21,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   protected $columnHeadersType = 'Google_Service_Analytics_GaDataColumnHeaders';
   protected $columnHeadersDataType = 'array';
   public $containsSampledData;
+  public $dataLastRefreshed;
   protected $dataTableType = 'Google_Service_Analytics_GaDataDataTable';
   protected $dataTableDataType = '';
   public $id;
@@ -54,6 +55,14 @@ class Google_Service_Analytics_GaData extends Google_Collection
   public function getContainsSampledData()
   {
     return $this->containsSampledData;
+  }
+  public function setDataLastRefreshed($dataLastRefreshed)
+  {
+    $this->dataLastRefreshed = $dataLastRefreshed;
+  }
+  public function getDataLastRefreshed()
+  {
+    return $this->dataLastRefreshed;
   }
   public function setDataTable(Google_Service_Analytics_GaDataDataTable $dataTable)
   {

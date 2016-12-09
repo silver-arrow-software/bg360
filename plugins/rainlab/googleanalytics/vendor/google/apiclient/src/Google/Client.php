@@ -552,8 +552,8 @@ class Google_Client
 
   /**
    * @param string $approvalPrompt Possible values for approval_prompt include:
-   *  {@code "force"} to force the approval UI to appear. (This is the default value)
-   *  {@code "auto"} to request auto-approval when possible.
+   *  {@code "force"} to force the approval UI to appear.
+   *  {@code "auto"} to request auto-approval when possible. (This is the default value)
    */
   public function setApprovalPrompt($approvalPrompt)
   {
@@ -1003,14 +1003,7 @@ class Google_Client
 
   protected function createDefaultCache()
   {
-    // use filesystem cache by default if tedivm/stash exists
-    if (class_exists('Stash\Pool')) {
-      $cache = new Stash\Pool(new Stash\Driver\FileSystem);
-    } else {
-      $cache = new MemoryCacheItemPool;
-    }
-
-    return $cache;
+    return new MemoryCacheItemPool;
   }
 
   /**

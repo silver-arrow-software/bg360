@@ -90,7 +90,13 @@ class Google_ClientTest extends BaseTest
     $class = new ReflectionClass(get_class($auth));
     $property = $class->getProperty('fetcher');
     $property->setAccessible(true);
-    $fetcher = $property->getValue($auth);
+    $cacheFetcher = $property->getValue($auth);
+    $this->assertInstanceOf('Google\Auth\FetchAuthTokenCache', $cacheFetcher);
+
+    $class = new ReflectionClass(get_class($cacheFetcher));
+    $property = $class->getProperty('fetcher');
+    $property->setAccessible(true);
+    $fetcher = $property->getValue($cacheFetcher);
     $this->assertInstanceOf($fetcherClass, $fetcher);
 
     if ($sub) {
@@ -521,6 +527,7 @@ class Google_ClientTest extends BaseTest
 
   public function testTokenCallback()
   {
+    $this->onlyPhp55AndAbove();
     $this->checkToken();
 
     $client = $this->getClient();

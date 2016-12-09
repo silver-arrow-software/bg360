@@ -27,7 +27,8 @@ class Google_Service_ConsumerSurveys_Resource_Results extends Google_Service_Res
 {
   /**
    * Retrieves any survey results that have been produced so far. Results are
-   * formatted as an Excel file. (results.get)
+   * formatted as an Excel file. You must add "?alt=media" to the URL as an
+   * argument to get results. (results.get)
    *
    * @param string $surveyUrlId External URL ID for the survey.
    * @param array $optParams Optional parameters.

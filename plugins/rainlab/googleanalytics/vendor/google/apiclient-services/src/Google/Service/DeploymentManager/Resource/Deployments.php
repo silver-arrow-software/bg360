@@ -71,6 +71,21 @@ class Google_Service_DeploymentManager_Resource_Deployments extends Google_Servi
     return $this->call('get', array($params), "Google_Service_DeploymentManager_Deployment");
   }
   /**
+   * Gets the access control policy for a resource. May be empty if no such policy
+   * or resource exists. (deployments.getIamPolicy)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_DeploymentManager_Policy
+   */
+  public function getIamPolicy($project, $resource, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource);
+    $params = array_merge($params, $optParams);
+    return $this->call('getIamPolicy', array($params), "Google_Service_DeploymentManager_Policy");
+  }
+  /**
    * Creates a deployment and all of the resources described by the deployment
    * manifest. (deployments.insert)
    *
@@ -170,6 +185,22 @@ class Google_Service_DeploymentManager_Resource_Deployments extends Google_Servi
     return $this->call('patch', array($params), "Google_Service_DeploymentManager_Operation");
   }
   /**
+   * Sets the access control policy on the specified resource. Replaces any
+   * existing policy. (deployments.setIamPolicy)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param Google_Service_DeploymentManager_Policy $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_DeploymentManager_Policy
+   */
+  public function setIamPolicy($project, $resource, Google_Service_DeploymentManager_Policy $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setIamPolicy', array($params), "Google_Service_DeploymentManager_Policy");
+  }
+  /**
    * Stops an ongoing operation. This does not roll back any work that has already
    * been completed, but prevents any new work from being started.
    * (deployments.stop)
@@ -185,6 +216,22 @@ class Google_Service_DeploymentManager_Resource_Deployments extends Google_Servi
     $params = array('project' => $project, 'deployment' => $deployment, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('stop', array($params), "Google_Service_DeploymentManager_Operation");
+  }
+  /**
+   * Returns permissions that a caller has on the specified resource.
+   * (deployments.testIamPermissions)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param Google_Service_DeploymentManager_TestPermissionsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_DeploymentManager_TestPermissionsResponse
+   */
+  public function testIamPermissions($project, $resource, Google_Service_DeploymentManager_TestPermissionsRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('testIamPermissions', array($params), "Google_Service_DeploymentManager_TestPermissionsResponse");
   }
   /**
    * Updates a deployment and all of the resources described by the deployment

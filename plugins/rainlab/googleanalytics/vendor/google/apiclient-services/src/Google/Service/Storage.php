@@ -602,10 +602,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'kmsKeyName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
               ),
             ),'copy' => array(
               'path' => 'b/{sourceBucket}/o/{sourceObject}/copyTo/b/{destinationBucket}/o/{destinationObject}',
@@ -779,10 +775,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'kmsKeyName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'name' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -896,10 +888,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'destinationKmsKeyName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'destinationPredefinedAcl' => array(
                   'location' => 'query',

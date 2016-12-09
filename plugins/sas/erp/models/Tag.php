@@ -1,7 +1,7 @@
 <?php namespace Sas\Erp\Models;
 
 use Model;
-use RainLab\Blog\Models\Post;
+use Sas\Blog\Models\Post;
 use Sas\Erp\Models\Place;
 
 /**
@@ -30,7 +30,7 @@ class Tag extends Model
             'order' => 'updated_at desc'
         ],
         'posts' => [
-            'RainLab\Blog\Models\Post',
+            'Sas\Blog\Models\Post',
             'table' => 'sas_erp_taggables',
             'name' => 'taggable',
             'order' => 'published_at desc'

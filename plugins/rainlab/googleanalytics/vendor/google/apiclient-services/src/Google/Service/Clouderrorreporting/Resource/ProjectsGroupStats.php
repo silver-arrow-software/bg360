@@ -42,8 +42,6 @@ class Google_Service_Clouderrorreporting_Resource_ProjectsGroupStats extends Goo
    * @opt_param string order [Optional] The sort order in which the results are
    * returned. Default is `COUNT_DESC`.
    * @opt_param string groupId [Optional] List all ErrorGroupStats with these IDs.
-   * If not specified, all error group stats with a non-zero error count for the
-   * given selection criteria are returned.
    * @opt_param string serviceFilter.service [Optional] The exact value to match
    * against [`ServiceContext.service`](/error-
    * reporting/reference/rest/v1beta1/ServiceContext#FIELDS.service).

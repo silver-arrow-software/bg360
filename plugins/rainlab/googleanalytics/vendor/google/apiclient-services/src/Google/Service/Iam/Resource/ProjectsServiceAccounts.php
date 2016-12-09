@@ -26,10 +26,10 @@
 class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service_Resource
 {
   /**
-   * Creates a service account and returns it. (serviceAccounts.create)
+   * Creates a ServiceAccount and returns it. (serviceAccounts.create)
    *
    * @param string $name Required. The resource name of the project associated
-   * with the service accounts, such as "projects/123"
+   * with the service accounts, such as `projects/my-project-123`.
    * @param Google_Service_Iam_CreateServiceAccountRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_ServiceAccount
@@ -41,12 +41,13 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('create', array($params), "Google_Service_Iam_ServiceAccount");
   }
   /**
-   * Deletes a service acount. (serviceAccounts.delete)
+   * Deletes a ServiceAccount. (serviceAccounts.delete)
    *
-   * @param string $name The resource name of the service account in the format
-   * "projects/{project}/serviceAccounts/{account}". Using '-' as a wildcard for
-   * the project, will infer the project from the account. The account value can
-   * be the email address or the unique_id of the service account.
+   * @param string $name The resource name of the service account in the following
+   * format: `projects/{project}/serviceAccounts/{account}`. Using `-` as a
+   * wildcard for the project will infer the project from the account. The
+   * `account` value can be the `email` address or the `unique_id` of the service
+   * account.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_IamEmpty
    */
@@ -57,12 +58,13 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('delete', array($params), "Google_Service_Iam_IamEmpty");
   }
   /**
-   * Gets a ServiceAccount (serviceAccounts.get)
+   * Gets a ServiceAccount. (serviceAccounts.get)
    *
-   * @param string $name The resource name of the service account in the format
-   * "projects/{project}/serviceAccounts/{account}". Using '-' as a wildcard for
-   * the project, will infer the project from the account. The account value can
-   * be the email address or the unique_id of the service account.
+   * @param string $name The resource name of the service account in the following
+   * format: `projects/{project}/serviceAccounts/{account}`. Using `-` as a
+   * wildcard for the project will infer the project from the account. The
+   * `account` value can be the `email` address or the `unique_id` of the service
+   * account.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_ServiceAccount
    */
@@ -73,14 +75,12 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('get', array($params), "Google_Service_Iam_ServiceAccount");
   }
   /**
-   * Returns the IAM access control policy for specified IAM resource.
+   * Returns the IAM access control policy for a ServiceAccount.
    * (serviceAccounts.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `getIamPolicy`
-   * documentation.
+   * requested. `resource` is usually specified as a path. For example, a Project
+   * resource is specified as `projects/{project}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_Policy
    */
@@ -91,19 +91,19 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('getIamPolicy', array($params), "Google_Service_Iam_Policy");
   }
   /**
-   * Lists service accounts for a project.
+   * Lists ServiceAccounts for a project.
    * (serviceAccounts.listProjectsServiceAccounts)
    *
    * @param string $name Required. The resource name of the project associated
-   * with the service accounts, such as "projects/123"
+   * with the service accounts, such as `projects/my-project-123`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Optional limit on the number of service accounts to
    * include in the response. Further accounts can subsequently be obtained by
-   * including the [ListServiceAccountsResponse.next_page_token] in a subsequent
+   * including the ListServiceAccountsResponse.next_page_token in a subsequent
    * request.
    * @opt_param string pageToken Optional pagination token returned in an earlier
-   * [ListServiceAccountsResponse.next_page_token].
+   * ListServiceAccountsResponse.next_page_token.
    * @return Google_Service_Iam_ListServiceAccountsResponse
    */
   public function listProjectsServiceAccounts($name, $optParams = array())
@@ -113,14 +113,12 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('list', array($params), "Google_Service_Iam_ListServiceAccountsResponse");
   }
   /**
-   * Sets the IAM access control policy for the specified IAM resource.
+   * Sets the IAM access control policy for a ServiceAccount.
    * (serviceAccounts.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `setIamPolicy`
-   * documentation.
+   * specified. `resource` is usually specified as a path. For example, a Project
+   * resource is specified as `projects/{project}`.
    * @param Google_Service_Iam_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_Policy
@@ -132,12 +130,14 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('setIamPolicy', array($params), "Google_Service_Iam_Policy");
   }
   /**
-   * Signs a blob using a service account. (serviceAccounts.signBlob)
+   * Signs a blob using a service account's system-managed private key.
+   * (serviceAccounts.signBlob)
    *
-   * @param string $name The resource name of the service account in the format
-   * "projects/{project}/serviceAccounts/{account}". Using '-' as a wildcard for
-   * the project, will infer the project from the account. The account value can
-   * be the email address or the unique_id of the service account.
+   * @param string $name The resource name of the service account in the following
+   * format: `projects/{project}/serviceAccounts/{account}`. Using `-` as a
+   * wildcard for the project will infer the project from the account. The
+   * `account` value can be the `email` address or the `unique_id` of the service
+   * account.
    * @param Google_Service_Iam_SignBlobRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_SignBlobResponse
@@ -149,14 +149,12 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('signBlob', array($params), "Google_Service_Iam_SignBlobResponse");
   }
   /**
-   * Tests the specified permissions against the IAM access control policy for the
-   * specified IAM resource. (serviceAccounts.testIamPermissions)
+   * Tests the specified permissions against the IAM access control policy for a
+   * ServiceAccount. (serviceAccounts.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `testIamPermissions`
-   * documentation.
+   * being requested. `resource` is usually specified as a path. For example, a
+   * Project resource is specified as `projects/{project}`.
    * @param Google_Service_Iam_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_TestIamPermissionsResponse
@@ -168,15 +166,15 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     return $this->call('testIamPermissions', array($params), "Google_Service_Iam_TestIamPermissionsResponse");
   }
   /**
-   * Updates a service account. Currently, only the following fields are
-   * updatable: 'display_name' . The 'etag' is mandatory. (serviceAccounts.update)
+   * Updates a ServiceAccount. Currently, only the following fields are updatable:
+   * `display_name` . The `etag` is mandatory. (serviceAccounts.update)
    *
-   * @param string $name The resource name of the service account in the format
-   * "projects/{project}/serviceAccounts/{account}". In requests using '-' as a
-   * wildcard for the project, will infer the project from the account and the
-   * account value can be the email address or the unique_id of the service
+   * @param string $name The resource name of the service account in the following
+   * format: `projects/{project}/serviceAccounts/{account}`. Requests using `-` as
+   * a wildcard for the project will infer the project from the `account` and the
+   * `account` value can be the `email` address or the `unique_id` of the service
    * account. In responses the resource name will always be in the format
-   * "projects/{project}/serviceAccounts/{email}".
+   * `projects/{project}/serviceAccounts/{email}`.
    * @param Google_Service_Iam_ServiceAccount $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_ServiceAccount

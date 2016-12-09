@@ -1,0 +1,71 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    title:
+        label: sas.blog::lang.post.title
+        span: left
+        placeholder: sas.blog::lang.post.title_placeholder
+
+    slug:
+        label: sas.blog::lang.post.slug
+        span: right
+        placeholder: sas.blog::lang.post.slug_placeholder
+        preset:
+            field: title
+            type: slug
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        content:
+            tab: sas.blog::lang.post.tab_edit
+            type: Sas\Blog\FormWidgets\BlogMarkdown
+            cssClass: field-slim blog-post-preview
+            stretch: true
+            mode: split
+
+        categories:
+            tab: sas.blog::lang.post.tab_categories
+            type: relation
+            commentAbove: sas.blog::lang.post.categories_comment
+            placeholder: sas.blog::lang.post.categories_placeholder
+
+        published:
+            tab: sas.blog::lang.post.tab_manage
+            label: sas.blog::lang.post.published
+            span: left
+            type: checkbox
+
+        published_at:
+            tab: sas.blog::lang.post.tab_manage
+            label: sas.blog::lang.post.published_on
+            span: left
+            cssClass: checkbox-align
+            type: datepicker
+            mode: datetime
+            trigger:
+                action: enable
+                field: published
+                condition: checked
+
+        excerpt:
+            tab: sas.blog::lang.post.tab_manage
+            label: sas.blog::lang.post.excerpt
+            type: textarea
+            size: small
+
+        featured_images:
+            tab: sas.blog::lang.post.tab_manage
+            label: sas.blog::lang.post.featured_images
+            type: fileupload
+            mode: image
+            imageWidth: 200
+            imageHeight: 200

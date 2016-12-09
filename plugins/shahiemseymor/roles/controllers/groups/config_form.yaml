@@ -3,7 +3,7 @@
 # ===================================
 
 name: Role
-form: $/shahiemseymor/roles/models/groups/fields.yaml
+form: ~/plugins/shahiemseymor/roles/models/groups/fields.yaml
 modelClass: ShahiemSeymor\Roles\Models\Group
 defaultRedirect: shahiemseymor/roles/groups
 

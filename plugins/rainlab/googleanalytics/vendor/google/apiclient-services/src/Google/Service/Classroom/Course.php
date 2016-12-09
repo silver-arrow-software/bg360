@@ -27,6 +27,7 @@ class Google_Service_Classroom_Course extends Google_Collection
   public $description;
   public $descriptionHeading;
   public $enrollmentCode;
+  public $guardiansEnabled;
   public $id;
   public $name;
   public $ownerId;
@@ -100,6 +101,14 @@ class Google_Service_Classroom_Course extends Google_Collection
   public function getEnrollmentCode()
   {
     return $this->enrollmentCode;
+  }
+  public function setGuardiansEnabled($guardiansEnabled)
+  {
+    $this->guardiansEnabled = $guardiansEnabled;
+  }
+  public function getGuardiansEnabled()
+  {
+    return $this->guardiansEnabled;
   }
   public function setId($id)
   {

@@ -7,11 +7,6 @@ is_hidden = 0
 [blogPost]
 slug = "{{ :slug }}"
 categoryPage = "blog/category"
-
-[forumEmbedTopic]
-embedCode = "{{ :slug }}"
-channelSlug = "blog-comments"
-memberPage = 404
 ==
 <?php
 function onEnd()
@@ -25,7 +20,7 @@ function onEnd()
 <hr />
 <h4>Thảo luận</h4>
 {% if user %}
-    {% component 'forumEmbedTopic' %}
+    
 {% else %}
     <p>Vui lòng <a href="{{ 'account'|page }}">đăng nhập</a> để tham gia thảo luận!</p>
 {% endif %}

@@ -63,14 +63,14 @@ class Plugin extends PluginBase
             if (!$widget->getController() instanceof \RainLab\User\Controllers\Users) return;
             if (!$widget->model instanceof \RainLab\User\Models\User) return;
             
-            /*$widget->addFields([
+             $widget->addFields([
                 'groups'              => [
                     'label'           => 'Groups',
                     'commentAbove'    => 'Specify which groups this person belongs to.',
                     'tab'             => 'Roles',
                     'type'            => 'relation'
                 ]
-            ], 'primary');*/
+            ], 'primary');
         });
     }
 

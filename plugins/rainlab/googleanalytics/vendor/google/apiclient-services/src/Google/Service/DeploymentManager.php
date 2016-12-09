@@ -113,6 +113,21 @@ class Google_Service_DeploymentManager extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'getIamPolicy' => array(
+              'path' => '{project}/global/deployments/{resource}/getIamPolicy',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'insert' => array(
               'path' => '{project}/global/deployments',
               'httpMethod' => 'POST',
@@ -176,6 +191,21 @@ class Google_Service_DeploymentManager extends Google_Service
                   'type' => 'boolean',
                 ),
               ),
+            ),'setIamPolicy' => array(
+              'path' => '{project}/global/deployments/{resource}/setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'stop' => array(
               'path' => '{project}/global/deployments/{deployment}/stop',
               'httpMethod' => 'POST',
@@ -186,6 +216,21 @@ class Google_Service_DeploymentManager extends Google_Service
                   'required' => true,
                 ),
                 'deployment' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => '{project}/global/deployments/{resource}/testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,

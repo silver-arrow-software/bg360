@@ -1,0 +1,16 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id: ID
+    title: sas.blog::lang.post.title
+    content: sas.blog::lang.post.content
+    excerpt: sas.blog::lang.post.excerpt
+    slug: sas.blog::lang.post.slug
+    categories: sas.blog::lang.post.categories
+    author_email: sas.blog::lang.post.author_email
+    created_at: sas.blog::lang.post.created_date
+    updated_at: sas.blog::lang.post.updated_date
+    published_at: sas.blog::lang.post.published_date

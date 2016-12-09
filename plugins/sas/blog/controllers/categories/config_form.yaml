@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: sas.blog::lang.blog.create_category
+form: ~/plugins/sas/blog/models/category/fields.yaml
+modelClass: Sas\Blog\Models\Category
+defaultRedirect: sas/blog/categories
+
+create:
+    redirect: sas/blog/categories/update/:id
+    redirectClose: sas/blog/categories
+
+update:
+    redirect: sas/blog/categories
+    redirectClose: sas/blog/categories

@@ -96,6 +96,8 @@ class Google_Service_Classroom_Resource_Courses extends Google_Service_Resource
    * teacher with the specified identifier. The identifier can be one of the
    * following: * the numeric identifier for the user * the email address of the
    * user * the string literal `"me"`, indicating the requesting user
+   * @opt_param string courseStates Restricts returned courses to those in one of
+   * the specified states
    * @opt_param int pageSize Maximum number of items to return. Zero or
    * unspecified indicates that the server may assign a maximum. The server may
    * return fewer than the specified number of results.

@@ -29,7 +29,7 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * Creates a new group. (groups.create)
    *
    * @param string $name The project in which to create the group. The format is
-   * `"projects/{project_id_or_number}"`.
+   * projects/{project_id_or_number}.
    * @param Google_Service_Monitoring_Group $postBody
    * @param array $optParams Optional parameters.
    *
@@ -47,7 +47,7 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * Deletes an existing group. (groups.delete)
    *
    * @param string $name The group to delete. The format is
-   * `"projects/{project_id_or_number}/groups/{group_id}"`.
+   * projects/{project_id_or_number}/groups/{group_id}.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Monitoring_MonitoringEmpty
    */
@@ -61,7 +61,7 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * Gets a single group. (groups.get)
    *
    * @param string $name The group to retrieve. The format is
-   * `"projects/{project_id_or_number}/groups/{group_id}"`.
+   * projects/{project_id_or_number}/groups/{group_id}.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Monitoring_Group
    */
@@ -75,27 +75,26 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * Lists the existing groups. (groups.listProjectsGroups)
    *
    * @param string $name The project whose groups are to be listed. The format is
-   * `"projects/{project_id_or_number}"`.
+   * projects/{project_id_or_number}.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string childrenOfGroup A group name:
-   * `"projects/{project_id_or_number}/groups/{group_id}"`. Returns groups whose
-   * `parentName` field contains the group name. If no groups have this parent,
-   * the results are empty.
-   * @opt_param string ancestorsOfGroup A group name:
-   * `"projects/{project_id_or_number}/groups/{group_id}"`. Returns groups that
-   * are ancestors of the specified group. The groups are returned in order,
-   * starting with the immediate parent and ending with the most distant ancestor.
-   * If the specified group has no immediate parent, the results are empty.
    * @opt_param string descendantsOfGroup A group name:
-   * `"projects/{project_id_or_number}/groups/{group_id}"`. Returns the
-   * descendants of the specified group. This is a superset of the results
-   * returned by the `childrenOfGroup` filter, and includes children-of-children,
-   * and so forth.
+   * projects/{project_id_or_number}/groups/{group_id}. Returns the descendants of
+   * the specified group. This is a superset of the results returned by the
+   * childrenOfGroup filter, and includes children-of-children, and so forth.
    * @opt_param int pageSize A positive number that is the maximum number of
    * results to return.
+   * @opt_param string childrenOfGroup A group name:
+   * projects/{project_id_or_number}/groups/{group_id}. Returns groups whose
+   * parentName field contains the group name. If no groups have this parent, the
+   * results are empty.
+   * @opt_param string ancestorsOfGroup A group name:
+   * projects/{project_id_or_number}/groups/{group_id}. Returns groups that are
+   * ancestors of the specified group. The groups are returned in order, starting
+   * with the immediate parent and ending with the most distant ancestor. If the
+   * specified group has no immediate parent, the results are empty.
    * @opt_param string pageToken If this field is not empty then it must contain
-   * the `nextPageToken` value returned by a previous call to this method. Using
+   * the nextPageToken value returned by a previous call to this method. Using
    * this field causes the method to return additional results from the previous
    * method call.
    * @return Google_Service_Monitoring_ListGroupsResponse
@@ -107,14 +106,14 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
     return $this->call('list', array($params), "Google_Service_Monitoring_ListGroupsResponse");
   }
   /**
-   * Updates an existing group. You can change any group attributes except `name`.
+   * Updates an existing group. You can change any group attributes except name.
    * (groups.update)
    *
-   * @param string $name The name of this group. The format is
-   * `"projects/{project_id_or_number}/groups/{group_id}"`. When creating a group,
+   * @param string $name Output only. The name of this group. The format is
+   * projects/{project_id_or_number}/groups/{group_id}. When creating a group,
    * this field is ignored and a new name is created consisting of the project
-   * specified in the call to `CreateGroup` and a unique `{group_id}` that is
-   * generated automatically. @OutputOnly
+   * specified in the call to CreateGroup and a unique {group_id} that is
+   * generated automatically.
    * @param Google_Service_Monitoring_Group $postBody
    * @param array $optParams Optional parameters.
    *

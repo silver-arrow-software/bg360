@@ -76,10 +76,13 @@ class Google_Service_Classroom_Resource_UserProfilesGuardians extends Google_Ser
   }
   /**
    * Returns a list of guardians that the requesting user is permitted to view,
-   * restricted to those that match the request. This method returns the following
-   * error codes: * `PERMISSION_DENIED` if a `student_id` is specified, and the
-   * requesting user is not permitted to view guardian information for that
-   * student, if guardians are not enabled for the domain in question, if the
+   * restricted to those that match the request. To list guardians for any student
+   * that the requesting user may view guardians for, use the literal character
+   * `-` for the student ID. This method returns the following error codes: *
+   * `PERMISSION_DENIED` if a `student_id` is specified, and the requesting user
+   * is not permitted to view guardian information for that student, if `"-"` is
+   * specified as the `student_id` and the user is not a domain administrator, if
+   * guardians are not enabled for the domain in question, if the
    * `invited_email_address` filter is set by a user who is not a domain
    * administrator, or for other access errors. * `INVALID_ARGUMENT` if a
    * `student_id` is specified, but its format cannot be recognized (it is not an
@@ -91,7 +94,9 @@ class Google_Service_Classroom_Resource_UserProfilesGuardians extends Google_Ser
    * @param string $studentId Filter results by the student who the guardian is
    * linked to. The identifier can be one of the following: * the numeric
    * identifier for the user * the email address of the user * the string literal
-   * `"me"`, indicating the requesting user
+   * `"me"`, indicating the requesting user * the string literal `"-"`, indicating
+   * that results should be returned for all students that the requesting user has
+   * access to view.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string invitedEmailAddress Filter results by the email address

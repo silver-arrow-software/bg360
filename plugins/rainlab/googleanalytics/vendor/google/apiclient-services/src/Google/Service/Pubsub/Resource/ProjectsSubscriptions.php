@@ -50,6 +50,7 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns
    * `NOT_FOUND`. If the name is not provided in the request, the server will
    * assign a random name for this subscription on the same project as the topic.
+   * Note that for REST API requests, you must specify a name.
    * (subscriptions.create)
    *
    * @param string $name The name of the subscription. It must have the format
@@ -69,10 +70,10 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
     return $this->call('create', array($params), "Google_Service_Pubsub_Subscription");
   }
   /**
-   * Deletes an existing subscription. All pending messages in the subscription
+   * Deletes an existing subscription. All messages retained in the subscription
    * are immediately dropped. Calls to `Pull` after deletion will return
    * `NOT_FOUND`. After a subscription is deleted, a new one may be created with
-   * the same name, but the new one has no association with the old subscription,
+   * the same name, but the new one has no association with the old subscription
    * or its topic unless the same topic is specified. (subscriptions.delete)
    *
    * @param string $subscription The subscription to delete.
@@ -99,15 +100,12 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
     return $this->call('get', array($params), "Google_Service_Pubsub_Subscription");
   }
   /**
-   * Gets the access control policy for a `resource`. Returns an empty policy if
-   * the resource exists and does not have a policy set.
-   * (subscriptions.getIamPolicy)
+   * Gets the access control policy for a resource. Returns an empty policy if the
+   * resource exists and does not have a policy set. (subscriptions.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `getIamPolicy`
-   * documentation.
+   * requested. `resource` is usually specified as a path. For example, a Project
+   * resource is specified as `projects/{project}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Policy
    */
@@ -141,7 +139,9 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * Modifies the ack deadline for a specific message. This method is useful to
    * indicate that more time is needed to process a message by the subscriber, or
    * to make the message available for redelivery if the processing was
-   * interrupted. (subscriptions.modifyAckDeadline)
+   * interrupted. Note that this does not modify the subscription-level
+   * `ackDeadlineSeconds` used for subsequent messages.
+   * (subscriptions.modifyAckDeadline)
    *
    * @param string $subscription The name of the subscription.
    * @param Google_Service_Pubsub_ModifyAckDeadlineRequest $postBody
@@ -196,10 +196,8 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * existing policy. (subscriptions.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `setIamPolicy`
-   * documentation.
+   * specified. `resource` is usually specified as a path. For example, a Project
+   * resource is specified as `projects/{project}`.
    * @param Google_Service_Pubsub_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Policy
@@ -215,10 +213,8 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * (subscriptions.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `testIamPermissions`
-   * documentation.
+   * being requested. `resource` is usually specified as a path. For example, a
+   * Project resource is specified as `projects/{project}`.
    * @param Google_Service_Pubsub_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_TestIamPermissionsResponse

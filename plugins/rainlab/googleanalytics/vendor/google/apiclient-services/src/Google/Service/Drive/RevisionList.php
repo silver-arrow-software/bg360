@@ -19,6 +19,7 @@ class Google_Service_Drive_RevisionList extends Google_Collection
 {
   protected $collection_key = 'revisions';
   public $kind;
+  public $nextPageToken;
   protected $revisionsType = 'Google_Service_Drive_Revision';
   protected $revisionsDataType = 'array';
 
@@ -29,6 +30,14 @@ class Google_Service_Drive_RevisionList extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
   public function setRevisions($revisions)
   {

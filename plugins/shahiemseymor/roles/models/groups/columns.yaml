@@ -13,7 +13,7 @@ columns:
     permissions:
       label: Permissions
       relation: perms
-      select: name
+      select: @name
       searchable: true
 
     users:

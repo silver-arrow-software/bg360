@@ -1,0 +1,13 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: sas.blog::lang.category.name
+        searchable: true
+
+    post_count:
+        label: sas.blog::lang.category.posts
+        sortable: false

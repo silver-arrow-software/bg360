@@ -20,6 +20,7 @@ class Google_Service_AndroidEnterprise_ProductSet extends Google_Collection
   protected $collection_key = 'productId';
   public $kind;
   public $productId;
+  public $productSetBehavior;
 
   public function setKind($kind)
   {
@@ -36,5 +37,13 @@ class Google_Service_AndroidEnterprise_ProductSet extends Google_Collection
   public function getProductId()
   {
     return $this->productId;
+  }
+  public function setProductSetBehavior($productSetBehavior)
+  {
+    $this->productSetBehavior = $productSetBehavior;
+  }
+  public function getProductSetBehavior()
+  {
+    return $this->productSetBehavior;
   }
 }

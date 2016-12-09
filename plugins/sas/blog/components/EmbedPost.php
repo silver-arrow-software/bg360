@@ -2,7 +2,7 @@
 
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
-use RainLab\Blog\Models\Post as PostModel;
+use Sas\Blog\Models\Post as PostModel;
 use Exception;
 
 class EmbedPost extends ComponentBase
@@ -59,7 +59,7 @@ class EmbedPost extends ComponentBase
             $properties['slug'] = $post->slug;
         }
 
-        $component = $this->addComponent(\RainLab\Blog\Components\Post::class, $this->alias, $properties);
+        $component = $this->addComponent(\Sas\Blog\Components\Post::class, $this->alias, $properties);
 
         /*
          * If a post does not already exist, generate it when the page ends.

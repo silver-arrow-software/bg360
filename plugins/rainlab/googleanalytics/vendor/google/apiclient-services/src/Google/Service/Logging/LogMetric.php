@@ -20,6 +20,7 @@ class Google_Service_Logging_LogMetric extends Google_Model
   public $description;
   public $filter;
   public $name;
+  public $version;
 
   public function setDescription($description)
   {
@@ -44,5 +45,13 @@ class Google_Service_Logging_LogMetric extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+  public function getVersion()
+  {
+    return $this->version;
   }
 }

@@ -30,7 +30,9 @@
  */
 class Google_Service_IdentityToolkit extends Google_Service
 {
-
+  /** View and administer all your Firebase data and settings. */
+  const FIREBASE =
+      "https://www.googleapis.com/auth/firebase";
 
   public $relyingparty;
   
