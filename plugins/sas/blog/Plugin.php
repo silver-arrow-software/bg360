@@ -32,7 +32,8 @@ class Plugin extends PluginBase
             'Sas\Blog\Components\RssFeed'    => 'blogRssFeed',
             \Sas\Blog\Components\CustomForm::class    => 'sasBlogCustomForm',
             \Sas\Blog\Components\EmbedPost::class    => 'sasBlogEmbedPost',
-            \Sas\Blog\Components\EmbedPosts::class    => 'sasBlogEmbedPosts'
+            \Sas\Blog\Components\EmbedPosts::class    => 'sasBlogEmbedPosts',
+            \Sas\Blog\Components\PostToc::class    => 'sasBlogPostToc'
         ];
     }
 

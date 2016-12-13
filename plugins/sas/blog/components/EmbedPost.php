@@ -15,8 +15,8 @@ class EmbedPost extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'sas.blog::lang.slugpost.post_name',
-            'description' => 'sas.blog::lang.slugpost.post_self_desc'
+            'name'        => 'sas.blog::lang.embedpost.post_name',
+            'description' => 'sas.blog::lang.embedpost.post_self_desc'
         ];
     }
 
@@ -24,13 +24,13 @@ class EmbedPost extends ComponentBase
     {
         return [
             'slugCode' => [
-                'title'       => 'sas.blog::lang.slugpost.slug_title',
-                'description' => 'sas.blog::lang.slugpost.slug_desc',
+                'title'       => 'sas.blog::lang.settings.post_slug',
+                'description' => 'sas.blog::lang.settings.post_slug_desc',
                 'type'        => 'string',
             ],
             'memberPage' => [
-                'title'       => 'sas.blog::lang.member.page_name',
-                'description' => 'sas.blog::lang.member.page_help',
+                'title'       => 'sas.blog::lang.settings.posts_post',
+                'description' => 'sas.blog::lang.settings.posts_post_description',
                 'type'        => 'dropdown',
                 'group'       => 'Links',
             ]

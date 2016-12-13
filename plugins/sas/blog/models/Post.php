@@ -502,4 +502,85 @@ class Post extends Model
 
         return $url;
     }
+
+    /**
+     * Return table of contents with html
+     *
+     * @param string $content
+     * @return array
+     */
+    public function html_toc(&$content) {
+
+        $dom = new \DOMDocument();
+        $dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+        $xpath = new \DOMXPath($dom);
+        $headings = $xpath->query('//h1 | //h2 | //h3 | //h4 | //h5 | //h6');
+        $toc = [];
+        for ($i = 0; $i < $headings->length; $i++){
+            $el = [];
+
+            /** @var \DOMElement $item */
+            $item = $headings->item($i);
+
+            $hId = '';
+
+            if ($item->getAttribute('id')) {
+                $hId = $item->getAttribute('id');
+            } else {
+                $a = $item->getElementsByTagName('a');
+                if($a && $a->length){
+                    for($j = 0; $j < $a->length; $j++){
+                        if( $a->item($j)->getAttribute('id') ){
+                            $hId = $a->item($j)->getAttribute('id');
+                            break;
+                        }
+                    }
+                }
+            }
+
+            $el['text'] = isset($item->nodeValue) ? $item->nodeValue : '';
+
+            $el['a'] = false;
+            if (!$hId) {
+                $hId = $this->generate_unique($el['text']);
+                $item->setAttribute('id', $hId);
+                $el['a'] = true;
+            }
+
+            $el['anchor'] = $hId;
+            $el['level'] = substr($item->nodeName, -1);
+
+            $toc[] = $el;
+        }
+
+        $content = $dom->saveHTML();
+
+        return $toc;
+    }
+
+    /**
+     * @var array
+     */
+    protected $uniqueKeys = [];
+
+    /**
+     * Generate unique key
+     *
+     * @param string $str
+     * @return string
+     */
+    protected function generate_unique($str) {
+        $str = Str::ascii($str);
+        if (! $str) $str = 'no header';
+        $key = str_replace(' ', '-', strtolower(trim($str)));
+        $str = $key;
+        if(isset($this->uniqueKeys[$key])){
+            $this->uniqueKeys[$key]++;
+            $str .= $this->uniqueKeys[$key];
+        } else {
+            $this->uniqueKeys[$key] = 1;
+        }
+        return $str;
+    }
 }

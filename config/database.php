@@ -56,7 +56,7 @@ return [
             'driver'    => 'mysql',
             'host'      => 'localhost',
             'port'      => 3306,
-            'database'  => 'bg360',
+            'database'  => 'bg360_20161207',
             'username'  => 'root',
             'password'  => 'root',
             'charset'   => 'utf8',

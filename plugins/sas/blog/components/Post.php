@@ -64,6 +64,9 @@ class Post extends ComponentBase
             : $post->where('slug', $slug);
 
         $post = $post->isPublished()->first();
+        $content_html = $post->content_html;
+        $post->html_toc($content_html);
+        $post->content_html = $content_html;
 
         /*
          * Add a "url" helper attribute for linking to each category

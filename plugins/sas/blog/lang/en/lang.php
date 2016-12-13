@@ -85,6 +85,14 @@ return [
         'all_blog_posts' => 'All blog posts',
 
     ],
+    'embedposts' => [
+        'posts_name' => 'Embed post list',
+        'posts_self_desc' => 'Show post list with embed code'
+    ],
+    'embedpost' => [
+        'post_name' => 'Embed post',
+        'post_self_desc' => 'Show post with embed code'
+    ],
     'settings' => [
         'category_title' => 'Category List',
         'category_description' => 'Displays a list of blog categories on the page.',
@@ -96,6 +104,8 @@ return [
         'category_page_description' => 'Name of the category page file for the category links. This property is used by the default component partial.',
         'post_title' => 'Post',
         'post_description' => 'Displays a blog post on the page.',
+        'post_toc_title' => 'Post TOC',
+        'post_toc_description' => 'Displays a blog post table of contents on the page.',
         'post_slug' => 'Post slug',
         'post_slug_description' => "Look up the blog post using the supplied slug value.",
         'post_category' => 'Category page',

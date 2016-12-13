@@ -1,0 +1,22 @@
+{
+    "name": "sas/utils",
+    "description": "Utility",
+    "keywords": ["laravel", "sas", "utils"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Silver Arrow Software",
+            "email": "vnsoftdev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "autoload": {
+        "psr-4": {
+        },
+        "files": [
+            "helpers.php"
+        ]
+    }
+}
