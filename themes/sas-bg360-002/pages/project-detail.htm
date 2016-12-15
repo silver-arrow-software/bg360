@@ -1,0 +1,25 @@
+title = "Project Detail"
+url = "/project/:id"
+layout = "default"
+is_hidden = 1
+
+[builderDetails]
+modelClass = "Sas\Erp\Models\Project"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    
+    <h2>{{ attribute(record, displayColumn) }}</h2>
+    
+    {{ record.description|raw }}
+    
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

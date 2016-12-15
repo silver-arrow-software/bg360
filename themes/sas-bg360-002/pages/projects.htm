@@ -1,0 +1,16 @@
+title = "Projects"
+url = "/projects"
+layout = "default"
+is_hidden = 1
+
+[builderList]
+modelClass = "Sas\Erp\Models\Project"
+scope = "-"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "project-detail"
+detailsKeyColumn = "id"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% component 'builderList' %}
