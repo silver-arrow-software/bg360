@@ -20,6 +20,7 @@
         'orders' => 'Orders',
         'accounts' => 'Accounts',
         'account' => 'Account',
+        'projects' => 'Projects',
     ],
     'profile' => [
         'name' => 'Profile name',
@@ -75,13 +76,14 @@
         'perm_create_product' => 'Create Product',
         'perm_edit_product' => 'Edit Product',
         'perm_delete_product' => 'Delete Product',
+        'manage_projects' => 'Manage Projects',
     ],
     'message' => [
         'create_success' => 'Successfully create item(s).',
         'delete_success' => 'Successfully delete item(s).',
         'hide_success' => 'Successfully hide item(s).',
         'show_success' => 'Successfully show item(s).',
-        'error' => 'An unknown error has occured.'
+        'error' => 'An unknown error has occured.',
     ],
     'settings' => [
         'menu_label' => 'Shop',
@@ -229,5 +231,13 @@
     ],
     'account' => [
         'name' => 'Account Name',
+    ],
+    'project' => [
+        'name' => 'Name',
+        'start_at' => 'Start At',
+        'end_at' => 'End At',
+        'team_id' => 'Team',
+        'place_id' => 'Place',
+        'description' => 'Description',
     ],
 ];

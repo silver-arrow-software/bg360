@@ -1,0 +1,23 @@
+columns:
+    name:
+        label: 'sas.erp::lang.project.name'
+        type: text
+        searchable: true
+        sortable: true
+    start_at:
+        label: 'sas.erp::lang.project.start_at'
+        type: datetime
+        searchable: false
+        sortable: true
+    end_at:
+        label: 'sas.erp::lang.project.end_at'
+        type: datetime
+        sortable: true
+    team_id:
+        label: 'sas.erp::lang.project.team_id'
+        sortable: true
+    place_id:
+        label: 'sas.erp::lang.project.place_id'
+        select: name
+        sortable: true
+        relation: place

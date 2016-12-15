@@ -26,6 +26,12 @@ navigation:
                 label: 'sas.erp::lang.plugin.orders'
                 url: /sas/erp/orders
                 icon: icon-money
+            side-menu-item-projects:
+                label: 'sas.erp::lang.plugin.projects'
+                url: /sas/erp/projects
+                icon: icon-briefcase
+                permissions:
+                    - sas.erp.manage_projects
 permissions:
     sas.erp.manage_profiles:
         tab: 'sas.erp::lang.plugin.name'
@@ -39,3 +45,6 @@ permissions:
     sas.erp.delete_place:
         tab: 'sas.erp::lang.plugin.name'
         label: 'sas.erp::lang.permission.perm_delete_place'
+    sas.erp.manage_projects:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_projects'
