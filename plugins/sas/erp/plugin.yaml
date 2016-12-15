@@ -32,6 +32,12 @@ navigation:
                 icon: icon-briefcase
                 permissions:
                     - sas.erp.manage_projects
+            side-menu-item-teams:
+                label: 'sas.erp::lang.plugin.teams'
+                url: /sas/erp/teams
+                icon: icon-users
+                permissions:
+                    - sas.erp.manage_teams
 permissions:
     sas.erp.manage_profiles:
         tab: 'sas.erp::lang.plugin.name'
@@ -48,3 +54,6 @@ permissions:
     sas.erp.manage_projects:
         tab: 'sas.erp::lang.plugin.name'
         label: 'sas.erp::lang.permission.manage_projects'
+    sas.erp.manage_teams:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_teams'

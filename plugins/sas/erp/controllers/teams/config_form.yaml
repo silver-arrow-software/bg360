@@ -1,0 +1,11 @@
+name: Teams
+modelClass: Sas\Erp\Models\Team
+form: $/sas/erp/models/team/fields.yaml
+defaultRedirect: sas/erp/teams
+create:
+    redirect: 'sas/erp/teams/update/:id'
+    redirectClose: sas/erp/teams
+update:
+    redirect: sas/erp/teams
+    redirectClose: sas/erp/teams
+preview: {  }

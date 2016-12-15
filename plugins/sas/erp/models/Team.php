@@ -5,7 +5,7 @@ use Model;
 /**
  * Model
  */
-class Project extends Model
+class Team extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
@@ -13,28 +13,22 @@ class Project extends Model
      * Validation
      */
     public $rules = [
-        'name' => 'required'
     ];
 
     /*
      * Disable timestamps by default.
      * Remove this line if timestamps are defined in the database table.
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'sas_erp_projects';
+    public $table = 'sas_erp_teams';
 
-    public $belongsTo = [
-        'place' => [ 'Sas\Erp\Models\Place' ]
+    public $belongsToMany = [
+        'users' => ['RainLab\User\Models\User', 'table' => 'sas_erp_teams_users']
     ];
-
-    public function getTeamIdOptions()
-    {
-        return Team::lists('name', 'id');
-    }
 
     public function getPlaceIdOptions()
     {

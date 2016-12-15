@@ -21,6 +21,7 @@
         'accounts' => 'Accounts',
         'account' => 'Account',
         'projects' => 'Projects',
+        'teams' => 'Teams',
     ],
     'profile' => [
         'name' => 'Profile name',
@@ -77,6 +78,7 @@
         'perm_edit_product' => 'Edit Product',
         'perm_delete_product' => 'Delete Product',
         'manage_projects' => 'Manage Projects',
+        'manage_teams' => 'Manage Teams',
     ],
     'message' => [
         'create_success' => 'Successfully create item(s).',
@@ -239,5 +241,10 @@
         'team_id' => 'Team',
         'place_id' => 'Place',
         'description' => 'Description',
+    ],
+    'team' => [
+        'name' => 'Name',
+        'place_id' => 'Place',
+        'users' => 'Users',
     ],
 ];
