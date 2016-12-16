@@ -43,30 +43,30 @@ class PostToc extends ComponentBase
             ? $post->transWhere('slug', $slug)
             : $post->where('slug', $slug);
 
-        $post = $post->isPublished()->first();
-
-        $content_html = $post->content_html;
-        $toc = $post->html_toc($content_html);
-
         $toc_html = '';
 
-        if($toc){
-            $prev_level = 0;
-            foreach ($toc as $_toc){
-                $a = '<a href="#'.$_toc['anchor'].'" >'.$_toc['text'].'</a>';
-                if($prev_level > $_toc['level']){
-                    $toc_html.= str_repeat('</li></ul>', $prev_level - $_toc['level']);
-                    $toc_html.= '</li><li>';
-                } else if($prev_level < $_toc['level']){
-                    $toc_html.= '<ul><li>';
-                } else { // equal
-                    $toc_html.= '</li><li>';
-                }
+        if ( $post = $post->isPublished()->first() ) {
+            $content_html = $post ? $post->content_html : '';
+            $toc = $post->html_toc($content_html);
 
-                $toc_html.= $a;
-                $prev_level = $_toc['level'];
+            if($toc){
+                $prev_level = 0;
+                foreach ($toc as $_toc){
+                    $a = '<a href="#'.$_toc['anchor'].'" >'.$_toc['text'].'</a>';
+                    if($prev_level > $_toc['level']){
+                        $toc_html.= str_repeat('</li></ul>', $prev_level - $_toc['level']);
+                        $toc_html.= '</li><li>';
+                    } else if($prev_level < $_toc['level']){
+                        $toc_html.= '<ul><li>';
+                    } else { // equal
+                        $toc_html.= '</li><li>';
+                    }
+
+                    $toc_html.= $a;
+                    $prev_level = $_toc['level'];
+                }
+                $toc_html.= str_repeat('</li></ul>', $prev_level - 1);
             }
-            $toc_html.= str_repeat('</li></ul>', $prev_level - 1);
         }
 
         return $toc_html;

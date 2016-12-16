@@ -1,6 +1,8 @@
 <?php namespace Sas\Erp\Models;
 
 use Model;
+use Auth;
+use RainLab\User\Models\User;
 
 /**
  * Model
@@ -28,7 +30,8 @@ class Project extends Model
     public $table = 'sas_erp_projects';
 
     public $belongsTo = [
-        'place' => [ 'Sas\Erp\Models\Place' ]
+        'place' => [ 'Sas\Erp\Models\Place' ],
+        'team' => [ 'Sas\Erp\Models\Team' ],
     ];
 
     public function getTeamIdOptions()
@@ -40,4 +43,18 @@ class Project extends Model
     {
         return Place::lists('name', 'id');
     }
+
+    public function scopeBelongUser($query, $user = null)
+    {
+        if(is_null($user)){
+            $user = Auth::getUser();
+        }
+        if($user instanceof User){
+            $user = $user->getKey();
+        }
+        return $query->whereHas('team.users', function ($q) use ($user){
+            return $q->where('id', $user);
+        });
+    }
+
 }

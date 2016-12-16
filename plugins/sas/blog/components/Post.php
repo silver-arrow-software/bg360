@@ -63,10 +63,11 @@ class Post extends ComponentBase
             ? $post->transWhere('slug', $slug)
             : $post->where('slug', $slug);
 
-        $post = $post->isPublished()->first();
-        $content_html = $post->content_html;
-        $post->html_toc($content_html);
-        $post->content_html = $content_html;
+        if ($post = $post->isPublished()->first()) {
+            $content_html = $post ? $post->content_html : '';
+            $post->html_toc($content_html);
+            $post->content_html = $content_html;
+        }
 
         /*
          * Add a "url" helper attribute for linking to each category

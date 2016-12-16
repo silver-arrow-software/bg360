@@ -28,13 +28,13 @@ navigation:
                 icon: icon-money
             side-menu-item-projects:
                 label: 'sas.erp::lang.plugin.projects'
-                url: /sas/erp/projects
+                url: sas/erp/projects
                 icon: icon-briefcase
                 permissions:
                     - sas.erp.manage_projects
             side-menu-item-teams:
                 label: 'sas.erp::lang.plugin.teams'
-                url: /sas/erp/teams
+                url: sas/erp/teams
                 icon: icon-users
                 permissions:
                     - sas.erp.manage_teams

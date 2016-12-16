@@ -15,7 +15,9 @@ columns:
         sortable: true
     team_id:
         label: 'sas.erp::lang.project.team_id'
+        select: name
         sortable: true
+        relation: team
     place_id:
         label: 'sas.erp::lang.project.place_id'
         select: name
