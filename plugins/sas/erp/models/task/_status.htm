@@ -1,0 +1,20 @@
+<?php
+
+$text = [
+    0 => 'deleted',
+    1 => 'draft',
+    2 => 'doing',
+    3 => 'testing',
+    4 => 'completed'
+];
+
+$class = [
+    0 => 'text-danger',
+    1 => 'text-warning',
+    2 => 'text-warning',
+    3 => 'text-warning',
+    4 => 'text-warning',
+    5 => 'text-info',
+];
+
+echo '<span class="oc-icon-circle '.$class[$record->status].'">'.Lang::get('sas.erp::lang.task_status.'.$text[$record->status]).'</span>';

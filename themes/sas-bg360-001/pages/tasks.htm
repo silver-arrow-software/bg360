@@ -1,0 +1,16 @@
+title = "Tasks"
+url = "/tasks"
+layout = "default"
+is_hidden = 0
+
+[sasErpList]
+modelClass = "Sas\Erp\Models\Task"
+scope = "scopeBelongUser"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "task-detail"
+detailsKeyColumn = "id"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% component 'sasErpList' %}

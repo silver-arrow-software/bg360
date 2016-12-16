@@ -153,6 +153,7 @@ class Plugin extends PluginBase
             'Sas\Erp\Components\ProductDisplay' => 'productDisplay',
             'Sas\Erp\Components\Places' => 'places',
             'Sas\Erp\Components\Place' => 'place',
+            'Sas\Erp\Components\RecordList' => 'sasErpList',
             'Sas\Erp\Components\RecordDetail' => 'sasErpDetail',
         ];
     }

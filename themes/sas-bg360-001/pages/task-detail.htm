@@ -1,0 +1,23 @@
+title = "Task Detail"
+url = "/task/:id"
+layout = "default"
+is_hidden = 0
+
+[sasErpDetail]
+modelClass = "Sas\Erp\Models\Task"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+scope = "scopeBelongUser"
+==
+{% set record = sasErpDetail.record %}
+{% set displayColumn = sasErpDetail.displayColumn %}
+{% set notFoundMessage = sasErpDetail.notFoundMessage %}
+
+{% if record %}
+    <h2>{{ attribute(record, displayColumn) }}</h2>
+    <p>{{ record.description|raw }}</p>
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

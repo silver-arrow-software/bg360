@@ -2,10 +2,10 @@
 
 use Lang;
 use SystemException;
-use RainLab\Builder\Components\RecordDetails;
+use RainLab\Builder\Components\RecordDetails as ComponentBase;
 use RainLab\Builder\Classes\ComponentHelper;
 
-class RecordDetail extends RecordDetails
+class RecordDetail extends ComponentBase
 {
 
     protected $defaultModelClass = 'Sas\Erp\Models\Project';

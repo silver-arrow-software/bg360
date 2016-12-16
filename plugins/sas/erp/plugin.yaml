@@ -38,6 +38,12 @@ navigation:
                 icon: icon-users
                 permissions:
                     - sas.erp.manage_teams
+            side-menu-item-tasks:
+                label: 'sas.erp::lang.plugin.tasks'
+                url: sas/erp/tasks
+                icon: icon-tasks
+                permissions:
+                    - sas.erp.manage_tasks
 permissions:
     sas.erp.manage_profiles:
         tab: 'sas.erp::lang.plugin.name'
@@ -57,3 +63,6 @@ permissions:
     sas.erp.manage_teams:
         tab: 'sas.erp::lang.plugin.name'
         label: 'sas.erp::lang.permission.manage_teams'
+    sas.erp.manage_tasks:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_tasks'

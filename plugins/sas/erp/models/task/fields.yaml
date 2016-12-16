@@ -1,0 +1,40 @@
+fields:
+    title:
+        label: 'sas.erp::lang.task.title'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text
+    status:
+        label: 'sas.erp::lang.task.status'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: dropdown
+    start_at:
+        label: 'sas.erp::lang.task.start_at'
+        oc.commentPosition: ''
+        mode: datetime
+        minDate: '2016-01-01'
+        span: auto
+        type: datepicker
+    end_at:
+        label: 'sas.erp::lang.task.end_at'
+        oc.commentPosition: ''
+        mode: datetime
+        minDate: '2016-01-01'
+        span: auto
+        placeholder: ''
+        type: datepicker
+    project_id:
+        label: 'sas.erp::lang.task.project_id'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: dropdown
+    description:
+        label: 'sas.erp::lang.task.description'
+        span: full
+        size: large
+        oc.commentPosition: ''
+        type: richeditor

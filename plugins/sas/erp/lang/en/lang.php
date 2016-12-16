@@ -22,6 +22,7 @@
         'account' => 'Account',
         'projects' => 'Projects',
         'teams' => 'Teams',
+        'tasks' => 'Tasks',
     ],
     'profile' => [
         'name' => 'Profile name',
@@ -79,6 +80,7 @@
         'perm_delete_product' => 'Delete Product',
         'manage_projects' => 'Manage Projects',
         'manage_teams' => 'Manage Teams',
+        'manage_tasks' => 'Manage Tasks',
     ],
     'message' => [
         'create_success' => 'Successfully create item(s).',
@@ -247,4 +249,19 @@
         'place_id' => 'Place',
         'users' => 'Users',
     ],
+    'task' => [
+        'title' => 'Title',
+        'status' => 'Status',
+        'start_at' => 'Start At',
+        'end_at' => 'End At',
+        'project_id' => 'Project',
+        'description' => 'Description',
+    ],
+    'task_status' => [
+        'deleted'   => 'Deleted',
+        'draft' => 'Draft',
+        'doing' => 'Doing',
+        'testing'   => 'Testing',
+        'completed' => 'Completed'
+    ]
 ];
