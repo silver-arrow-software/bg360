@@ -1,0 +1,19 @@
+title = "Sản phẩm"
+url = "/products/:slug?"
+layout = "default"
+is_hidden = 0
+
+[products]
+pageNumber = "{{ :page }}"
+productsPerPage = 12
+noProductsMessage = "No products found"
+sortOrder = "created_at desc"
+
+[viewBag]
+localeUrl[en] = "/san-pham"
+==
+<div class="container">
+    <div class="well">
+        {% component "products" %}
+    </div>
+</div>

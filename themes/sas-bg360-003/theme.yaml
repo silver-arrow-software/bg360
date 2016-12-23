@@ -1,0 +1,6 @@
+name: 'Boardgame360 [3]'
+description: 'Material theme with Bootstrap 3+ support'
+author: 'Silver Arrow Software'
+homepage: 'http://boardgame360.com'
+code: BG360T003
+form: fields.yaml

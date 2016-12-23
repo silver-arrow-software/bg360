@@ -3,14 +3,14 @@
 
         {% if member.is_moderator %}
             <div class="list-group-item">
-                {{ form_open({ request: 'onMove', 'data-request-confirm': "Are you sure?" }) }}
-                    <label>Move to:</label>
+                {{ form_open({ request: 'onMove', 'data-request-confirm': "Bạn đã chắc chắn?" }) }}
+                    <label>Di chuyển đến:</label>
                     <select name="channel" class="form-control input-sm">
                         {% for id, title in __SELF__.channelList %}
                             <option value="{{ id }}">{{ title|raw }}</option>
                         {% endfor %}
                     </select>
-                    <button type="submit" class="btn btn-block btn-primary btn-sm">Move</button>
+                    <button type="submit" class="btn btn-block btn-primary btn-sm">Di chuyển</button>
                 {{ form_close() }}
             </div>
 
@@ -19,9 +19,9 @@
                 data-request="onLock"
                 data-request-update="'@controlpanel': '#topicControlPanel'">
                 {% if topic.is_locked %}
-                    Unlock topic
+                    Mở khóa chủ đề
                 {% else %}
-                    Lock topic
+                    Khóa chủ đề
                 {% endif %}
             </a>
 
@@ -30,9 +30,9 @@
                 data-request="onSticky"
                 data-request-update="'@controlpanel': '#topicControlPanel'">
                 {% if topic.is_sticky %}
-                    Unsticky topic
+                    Bỏ đánh dấu treo chủ đề
                 {% else %}
-                    Sticky topic
+                    Đánh dấu treo chủ đề
                 {% endif %}
             </a>
         {% endif %}
@@ -43,25 +43,25 @@
                 data-request="onFollow"
                 data-request-update="'@controlpanel': '#topicControlPanel'">
                 {% if member.isFollowing(topic) %}
-                    Unfollow this topic
+                    Không theo dõi chủ đề này nữa
                 {% else %}
-                    Follow this topic
+                    Theo dõi chủ đề này
                 {% endif %}
             </a>
         {% endif %}
 
         {% if topic.is_locked %}
             <div class="list-group-item">
-                <span class="text text-danger"><i class="icon icon-lock"></i> This topic is locked</span>
+                <span class="text text-danger"><i class="icon icon-lock"></i> Chủ đề này đã bị khóa</span>
             </div>
         {% else %}
             <a href="#postForm" class="list-group-item">
-                Post a reply
+                Tham gia trả lời
             </a>
         {% endif %}
 
         <div class="list-group-item">
-            <i class="fa fa-eye icon-eye-open"></i> {{ topic.count_views }} views
+            <i class="fa fa-eye icon-eye-open"></i> {{ topic.count_views }} lượt xem
         </div>
 
     </div>

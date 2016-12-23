@@ -1,0 +1,28 @@
+<form data-request="onSignin">
+    <div class="form-group label-floating">
+        <label for="userSigninLogin" class="control-label">{{ loginAttributeLabel }}</label>
+        <input
+            name="login"
+            type="text"
+            class="form-control"
+            id="userSigninLogin"/>
+    </div>
+
+    <div class="form-group label-floating">
+        <label for="userSigninPassword" class="control-label">Mật khẩu</label>
+        <input
+            name="password"
+            type="password"
+            class="form-control"
+            id="userSigninPassword"/>
+    </div>
+
+	<p align="right">
+        hoặc đăng nhập bằng
+        {% for name, link in social_login_links %}
+            <a href="{{ link }}" class='login {{ name|lower }}'><i class="icon-{{ name|lower }} icon-2x"></i></a>
+        {% endfor %}
+    </p>
+
+    <button type="submit" class="btn btn-primary btn-raised">Đăng nhập</button>
+</form>

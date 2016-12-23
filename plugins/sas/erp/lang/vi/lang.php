@@ -33,6 +33,10 @@
         'tags' => 'Danh mục',
         'code_id' => 'Mã đại diện',
         'empty' => 'Trống',
+        'created_at' => 'Tạo lúc',
+        'updated_at' => 'Cập nhật lúc',
+        'deleted_at' => 'Xóa lúc',
+        'modified_at' => 'Sửa lúc',
     ],
     'permission' => [
         'manage_profiles' => 'Manage Profiles',
@@ -55,4 +59,9 @@
     'place' => [
         'name' => 'Tên địa điểm',
     ],
+    'account' => [
+        'name' => 'Tài khoản tiền',
+        'amount' => 'Số tiền',
+        'assigned_user' => 'Người thực hiện',
+    ]
 ];

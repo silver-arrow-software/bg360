@@ -14,5 +14,8 @@
     - 'New features: Team, Project, Task.'
     - create_projects_table.php
 1.0.5:
-    - 'New features: Account, Income, Expense.'
-    - sas_create_accounts_table.php
+    - 'New features: Account, AccountTransaction.'
+    - create_accounts_table.php
+1.0.6:
+    - 'Updates: Product.'
+    - updates161222.php

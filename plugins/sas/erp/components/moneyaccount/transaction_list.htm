@@ -1,0 +1,22 @@
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>{{ 'Updated at'|_ }}</th>
+            <th>{{ 'Created by'|_ }}</th>
+            <th>{{ 'Amount'|_ }}</th>
+            <th>{{ 'Description'|_ }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in account.transactions %}
+        <tr>
+            <td>{{ transaction.updated_at|date('d/m/Y') }}</td>
+            <td>{{ transaction.user.name }}</td>
+            <td>{{ transaction.amount|number_format(0, ',', '.') }}</td>
+            <td>{{ transaction.description|raw }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4">{{ 'No transactions yet'|_ }}</td></tr>
+{% endfor %}
+    </tbody>
+</table>

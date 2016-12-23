@@ -1,0 +1,24 @@
+title = "Place"
+url = "/place/:slug/:topicSlug?"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/place"
+
+[place]
+slug = "{{ :slug }}"
+
+[forumEmbedChannel]
+embedCode = "{{ :slug }}"
+channelSlug = "place-channels"
+topicSlug = "{{ :topicSlug }}"
+memberPage = "profile"
+==
+<?php
+function onEnd() {
+    $this->page->title = $this->place->name;
+}
+?>
+==
+{% component "place" %}

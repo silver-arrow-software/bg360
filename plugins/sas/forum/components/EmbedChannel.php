@@ -28,7 +28,7 @@ class EmbedChannel extends ComponentBase
                 'title'       => 'sas.forum::lang.embedch.embed_title',
                 'description' => 'sas.forum::lang.embedch.embed_desc',
                 'type'        => 'string',
-                'group'       => 'Parameters',
+                'default'     => '{{ :slug }}',
             ],
             'channelSlug' => [
                 'title'       => 'sas.forum::lang.embedch.channel_title',
@@ -40,13 +40,11 @@ class EmbedChannel extends ComponentBase
                 'description' => 'sas.forum::lang.embedch.topic_desc',
                 'type'        => 'string',
                 'default'     => '{{ :topicSlug }}',
-                'group'       => 'Parameters',
             ],
             'memberPage' => [
                 'title'       => 'sas.forum::lang.member.page_name',
                 'description' => 'sas.forum::lang.member.page_help',
                 'type'        => 'dropdown',
-                'group'       => 'Links',
             ],
         ];
     }

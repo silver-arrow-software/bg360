@@ -1,0 +1,33 @@
+description = "Material Bootstrap Default layout"
+
+[viewBag]
+
+[cart basket]
+noProductsMessage = "Chưa đặt mua sản phẩm nào"
+
+[session]
+security = "all"
+==
+<?php
+function onStart() {
+    if ($this->page->id=="allelements") {
+        $this->addCss('/themes/sas-bg360-003/assets/css/snackbar.min.css');
+        $this->addCss('/themes/sas-bg360-003/assets/css/nouislider.min.css');
+        $this->addJs('/themes/sas-bg360-003/assets/javascript/snackbar.min.js');
+        $this->addJs('/themes/sas-bg360-003/assets/javascript/nouislider.min.js');
+    }
+}
+?>
+==
+<!DOCTYPE html>
+<html lang="en">
+    {% partial 'header' %}
+    <body>
+        {% partial 'navigation' %}
+
+        <!-- Content -->
+        {% page %}
+
+        {% partial 'footer' %}
+    </body>
+</html>

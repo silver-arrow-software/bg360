@@ -1,5 +1,6 @@
 <?php namespace Sas\Erp\Components;
 
+use Auth;
 use Cms\Classes\ComponentBase;
 
 class Place extends ComponentBase {
@@ -26,6 +27,11 @@ class Place extends ComponentBase {
 
     public function onRun() {
         $this->place = $this->page['place'] = $this->loadPlace();
+
+        $this->page['isMember'] = false;
+        if (Auth::check() && Auth::getUser()->company_id == $this->place->id) {
+            $this->page['isMember'] = true;
+        }
     }
 
     protected function loadPlace() {

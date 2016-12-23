@@ -1,0 +1,63 @@
+title = "Profile"
+url = "/profile/:slug/:page?"
+layout = "default"
+is_hidden = 0
+
+[socialProfile]
+slug = "{{ :slug }}"
+
+[socialWallStream]
+slug = "{{ :slug }}"
+profilePage = "profile"
+type = "user"
+limit = 10
+
+[session]
+security = "user"
+redirect = "home"
+==
+<?php
+function onEnd() {
+    $this->page->title = $this->profile->name;
+    $this->page->description = $this->profile->slug;
+}
+?>
+==
+<div class="container">
+    <div class="well">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_title">
+                <h2>Thông tin cá nhân</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                    <div class="profile_img">
+        				{% if user and user.id == profile.id %}
+        					{% component 'imageUploader' %}
+        				{% else %}
+        					<img src="{{ profile.getAvatarThumb(150) }}"
+        						alt="{{ profile.name }}"
+        						class="avatar-view"/>
+        				{% endif %}
+        			</div>
+                    <h3>{{ profile.name }}</h3>
+                    <ul class="list-unstyled user_data">
+                        <li>{{ profile.point }} oDo</li>
+                        <li>Quan tâm bạn: {{ profile.followers.count }}</li>
+                        <li>Bạn quan tâm: {{ profile.follows.count }}</li>
+                        <li><i class="fa fa-phone cyan-text text-darken-2"></i> {{ profile.mobile }}</li>
+        				<li><i class="fa fa-envelope cyan-text text-darken-2"></i> {{ profile.email }}</li>
+        				<li><i class="fa fa-birthday-cake cyan-text text-darken-2"></i> </li>
+        				<li><i class="fa fa-map cyan-text text-darken-2"></i> {{ profile.street_addr }}</li>
+                    </ul>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    {% component "socialWallStream" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

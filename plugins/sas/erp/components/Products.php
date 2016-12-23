@@ -59,16 +59,14 @@ class Products extends ComponentBase
      */
     public $sortOrder;
 
-    public function componentDetails()
-    {
+    public function componentDetails() {
         return [
             'name'        => 'sas.erp::lang.products.name',
             'description' => 'sas.erp::lang.products.description'
         ];
     }
 
-    public function defineProperties()
-    {
+    public function defineProperties() {
         return [
             'pageNumber' => [
                 'title'       => 'sas.erp::lang.products.pagination',
@@ -132,8 +130,7 @@ class Products extends ComponentBase
         }
     }
 
-    protected function prepareVars()
-    {
+    protected function prepareVars() {
         $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');
         $this->noProductsMessage = $this->page['noProductsMessage'] = $this->property('noProductsMessage');
 
@@ -146,20 +143,19 @@ class Products extends ComponentBase
         $this->cartPage = $this->page['cartPage'] = $settings->redirect_user_after_add_to_cart;
     }
 
-    protected function listProducts()
-    {
+    protected function listProducts() {
         //$category = $this->category ? $this->category->id : null;
 
         /*
          * List all the products, eager load their categories
          */
         $products = Product::listFrontEnd([
-            'page'       => $this->property('pageNumber'),
-            'sort'       => $this->property('sortOrder'),
-            'perPage'    => $this->property('productsPerPage'),
+            'page'  => $this->property('pageNumber'),
+            'sort' => $this->property('sortOrder'),
+            'perPage' => $this->property('productsPerPage'),
             //'category'   => $category,
-            'search'     => isset($_GET['search']) ? $_GET['search'] : '',
-            'promote'    => $this->property('promote'),
+            'search' => isset($_GET['search']) ? $_GET['search'] : '',
+            'promote' => $this->property('promote'),
         ]);
 
         /*
@@ -176,8 +172,7 @@ class Products extends ComponentBase
         return $products;
     }
 
-    protected function loadCategory()
-    {
+    protected function loadCategory() {
         if (!$categoryId = $this->property('categoryFilter'))
             return null;
 

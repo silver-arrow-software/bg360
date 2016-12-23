@@ -1,6 +1,95 @@
 {% set place = __SELF__.place %}
 
-<div class="content">{{ place.description|raw }}</div>
-
-<p class="info">
-</p>
+{% if isMember %}
+<div id="profile-page-content" class="row">
+	<div id="profile-page-sidebar" class="col s12 m4 l3">
+		<ul class="collection z-depth-1">
+			<li class="collection-item">
+				<div class="row">
+					<div class="col s12 grey-text text-darken-4"><a href="">Giới thiệu<i class="material-icons secondary-content">info</i></a></div>
+				</div>
+			</li>
+			<li class="collection-item">
+				<div class="row">
+					<div class="col s12 grey-text text-darken-4"><a href="">Nhân sự<i class="material-icons secondary-content">assignment_ind</i></a></div>
+				</div>
+			</li>
+			<li class="collection-item">
+				<div class="row">
+					<div class="col s12 grey-text text-darken-4"><a href="">Dự án<i class="material-icons secondary-content">work</i></a></div>
+				</div>
+			</li>
+			<li class="collection-item">
+				<div class="row">
+					<div class="col s12 grey-text text-darken-4"><a href="">Sản phẩm<i class="material-icons secondary-content">view_module</i></a></div>
+				</div>
+			</li>
+			<li class="collection-item">
+				<div class="row">
+					<div class="col s12 grey-text text-darken-4"><a href="">Tin tức<i class="material-icons secondary-content">chat_bubble</i></a></div>
+				</div>
+			</li>
+		</ul>
+		{% for account in place.accounts %}
+		<div class="card amber darken-2">
+			<div class="card-content white-text center-align">
+				<p class="card-title">{{ account.balance|number_format(0, ',', '.') }} {{ account.currency }}</p>
+				<p>{{ account.name }}</p>
+			</div>
+		</div>
+		{% else %}
+		<div class="card amber darken-2">
+			<div class="card-content white-text center-align">
+				<p class="card-title">Thêm tài khoản</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div id="profile-page-wall" class="col s12 m8 l9">
+		{% component "forumEmbedChannel" %}
+	</div>
+</div>
+{% else %}
+<div id="profile-page-content" class="row">
+	<div id="profile-page-sidebar" class="col s12 m4">
+		<div class="card horizontal">
+			<div class="card-image">
+				<img src="{{ place.getLogoThumb(150) }}" alt="{{ place.name }}"/>
+			</div>
+			<div class="card-stacked">
+				<div class="card-content">
+					<ul class="collection z-depth-1">
+						<li class="collection-item">
+							<div class="row">
+								<div class="col s5 grey-text darken-1"><i class="material-icons">phone</i></div>
+								<div class="col s7 grey-text text-darken-4 right-align">{{ place.phone }}</div>
+							</div>
+						</li>
+						<li class="collection-item">
+							<div class="row">
+								<div class="col s5 grey-text darken-1"><i class="material-icons">room</i></div>
+								<div class="col s7 grey-text text-darken-4 right-align">
+									{{ place.street_addr }}<br />
+									{{ place.state.name }}<br />
+									{{ place.country.name }}
+								</div>
+							</div>
+						</li>
+						<li class="collection-item">
+							<div class="row">
+								<div class="col s5 grey-text darken-1"><i class="material-icons">search</i></div>
+								<div class="col s7 grey-text text-darken-4 right-align">
+									{{ barcodeHTML({data: '~place.code_id~', type: 'QRCODE', color: 'black', width: '5', height: '5'}) }}
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="profile-page-wall" class="col s12 m8">
+		{{ place.description|raw }}
+	</div>
+</div>
+{% endif %}

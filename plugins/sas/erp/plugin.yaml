@@ -1,7 +1,7 @@
 plugin:
     name: 'sas.erp::lang.plugin.name'
     description: 'sas.erp::lang.plugin.description'
-    author: 'Man Lu'
+    author: 'Silver Arrow Software'
     icon: oc-icon-location-arrow
     homepage: 'http://silverarrowsoftware.com'
 navigation:

@@ -42,9 +42,11 @@ class Place extends Model
             'table' => 'sas_erp_taggables',
             'name' => 'taggable'
         ],
+    ];
+
+    public $morphMany = [
         'accounts' => [
             'Sas\Erp\Models\Account',
-            'table' => 'sas_erp_accounts',
             'name' => 'accountable'
         ],
     ];
@@ -126,5 +128,27 @@ class Place extends Model
         ];
 
         return $this->url = $controller->pageUrl($pageName, $params);
+    }
+
+    /**
+     * Returns the public image file path to this user's avatar.
+     */
+    public function getLogoThumb($size = 25, $options = null) {
+        if (is_string($options)) {
+            $options = ['default' => $options];
+        }
+        elseif (!is_array($options)) {
+            $options = [];
+        }
+
+        // Default is "mm" (Mystery man)
+        $default = array_get($options, 'default', 'mm');
+
+        if ($this->logo) {
+            return $this->logo->getThumb($size, $size, $options);
+        }
+        else {
+            return null;
+        }
     }
 }

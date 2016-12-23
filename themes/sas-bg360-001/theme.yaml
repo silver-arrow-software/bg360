@@ -1,8 +1,0 @@
-name: Boardgame360
-description: 'A plain starter template that implements account management, a blog and community forum.'
-author: 'Silver Arrow Software'
-homepage: 'http://silverarrowsoftware.com'
-code: BG360T001
-require:
-    - RainLab.User
-    - RainLab.Blog

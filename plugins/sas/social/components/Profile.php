@@ -70,9 +70,10 @@ class Profile extends ComponentBase
     {
         $this->profile = $this->page['profile'] = $this->getProfile();
 
-        $notifications = Auth::getUser()->notifications;
-        $this->page['notifications'] = $notifications;
-        //dd($notifications);
+        if (Auth::check()) {
+            $notifications = Auth::getUser()->notifications;
+            $this->page['notifications'] = $notifications;
+        }
     }
 
     protected function getProfile()
@@ -90,5 +91,4 @@ class Profile extends ComponentBase
         Follow::toggle($user, UserModel::find(input('id')));
         $this->prepareVars();
     }
-
 }

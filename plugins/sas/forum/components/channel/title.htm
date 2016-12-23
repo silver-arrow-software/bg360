@@ -2,8 +2,9 @@
 
     <div class="col-md-9">
         {{ form_open({ method: 'get' })}}
-            <div class="search-box">
-                <input type="text" name="search" class="form-control" placeholder="Search topics" value="{{ input('search')|e }}">
+            <div class="search-box form-group label-floating">
+                <input type="text" name="search" id="search" class="form-control" value="{{ input('search')|e }}">
+				<label class="control-label" for="search">Tìm kiếm ...</label>
             </div>
         {{ form_close() }}
     </div>
@@ -12,7 +13,7 @@
             <p>{{ 'forum_login_to_post'|_ }}</p>
         {% else %}
 			{% if (channel.is_moderated and member.is_moderator) or (not channel.is_moderated) %}
-            <a href="{{ topicPage|page }}?channel={{ channel.id }}" class="btn btn-primary btn-block">
+            <a href="{{ topicPage|page }}?channel={{ channel.id }}" class="btn btn-primary btn-block waves-effect btn-raised">
                 {{ 'forum_create_new_post'|_ }}
             </a>
 			{% endif %}

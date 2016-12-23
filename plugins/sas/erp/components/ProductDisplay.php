@@ -7,8 +7,7 @@ use Cms\Classes\ComponentBase;
 use Sas\Erp\Models\Product;
 use Sas\Erp\Models\Settings;
 
-class ProductDisplay extends ComponentBase
-{
+class ProductDisplay extends ComponentBase {
 
     /**
      * @var Sas\Erp\Models\Product The product model used for display.
@@ -27,16 +26,14 @@ class ProductDisplay extends ComponentBase
      */
     public $categoryPage;
 
-    public function componentDetails()
-    {
+    public function componentDetails() {
         return [
             'name'        => 'sas.erp::lang.product.component_name',
             'description' => 'sas.erp::lang.product.component_desc'
         ];
     }
 
-    public function defineProperties()
-    {
+    public function defineProperties() {
         return [
             'slug' => [
                 'title'       => 'sas.erp::lang.product.slug',
@@ -47,14 +44,14 @@ class ProductDisplay extends ComponentBase
         ];
     }
 
-    public function onRun()
-    {
+    public function onRun() {
+        $this->addCss('assets/css/jquery.bxslider.css');
+        $this->addJs('assets/js/jquery.bxslider.js');
+		
         $this->prepareVars();
     }
 
-    protected function prepareVars()
-    {
-
+    protected function prepareVars() {
         /*
          * Page links
          */
@@ -65,8 +62,7 @@ class ProductDisplay extends ComponentBase
         $this->product = $this->page['product'] = $this->loadProduct();
     }
 
-    protected function loadProduct()
-    {
+    protected function loadProduct() {
         $slug = $this->property('slug');
         $product = Product::isPublished()->where('slug', $slug)->first();
 

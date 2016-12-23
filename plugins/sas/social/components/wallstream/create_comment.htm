@@ -1,26 +1,24 @@
-<div class="comment_create" id="post-{{ post.id }}-comment_create_form">
+<div class="comment_create col s12" id="post-{{ post.id }}-comment_create_form">
     {{ form_ajax('onCreateComment', { 'success': "$('.comment_create textarea').val('');", update: { '@posts': '#wallStream'} }) }}
-    <input type="hidden" name="post_id" value="{{ post.id }}"/>
-    <div class="media" style="margin-top: 0">
-        <div class="pull-left">
-            <img
-                src="{{ user.getAvatarThumb(36) }}"
-                class="media-object img-rounded user-image"
-                alt="{{ user.name }}"/>
-        </div>
-        <div class="media-body">
-            <textarea
-                name="content"
-                id="post-{{ post.id }}-comment-content"
-                class="form-control"
-                rows="1"
-                placeholder="Write a comment..."></textarea>
-        </div>
-    </div>
-    <input
-        type="submit"
-        class="btn btn-small btn-primary"
-        style="opacity: 0; position: absolute; z-index: -900;"
-        value="Submit"/>
+	<div class="row">
+		<input type="hidden" name="post_id" value="{{ post.id }}"/>
+		<div class="input-field col s12">
+			<textarea
+				name="content"
+				id="post-{{ post.id }}-comment-content"
+				class="materialize-textarea"
+				rows="1",
+				placeholder="Nội dung lời bình...">
+			</textarea>
+			<label for="post-{{ post.id }}-comment-content">Lời bình mới</label>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<button class="btn waves-effect waves-light right" type="submit" name="action">Đăng
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</div>
+	</div>
     {{ form_close() }}
 </div>

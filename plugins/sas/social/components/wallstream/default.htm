@@ -1,10 +1,10 @@
 {% if (__SELF__.wallType == 'user' and user.id == profile.id) %}
-    <div id="crete-post">
+	<div id="profile-page-wall-share" class="card">
         {% partial __SELF__ ~ '::create_post' %}
     </div>
 {% endif %}
 
-<div id="wallStream">
+<div id="profile-page-wall-posts" class="card">
     {% partial __SELF__ ~ '::posts' posts = posts %}
 
     {% if posts %}

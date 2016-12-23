@@ -1,0 +1,49 @@
+==
+<!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <p>&copy; 2016 Bản quyền thuộc về Boardgame360.</p>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <span class="pull-right">
+                        <a href="https://facebook.com/boardgame360"><i class="fa fa-facebook"></i>   </a>
+                        <a href="https://instagram.com/boardgame360"><i class="fa fa-instagram"></i>   </a>
+                        <a href="https://plus.google.com/boardgame360"><i class="fa fa-google-plus"></i>   </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+	<!-- Scripts -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{{ [
+		'assets/jquery/jquery.min.js',
+		'assets/bootstrap/js/bootstrap.min.js',
+		'assets/bootstrap-material-design/js/ripples.min.js',
+		'assets/bootstrap-material-design/js/material.min.js',
+		'assets/javascript/app.js',
+		'assets/javascript/markdown.js',
+		'assets/javascript/to-markdown.js',
+		'assets/javascript/bootstrap-markdown.js',
+        'assets/javascript/pickadate/picker.js',
+        'assets/javascript/pickadate/picker.date.js',
+        'assets/javascript/pickadate/picker.time.js',
+        'assets/javascript/pickadate/legacy.js',
+        'assets/javascript/pickadate/picker.custom.js',
+        'assets/javascript/jquery.mask.min.js',
+	]|theme }}"></script>
+
+{% if this.theme.load_octobercms_framework %}
+    {% framework extras %}
+{% endif %}
+
+{% scripts %}
+
+{% if this.theme.custom_js %}
+<script>
+    {{ this.theme.custom_js }}
+</script>
+{% endif %}

@@ -1,16 +1,15 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        {{ form_ajax('onCreatePost', { 'update': { '@posts': '#wallStream' } }) }}
-        <div class="form-group">
-            <div data-control="richeditor">
-                <textarea
-                    name="content"
-                    class="form-control"
-                    rows="1"
-                    placeholder="Whats on your mind?"></textarea>
-            </div>
-        </div>
-            <input type="submit" class="btn btn-info" value="Submit" />
-        {{ form_close() }}
-    </div>
+<div id="UpdateStatus" class="tab-content col s12  grey lighten-4">
+	{{ form_ajax('onCreatePost', { 'update': { '@posts': '#wallStream' } }) }}
+	<div class="row">
+		<div class="input-field col s12" data-control="richeditor">
+		  <textarea id="content" name="content" row="1" class="materialize-textarea"></textarea>
+		  <label for="content" class="">Bạn muốn chia sẻ điều gì?</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12 m12 right-align">
+            <input type="submit" class="waves-effect waves-light btn" value="Chia sẻ" />
+		</div>
+	</div>
+	{{ form_close() }}
 </div>

@@ -8,7 +8,7 @@
     {% endflash %}
 
     {% if returnUrl %}
-        <p>&larr; <a href="{{ returnUrl }}">Back to {{ channel.title }}</a></p>
+        <p>&larr; <a href="{{ returnUrl }}">Quay lại {{ channel.title }}</a></p>
     {% endif %}
 
     {% if topic %}
@@ -29,18 +29,18 @@
 
                 {% partial "@pagination" %}
 
-                <h4>Reply to this discussion</h4>
+                <h4>Tham gia chủ đề này</h4>
                 {% if not topic.canPost %}
                     <p>
-                        You cannot edit posts or make replies:
-                        {% if member.is_banned %}Your account is banned.{% endif %}
-                        {% if topic.is_locked %}This topic is locked.{% endif %}
+                        Bạn không thể sửa hay trả lời vì:
+                        {% if member.is_banned %}Tài khoản của bạn đang bị cấm.{% endif %}
+                        {% if topic.is_locked %}Chủ đề này đã khóa.{% endif %}
                     </p>
                 {% else %}
                     {% if member %}
                         {% partial "@postform" %}
                     {% else %}
-                        <p>You should be logged in before you can post.</p>
+                        <p>Vui lòng đăng nhập.</p>
                     {% endif %}
                 {% endif %}
 
@@ -49,12 +49,12 @@
 
     {% elseif channel %}
 
-        <h4>Create a new discussion topic</h4>
+        <h4>Tạo chủ đề thảo luận mới</h4>
         {% partial "@createform" %}
 
     {% else %}
 
-        <p>Topic not found</p>
+        <p>Không tìm thấy chủ đề.</p>
 
     {% endif %}
 </div>

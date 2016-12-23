@@ -1,7 +1,7 @@
 {{ form_open({ request: 'onCreate' }) }}
 
-    <div class="form-group">
-        <label for="topicSubject" class="control-label">Subject</label>
+    <div class="form-group label-floating">
+        <label for="topicSubject" class="control-label">Tiêu đề</label>
         <input
             id="topicSubject"
             name="subject"
@@ -11,19 +11,20 @@
     </div>
 
     <div class="form-group">
-        <label for="topicContent" class="control-label">Content</label>
+        <label for="topicContent" class="control-label">Nội dung</label>
         <textarea
             id="topicContent"
             name="content"
-            rows="8"
+            rows="10"
             type="text"
-            class="form-control">{{ post('content') }}</textarea>
+			data-provide="markdown"
+            class="">{{ post('content') }}</textarea>
     </div>
 
     <div class="form-group post-buttons">
-        <button type="submit" class="btn btn-primary btn-lg">Post this topic</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-raised">Đăng chủ đề</button>
         {% if returnUrl %}
-            <a class="btn btn-link btn-lg" href="{{ returnUrl }}">Cancel</a>
+            <a class="btn btn-link btn-lg" href="{{ returnUrl }}">Hủy bỏ</a>
         {% endif %}
     </div>
 

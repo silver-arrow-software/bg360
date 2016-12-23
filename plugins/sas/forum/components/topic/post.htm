@@ -43,7 +43,7 @@
                     data-request-data="post: {{ post.id }}"
                     data-request-update="'{{ __SELF__ }}::post': '#post-{{ post.id }}'"
                     class="save">
-                    Save
+                    Lưu
                 </a>
 
                 <a
@@ -53,7 +53,7 @@
                     data-request-update="'{{ __SELF__ }}::post': '#post-{{ post.id }}'"
                     data-request-confirm="Are you sure?"
                     class="delete">
-                    Delete
+                    Xóa
                 </a>
 
                 <a href="javascript:;"
@@ -61,14 +61,14 @@
                     data-request-data="post: {{ post.id }}, mode: 'view'"
                     data-request-update="'{{ __SELF__ }}::post': '#post-{{ post.id }}'"
                     class="cancel">
-                    Cancel
+                    Hủy bỏ
                 </a>
             </div>
         {{ form_close() }}
 
     {% elseif mode == 'delete' %}
         <div class="text">
-            <p><em>Post has been deleted</em></p>
+            <p><em>Bài viết đã bị xóa</em></p>
         </div>
     {% else %}
         <div class="text">
@@ -84,7 +84,7 @@
                     class="quote"
                     data-request-data="post: {{ post.id }}"
                     data-quote-button>
-                    Quote
+                    Trích dẫn
                 </a>
             {% endif %}
             {% if topic.canPost and post.canEdit and mode != 'edit' and mode != 'delete' %}
@@ -93,7 +93,7 @@
                     data-request="onUpdate"
                     data-request-data="post: {{ post.id }}"
                     data-request-update="'{{ __SELF__ ~ '::post' }}': '#post-{{ post.id }}'">
-                    Edit
+                    Sửa
                 </a>
             {% endif %}
         </div>

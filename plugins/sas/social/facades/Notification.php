@@ -10,7 +10,7 @@ class Notification extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'autumn.notification';
+        return 'sas.social';
     }
 
     protected static function getFacadeInstance()

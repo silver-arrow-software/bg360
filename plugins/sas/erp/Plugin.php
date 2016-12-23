@@ -75,7 +75,7 @@ class Plugin extends PluginBase
                 ]
             ]);
         });
-        
+
         UsersController::extendFormFields(function ($widget) {
             $configFile = __DIR__ . '/config/profile_fields.yaml';
             $config = Yaml::parse(File::get($configFile));
@@ -128,7 +128,7 @@ class Plugin extends PluginBase
             }
         });
     }
-    
+
     public function register() {
         $alias = AliasLoader::getInstance();
         $alias->alias('SasCart', 'Sas\Erp\Facades\Cart');
@@ -153,6 +153,8 @@ class Plugin extends PluginBase
             'Sas\Erp\Components\ProductDisplay' => 'productDisplay',
             'Sas\Erp\Components\Places' => 'places',
             'Sas\Erp\Components\Place' => 'place',
+            'Sas\Erp\Components\MoneyAccounts' => 'moneyAccounts',
+            'Sas\Erp\Components\MoneyAccount' => 'moneyAccount',
         ];
     }
 
@@ -205,7 +207,8 @@ class Plugin extends PluginBase
     }
 
     public function viewQRCode($value, $column, $record) {
-        return $value;
+        $return_value = "<img src='data:image/png;base64, {{ barcodePNG({data: '". $value . "', type: 'QRCODE', color: [0,0,0], width: '5', height: '5'}) }}' alt='barcode' />";
+        return $return_value;
     }
 
     /**

@@ -8,8 +8,7 @@ class Cart {
 
     protected $sessionKey = 'saserp';
 
-    public function add($productId, $quantity = 1, array $attributes = [])
-    {
+    public function add($productId, $quantity = 1, array $attributes = []) {
         $cart = $this->getCart();
         $productId = (int) $productId;
         $quantity = (int) $quantity;
@@ -33,8 +32,7 @@ class Cart {
         return $this->updateCart($cart);
     }
 
-    public function remove($itemId)
-    {
+    public function remove($itemId) {
         $cart = $this->getCart();
         if ($this->hasItemId($itemId)) {
             unset($cart[$itemId]);
@@ -42,8 +40,7 @@ class Cart {
         return $this->updateCart($cart);
     }
 
-    public function update($itemId, $quantity = 1)
-    {
+    public function update($itemId, $quantity = 1) {
         $cart = $this->getCart();
         if ($this->hasItemId($itemId) && $quantity > 0) {
             $cart[$itemId]['quantity'] = $quantity;
@@ -56,8 +53,7 @@ class Cart {
         return array();
     }
 
-    public function get($itemId = NULL)
-    {
+    public function get($itemId = NULL) {
         $cart = $this->getCart();
         if (isset($cart[$itemId])) {
             return (isset($cart[$itemId])) ? $cart[$itemId] : NULL;
@@ -67,8 +63,7 @@ class Cart {
         }
     }
 
-    public function total()
-    {
+    public function total() {
         // Building the return array.
         $return = array(
             'price' => 0,
@@ -111,8 +106,7 @@ class Cart {
      * @param  boolean  $totalItems  Get all the items (when false, will return the number of rows)
      * @return int
      */
-    public function count($totalItems = true)
-    {
+    public function count($totalItems = true) {
         $cart = $this->getCart();
         if( ! $totalItems) {
             return count($cart);
@@ -144,8 +138,7 @@ class Cart {
      * @param  array   $attributes  Array of additional options, such as 'size' or 'color'
      * @return boolean
      */
-    protected function generateItemId($productId, $attributes)
-    {
+    protected function generateItemId($productId, $attributes) {
         ksort($attributes);
         return md5($productId . serialize($attributes));
     }
@@ -156,8 +149,7 @@ class Cart {
      * @param  string  $id  Unique ID of the item
      * @return boolean
      */
-    protected function hasItemId($itemId)
-    {
+    protected function hasItemId($itemId) {
         $cart = $this->getCart();
         return (!empty($cart) && in_array($itemId, array_keys($cart)) ? TRUE : FALSE);
     }

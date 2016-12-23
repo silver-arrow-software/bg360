@@ -1,0 +1,9 @@
+title = "Chi tiết sản phẩm"
+url = "/product/:slug"
+layout = "default"
+is_hidden = "0"
+
+[productDisplay]
+slug = "{{ :slug }}"
+==
+{% component "productDisplay" %}

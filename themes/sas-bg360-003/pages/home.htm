@@ -1,0 +1,129 @@
+title = "Trang chủ"
+url = "/"
+layout = "default"
+description = "Trang chủ cộng đồng Boardgame360"
+is_hidden = 0
+
+[products]
+pageNumber = "{{ :page }}"
+productsPerPage = 8
+noProductsMessage = "No products found"
+sortOrder = "created_at desc"
+==
+<?php
+use RainLab\Blog\Models\Post;
+
+function onStart(){
+}
+?>
+==
+<!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://lorempixel.com/1900/400/abstract/1/Boardgame360/');"></div>
+                <div class="carousel-caption">
+                    <h2>Nơi giao lưu và kết bạn cùng sở thích chơi boardgame</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://lorempixel.com/1900/400/abstract/2/Boardgame360/');"></div>
+                <div class="carousel-caption">
+                    <h2>Vô vàn trò chơi boardgame đủ mọi thể loại cho mọi lứa tuổi</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://lorempixel.com/1900/400/abstract/3/Boardgame360/');"></div>
+                <div class="carousel-caption">
+                    <h2>Những giải đấu boardgame đầy kịch tính nhưng không kém phần vui nhộn</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="well">
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Chào mừng đến với cộng đồng {{ this.theme.site_name }}
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-cubes"></i> Phân phối</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Sản xuất và phân phối nhiều loại boardgame trên toàn quốc.</p>
+                        <a href="#" class="btn btn-success">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-handshake-o"></i> Dịch vụ</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Hướng dẫn chơi boardgame tại địa điểm bất kỳ trong thành phố Hồ Chí Minh.</p>
+                        <a href="#" class="btn btn-success">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> Sự kiện</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Tổ chức các giải thi đấu boardgame trên toàn thành phố Hồ Chí Minh.</p>
+                        <a href="#" class="btn btn-success">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Boardgame nổi bật</h2>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                {% component "products" %}
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Call to Action Section -->
+        <div class="well">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Mọi yêu cầu, thắc mắc hay đóng góp ý kiến vui lòng gọi về số điện thoại 08 88 77 60 44<br>hoặc gửi tin nhắn qua địa chỉ mail support(at)boardgame360(dot)com.<br>Chân thành cám ơn!</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-lg btn-primary btn-block" href="#">08 88 77 60 44</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
