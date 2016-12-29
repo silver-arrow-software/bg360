@@ -8,6 +8,7 @@ class Updates161222 extends Migration {
         Schema::table('sas_erp_products', function ($table) {
             $table->decimal('price', 10, 0)->default(0);
             $table->integer('quantity')->unsigned()->default(0);
+            $table->string('hash_id');
         });
 
         Schema::create('sas_erp_users_places', function($table) {
@@ -22,7 +23,7 @@ class Updates161222 extends Migration {
 
     public function down() {
         Schema::table('sas_erp_products', function ($table) {
-            $table->dropColumn(['price', 'quantity']);
+            $table->dropColumn(['price', 'quantity', 'hash_id']);
         });
 
         Schema::dropIfExists('sas_erp_users_places');

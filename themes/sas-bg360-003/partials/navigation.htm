@@ -45,10 +45,8 @@
                     {% else %}
                     <li class="{% if this.page.id == 'account' %}active{% endif %}"><a href="{{ 'account'|page }}">Đăng nhập</a></li>
                     {% endif %}
-                    <li>
-                        <a href="/{{ cartPage }}">
-									<i class="fa fa-shopping-cart"></i> <span class="shopping-cart-qty badge">{{ count }}</span>
-						</a>
+                    <li id="homeTopCart">
+                        {% partial 'shoppingcart' %}
                     </li>
                 </ul>
             </div>

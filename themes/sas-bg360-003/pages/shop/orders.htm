@@ -4,10 +4,19 @@ layout = "default"
 is_hidden = 0
 
 [orders]
-noOrdersMessage = "No orders found"
+noOrdersMessage = "Hiện tại không có đơn hàng."
 
 [session]
 security = "user"
 redirect = "home"
 ==
-{% component 'orders' %}{% component 'session' %}
+<div class="container">
+    <div class="well">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Đơn hàng của bạn</h1>
+            </div>
+        </div>
+        {% component 'orders' %}{% component 'session' %}
+    </div>
+</div>

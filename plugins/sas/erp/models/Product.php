@@ -16,8 +16,7 @@ use Sas\Erp\Models\Tag;
 /**
  * Model
  */
-class Product extends Model
-{
+class Product extends Model {
     use \October\Rain\Database\Traits\Validation;
 
     private $tags = [];
@@ -25,8 +24,7 @@ class Product extends Model
     /*
      * Validation
      */
-    public $rules = [
-    ];
+    public $rules = [];
 
 
     /**
@@ -57,7 +55,7 @@ class Product extends Model
     public $attachMany = [
         'images' => ['System\Models\File', 'order' => 'sort_order'],
     ];
-    
+
     /**
      * The attributes on which the product list can be ordered
      * @var array
@@ -72,8 +70,7 @@ class Product extends Model
         'random' => 'Random'
     );
 
-    public function canEdit(User $user)
-    {
+    public function canEdit(User $user) {
         return ($this->user_id == $user->id) || $user->hasAnyAccess(['sas.erp.edit_product']);
     }
 
@@ -130,16 +127,16 @@ class Product extends Model
          */
         extract(array_merge([
             'page'       => 1,
-            'perPage'    => 30,
+            'perPage'    => 8,
             'sort'       => 'created_at',
-            'categories' => null,
-            'category'   => null,
+            //'categories' => null,
+            //'category'   => null,
             'search'     => '',
             'published'  => true,
             'promote'    => false,
         ], $options));
 
-        $searchableFields = ['title', 'slug', 'description'];
+        $searchableFields = ['title', 'description'];
 
         if ($published) {
             $query->isPublished();
@@ -182,24 +179,24 @@ class Product extends Model
         /*
          * Categories
          */
-        if ($categories !== null) {
-            if (!is_array($categories)) $categories = [$categories];
-            $query->whereHas('categories', function($q) use ($categories) {
-                $q->whereIn('id', $categories);
-            });
-        }
+        // if ($categories !== null) {
+        //     if (!is_array($categories)) $categories = [$categories];
+        //     $query->whereHas('categories', function($q) use ($categories) {
+        //         $q->whereIn('id', $categories);
+        //     });
+        // }
 
         /*
          * Category, including children
          */
-        if ($category !== null) {
-            $category = Category::find($category);
-
-            $categories = $category->getAllChildrenAndSelf()->lists('id');
-            $query->whereHas('categories', function($q) use ($categories) {
-                $q->whereIn('id', $categories);
-            });
-        }
+        // if ($category !== null) {
+        //     $category = Category::find($category);
+        //
+        //     $categories = $category->getAllChildrenAndSelf()->lists('id');
+        //     $query->whereHas('categories', function($q) use ($categories) {
+        //         $q->whereIn('id', $categories);
+        //     });
+        // }
 
         return $query->paginate($perPage, $page);
     }
@@ -217,4 +214,9 @@ class Product extends Model
 
         return $this->url = $controller->pageUrl($pageName, $params);
     }
+
+    public function getSquareThumb($size, $image) {
+        return $image->getThumb($size, $size, ['mode' => 'crop']);
+    }
+
 }

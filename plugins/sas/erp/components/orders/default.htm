@@ -1,10 +1,18 @@
 {% if __SELF__.orders %}
-    <hr>
-        <h3>Orders</h3>
-        <ul class="order-list">
-            {% partial __SELF__ ~ "::items"
-            orders = __SELF__.orders
-            %}
-        </ul>
-    <hr>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Mã số đơn hàng</th>
+                    <th class="text-center">Ngày thực hiện</th>
+                    <th class="text-center">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% partial __SELF__ ~ "::items" orders = __SELF__.orders %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endif %}

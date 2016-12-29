@@ -47,7 +47,7 @@ class ProductDisplay extends ComponentBase {
     public function onRun() {
         $this->addCss('assets/css/jquery.bxslider.css');
         $this->addJs('assets/js/jquery.bxslider.js');
-		
+
         $this->prepareVars();
     }
 
@@ -87,11 +87,16 @@ class ProductDisplay extends ComponentBase {
             if (isset($params['attributes']) && is_array($params['attributes']) && !empty($params['attributes'])) {
                 $attributes = $params['attributes'];
             }
-            $cart = OctoCart::add($productId, $quantity, $attributes);
+            $cart = SasCart::add($productId, $quantity, $attributes);
+            $settings = Settings::instance();
+            $this->cartPage = $this->page['cartPage'] = $settings->cartPage;
+            $this->page['count'] = SasCart::count();
+
+            Flash::success('Sản phẩm đã được thêm vào giỏ hàng.');
         }
         else {
-            Log::warning('OctoCart: ProductDisplay - onAddToCart().');
+            //Log::warning('sasERP: ProductDisplay - onAddToCart().');
+            Flash::error('Đã có lỗi xảy ra, vui lòng thử lại sau.');
         }
     }
-
 }

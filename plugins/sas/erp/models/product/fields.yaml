@@ -22,6 +22,17 @@ fields:
         label: 'sas.erp::lang.common.owner'
         type: relation
         required: true
+        span: left
+    price:
+        label: sas.erp::lang.common.price
+        type: owl-money
+        suffix: ' đ'
+        thousand: '.'
+        decimal: ','
+        placeholder: '1.000 đ'
+        precision: 0
+        allowNegative: false
+        span: right
 tabs:
     fields:
         images:

@@ -1,7 +1,7 @@
 {% set order = __SELF__.order %}
 {% set items = __SELF__.items %}
-<div class="spacer"></div>
 <div class="container">
+    <div class="well">
     <div class="row">
         <div class="col-md-10 col-md-offset-1"><h1>Order №{{ order.id }}</h1></div>
     </div>
@@ -23,13 +23,12 @@
                         {% set price = item.price %}
                         {% set attributes = item.attributes %}
                         <tr>
-                            <td style="width: 166px;">
+                            <td style="width: 130px;">
                                 {% if product.images.count %}
                                     {% for image in product.images|slice(0, 1) %}
                                         <img data-src="{{ image.filename }}"
-                                             src="{{ image.path }}"
+                                             src="{{ product.getSquareThumb(100, image) }}"
                                              class="img-responsive"
-                                             style="max-width: 150px;"
                                              alt="{{ product.title }}" />
                                     {% endfor %}
                                 {% else %}
@@ -44,7 +43,7 @@
                                     {% endfor %}
                                 {% endif %}
                             </td>
-                            <td>{{ price|price(2, ',', '') }}</td>
+                            <td>{{ price|number_format(0, '.', ',') }}</td>
                             <td>{{ quantity }}</td>
                         </tr>
                     {% endfor %}
@@ -52,8 +51,8 @@
                     <tr>
                         <td colspan="5">
                             <p class="text-right">
-                                <strong>Total price: {{ order.total|price(2, ',', '') }}</strong><br>
-                                Total VAT: {{ order.vat|price(2, ',', '') }}<br>
+                                <strong>Total price: {{ order.total|number_format(0, '.', ',') }}</strong><br>
+                                Total VAT: {{ order.vat|number_format(0, '.', ',') }}<br>
                             </p>
                         </td>
                     </tr>
@@ -86,4 +85,5 @@
             </div>
         </div>
     {% endif %}
+    </div>
 </div>

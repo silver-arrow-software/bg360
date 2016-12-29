@@ -7,10 +7,9 @@ use Cms\Classes\ComponentBase;
 use Sas\Erp\Models\Product;
 use Sas\Erp\Models\Settings;
 use Sas\Erp\Models\Category;
+use Flash;
 
-class Products extends ComponentBase
-{
-
+class Products extends ComponentBase {
     /**
      * A collection of products to display
      * @var Collection
@@ -141,6 +140,7 @@ class Products extends ComponentBase
         $this->productDisplayPage = $this->page['productDisplayPage'] = $settings->productDisplayPage;
         //$this->categoryPage = $this->page['categoryPage'] = $settings->categoryPage;
         $this->cartPage = $this->page['cartPage'] = $settings->redirect_user_after_add_to_cart;
+        $this->page['currency'] = $settings->currency;
     }
 
     protected function listProducts() {
@@ -192,10 +192,15 @@ class Products extends ComponentBase
                 $attributes = $params['attributes'];
             }
             $cart = SasCart::add($productId, $quantity, $attributes);
+            $settings = Settings::instance();
+            $this->cartPage = $this->page['cartPage'] = $settings->cartPage;
+            $this->page['count'] = SasCart::count();
+
+            Flash::success('Sản phẩm đã được thêm vào giỏ hàng.');
         }
         else {
-            Log::warning('SasCart: Products - onAddToCart().');
+            //Log::warning('SasCart: Products - onAddToCart().');
+            Flash::error('Đã có lỗi xảy ra, vui lòng thử lại sau.');
         }
     }
-
 }

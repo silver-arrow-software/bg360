@@ -1,21 +1,24 @@
-<div class="container">
     <div class="row">
         <form action="" data-request="onCheckout" data-request-redirect="/{{ successPage }}">
             <div class="col-md-6">
-                <h2>Billing Address</h2>
-                <div class="form-group">
-                    <input type="text" required="true" name="billing[name]" class="form-control" placeholder="Name">
+                <h2>Thông tin thanh toán</h2>
+                <div class="form-group label-floating">
+                    <label for="billing[name]" class="control-label">Họ tên</label>
+                    <input type="text" required="true" name="billing[name]" class="form-control">
                 </div>
-                <div class="form-group">
-                    <input type="text" required="true" name="billing[email]" class="form-control" placeholder="Email">
+                <div class="form-group label-floating">
+                    <label for="billing[email]" class="control-label">Email</label>
+                    <input type="text" required="true" name="billing[email]" class="form-control">
                 </div>
-                <div class="form-group">
-                    <input type="text" name="billing[phone]" class="form-control" placeholder="Phone">
+                <div class="form-group label-floating">
+                    <label for="billing[phone]" class="control-label">Số điện thoại</label>
+                    <input type="text" name="billing[phone]" class="form-control">
                 </div>
-                <div class="form-group">
-                    <input type="text" name="billing[address]" class="form-control" placeholder="Address">
+                <div class="form-group label-floating">
+                    <label for="billing[address]" class="control-label">Địa chỉ</label>
+                    <input type="text" name="billing[address]" class="form-control">
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <input type="text" name="billing[town]" class="form-control" placeholder="Town">
                 </div>
                 <div class="form-group">
@@ -23,24 +26,28 @@
                 </div>
                 <div class="form-group">
                     <input type="text" name="billing[postcode]" class="form-control" placeholder="Post Code">
-                </div>
+                </div>-->
             </div>
 
             <div class="col-md-6">
-                <h2>Shipping Address</h2>
-                <div class="form-group">
-                    <input type="text" name="shipping[name]" class="form-control" placeholder="Name">
+                <h2>Thông tin nhận hàng</h2>
+                <div class="form-group label-floating">
+                    <label for="shipping[name]" class="control-label">Họ tên</label>
+                    <input type="text" name="shipping[name]" class="form-control">
                 </div>
-                <div class="form-group">
-                    <input type="text" name="shipping[email]" class="form-control" placeholder="Email">
+                <div class="form-group label-floating">
+                    <label for="shipping[email]" class="control-label">Email</label>
+                    <input type="text" name="shipping[email]" class="form-control">
                 </div>
-                <div class="form-group">
-                    <input type="text" name="shipping[phone]" class="form-control" placeholder="Phone">
+                <div class="form-group label-floating">
+                    <label for="shipping[phone]" class="control-label">Số điện thoại</label>
+                    <input type="text" name="shipping[phone]" class="form-control">
                 </div>
-                <div class="form-group">
-                    <input type="text" name="shipping[address]" class="form-control" placeholder="Address">
+                <div class="form-group label-floating">
+                    <label for="shipping[address]" class="control-label">Địa chỉ</label>
+                    <input type="text" name="shipping[address]" class="form-control">
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <input type="text" name="shipping[town]" class="form-control" placeholder="Town">
                 </div>
                 <div class="form-group">
@@ -48,17 +55,16 @@
                 </div>
                 <div class="form-group">
                     <input type="text" name="shipping[postcode]" class="form-control" placeholder="Post Code">
-                </div>
+                </div>-->
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" id="copy_address"> Same as billing address
+                        <input type="checkbox" id="copy_address"> Giống thông tin thanh toán
                     </label>
                 </div>
 
                 <div class="text-right">
-                    <button class="btn btn-success" type="submit">Submit order</button>
+                    <button class="btn btn-success btn-raised" type="submit">Tạo đơn hàng</button>
                 </div>
             </div>
         </form>
     </div>
-</div>

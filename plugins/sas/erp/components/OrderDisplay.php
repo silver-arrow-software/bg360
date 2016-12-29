@@ -30,16 +30,14 @@ class OrderDisplay extends ComponentBase
      */
     public $categoryPage;
 
-    public function componentDetails()
-    {
+    public function componentDetails() {
         return [
             'name'        => 'sas.erp::lang.order.name',
             'description' => 'sas.erp::lang.order.description'
         ];
     }
 
-    public function defineProperties()
-    {
+    public function defineProperties() {
         return [
             'id' => [
                 'title'       => 'sas.erp::lang.order.id',
@@ -50,13 +48,11 @@ class OrderDisplay extends ComponentBase
         ];
     }
 
-    public function onRun()
-    {
+    public function onRun() {
         $this->prepareVars();
     }
 
-    protected function prepareVars()
-    {
+    protected function prepareVars() {
         $this->order = $this->page['order'] = $this->loadOrder();
 
         /*
@@ -64,13 +60,12 @@ class OrderDisplay extends ComponentBase
          */
         $settings = Settings::instance();
         $this->productDisplayPage = $this->page['productDisplayPage'] = $settings->productDisplayPage;
-        $this->categoryPage = $this->page['categoryPage'] = $settings->categoryPage;
+        //$this->categoryPage = $this->page['categoryPage'] = $settings->categoryPage;
 
         $this->items = $this->page['items'] = $this->listItems();
     }
 
-    protected function loadOrder()
-    {
+    protected function loadOrder() {
         $id = $this->property('id');
         $order = Order::find($id);
         $order->billing_info = json_decode($order->billing_info, true);
@@ -79,19 +74,17 @@ class OrderDisplay extends ComponentBase
         return $order;
     }
 
-    protected function listItems()
-    {
+    protected function listItems() {
         $items = $this->order->items;
         foreach ($items as $itemId => $item) {
             $product = Product::find($item['product']);
             $product->setUrl($this->productDisplayPage, $this->controller);
-            $product->categories->each(function ($category) {
-                $category->setUrl($this->categoryPage, $this->controller);
-            });
+            // $product->categories->each(function ($category) {
+            //     $category->setUrl($this->categoryPage, $this->controller);
+            // });
             $items[$itemId]['product'] = $product;
         }
         return $items;
     }
-
 
 }

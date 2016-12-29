@@ -10,21 +10,18 @@ use Sas\Erp\Models\Product;
 use Backend\Models\BrandSettings;
 use Sas\Erp\Models\Settings;
 
-class Checkout extends ComponentBase
-{
+class Checkout extends ComponentBase {
 
     public $successPage;
 
-    public function componentDetails()
-    {
+    public function componentDetails() {
         return [
             'name'        => 'sas.erp::lang.checkout.name',
             'description' => 'sas.erp::lang.checkout.description'
         ];
     }
 
-    public function defineProperties()
-    {
+    public function defineProperties() {
         return [];
     }
 
@@ -32,17 +29,12 @@ class Checkout extends ComponentBase
         $this->prepareVars();
     }
 
-    protected function prepareVars()
-    {
-        /*
-         * Page links
-         */
+    protected function prepareVars() {
         $settings = Settings::instance();
         $this->successPage = $this->page['successPage'] = $settings->successPage;
     }
 
-    public function onCheckout()
-    {
+    public function onCheckout() {
         $input    = Input::all();
         $billing  = array();
         $shipping = array();
@@ -61,9 +53,9 @@ class Checkout extends ComponentBase
             foreach ($items as $itemId => $item) {
                 $product = Product::find($item['product']);
                 $product->setUrl($this->productDisplayPage, $this->controller);
-                $product->categories->each(function($category) {
-                    $category->setUrl($this->categoryPage, $this->controller);
-                });
+                // $product->categories->each(function($category) {
+                //     $category->setUrl($this->categoryPage, $this->controller);
+                // });
                 $products[$itemId]['product'] = $product;
             }
         }
@@ -128,7 +120,5 @@ class Checkout extends ComponentBase
         //    return Redirect::to('/' . $this->successPage);
         //else
         //    return Redirect::to('/');
-
     }
-
 }

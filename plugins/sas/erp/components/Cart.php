@@ -8,8 +8,7 @@ use Cms\Classes\ComponentBase;
 use Sas\Erp\Models\Product;
 use Sas\Erp\Models\Settings;
 
-class Cart extends ComponentBase
-{
+class Cart extends ComponentBase {
 
     /**
      * An array of products
@@ -59,16 +58,14 @@ class Cart extends ComponentBase
      */
     public $count;
 
-    public function componentDetails()
-    {
+    public function componentDetails() {
         return [
             'name'        => 'sas.erp::lang.cart.name',
             'description' => 'sas.erp::lang.cart.description'
         ];
     }
 
-    public function defineProperties()
-    {
+    public function defineProperties() {
         return [
             'noProductsMessage' => [
                 'title'        => 'sas.erp::lang.cart.no_products',
@@ -80,15 +77,16 @@ class Cart extends ComponentBase
         ];
     }
 
-    public function onRender()
-    {
+    public function onRun() {
         $this->prepareVars();
+    }
+
+    public function onRender() {
+        //$this->prepareVars();
         $this->items = $this->page['items'] = $this->listItems();
     }
 
-    protected function prepareVars()
-    {
-
+    protected function prepareVars() {
         $this->noPostsMessage = $this->page['noProductsMessage'] = $this->property('noProductsMessage');
 
         $this->totalPrice = $this->page['totalPrice'] = SasCart::total();
@@ -101,11 +99,10 @@ class Cart extends ComponentBase
         $this->cartPage = $this->page['cartPage'] = $settings->cartPage;
         $this->checkoutPage = $this->page['checkoutPage'] = $settings->checkoutPage;
         $this->productDisplayPage = $this->page['productDisplayPage'] = $settings->productDisplayPage;
-        $this->categoryPage = $this->page['categoryPage'] = $settings->categoryPage;
+        //$this->categoryPage = $this->page['categoryPage'] = $settings->categoryPage;
     }
 
-    protected function listItems()
-    {
+    protected function listItems() {
         $items = SasCart::get();
         if (!is_null($items)) {
             foreach ($items as $itemId => $item) {
@@ -118,7 +115,6 @@ class Cart extends ComponentBase
     }
 
     public function onUpdateQuantity() {
-
         $params = Input::all();
         if (isset($params['itemId']) && isset($params['quantity']) && is_numeric($params['quantity'])) {
             $itemId = $params['itemId'];

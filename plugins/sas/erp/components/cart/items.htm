@@ -4,10 +4,10 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Image</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th>Hình minh họa</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>SL</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -17,17 +17,16 @@
                     {% set price = item.price %}
                     {% set attributes = item.attributes %}
                         <tr>
-                            <td style="width: 166px;">
+                            <td style="width: 130px;">
                                 {% if product.images.count %}
                                     {% for image in product.images|slice(0, 1) %}
                                         <img data-src="{{ image.filename }}"
-                                             src="{{ image.path }}"
+                                             src="{{ product.getSquareThumb(100, image) }}"
                                              class="img-responsive"
-                                             style="max-width: 150px;"
                                              alt="{{ product.title }}" />
                                     {% endfor %}
                                 {% else %}
-                                    <img src="http://placehold.it/150x150" class="img-responsive" alt="{{ product.title }}">
+                                    <img src="http://placehold.it/100x100" class="img-responsive" alt="{{ product.title }}">
                                 {% endif %}
                             </td>
                             <td>
@@ -38,7 +37,7 @@
                                     {% endfor %}
                                 {% endif %}
                             </td>
-                            <td></td>
+                            <td>{{ product.price|number_format(0,',','.') }}</td>
                             <td>
                                 <input
                                         type="text"
@@ -67,8 +66,8 @@
                 <tr>
                     <td colspan="5">
                         <p class="text-right">
-                            <strong>Total price: {{ totalPrice.total }}</strong><br>
-                            Total VAT: {{ totalPrice.vat }}<br>
+                            <strong>Tổng tiền: {{ totalPrice.total|number_format(0,',','.') }}</strong><br>
+                            VAT: {{ totalPrice.vat|number_format(0,',','.') }}<br>
                         </p>
                     </td>
                 </tr>
@@ -80,11 +79,11 @@
                                     class="btn btn-danger"
                                     data-request="onClear"
                                     data-request-success="location.reload()"
-                            ><i class="fa fa-trash"></i> Clear</button>
+                            ><i class="fa fa-trash"></i> Xóa trống giỏ hàng</button>
                             <a
                                     href="/{{ checkoutPage }}"
-                                    class="btn btn-primary"
-                            >Checkout</a>
+                                    class="btn btn-primary btn-raised"
+                            >Thanh toán</a>
                         </p>
                     </td>
                 </tr>

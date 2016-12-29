@@ -53,7 +53,7 @@
                                     </div>
                                 {% endfor %}
                                 <p>&nbsp;</p>
-                                
+
                                 <p><button type="submit" class="btn btn-primary btn-block"><i class="fa fa-shopping-cart"></i> Add to cart</button></p>
                                 {{ form_close() }}
                             </div>
@@ -65,25 +65,6 @@
             <h3 class="text-center">{{ noProductsMessage }}</h3>
         {% endfor %}
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            {% if products.lastPage > 1 %}
-                <ul class="pagination">
-                    {% if products.currentPage > 1 %}
-                        <li><a href="{{ this.page.baseFileName|page({ (pageParam): (products.currentPage-1) }) }}">&larr; Prev</a></li>
-                    {% endif %}
 
-                    {% for page in 1..products.lastPage %}
-                        <li class="{{ products.currentPage == page ? 'active' : null }}">
-                            <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-                        </li>
-                    {% endfor %}
-
-                    {% if products.lastPage > products.currentPage %}
-                        <li><a href="{{ this.page.baseFileName|page({ (pageParam): (products.currentPage+1) }) }}">Next &rarr;</a></li>
-                    {% endif %}
-                </ul>
-            {% endif %}
-        </div>
-    </div>
+    {{ products.render|raw }}
 </div>

@@ -82,7 +82,8 @@ class Cart {
             }
         }
 
-        $return['price'] = number_format($total_price, 2);
+        //$return['price'] = number_format($total_price, 2);
+        $return['price'] = $total_price;
 
         // Checking whether to apply the VAT or not.
         $settings = Settings::instance();
@@ -92,11 +93,13 @@ class Cart {
             if($vat_value) {
                 $vat_value = ($total_price * $vat_value) / 100;
                 $total_price += $vat_value;
-                $return['vat'] = number_format($vat_value, 2);
+                //$return['vat'] = number_format($vat_value, 2);
+                $return['vat'] = $vat_value;
             }
         }
 
-        $return['total'] = number_format($total_price, 2);
+        //$return['total'] = number_format($total_price, 2);
+        $return['total'] = $total_price;
         return (object) $return;
     }
 
