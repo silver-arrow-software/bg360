@@ -1,61 +1,83 @@
 {% if isGuest %}
     <p>Vui lòng đăng nhập để xem thông tin này. Chân thành cám ơn!</p>
 {% else %}
-<div id="account-details">
-    <h3 class="text-center">{{ account.name }}</h3>
-    <p class=""><a href="/place/{{ owner_id }}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="{{ 'Go back'|_ }}"><i class="fa fa-long-arrow-left"></i></a></p>
+    {% if isNew %}
+    <div id="money-account-create">
+        <h3 class="text-center">{{ 'Create a New Account'|_ }}</h3>
+        <form method="post" data-request="onAddAccount" data-request-success="location.reload()" data-request-flash>
+            <input type="hidden" name="place_code" value="{{ owner_id }}"/>
+            <div class="form-group">
+                <label for="account_name" class="col-md-2 control-label">{{ 'Account Name'|_ }}</label>
+                <div class="col-md-10 input-group">
+                    <input type="text" class="form-control" name="account_name" id="account_name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="account_description" class="col-md-2 control-label">{{ 'Description'|_ }}</label>
+                <div class="col-md-10 input-group">
+                    <textarea class="form-control" id="account_description" name="account_description"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-raised">{{ 'Submit'|_ }}</button>
+        </form>
+    </div>
+    {% else %}
+    <div id="money-account-details">
+        <h3 class="text-center">{{ account.name }}</h3>
+        <p class=""><a href="/place/{{ owner_id }}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="{{ 'Go back'|_ }}"><i class="fa fa-long-arrow-left"></i></a></p>
 
-    <h4>{{ 'Account Balance'|_ }}: <b>{{ account.balance|number_format(0, ',', '.') }} {{ account.currency }}</b></h4>
-    <h4>{{ 'Last Updated'|_ }}: {{ account.updated_at|date('d/m/Y') }}</h4>
+        <h4>{{ 'Account Balance'|_ }}: <b>{{ account.balance|number_format(0, ',', '.') }} {{ account.currency }}</b></h4>
+        <h4>{{ 'Last Updated'|_ }}: {{ account.updated_at|date('d/m/Y') }}</h4>
 
-    <p></p>
-    <p>{{ account.description|raw }}</p>
-    <hr>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h4 class="panel-title">{{ 'Account Transactions'|_ }}</h4>
+        <p></p>
+        <p>{{ account.description|raw }}</p>
+        <hr>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{ 'Account Transactions'|_ }}</h4>
+            </div>
+            <div class="panel-body" id="transaction-list">
+                {% partial __SELF__ ~ '::transaction_list' %}
+            </div>
         </div>
-        <div class="panel-body" id="transaction-list">
-            {% partial __SELF__ ~ '::transaction_list' %}
+        <div class="panel panel-primary" id="transaction-list">
+            <div class="panel-body">
+                <h4>{{ 'Add Transaction'|_ }}</h4>
+                <form method="post" data-request="onAddTransaction" data-request-update="'{{ __SELF__ }}::transaction_list': '#transaction-list'" data-request-flash>
+                    <input type="hidden" name="account_id" value="{{ account.id }}"/>
+                    <input type="hidden" name="place_code" value="{{ owner_id }}"/>
+                    <div class="form-group">
+                        <label for="modified_at" class="col-md-2 control-label">{{ 'Created At'|_ }}</label>
+                        <div class="col-md-10 input-group">
+                            <input type="date" class="datepicker form-control" name="modified_at" id="modified_at" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount" class="col-md-2 control-label">{{ 'Amount'|_ }}</label>
+                        <div class="input-group col-md-10">
+                            <input type="text" class="form-control" name="amount" id="amount" />
+                            <span class="input-group-addon">{{ account.currency }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-md-2 control-label">{{ 'Description'|_ }}</label>
+                        <div class="col-md-10 input-group">
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-raised">{{ 'Submit'|_ }}</button>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="panel panel-primary" id="transaction-list">
-        <div class="panel-body">
-            <h4>{{ 'Add Transaction'|_ }}</h4>
-            <form method="post" data-request="onAddTransaction" data-request-update="'{{ __SELF__ }}::transaction_list': '#transaction-list'" data-request-flash>
-                <input type="hidden" name="account_id" value="{{ account.id }}"/>
-                <input type="hidden" name="place_code" value="{{ owner_id }}"/>
-                <div class="form-group">
-                    <label for="modified_at" class="col-md-2 control-label">{{ 'Created At'|_ }}</label>
-                    <div class="col-md-10 input-group">
-                        <input type="date" class="datepicker form-control" name="modified_at" id="modified_at" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="amount" class="col-md-2 control-label">{{ 'Amount'|_ }}</label>
-                    <div class="input-group col-md-10">
-                        <input type="text" class="form-control" name="amount" id="amount" />
-                        <span class="input-group-addon">{{ account.currency }}</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="description" class="col-md-2 control-label">{{ 'Description'|_ }}</label>
-                    <div class="col-md-10 input-group">
-                        <textarea class="form-control" id="description" name="description"></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-raised">{{ 'Submit'|_ }}</button>
-            </form>
-        </div>
-    </div>
-</div>
-{% put scripts %}
-<script>
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 10 // Creates a dropdown of 12 years to control year
-    });
-    $('#amount').mask('000.000.000.000.000', {reverse: true});
-</script>
-{% endput %}
+    {% put scripts %}
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 10 // Creates a dropdown of 12 years to control year
+        });
+        $('#amount').mask('000.000.000.000.000', {reverse: true});
+    </script>
+    {% endput %}
+    {% endif %}
 {% endif %}

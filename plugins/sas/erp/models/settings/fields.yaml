@@ -14,9 +14,16 @@ tabs:
             tab: sas.erp::lang.settings.tab_main
             label: sas.erp::lang.settings.currency
             type: text
-            default: USD
+            default: đ
             comment: sas.erp::lang.settings.currency_description
             span: left
+        currency_format:
+            tab: sas.erp::lang.settings.tab_main
+            label: sas.erp::lang.settings.currency_format
+            type: text
+            default: sas.erp::lang.settings.currency_format_default
+            comment: sas.erp::lang.settings.currency_format_description
+            span: right
 
         section_vat:
             tab: sas.erp::lang.settings.tab_main
@@ -80,7 +87,6 @@ tabs:
             comment: sas.erp::lang.settings.order_display_page_description
             default: order
             span: right
-
 
         section_redirect:
             tab: sas.erp::lang.settings.tab_main

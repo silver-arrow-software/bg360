@@ -16,7 +16,7 @@ class Account extends Model
     /**
      * @var array Guarded fields
      */
-    protected $guarded = ['*'];
+    //protected $guarded = ['*'];
 
     /**
      * @var array Hidden fields from array/json access
@@ -26,7 +26,7 @@ class Account extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'description'];
 
     /**
      * @var array Relations

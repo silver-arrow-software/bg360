@@ -118,6 +118,9 @@
         'admin_emails' => 'Administrator emails',
         'admin_emails_description' => 'After each placed order, an email with the order details will be sent to all the addresses from the list above. Please add one email address per line.',
         'send_user_message' => 'Send an email to the customer after an order is placed',
+        'currency_format' => 'Currency Format',
+        'currency_format_description' => 'Decimal, Decimal Symbol, Thousand Symbol',
+        'currency_format_default' => '0, \',\', \'.\'',
     ],
     'company' => [
         'name' => 'Name',

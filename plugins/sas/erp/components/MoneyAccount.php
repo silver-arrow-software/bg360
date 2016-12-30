@@ -6,6 +6,7 @@ use Sas\Erp\Models\AccountTransaction;
 use Cms\Classes\Page;
 use Flash;
 use Auth;
+use Debugbar;
 
 class MoneyAccount extends ComponentBase {
     public function componentDetails() {
@@ -38,37 +39,65 @@ class MoneyAccount extends ComponentBase {
         $placeid = $this->property('slug');
         $place = \Sas\Erp\Models\Place::where('code_id', $placeid)->first();
         //$this->page['accounts'] = $place->accounts;
-        $this->page['account'] = $place->accounts->first();
-        $accid = $this->property('id');
-        if ($accid) {
-            foreach ($place->accounts as $account) {
-                if ($account->id == $accid) {
-                    $this->page['account'] = $account;
-                    break;
+        if ($place->accounts->count() > 0) {
+            $this->page['account'] = $place->accounts->first();
+            $accid = $this->property('id');
+            if ($accid) {
+                foreach ($place->accounts as $account) {
+                    if ($account->id == $accid) {
+                        $this->page['account'] = $account;
+                        break;
+                    }
                 }
             }
+            $this->page['isNew'] = false;
+        } else {
+            //tạo mới money account cho place
+            $this->page['isNew'] = true;
         }
         $this->page['isGuest'] = true;
         if ((Auth::check()) && (Auth::getUser()->company_id == $place->id)) $this->page['isGuest'] = false;
     }
 
     public function onAddTransaction() {
-        $data = post();
         $creator = Auth::getUser();
+        $data = post();
+        $amount = str_replace(".", "", $data['amount']);
 
         $account = Account::where('id', $data['account_id'])->first();
-        $account->balance = $account->balance + $data['amount'];
         $new_transaction = new AccountTransaction([
             'user_id' => $creator->id,
             'description' => $data['description'],
             'account_id' => $data['account_id'],
-            'amount' => $data['amount'],
+            'amount' => $amount,
             //'created_at' => $data['modified_at_submit']
         ]);
+        $account->transactions()->add($new_transaction);
+
         //$account->transactions()->save($new_transaction);
+        $account->balance = $account->balance + $amount;
         $account->save();
-        $new_transaction->save();
+
+        if (strlen($data['modified_at_submit']) > 0) {
+            $new_transaction->created_at = $data['modified_at_submit'];
+            $new_transaction->save();
+        }
+
         $this->page['account'] = $account;
+
+        Flash::success('Thông tin đã được lưu trữ thành công.');
+    }
+
+    public function onAddAccount() {
+        $data = post();
+        $new_account = new Account([
+            'name' => $data['account_name'],
+            'description' => $data['account_description'],
+        ]);
+        $owner = \Sas\Erp\Models\Place::where('code_id', $data['place_code'])->first();
+        $new_account = $owner->accounts()->add($new_account);
+        $this->page['account'] = $new_account;
+        $this->page['isNew'] = false;
 
         Flash::success('Thông tin đã được lưu trữ thành công.');
     }
