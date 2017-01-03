@@ -22,16 +22,10 @@
         </form>
     </div>
     {% else %}
-    <div id="money-account-details">
-        <h3 class="text-center">{{ account.name }}</h3>
-        <p class=""><a href="/place/{{ owner_id }}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="{{ 'Go back'|_ }}"><i class="fa fa-long-arrow-left"></i></a></p>
-
-        <h4>{{ 'Account Balance'|_ }}: <b>{{ account.balance|number_format(0, ',', '.') }} {{ account.currency }}</b></h4>
-        <h4>{{ 'Last Updated'|_ }}: {{ account.updated_at|date('d/m/Y') }}</h4>
-
-        <p></p>
-        <p>{{ account.description|raw }}</p>
-        <hr>
+    <div class="money-account-details">
+        <div id="money-account-details">
+            {% partial __SELF__ ~ '::account_info' %}
+        </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h4 class="panel-title">{{ 'Account Transactions'|_ }}</h4>
@@ -43,7 +37,7 @@
         <div class="panel panel-primary" id="transaction-list">
             <div class="panel-body">
                 <h4>{{ 'Add Transaction'|_ }}</h4>
-                <form method="post" data-request="onAddTransaction" data-request-update="'{{ __SELF__ }}::transaction_list': '#transaction-list'" data-request-flash>
+                <form method="post" data-request="onAddTransaction" data-request-update="'{{ __SELF__ }}::transaction_list': '#transaction-list', '{{ __SELF__ }}::account_info': '#money-account-details'" data-request-flash>
                     <input type="hidden" name="account_id" value="{{ account.id }}"/>
                     <input type="hidden" name="place_code" value="{{ owner_id }}"/>
                     <div class="form-group">
@@ -76,7 +70,7 @@
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 10 // Creates a dropdown of 12 years to control year
         });
-        $('#amount').mask('000.000.000.000.000', {reverse: true});
+        $('#amount').maskMoney({allowNegative: true, thousands: '.', decimal: ',', precision: 0});
     </script>
     {% endput %}
     {% endif %}

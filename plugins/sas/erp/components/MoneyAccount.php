@@ -30,11 +30,18 @@ class MoneyAccount extends ComponentBase {
                 'default' => '{{ :accId }}',
                 'type' => 'string',
             ],
+            'transactions_limit'       => [
+                'title' => 'sas.erp::lang.account.transactions_limit',
+                'description' => 'sas.erp::lang.account.transactions_limit_desc',
+                'default' => '30',
+                'type' => 'string',
+            ],
         ];
     }
 
     public function onRun() {
         $this->page['owner_id'] = $this->property('slug');
+        $this->page['transactions_limit'] = $this->property('transactions_limit');
 
         $placeid = $this->property('slug');
         $place = \Sas\Erp\Models\Place::where('code_id', $placeid)->first();

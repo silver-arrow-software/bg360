@@ -33,7 +33,11 @@ class Account extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'transactions' => ['Sas\Erp\Models\AccountTransaction'],
+        'transactions' => [
+            'Sas\Erp\Models\AccountTransaction',
+            'order' => 'created_at desc',
+            'delete' => true,
+        ],
     ];
     public $belongsTo = [];
     public $belongsToMany = [];

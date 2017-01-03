@@ -8,7 +8,8 @@
         </tr>
     </thead>
     <tbody>
-        {% for transaction in account.transactions %}
+        {% if (transactions_limit != '0') %}
+        {% for transaction in account.transactions|slice(0, transactions_limit) %}
         <tr>
             <td>{{ transaction.created_at|date('d/m/Y') }}</td>
             <td>{{ transaction.user.name }}</td>
@@ -17,6 +18,7 @@
         </tr>
         {% else %}
         <tr><td colspan="4">{{ 'No transactions yet'|_ }}</td></tr>
-{% endfor %}
+        {% endfor %}
+        {% endif %}
     </tbody>
 </table>
