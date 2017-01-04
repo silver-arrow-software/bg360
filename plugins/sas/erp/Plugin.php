@@ -50,6 +50,10 @@ class Plugin extends PluginBase
         UserModel::extend(function($model){
             $model->belongsTo['profile'] = ['Sas\Erp\Models\Profile'];
             $model->belongsTo['company'] = ['Sas\Erp\Models\Place'];
+            $model->morphMany['accounts'] =  [
+                'Sas\Erp\Models\Account',
+                'name' => 'accountable'
+            ];
             $model->addFillable([
                 'code',
                 'mobile',

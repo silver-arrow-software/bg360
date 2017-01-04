@@ -3,9 +3,9 @@
 {% else %}
     {% if isNew %}
     <div id="money-account-create">
-        <h3 class="text-center">{{ 'Create a New Account'|_ }}</h3>
+        <h3 class="text-center">{{ 'Create a New Money Account'|_ }}</h3>
         <form method="post" data-request="onAddAccount" data-request-success="location.reload()" data-request-flash>
-            <input type="hidden" name="place_code" value="{{ owner_id }}"/>
+            <input type="hidden" name="owner_id" value="{{ owner_id }}"/>
             <div class="form-group">
                 <label for="account_name" class="col-md-2 control-label">{{ 'Account Name'|_ }}</label>
                 <div class="col-md-10 input-group">

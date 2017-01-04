@@ -1,14 +1,14 @@
-title = "Place - Money"
-url = "/place/:slug/money/:id?"
+title = "Personal - Money"
+url = "/profile/:slug/money/:id?"
 layout = "default"
 is_hidden = 0
 
 [viewBag]
-localeUrl[en] = "/place-money"
+localeUrl[en] = "/profile-money"
 
 [moneyAccount]
 slug = "{{ :slug }}"
-slugType = 0
+slugType = 1
 id = "{{ :accId }}"
 transactionsLimit = 30
 ==

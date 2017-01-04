@@ -1,10 +1,13 @@
-<table class="table table-striped table-hover ">
+<table class="table table-striped table-hover table-condensed">
     <thead>
         <tr>
-            <th>{{ 'Created at'|_ }}</th>
-            <th>{{ 'Created by'|_ }}</th>
-            <th>{{ 'Amount'|_ }}</th>
-            <th>{{ 'Description'|_ }}</th>
+            <th class="col-md-1">{{ 'Created at'|_ }}</th>
+            <th class="col-md-2">{{ 'Created by'|_ }}</th>
+            <th class="col-md-1 text-right">{{ 'Amount'|_ }}</th>
+            <th class="col-md-7">{{ 'Description'|_ }}</th>
+            {% if can('place.admin') %}
+            <th></th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
@@ -13,8 +16,18 @@
         <tr>
             <td>{{ transaction.created_at|date('d/m/Y') }}</td>
             <td>{{ transaction.user.name }}</td>
-            <td>{{ transaction.amount|number_format(0, ',', '.') }}</td>
+            <td class="text-right">{{ transaction.amount|number_format(0, ',', '.') }}</td>
             <td>{{ transaction.description|raw }}</td>
+            {% if can('place.admin') %}
+            <td>
+                <a href="#"
+                        data-request="onRemoveTransaction"
+                        data-request-confirm="{{ 'Are you sure?'|_ }}"
+                        data-request-data="transaction_id: {{ transaction.id }}, account_id: {{ account.id }}"
+                        data-request-update="'{{ __SELF__ }}::transaction_list': '#transaction-list', '{{ __SELF__ }}::account_info': '#money-account-details'"
+                        data-request-flash><i class="fa fa-trash"></i></a>
+            </td>
+            {% endif %}
         </tr>
         {% else %}
         <tr><td colspan="4">{{ 'No transactions yet'|_ }}</td></tr>

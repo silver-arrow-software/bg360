@@ -19,10 +19,17 @@ class MoneyAccount extends ComponentBase {
     public function defineProperties() {
         return [
             'slug'       => [
-                'title' => 'sas.erp::lang.account.place_slug',
-                'description' => 'sas.erp::lang.account.place_slug_desc',
-                'default' => '{{ :placeSlug }}',
+                'title' => 'sas.erp::lang.account.slug',
+                'description' => 'sas.erp::lang.account.slug_desc',
+                'default' => '{{ :slug }}',
                 'type' => 'string',
+            ],
+            'slugType'       => [
+                'title' => 'sas.erp::lang.account.slug_type',
+                'description' => 'sas.erp::lang.account.slug_type_desc',
+                'default' => 'PLACE',
+                'type' => 'dropdown',
+                'options' => ['PLACE', 'USER']
             ],
             'id'       => [
                 'title' => 'sas.erp::lang.account.id',
@@ -30,7 +37,7 @@ class MoneyAccount extends ComponentBase {
                 'default' => '{{ :accId }}',
                 'type' => 'string',
             ],
-            'transactions_limit'       => [
+            'transactionsLimit'       => [
                 'title' => 'sas.erp::lang.account.transactions_limit',
                 'description' => 'sas.erp::lang.account.transactions_limit_desc',
                 'default' => '30',
@@ -41,16 +48,25 @@ class MoneyAccount extends ComponentBase {
 
     public function onRun() {
         $this->page['owner_id'] = $this->property('slug');
-        $this->page['transactions_limit'] = $this->property('transactions_limit');
+        $this->page['transactions_limit'] = $this->property('transactionsLimit');
 
-        $placeid = $this->property('slug');
-        $place = \Sas\Erp\Models\Place::where('code_id', $placeid)->first();
-        //$this->page['accounts'] = $place->accounts;
-        if ($place->accounts->count() > 0) {
-            $this->page['account'] = $place->accounts->first();
+        $owner_id = $this->property('slug');
+        $owner = null;
+        switch ($this->property('slugType')) {
+            case "0":
+                $owner = \Sas\Erp\Models\Place::where('code_id', $owner_id)->first();
+                $this->page['back_link'] = 'place/' . $owner_id;
+                break;
+            case "1":
+                $owner = Auth::getUser($owner_id);
+                $this->page['back_link'] = 'profile/' . $owner_id;
+                break;
+        }
+        if ($owner && $owner->accounts->count() > 0) {
+            $this->page['account'] = $owner->accounts->first();
             $accid = $this->property('id');
             if ($accid) {
-                foreach ($place->accounts as $account) {
+                foreach ($owner->accounts as $account) {
                     if ($account->id == $accid) {
                         $this->page['account'] = $account;
                         break;
@@ -63,7 +79,38 @@ class MoneyAccount extends ComponentBase {
             $this->page['isNew'] = true;
         }
         $this->page['isGuest'] = true;
-        if ((Auth::check()) && (Auth::getUser()->company_id == $place->id)) $this->page['isGuest'] = false;
+        if ((Auth::check())) {
+            switch ($this->property('slugType')) {
+                case "0":
+                    if ((Auth::getUser()->company_id == $owner->id)) $this->page['isGuest'] = false;
+                    break;
+                case "1":
+                    if ((Auth::getUser()->id == $owner->id)) $this->page['isGuest'] = false;
+                    break;
+            }
+        }
+    }
+
+    public function onAddAccount() {
+        $data = post();
+        $new_account = new Account([
+            'name' => $data['account_name'],
+            'description' => $data['account_description'],
+        ]);
+        $owner = null;
+        switch ($this->property('slugType')) {
+            case "0":
+                $owner = \Sas\Erp\Models\Place::where('code_id', $data['owner_id'])->first();
+                break;
+            case "1":
+                $owner = Auth::getUser($data['owner_id']);
+                break;
+        }
+        $new_account = $owner->accounts()->add($new_account);
+        $this->page['account'] = $new_account;
+        $this->page['isNew'] = false;
+
+        Flash::success('Thông tin đã được lưu trữ thành công.');
     }
 
     public function onAddTransaction() {
@@ -95,18 +142,19 @@ class MoneyAccount extends ComponentBase {
         Flash::success('Thông tin đã được lưu trữ thành công.');
     }
 
-    public function onAddAccount() {
+    public function onRemoveTransaction() {
         $data = post();
-        $new_account = new Account([
-            'name' => $data['account_name'],
-            'description' => $data['account_description'],
-        ]);
-        $owner = \Sas\Erp\Models\Place::where('code_id', $data['place_code'])->first();
-        $new_account = $owner->accounts()->add($new_account);
-        $this->page['account'] = $new_account;
-        $this->page['isNew'] = false;
+        $old_transaction = AccountTransaction::where('id', $data['transaction_id'])->first();
+        //$old_transaction = AccountTransaction::destroy($data['transaction_id']);
 
-        Flash::success('Thông tin đã được lưu trữ thành công.');
+        $account = Account::where('id', $data['account_id'])->first();
+        $account->balance = $account->balance - $old_transaction->amount;
+        $account->transactions()->remove($old_transaction);
+        $account->save();
+        $this->page['account'] = $account;
+
+        $old_transaction->delete();
+        Flash::success('Dữ liệu đã được cập nhật thành công.');
     }
 
     public function getUserOptions() {
