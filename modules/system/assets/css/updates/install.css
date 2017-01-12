@@ -21,9 +21,8 @@
 .product-list li button,
 .product-list li .image,
 .product-list li .details {
-  -webkit-transition: opacity .2s linear;
-  -moz-transition: opacity .2s linear;
-  transition: opacity .2s linear;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
 }
 .product-list li:hover button {
   opacity: .3;
@@ -73,9 +72,8 @@
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-transition: border .2s linear;
-  -moz-transition: border .2s linear;
-  transition: border .2s linear;
+  -webkit-transition: border 0.2s linear;
+  transition: border 0.2s linear;
 }
 .theme-list li .image {
   padding: 5px;
@@ -198,9 +196,8 @@
   display: block;
   width: 24px;
   height: 24px;
-  background-image: url('../../../../system/assets/ui/images/loader-transparent.svg');
+  background: url('../../../../system/assets/ui/images/loader-transparent.svg') 50% 50%;
   background-size: 24px 24px;
-  background-position: 50% 50%;
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
 }
@@ -215,6 +212,8 @@
   font-size: 24px;
   line-height: 30px;
   border: 1px solid #024e6a;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
   outline: none;
 }
@@ -238,9 +237,10 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .tt-suggestion {

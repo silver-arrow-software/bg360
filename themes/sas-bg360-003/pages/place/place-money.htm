@@ -12,6 +12,12 @@ slugType = 0
 id = "{{ :accId }}"
 transactionsLimit = 30
 ==
+<?php
+function onStart() {
+    $this["backLink"] = "/place/" . $this->param('slug');
+}
+?>
+==
 <div class="container">
     <div class="well">
         {% component 'moneyAccount' %}

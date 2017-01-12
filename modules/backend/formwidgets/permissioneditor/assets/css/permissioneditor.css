@@ -57,7 +57,7 @@
   display: none;
 }
 .permissioneditor table tr:hover td {
-  background: #4da7e8;
+  background: #4ea5e0;
 }
 .permissioneditor table tr:hover td.permission-name {
   color: #ffffff !important;

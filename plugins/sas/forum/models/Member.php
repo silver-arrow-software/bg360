@@ -159,11 +159,10 @@ class Member extends Model
      * @param string $pageName
      * @param Cms\Classes\Controller $controller
      */
-    public function setUrl($pageName, $controller)
-    {
+    public function setUrl($pageName, $controller) {
         $params = [
             'id'   => $this->id,
-            'slug' => $this->slug,
+            'slug' => $this->user->slug,
         ];
 
         return $this->url = $controller->pageUrl($pageName, $params);

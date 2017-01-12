@@ -67,6 +67,11 @@ class Products extends ComponentBase {
 
     public function defineProperties() {
         return [
+            'owner' => [
+                'title'       => 'sas.erp::lang.common.featured',
+                'type'        => 'string',
+                'default'     => '{{ :ownerId }}'
+            ],
             'pageNumber' => [
                 'title'       => 'sas.erp::lang.products.pagination',
                 'description' => 'sas.erp::lang.products.pagination_description',
@@ -84,7 +89,7 @@ class Products extends ComponentBase {
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'sas.erp::lang.products.products_per_page_validation',
-                'default'           => '10',
+                'default'           => '12',
             ],
             'noProductsMessage' => [
                 'title'        => 'sas.erp::lang.products.no_products',
@@ -104,7 +109,6 @@ class Products extends ComponentBase {
                 'type'        => 'checkbox',
                 'default'     => false
             ],
-
         ];
     }
 
@@ -172,7 +176,7 @@ class Products extends ComponentBase {
         return $products;
     }
 
-    protected function loadCategory() {
+    /*protected function loadCategory() {
         if (!$categoryId = $this->property('categoryFilter'))
             return null;
 
@@ -180,7 +184,7 @@ class Products extends ComponentBase {
             return null;
 
         return $category;
-    }
+    }*/
 
     public function onAddToCart() {
         $params = Input::all();

@@ -1224,57 +1224,6 @@
         ]
     },
     {
-        "name": "wikimedia/composer-merge-plugin",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/wikimedia/composer-merge-plugin.git",
-            "reference": "e8aa6a9684f2d692ff11247e5794381d934f6630"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/e8aa6a9684f2d692ff11247e5794381d934f6630",
-            "reference": "e8aa6a9684f2d692ff11247e5794381d934f6630",
-            "shasum": ""
-        },
-        "require": {
-            "composer-plugin-api": "^1.0",
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "composer/composer": "~1.0.0",
-            "jakub-onderka/php-parallel-lint": "~0.8",
-            "phpunit/phpunit": "~4.8|~5.0",
-            "squizlabs/php_codesniffer": "~2.1.0"
-        },
-        "time": "2016-09-29 08:32:49",
-        "type": "composer-plugin",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.3.x-dev"
-            },
-            "class": "Wikimedia\\Composer\\MergePlugin"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Wikimedia\\Composer\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Bryan Davis",
-                "email": "bd808@wikimedia.org"
-            }
-        ],
-        "description": "Composer plugin to merge multiple composer.json files"
-    },
-    {
         "name": "laravel/framework",
         "version": "v5.1.45",
         "version_normalized": "5.1.45.0",
@@ -1596,65 +1545,6 @@
             "import",
             "read",
             "write"
-        ]
-    },
-    {
-        "name": "jenssegers/date",
-        "version": "v3.2.7",
-        "version_normalized": "3.2.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jenssegers/date.git",
-            "reference": "b842ccbba7f22bc532e5bb9fa94ccb78d503584a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jenssegers/date/zipball/b842ccbba7f22bc532e5bb9fa94ccb78d503584a",
-            "reference": "b842ccbba7f22bc532e5bb9fa94ccb78d503584a",
-            "shasum": ""
-        },
-        "require": {
-            "nesbot/carbon": "^1.0",
-            "php": ">=5.4",
-            "symfony/translation": "^2.7|^3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.0|^5.0",
-            "satooshi/php-coveralls": "^1.0"
-        },
-        "time": "2016-10-21 20:32:13",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.1-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Jenssegers\\Date\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jens Segers",
-                "homepage": "https://jenssegers.com"
-            }
-        ],
-        "description": "A date library to help you work with dates in different languages",
-        "homepage": "https://github.com/jenssegers/date",
-        "keywords": [
-            "carbon",
-            "date",
-            "datetime",
-            "i18n",
-            "laravel",
-            "time",
-            "translation"
         ]
     },
     {
@@ -2106,61 +1996,6 @@
         ]
     },
     {
-        "name": "swiftmailer/swiftmailer",
-        "version": "v5.4.4",
-        "version_normalized": "5.4.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "545ce9136690cea74f98f86fbb9c92dd9ab1a756"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/545ce9136690cea74f98f86fbb9c92dd9ab1a756",
-            "reference": "545ce9136690cea74f98f86fbb9c92dd9ab1a756",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9.1"
-        },
-        "time": "2016-11-24 01:01:23",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Chris Corbyn"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
-        "keywords": [
-            "email",
-            "mail",
-            "mailer"
-        ]
-    },
-    {
         "name": "doctrine/common",
         "version": "v2.6.2",
         "version_normalized": "2.6.2.0",
@@ -2529,269 +2364,6 @@
         ],
         "description": "Symfony Translation Component",
         "homepage": "https://symfony.com"
-    },
-    {
-        "name": "october/rain",
-        "version": "v1.0.389",
-        "version_normalized": "1.0.389.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octobercms/library.git",
-            "reference": "6fb81250f710b911c37f4706a7be5c15c2409ac1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octobercms/library/zipball/6fb81250f710b911c37f4706a7be5c15c2409ac1",
-            "reference": "6fb81250f710b911c37f4706a7be5c15c2409ac1",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/dbal": "~2.4",
-            "erusev/parsedown-extra": "~0.7",
-            "jenssegers/date": "~3.0",
-            "kriswallsmith/assetic": "~1.3",
-            "leafo/scssphp": "~0.6",
-            "league/csv": "~8.0",
-            "linkorb/jsmin-php": "~1.0",
-            "oyejorge/less.php": "~1.7",
-            "php": ">=5.5.9",
-            "symfony/yaml": "2.8.*|3.0.*",
-            "twig/twig": "~1.23|~2.0"
-        },
-        "replace": {
-            "october/auth": "self.version",
-            "october/config": "self.version",
-            "october/database": "self.version",
-            "october/extension": "self.version",
-            "october/filesystem": "self.version",
-            "october/halcyon": "self.version",
-            "october/html": "self.version",
-            "october/mail": "self.version",
-            "october/network": "self.version",
-            "october/parse": "self.version",
-            "october/router": "self.version",
-            "october/support": "self.version",
-            "october/translation": "self.version"
-        },
-        "require-dev": {
-            "illuminate/database": "5.1.*",
-            "illuminate/events": "5.1.*",
-            "illuminate/filesystem": "5.1.*",
-            "illuminate/log": "5.1.*",
-            "illuminate/mail": "5.1.*",
-            "illuminate/pagination": "5.1.*",
-            "illuminate/queue": "5.1.*",
-            "illuminate/routing": "5.1.*",
-            "illuminate/support": "5.1.*",
-            "illuminate/validation": "5.1.*",
-            "illuminate/view": "5.1.*",
-            "phpunit/phpunit": "~4.0",
-            "swiftmailer/swiftmailer": "~5.1",
-            "symfony/config": "2.7.*"
-        },
-        "time": "2016-12-09 22:54:51",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "src/Support/helpers.php",
-                "src/Html/helpers.php"
-            ],
-            "psr-4": {
-                "October\\Rain\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "October Rain Library",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "cms",
-            "october",
-            "rain"
-        ]
-    },
-    {
-        "name": "october/system",
-        "version": "v1.0.389",
-        "version_normalized": "1.0.389.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/system.git",
-            "reference": "36fbaaa028a9d857a89f0f7ddd3373347133b741"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/system/zipball/36fbaaa028a9d857a89f0f7ddd3373347133b741",
-            "reference": "36fbaaa028a9d857a89f0f7ddd3373347133b741",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2016-12-10 02:24:26",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "System\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "System module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "october",
-            "october cms",
-            "system"
-        ]
-    },
-    {
-        "name": "october/backend",
-        "version": "v1.0.389",
-        "version_normalized": "1.0.389.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/backend.git",
-            "reference": "7df3a5c59de7375a0e565cd8bec538e815a6cd06"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/backend/zipball/7df3a5c59de7375a0e565cd8bec538e815a6cd06",
-            "reference": "7df3a5c59de7375a0e565cd8bec538e815a6cd06",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2016-12-10 02:19:32",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Backend\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "Backend module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "backend",
-            "october",
-            "october cms"
-        ]
-    },
-    {
-        "name": "october/cms",
-        "version": "v1.0.389",
-        "version_normalized": "1.0.389.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/cms.git",
-            "reference": "4bbe87ce23de32aa1f0c754bba3647257e0e8d80"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/cms/zipball/4bbe87ce23de32aa1f0c754bba3647257e0e8d80",
-            "reference": "4bbe87ce23de32aa1f0c754bba3647257e0e8d80",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2016-12-09 22:02:06",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Cms\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "CMS module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "cms",
-            "october",
-            "october cms"
-        ]
     },
     {
         "name": "symfony/debug",
@@ -3416,6 +2988,435 @@
         "keywords": [
             "debug",
             "dump"
+        ]
+    },
+    {
+        "name": "wikimedia/composer-merge-plugin",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wikimedia/composer-merge-plugin.git",
+            "reference": "e24d531a29047b4895e9ed3a33f54d2327b4d2c5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/e24d531a29047b4895e9ed3a33f54d2327b4d2c5",
+            "reference": "e24d531a29047b4895e9ed3a33f54d2327b4d2c5",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0",
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "composer/composer": "~1.0.0",
+            "jakub-onderka/php-parallel-lint": "~0.8",
+            "phpunit/phpunit": "~4.8|~5.0",
+            "squizlabs/php_codesniffer": "~2.1.0"
+        },
+        "time": "2017-01-06 21:07:00",
+        "type": "composer-plugin",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.3.x-dev"
+            },
+            "class": "Wikimedia\\Composer\\MergePlugin"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Wikimedia\\Composer\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bryan Davis",
+                "email": "bd808@wikimedia.org"
+            }
+        ],
+        "description": "Composer plugin to merge multiple composer.json files"
+    },
+    {
+        "name": "jenssegers/date",
+        "version": "v3.2.8",
+        "version_normalized": "3.2.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jenssegers/date.git",
+            "reference": "ad55257ae655af540e055c0fcd48bc3ec1962ec4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jenssegers/date/zipball/ad55257ae655af540e055c0fcd48bc3ec1962ec4",
+            "reference": "ad55257ae655af540e055c0fcd48bc3ec1962ec4",
+            "shasum": ""
+        },
+        "require": {
+            "nesbot/carbon": "^1.0",
+            "php": ">=5.4",
+            "symfony/translation": "^2.7|^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0|^5.0",
+            "satooshi/php-coveralls": "^1.0"
+        },
+        "time": "2017-01-02 09:21:15",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Jenssegers\\Date\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jens Segers",
+                "homepage": "https://jenssegers.com"
+            }
+        ],
+        "description": "A date library to help you work with dates in different languages",
+        "homepage": "https://github.com/jenssegers/date",
+        "keywords": [
+            "carbon",
+            "date",
+            "datetime",
+            "i18n",
+            "laravel",
+            "time",
+            "translation"
+        ]
+    },
+    {
+        "name": "october/rain",
+        "version": "v1.0.390",
+        "version_normalized": "1.0.390.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octobercms/library.git",
+            "reference": "17fa84031a03b7b86e44b80efa28ea858437b854"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octobercms/library/zipball/17fa84031a03b7b86e44b80efa28ea858437b854",
+            "reference": "17fa84031a03b7b86e44b80efa28ea858437b854",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/dbal": "~2.4",
+            "erusev/parsedown-extra": "~0.7",
+            "jenssegers/date": "~3.0",
+            "kriswallsmith/assetic": "~1.3",
+            "leafo/scssphp": "~0.6",
+            "league/csv": "~8.0",
+            "linkorb/jsmin-php": "~1.0",
+            "oyejorge/less.php": "~1.7",
+            "php": ">=5.5.9",
+            "symfony/yaml": "2.8.*|3.0.*",
+            "twig/twig": "~1.23|~2.0"
+        },
+        "replace": {
+            "october/auth": "self.version",
+            "october/config": "self.version",
+            "october/database": "self.version",
+            "october/extension": "self.version",
+            "october/filesystem": "self.version",
+            "october/halcyon": "self.version",
+            "october/html": "self.version",
+            "october/mail": "self.version",
+            "october/network": "self.version",
+            "october/parse": "self.version",
+            "october/router": "self.version",
+            "october/support": "self.version",
+            "october/translation": "self.version"
+        },
+        "require-dev": {
+            "illuminate/database": "5.1.*",
+            "illuminate/events": "5.1.*",
+            "illuminate/filesystem": "5.1.*",
+            "illuminate/log": "5.1.*",
+            "illuminate/mail": "5.1.*",
+            "illuminate/pagination": "5.1.*",
+            "illuminate/queue": "5.1.*",
+            "illuminate/routing": "5.1.*",
+            "illuminate/support": "5.1.*",
+            "illuminate/validation": "5.1.*",
+            "illuminate/view": "5.1.*",
+            "phpunit/phpunit": "~4.0",
+            "swiftmailer/swiftmailer": "~5.1",
+            "symfony/config": "2.7.*"
+        },
+        "time": "2016-12-10 04:31:35",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/Support/helpers.php",
+                "src/Html/helpers.php"
+            ],
+            "psr-4": {
+                "October\\Rain\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "October Rain Library",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "cms",
+            "october",
+            "rain"
+        ]
+    },
+    {
+        "name": "october/system",
+        "version": "v1.0.390",
+        "version_normalized": "1.0.390.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/system.git",
+            "reference": "e0066f0bc6e18e5c0e943412d239c747f53183bc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/system/zipball/e0066f0bc6e18e5c0e943412d239c747f53183bc",
+            "reference": "e0066f0bc6e18e5c0e943412d239c747f53183bc",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2016-12-16 23:16:02",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "System\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "System module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "october",
+            "october cms",
+            "system"
+        ]
+    },
+    {
+        "name": "october/backend",
+        "version": "v1.0.390",
+        "version_normalized": "1.0.390.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/backend.git",
+            "reference": "e32a7777051aee5a925654ea53bcf1849ac6307d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/backend/zipball/e32a7777051aee5a925654ea53bcf1849ac6307d",
+            "reference": "e32a7777051aee5a925654ea53bcf1849ac6307d",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2016-12-16 23:16:38",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Backend\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "Backend module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "backend",
+            "october",
+            "october cms"
+        ]
+    },
+    {
+        "name": "october/cms",
+        "version": "v1.0.390",
+        "version_normalized": "1.0.390.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/cms.git",
+            "reference": "4bbe87ce23de32aa1f0c754bba3647257e0e8d80"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/cms/zipball/4bbe87ce23de32aa1f0c754bba3647257e0e8d80",
+            "reference": "4bbe87ce23de32aa1f0c754bba3647257e0e8d80",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2016-12-09 22:02:06",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cms\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "CMS module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "cms",
+            "october",
+            "october cms"
+        ]
+    },
+    {
+        "name": "swiftmailer/swiftmailer",
+        "version": "v5.4.5",
+        "version_normalized": "5.4.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swiftmailer/swiftmailer.git",
+            "reference": "cd142238a339459b10da3d8234220963f392540c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd142238a339459b10da3d8234220963f392540c",
+            "reference": "cd142238a339459b10da3d8234220963f392540c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.1",
+            "symfony/phpunit-bridge": "~3.2"
+        },
+        "time": "2016-12-29 10:02:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/swift_required.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chris Corbyn"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "http://swiftmailer.org",
+        "keywords": [
+            "email",
+            "mail",
+            "mailer"
         ]
     }
 ]

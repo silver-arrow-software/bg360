@@ -1,0 +1,6 @@
+.autocomplete.dropdown-menu {
+  background: white;
+}
+.autocomplete.dropdown-menu li a {
+  padding: 3px 12px;
+}

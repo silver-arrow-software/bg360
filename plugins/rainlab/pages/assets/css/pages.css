@@ -45,13 +45,14 @@
   position: absolute;
   width: 17px;
   height: 19px;
+  top: 13px;
   content: ' ';
   background-image: url(../images/snippet-icons.png);
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 34px auto;
   left: 18px;
-  top: 13px;
+  top: 17px;
 }
 .control-filelist.snippet-list li > a:hover:before {
   background-position: 0 -21px;
@@ -83,7 +84,7 @@
   }
 }
 .fancy-layout .pagesTextEditor {
-  border-left: 1px solid #bdc3c7 !important;
+  border-left: 1px solid #d1d6d9 !important;
 }
 .control-richeditor [data-snippet]:before {
   content: attr(data-name);
@@ -93,7 +94,7 @@
   width: 17px;
   height: 19px;
   left: 18px;
-  top: 17px;
+  top: 13px;
   content: ' ';
   background-image: url(../images/snippet-icons.png);
   background-position: 0 0;

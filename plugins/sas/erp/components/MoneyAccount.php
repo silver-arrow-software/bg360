@@ -9,6 +9,7 @@ use Auth;
 use Debugbar;
 
 class MoneyAccount extends ComponentBase {
+
     public function componentDetails() {
         return [
             'name'        => 'Account Component',
@@ -55,11 +56,11 @@ class MoneyAccount extends ComponentBase {
         switch ($this->property('slugType')) {
             case "0":
                 $owner = \Sas\Erp\Models\Place::where('code_id', $owner_id)->first();
-                $this->page['back_link'] = 'place/' . $owner_id;
+                //$this->page['back_link'] = 'place/' . $owner_id;
                 break;
             case "1":
                 $owner = Auth::getUser($owner_id);
-                $this->page['back_link'] = 'profile/' . $owner_id;
+                //$this->page['back_link'] = 'profile/' . $owner_id;
                 break;
         }
         if ($owner && $owner->accounts->count() > 0) {
