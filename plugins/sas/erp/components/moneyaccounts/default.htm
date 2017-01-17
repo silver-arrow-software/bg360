@@ -1,0 +1,28 @@
+{% set accounts = __SELF__.accounts %}
+
+<div class="card light-blue">
+	<div class="card-content white-text">
+		{% for account in accounts %}
+			<span class="card-title">{{ account.name }}</span>
+		{% else %}
+			<span>{{ noAccountsMessge }}</span>
+		{% endfor %}
+	</div>
+</div>
+{% if accounts.lastPage > 1 %}
+    <ul class="pagination">
+        {% if accounts.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (accounts.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..accounts.lastPage %}
+            <li class="{{ accounts.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if accounts.lastPage > accounts.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (accounts.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

@@ -1,0 +1,27 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    user:
+        label: sas.erp::lang.account.assigned_user
+        type: dropdown
+    amount:
+        label: sas.erp::lang.account.amount
+        type: owl-money
+        suffix: ' đ'
+        thousand: '.'
+        decimal: ','
+        placeholder: '1.000 đ'
+        precision: 0
+        allowNegative: true
+        span: left
+    description:
+        label: sas.erp::lang.common.description
+        type: richeditor
+    attachments:
+        label: sas.erp::lang.common.attachment
+        type: fileupload
