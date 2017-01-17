@@ -1,0 +1,23 @@
+table.name-value-list {
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.name-value-list th,
+table.name-value-list td {
+  padding: 4px 0 4px 0;
+  vertical-align: top;
+}
+table.name-value-list tr:first-child th,
+table.name-value-list tr:first-child td {
+  padding-top: 0;
+}
+table.name-value-list th {
+  font-weight: 600;
+  color: #95a5a6;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+table.name-value-list td {
+  color: #2b3e50;
+  word-wrap: break-word;
+}
