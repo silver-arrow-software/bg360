@@ -73,6 +73,12 @@ class RecordDetail extends ComponentBase
             $model = $model->$scope();
         }
 
+        $this->addJs('/plugins/sas/erp/assets/js/kanban.js');
+        $this->addJs('/plugins/sas/erp/assets/js/jquery-ui/jquery-ui.js');
+        $this->addCss('/plugins/sas/erp/assets/js/jquery-ui/jquery-ui.css');
+        $this->addCss('/plugins/sas/erp/assets/css/sas.erp.css');
+        //$this->addCss('/plugins/sas/erp/assets/css/kanban.js');
+
         return $model->where($this->modelKeyColumn, '=', $this->identifierValue)->first();
     }
 

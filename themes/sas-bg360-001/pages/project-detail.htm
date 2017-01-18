@@ -21,3 +21,23 @@ scope = "scopeBelongUser"
 {% else %}
     {{ notFoundMessage }}
 {% endif %}
+
+<div id="main_div">
+    <div>
+        <input id="add_task" type="button"   value="NEW TASK" class="btn btn-info"/>
+        <input id="add_col" type="button"    value="NEW COLUMN"  class="btn btn-primary"></button>
+        <input id="remove_col" type="button" value="DELETE COLUMN"  class="btn btn-danger" ></button>
+    </div>
+    <table class="table rounded" border=1>
+        <tr id="task_pool_header_container">
+            <!--<th class="task_pool_header  dotted_separator"><div class="header_name click"><i class="icon icon-th-large"><span class="title_text">Backlog</span></i></div><div wip="0" class="WIP">WIP: Unlimited</div></th>-->
+            <!--<th class="task_pool_header  dotted_separator"><div class="header_name click"><i class="icon icon-th-large"><span class="title_text">In Process</span></i></div><div wip="0" class="WIP">WIP: Unlimited</div></th>-->
+            <!--<th class="task_pool_header"><div class="header_name click"><i class="icon icon-th-large"><span class="title_text">Finished</span></i></div><div wip="0" class="WIP">WIP: Unlimited</div></th>-->
+        </tr>
+        <tr id="task_pool_container">
+            <!--<td class="task_pool dotted_separator"><div/></td>-->
+            <!--<td class="task_pool dotted_separator"><div /></td>-->
+            <!--<td class="task_pool"><div /></td>-->
+        </tr>
+    </table>
+</div>
