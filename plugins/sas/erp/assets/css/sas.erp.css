@@ -7,7 +7,7 @@ div[data-field-name="productItems"] .btn:nth-child(4) {
 
 /* kanban css */
 .background{background-color: white; cursor: auto;font-family: 'Karla', sans-serif;}
-#main_div{width:100%;text-align:center;margin:0 auto;}
+#project{width:100%;text-align:center;margin:0 auto;}
 .table{margin:30px auto;min-width:600px;border: 0; width: auto !important}
 .table th{width:240px;text-align:center;border: 0;margin:2px;color:#555555}
 .header_input{margin:5px;}
@@ -27,7 +27,7 @@ div[data-field-name="productItems"] .btn:nth-child(4) {
 .rounded{border-radius: 5px;-moz-border-radius: 5px;}
 .colorete{width:24px;height:24px;float:left;margin-left:15px;}
 .close{width:24px;height:24px;margin-right:12px;}
-.edit{width:24px;height:24px;margin-right:3px;}
+.edit{width:24px;height:24px;margin-right:12px;}
 .save_header{width:24px;height:24px;}
 .save{width:24px;height:24px;}
 .WIP{font-size:0.7em;text-align:right;margin:5px;color:#888888;padding-right:10px}

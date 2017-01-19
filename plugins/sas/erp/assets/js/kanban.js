@@ -1,40 +1,42 @@
-function addTask(data) {
-    var wip = check_number($('.task_pool_header:first').find('[n=wip]').attr("wip"));
-    if ((wip != 0) && ($('.task_pool:first .big_container').length >= wip)) {
+
+function addTask(data) { console.log(arguments);
+    if(!data || !data.id){ return false; }
+
+    var id = data.id,
+        boxId = "box_itm" + id,
+        head = $('.task_pool_header[n="'+data.status+'"]'),
+        idx = head.index();
+
+    var wip = check_number(head.find('[n=wip]').attr("wip"));
+    if ((wip != 0) && ($('.task_pool:eq(' + idx + ') .big_container').length >= wip)) {
         return false;
     }
 
-    if(!data.id){ return false; }
-    var id = data.id;
-    var boxId = "box_itm" + id;
-
-    var idx = $('.task_pool_header[n="'+data.status+'"]').index();
-    console.log(idx, id);
     $('.task_pool:eq(' + idx + ')').append(' \
-               <div class="big_container"> \
-                  <div id="'+ boxId +'" class="box_itm rounded" n="' + id + '"> \
-                      <div class="read-mode"> \
-                          <div class="name box-data" n="name">' + data.title + '</div> \
-                          <div class="name box-data" n="desc">' + data.description + '</div> \
-                          <progress max="100" class="pbar box-data" n="progress" value="0"></progress> \
-                          <div class="small"> \
-                              <div class="itm_box_option"><input class="color colorete" type="color" data-text="hidden" data-colorlink="' + boxId +'" value="#F6E788"></div> \
-                              <div class="option close itm_box_option"><button class="btn btn-danger btn-sm"><i class="icon-white icon-remove"></i></button></div> \
-                              <div class="option edit itm_box_option"><button class="btn btn-info btn-sm"><i class="icon-white icon-pencil"></i></button></div> \
-                          </div> \
-                      </div> \
-                      <div class="edit-mode" style="display: none;"> \
-                        <div><span class="small">Name:</span><input name="name" class="input box-data"/></div>  \
-                        <div><span class="small">Responsible:</span><input name="desc" class="input box-data"/></div>  \
-                        <div><span class="small">Progress:</span><input name="progress" class="input box-data"/></div>  \
-                        <div class="small"> \
-                            <div class="option save"><button class="btn btn-success btn-mini"><i class="icon-white icon-ok">&nbsp;</i></button></div> \
-                        </div> \
-                      </div> \
-                      <div class="clear"></div> \
+       <div class="big_container"> \
+          <div id="'+ boxId +'" class="box_itm rounded" n="' + id + '"> \
+              <div class="read-mode"> \
+                  <div class="name box-data" n="name">' + data.title + '</div> \
+                  <div class="name box-data" n="desc">' + data.description + '</div> \
+                  <progress max="100" class="pbar box-data" n="progress" value="0"></progress> \
+                  <div class="small"> \
+                      <div class="itm_box_option"><input class="color colorete" type="color" data-text="hidden" data-colorlink="' + boxId +'" value="#F6E788"></div> \
+                      <div class="option close itm_box_option"><button class="btn btn-danger btn-sm"><i class="icon-white icon-remove"></i></button></div> \
+                      <div class="option edit itm_box_option"><button class="btn btn-info btn-sm"><i class="icon-white icon-pencil"></i></button></div> \
                   </div> \
-               <div> \
-            ');
+              </div> \
+              <div class="edit-mode" style="display: none;"> \
+                <div><span class="small">Name:</span><input name="name" class="input box-data"/></div>  \
+                <div><span class="small">Responsible:</span><input name="desc" class="input box-data"/></div>  \
+                <div><span class="small">Progress:</span><input name="progress" class="input box-data"/></div>  \
+                <div class="small"> \
+                    <div class="option save"><button class="btn btn-success btn-mini"><i class="icon-white icon-ok">&nbsp;</i></button></div> \
+                </div> \
+              </div> \
+              <div class="clear"></div> \
+          </div> \
+       <div> \
+    ');
 
     $('#' + boxId).hover(function(){
         $(this).find('.itm_box_option').show();
@@ -54,7 +56,13 @@ function addTask(data) {
         $(this).closest(".box_itm").css('background', $(this).val());
     });
     $('#' + boxId).find('.close').on('click', function() {
-        $(this).closest(".box_itm").remove();
+        var box = $(this).closest(".box_itm");
+        updateTask({
+            tsk: box.attr("n"),
+            del: 1
+        }, function () {
+            box.remove();
+        }, box.attr("id"));
     });
     $('#' + boxId).find(".save,.edit").on('click', function(){
         var box = $(this).closest(".box_itm");
@@ -198,7 +206,7 @@ function updateTask(submitData, cback, loadingId) {
     $.request('onUpdateTask', {
         data: submitData,
         success: function(data) {
-            typeof cback == "function" ? cback.call(data) : false;
+            typeof cback == "function" ? cback.call(this, data) : false;
         },
         complete: function () {
             $.oc.stripeLoadIndicator.hide();
