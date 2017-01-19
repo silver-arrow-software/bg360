@@ -7,22 +7,16 @@
 
 <p class="info"></p>
 
-<div id="main_div">
+<div id="project">
     <div>
         <input id="add_task" type="button"   value="NEW TASK" class="btn btn-info"/>
         <input id="add_col" type="button"    value="NEW COLUMN"  class="btn btn-primary"></button>
         <input id="remove_col" type="button" value="DELETE COLUMN"  class="btn btn-danger" ></button>
     </div>
-    <table class="table rounded" border=1>
+    <table class="table rounded project" border="1" n="{{ project.id | e }}">
         <tr id="task_pool_header_container"></tr>
         <tr id="task_pool_container"></tr>
     </table>
-</div>
-
-<div class="loading-indicator-container">
-    <div class="loading-indicator indicator-center">
-        <span></span>
-    </div>
 </div>
 
 <script type="text/javascript">
@@ -38,7 +32,8 @@
 
         /* Manipulación de tareas */
         $('#add_task').click(function(){
-            updateTask({prj: 1}, addTask);
+            console.log($(this));
+            updateTask({prj: $(".project:first").attr('n')}, addTask);
         });
 
         {% for col in columns %}

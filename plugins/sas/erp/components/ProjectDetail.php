@@ -101,18 +101,23 @@ class ProjectDetail extends ComponentBase
         } else {
             $task = Task::find($params['tsk']);
 
-            if( isset($params['col']) ) {
-                $task->status = $params['col'];
-            }
+            if (empty($params['del'])) {
+                if( isset($params['col']) ) {
+                    $task->status = $params['col'];
+                }
 
-            if( isset($params['title']) ) {
-                $task->title = $params['title'];
-            }
-            if( isset($params['description']) ) {
-                $task->description = $params['description'];
-            }
-            if( isset($params['wip']) ) {
+                if( isset($params['title']) ) {
+                    $task->title = $params['title'];
+                }
+                if( isset($params['description']) ) {
+                    $task->description = $params['description'];
+                }
+                if( isset($params['wip']) ) {
 //            $task->wip = $params['wip'];
+                }
+            } else {
+                $task->delete();
+                return [];
             }
 
         }
