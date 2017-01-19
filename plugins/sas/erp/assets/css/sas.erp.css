@@ -31,3 +31,21 @@ div[data-field-name="productItems"] .btn:nth-child(4) {
 .save_header{width:24px;height:24px;}
 .save{width:24px;height:24px;}
 .WIP{font-size:0.7em;text-align:right;margin:5px;color:#888888;padding-right:10px}
+
+/* LOADING */
+.toggle-loading {
+    border: 1px solid #fff;
+    position: absolute;
+}
+.toggle-loading  .icon {
+    float: left;
+    width: 16px;
+    height: 16px;
+    padding: 10px 0 10px 10px;
+    background: url(../img/toggle-loading.gif) center center no-repeat;
+}
+.toggle-loading  .copy {
+    float: left;
+    padding: 10px 0;
+    color: #666666;
+}

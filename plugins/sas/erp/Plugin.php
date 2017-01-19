@@ -155,6 +155,7 @@ class Plugin extends PluginBase
             'Sas\Erp\Components\Place' => 'place',
             'Sas\Erp\Components\RecordList' => 'sasErpList',
             'Sas\Erp\Components\RecordDetail' => 'sasErpDetail',
+            'Sas\Erp\Components\ProjectDetail' => 'sasErpProject',
         ];
     }
 

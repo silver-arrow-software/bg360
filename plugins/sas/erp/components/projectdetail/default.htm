@@ -1,0 +1,53 @@
+{% set project = __SELF__.project %}
+{% set columns = __SELF__.columns %}
+{% set tasks = project.tasks %}
+
+<h3>{{ project.title|e }}</h3>
+<div class="content">{{ project.description|raw }}</div>
+
+<p class="info"></p>
+
+<div id="main_div">
+    <div>
+        <input id="add_task" type="button"   value="NEW TASK" class="btn btn-info"/>
+        <input id="add_col" type="button"    value="NEW COLUMN"  class="btn btn-primary"></button>
+        <input id="remove_col" type="button" value="DELETE COLUMN"  class="btn btn-danger" ></button>
+    </div>
+    <table class="table rounded" border=1>
+        <tr id="task_pool_header_container"></tr>
+        <tr id="task_pool_container"></tr>
+    </table>
+</div>
+
+<div class="loading-indicator-container">
+    <div class="loading-indicator indicator-center">
+        <span></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#add_col').click(function(){
+            addColumn();
+        });
+
+        $('#remove_col').click(function(){
+            removeColumn();
+        });
+
+        /* Manipulación de tareas */
+        $('#add_task').click(function(){
+            updateTask({prj: 1}, addTask);
+        });
+
+        {% for col in columns %}
+        addColumn({{ col|json_encode()|raw }});
+        {% endfor %}
+
+        {% for task in tasks %}
+        addTask({{ attribute(task, 'toArray') | json_encode() | raw }});
+        {% endfor %}
+
+    });
+</script>

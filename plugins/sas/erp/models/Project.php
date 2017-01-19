@@ -34,6 +34,10 @@ class Project extends Model
         'team' => [ 'Sas\Erp\Models\Team' ],
     ];
 
+    public $hasMany = [
+        'tasks' => [ 'Sas\Erp\Models\Task' ]
+    ];
+
     public function getTeamIdOptions()
     {
         return Team::lists('name', 'id');

@@ -15,13 +15,16 @@ class Task extends Model
      * Validation
      */
     public $rules = [
+        'title'    => 'required',
+        'project_id'    => 'required|numeric',
+        'status'   => 'required|between:1,3|numeric'
     ];
 
     /*
      * Disable timestamps by default.
      * Remove this line if timestamps are defined in the database table.
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * @var string The database table used by the model.
