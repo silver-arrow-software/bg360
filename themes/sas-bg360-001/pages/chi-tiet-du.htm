@@ -1,0 +1,12 @@
+title = "Chi Tiet Du An"
+url = "/du-an/:slug"
+layout = "default"
+is_hidden = 0
+
+[sasErpProject]
+slug = "{{ :slug }}"
+
+[viewBag]
+localeUrl[en] = "/chi-tiet-du"
+==
+{% component 'sasErpProject' %}

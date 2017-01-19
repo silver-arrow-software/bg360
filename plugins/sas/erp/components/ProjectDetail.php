@@ -125,20 +125,4 @@ class ProjectDetail extends ComponentBase
         return $task ? ($task->save() ? $task->toArray() : []) : [];
     }
 
-    public function onAddToCart() {
-        $params = Input::all();
-        if (isset($params['productId']) && isset($params['quantity']) && is_numeric($params['productId']) && is_numeric($params['quantity'])) {
-            $productId = $params['productId'];
-            $quantity = $params['quantity'];
-            $attributes = [];
-            if (isset($params['attributes']) && is_array($params['attributes']) && !empty($params['attributes'])) {
-                $attributes = $params['attributes'];
-            }
-            $cart = OctoCart::add($productId, $quantity, $attributes);
-        }
-        else {
-            Log::warning('OctoCart: ProductDisplay - onAddToCart().');
-        }
-    }
-
 }
