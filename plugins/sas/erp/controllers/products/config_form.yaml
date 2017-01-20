@@ -25,3 +25,9 @@ update:
     title: sas.erp::lang.products.edit_product
     redirect: sas/erp/products
     redirectClose: sas/erp/products
+
+# Import page
+import:
+    title: sas.erp::lang.products.import_bggeek
+    redirect: sas/erp/products
+    redirectClose: sas/erp/products

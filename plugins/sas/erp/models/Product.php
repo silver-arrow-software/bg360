@@ -26,6 +26,7 @@ class Product extends Model {
      */
     public $rules = [];
 
+    protected $fillable = ['title', 'slug', 'user_id', 'excerpt', 'description', 'hash_id', 'options'];
 
     /**
      * @var string The database table used by the model.
@@ -41,7 +42,6 @@ class Product extends Model {
     ];
 
     public $belongsTo = [
-        'place' => 'Sas\Erp\Models\Place'
     ];
 
     public $hasMany = [
@@ -113,7 +113,8 @@ class Product extends Model {
     }
 
     public function getDescriptionAttribute($value) {
-        return $value ? $value : trans('sas.erp::lang.product.default_boardgame_desc');
+        //return $value ? $value : trans('sas.erp::lang.product.default_boardgame_desc');
+        return $value;
     }
 
     /**

@@ -21,7 +21,7 @@ class Plugin extends PluginBase
      */
     public function pluginDetails() {
         return [
-            'name'        => 'Social plugin',
+            'name'        => 'sasCommunity',
             'description' => 'Social network system.',
             'author'      => 'Silver Arrow Software',
             'icon'        => 'icon-child'

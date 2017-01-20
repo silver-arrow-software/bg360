@@ -15,7 +15,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Utilities',
+            'name'        => 'sasUtilities',
             'description' => 'Some useful tools for other plugins.',
             'author'      => 'Silver Arrow Software',
             'icon'        => 'icon-leaf'

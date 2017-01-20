@@ -18,10 +18,6 @@ fields:
         label: 'sas.erp::lang.common.tags'
         type: owl-tagbox
         slugify: false
-    place:
-        label: 'sas.erp::lang.common.owner'
-        type: relation
-        required: true
         span: left
     price:
         label: sas.erp::lang.common.price

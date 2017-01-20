@@ -4,14 +4,14 @@
 	<div class="well">
 		<div class="row product-detail">
 			<div class="col-lg-12">
-				<h1 class="page-header">{{ product.title}}</h1>
+				<h1 class="page-header">{{ product.product.title}}</h1>
 			</div>
 		</div>
 		<div class="row space-bottom-2x">
 			<div class="col-md-4">
-				{% if product.images.count %}
+				{% if product.product.images.count %}
 					<ul class="bxslider">
-						{% for image in product.images %}
+						{% for image in product.product.images %}
 							<li>
 								<img
 									 src="{{ image.path }}"
@@ -23,14 +23,14 @@
 					<div class="gallery-thumbs-container" id="bx-pager">
 						<ul id="gallery-thumbs" class="gallery-thumbs-list">
 							{% set ii = 0 %}
-							{% for image in product.images %}
+							{% for image in product.product.images %}
 								<li class="thumb-item">
 									<div class="thumb">
 										<a data-slide-index="{{ ii }}" href="">
 											<img 	data-src="{{ image.filename }}"
 													src="{{ image.path }}"
 													class="img-responsive"
-													alt="{{ product.title }}" /></a>
+													alt="{{ product.product.title }}" /></a>
 									</div>
 								</li>
 								{% set ii = ii + 1 %}
@@ -38,31 +38,31 @@
 						</ul>
 					</div>
 				{% else %}
-					<img src="http://placehold.it/210x210" class="img-responsive" alt="{{ product.title }}">
+					<img src="http://placehold.it/210x210" class="img-responsive" alt="{{ product.product.title }}">
 				{% endif %}
 			</div>
 			<div class="col-md-8">
-				{% if product.tags.count %}
+				{% if product.product.tags.count %}
 					<p>
-						{% for tag in product.tags %}
+						{% for tag in product.product.tags %}
 							<a class="label" href="{{ tag.url }}">{{ tag.name }}</a>{% if not loop.last %}, {% endif %}
 						{% endfor %}
 					</p>
 				{% endif %}
 
 				<div class="description space-bottom-2x">
-					{{ product.description|raw }}
+					{{ product.product.description|md }}
 				</div>
 				<div class="add-to-cart">
 					{{ form_open({ 'data-request': 'onAddToCart', 'data-request-success': 'location.reload()' }) }}
 
-					{% if product.productAttributes.count %}
+					{% if product.product.productAttributes.count %}
 						<div class="product-attributes">
 							<hr>
 							<h4>Tùy chọn: </h4>
 							{% set name = '' %}
 							{% set first = false %}
-							{% for attribute in product.productAttributes %}
+							{% for attribute in product.product.productAttributes %}
 								{% if name != attribute.name %}
 									{% set name = attribute.name %}
 									{% set first = true %}
@@ -102,7 +102,13 @@
 
 				<!-- Tab panes -->
 				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="tab1"><p>Đang cập nhật thông tin. Vui lòng quay lại sau!</p></div>
+					<div role="tabpanel" class="tab-pane active" id="tab1">
+						{% if product.description %}
+						<p>{{ product.description|md }}</p>
+						{% else %}
+						<p>Đang cập nhật thông tin. Vui lòng quay lại sau!</p>
+						{% endif %}
+					</div>
 					<div role="tabpanel" class="tab-pane" id="tab2"><p>Hãy là người đầu tiên đánh giá sản phẩm này ...</p></div>
 					<div role="tabpanel" class="tab-pane" id="tab3"><p>Những sản phẩm liên quan ...</p></div>
 				</div>

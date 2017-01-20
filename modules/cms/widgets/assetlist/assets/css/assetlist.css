@@ -5,9 +5,9 @@
   font-size: 14px;
   text-align: center;
   font-weight: 400;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 .control-assetlist p.parent,
 .control-assetlist ul li {

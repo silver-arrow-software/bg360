@@ -6,6 +6,16 @@ columns:
     code:
         label: sas.erp::lang.common.code_id
         searchable: true
+    product:
+        label: sas.erp::lang.product.name
+        relation: product
+        select: title
+        searchable: true
+    place:
+        label: sas.erp::lang.place.name
+        relation: place
+        select: name
+        searchable: true
     price:
         label: sas.erp::lang.common.price
         searchable: true

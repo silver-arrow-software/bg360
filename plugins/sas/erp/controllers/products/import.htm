@@ -1,0 +1,9 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('sas/erp/products') ?>"><?= e(trans('sas.erp::lang.products.title')) ?></a></li>
+        <li><?= e(trans('sas.erp::lang.products.import_bggeek')) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+<div class="import_bggeek_result">
+    Dữ liệu đã được đồng bộ với BoardgameGeek.com.
+</div>

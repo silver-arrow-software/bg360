@@ -1,35 +1,39 @@
-<?php return [
+<?php
+
+return [
     'topics' => [
         'component_name' => 'Topic List',
         'component_description' => 'Displays a list of all topics.',
         'per_page' => 'Topics per page',
-        'per_page_validation' => 'Invalid format of the topics per page value',
+        'per_page_validation' => 'Invalid format of the topics per page value'
     ],
     'topic' => [
         'page_name' => 'Topic Page',
-        'page_help' => 'Page name to use for clicking on a conversation topic.',
+        'page_help' => 'Page name to use for clicking on a conversation topic.'
     ],
     'member' => [
         'page_name' => 'Member Page',
-        'page_help' => 'Page name to use for clicking on a Member.',
+        'page_help' => 'Page name to use for clicking on a Member.'
     ],
     'channel' => [
         'component_name' => 'Channel',
         'component_description' => 'Displays a list of posts belonging to a channel.',
         'page_name' => 'Channel Page',
-        'page_help' => 'Page name to use for clicking on a Channel.',
+        'page_help' => 'Page name to use for clicking on a Channel.'
     ],
     'channels' => [
         'new_channel' => 'New Channel',
         'delete_selected_confirm' => 'Are you sure?',
         'delete' => 'Delete',
-        'manage' => 'Manage Channels',
+        'manage' => 'Manage Channel Order',
         'return' => 'Return to Channels',
         'name' => 'Channels',
-        'create' => 'Create',
+        'create' => 'Create Channels',
         'update' => 'Edit Channels',
         'preview' => 'Preview Channels',
+        'manage' => 'Manage Channels',
         'creating' => 'Creating Channel...',
+        'create' => 'Create',
         'createnclose' => 'Create and Close',
         'cancel' => 'Cancel',
         'or' => 'or',
@@ -40,18 +44,19 @@
         'deleting' => 'Deleting Channel...',
         'really' => 'Do you really want to delete this channel?',
         'list_name' => 'Channel List',
-        'list_desc' => 'Displays a list of all visible channels.',
+        'list_desc' => 'Displays a list of all visible channels.'
     ],
     'slug' => [
         'name' => 'Slug param name',
-        'desc' => 'The URL route parameter used for looking up the channel by its slug. A hard coded slug can also be used.',
+        'desc' => 'The URL route parameter used for looking up the channel by its slug. A hard coded slug can also be used.'
     ],
     'frontend' => [
-        'notopic' => 'There are no topics in this channel.',
+        'notopic' => 'There are no topics in this channel.'
     ],
+
     'plugin' => [
-        'name' => 'Plugin name',
-        'description' => 'Plugin description.',
+        'name' => 'sasForum',
+        'description' => 'A simple embeddable forum'
     ],
     'data' => [
         'title' => 'Title',
@@ -62,7 +67,7 @@
         'moderated' => 'Moderated',
         'is_mod' => 'Only moderators can post to this channel.',
         'hidden' => 'Hidden',
-        'is_hidden' => 'Hide this category from the main category list.',
+        'is_hidden' => 'Hide this category from the main category list.'
     ],
     'settings' => [
         'username' => 'Username',
@@ -73,7 +78,7 @@
         'banned_comment' => 'Place a tick in this box if this user is banned from posting to the forum.',
         'forum_username' => 'Forum Username',
         'channels' => 'Forum channels',
-        'channels_desc' => 'Manage available forum channels.',
+        'channels_desc' => 'Manage available forum channels.'
     ],
     'embedch' => [
         'channel_name' => 'Embed Channel',
@@ -83,7 +88,7 @@
         'embed_title' => 'Embed code param',
         'embed_desc' => 'A unique code for the generated channel. A routing parameter can also be used.',
         'topic_name' => 'Topic code param',
-        'topic_desc' => 'The URL route parameter used for looking up a topic by its slug.',
+        'topic_desc' => 'The URL route parameter used for looking up a topic by its slug.'
     ],
     'embedtopic' => [
         'topic_name' => 'Embed Topic',
@@ -91,7 +96,7 @@
         'target_name' => 'Target Channel',
         'target_desc' => 'Specify the channel to create the new topic or channel in',
         'embed_title' => 'Embed Code',
-        'embed_desc' => 'A unique code for the generated topic or channel. A routing parameter can also be used.',
+        'embed_desc' => 'A unique code for the generated topic or channel. A routing parameter can also be used.'
     ],
     'memberpage' => [
         'name' => 'Member',
@@ -103,7 +108,7 @@
         'ch_title' => 'Channel page',
         'ch_desc' => 'Page name to use for clicking on a channel.',
         'topic_title' => 'Topic page',
-        'topic_desc' => 'Page name to use for clicking on a conversation topic.',
+        'topic_desc' => 'Page name to use for clicking on a conversation topic.'
     ],
     'topicpage' => [
         'name' => 'Topic',
@@ -111,6 +116,6 @@
         'slug_name' => 'Slug param name',
         'slug_desc' => 'The URL route parameter used for looking up the topic by its slug. A hard coded slug can also be used.',
         'channel_title' => 'Channel Page',
-        'channel_desc' => 'Page name to use for clicking on a channel.',
-    ],
+        'channel_desc' => 'Page name to use for clicking on a channel.'
+    ]
 ];

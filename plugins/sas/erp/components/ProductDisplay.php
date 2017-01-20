@@ -4,8 +4,9 @@ use Log;
 use Input;
 use SasCart;
 use Cms\Classes\ComponentBase;
-use Sas\Erp\Models\Product;
+use Sas\Erp\Models\ProductItem;
 use Sas\Erp\Models\Settings;
+use Flash;
 
 class ProductDisplay extends ComponentBase {
 
@@ -64,7 +65,7 @@ class ProductDisplay extends ComponentBase {
 
     protected function loadProduct() {
         $slug = $this->property('slug');
-        $product = Product::isPublished()->where('slug', $slug)->first();
+        $product = ProductItem::isPublished()->where('code', $slug)->first();
 
         /*
          * Add a "url" helper attribute for linking to each category

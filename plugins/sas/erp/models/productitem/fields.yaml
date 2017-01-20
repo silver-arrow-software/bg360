@@ -3,10 +3,19 @@
 # ===================================
 
 fields:
+    product:
+        label: 'sas.erp::lang.product.title'
+        type: relation
+        required: true
+    place:
+        label: 'sas.erp::lang.common.owner'
+        type: relation
+        required: true
+        span: left
     code:
         label: sas.erp::lang.common.code_id
         type: text
-        span: full
+        span: right
         readOnly: true
     price:
         label: sas.erp::lang.common.price
@@ -23,3 +32,19 @@ fields:
         type: number
         default: 1
         span: right
+    description:
+        label: 'sas.erp::lang.common.description'
+        size: huge
+        span: full
+        type: richeditor
+    images:
+        label: 'sas.erp::lang.common.images'
+        mode: image
+        imageWidth: 200
+        imageHeight: 200
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

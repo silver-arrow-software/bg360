@@ -19,3 +19,12 @@
 1.0.6:
     - 'Updates: Product.'
     - updates161222.php
+1.0.7:
+    - 'Add Kanban column to Project.'
+    - updates170104.php
+1.0.8:
+    - 'New feature: Event.'
+    - create_events_table.php
+1.0.9:
+    - 'Updates: Product, ProductItem.'
+    - updates170112.php

@@ -55,7 +55,7 @@ return [
     ],
 
     'plugin' => [
-        'name' => 'Forum',
+        'name' => 'sasForum',
         'description' => 'A simple embeddable forum'
     ],
     'data' => [

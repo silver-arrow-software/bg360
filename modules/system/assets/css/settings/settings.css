@@ -61,12 +61,12 @@
   line-height: 64px;
 }
 .control-settings .settings-items .settings-item > a:hover h5 {
-  color: #001721;
+  color: #063f68;
 }
 .control-settings .settings-items .settings-item > a:hover p {
-  color: #001721;
+  color: #063f68;
 }
 .control-settings .settings-items .settings-item > a:hover .item-icon {
   background: #e0e0e0;
-  color: #001721;
+  color: #063f68;
 }

@@ -21,8 +21,9 @@
 .product-list li button,
 .product-list li .image,
 .product-list li .details {
-  -webkit-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
+  -webkit-transition: opacity .2s linear;
+  -moz-transition: opacity .2s linear;
+  transition: opacity .2s linear;
 }
 .product-list li:hover button {
   opacity: .3;
@@ -72,8 +73,9 @@
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-transition: border 0.2s linear;
-  transition: border 0.2s linear;
+  -webkit-transition: border .2s linear;
+  -moz-transition: border .2s linear;
+  transition: border .2s linear;
 }
 .theme-list li .image {
   padding: 5px;
@@ -241,6 +243,7 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .tt-suggestion {

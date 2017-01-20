@@ -1,16 +1,18 @@
 title = "Sản phẩm"
-url = "/products/:slug?"
+url = "/products/:ownerId?"
 layout = "default"
 is_hidden = 0
 
+[viewBag]
+localeUrl[en] = "/san-pham"
+
 [products]
+owner = "{{ :ownerId }}"
 pageNumber = "{{ :page }}"
 productsPerPage = 12
 noProductsMessage = "No products found"
 sortOrder = "created_at desc"
-
-[viewBag]
-localeUrl[en] = "/san-pham"
+status = 1
 ==
 <div class="container">
     <div class="well">

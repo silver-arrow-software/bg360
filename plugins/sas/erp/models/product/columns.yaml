@@ -9,11 +9,6 @@ columns:
     title:
         label: sas.erp::lang.product.title
         searchable: true
-    place:
-        label: sas.erp::lang.place.name
-        relation: place
-        select: name
-        searchable: true
     published:
         label: sas.erp::lang.common.published
         searchable: false

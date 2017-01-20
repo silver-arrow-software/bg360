@@ -5,6 +5,7 @@ use SasCart;
 use Redirect;
 use Cms\Classes\ComponentBase;
 use Sas\Erp\Models\Product;
+use Sas\Erp\Models\ProductItem;
 use Sas\Erp\Models\Settings;
 use Sas\Erp\Models\Category;
 use Flash;
@@ -67,7 +68,7 @@ class Products extends ComponentBase {
 
     public function defineProperties() {
         return [
-            'owner' => [
+            'ownerId' => [
                 'title'       => 'sas.erp::lang.common.featured',
                 'type'        => 'string',
                 'default'     => '{{ :ownerId }}'
@@ -104,16 +105,16 @@ class Products extends ComponentBase {
                 'type'        => 'dropdown',
                 'default'     => 'created_at desc'
             ],
-            'promote' => [
+            'status' => [
                 'title'       => 'sas.erp::lang.common.featured',
-                'type'        => 'checkbox',
-                'default'     => false
+                'type'        => 'string',
+                'default'     => 1
             ],
         ];
     }
 
     public function getSortOrderOptions() {
-        return Product::$allowedSortingOptions;
+        return ProductItem::$allowedSortingOptions;
     }
 
     public function onRun() {
@@ -153,13 +154,14 @@ class Products extends ComponentBase {
         /*
          * List all the products, eager load their categories
          */
-        $products = Product::listFrontEnd([
+        $products = ProductItem::listFrontEnd([
+            'owner' => $this->property('ownerId'),
             'page'  => $this->property('pageNumber'),
             'sort' => $this->property('sortOrder'),
             'perPage' => $this->property('productsPerPage'),
             //'category'   => $category,
             'search' => isset($_GET['search']) ? $_GET['search'] : '',
-            'promote' => $this->property('promote'),
+            'status' => $this->property('status'),
         ]);
 
         /*

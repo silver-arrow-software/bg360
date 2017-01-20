@@ -5,32 +5,29 @@
         {% for product in products %}
             <div class="col-sm-3">
                 <div class="thumbnail product-card">
-                    {% if product.images.count %}
-                        {% for image in product.images|slice(0, 1) %}
+                    {% if product.product.images.count %}
+                        {% for image in product.product.images|slice(0, 1) %}
                             <img data-src="{{ image.filename }}"
                                  src="{{ image.path }}"
                                  class="img-responsive"
-                                 alt="{{ product.title }}" />
+                                 alt="{{ product.product.title }}" />
                         {% endfor %}
                     {% else %}
-                        <img src="http://placehold.it/210x210" class="img-responsive" alt="{{ product.title }}">
+                        <img src="http://placehold.it/210x210" class="img-responsive" alt="{{ product.product.title }}">
                     {% endif %}
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <p><strong><a href="{{ product.url }}">{{ product.title }}</a></strong></p>
-                                <p>
-                                    {% if product.categories.count %}
-                                        {% for category in product.categories %}
-                                            <a href="{{ category.url }}">{{ category.title }}</a>{% if not loop.last %}, {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
-                                </p>
+                                <p><strong><a href="{{ product.url }}">{{ product.product.title }}</a></strong></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p>{{ product.description|striptags[:100] ~ '...' }}</p>
+                                {% if product.product.excerpt %}
+                                <p>{{ product.product.excerpt|md }}</p>
+                                {% else %}
+                                <p>{{ product.product.description|striptags[:100] ~ '...' }}</p>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="row">
@@ -45,7 +42,7 @@
                                 <input type="hidden" name="quantity" value="1" />
                                 {% set name = '' %}
                                 {% set first = false %}
-                                {% for attribute in product.productAttributes %}
+                                {% for attribute in product.product.productAttributes %}
                                     {% if name != attribute.name %}
                                         {% set name = attribute.name %}
                                         {% set first = true %}

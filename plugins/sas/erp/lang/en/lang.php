@@ -4,7 +4,7 @@
         'name' => 'Silver Arrow Software',
     ],
     'plugin' => [
-        'name' => 'ERP',
+        'name' => 'sasERP',
         'description' => 'Enterprise resource planning for business.',
         'profile' => 'Profile',
         'profiles' => 'Profiles',
@@ -186,6 +186,7 @@
         'product' => 'Product',
         'edit_product' => 'Edit Product',
         'create_product' => 'Create Product',
+        'import_bggeek' => 'Import from BGG',
     ],
     'attribute' => [
         'name' => 'Name',
