@@ -28,6 +28,14 @@ class Plugin extends PluginBase
      * @return array
      */
     public function boot() {
+
+        // Service provider
+        App::register('\Yajra\Datatables\DatatablesServiceProvider');
+
+        // Register alias
+        $alias = AliasLoader::getInstance();
+        $alias->alias('Datatables', '\Yajra\Datatables\Facades\Datatables');
+
         Event::listen('backend.menu.extendItems', function($manager) {
            $manager->addSideMenuItems('RainLab.User', 'user', [
                 'sas-erp-side-menu-profiles' => [

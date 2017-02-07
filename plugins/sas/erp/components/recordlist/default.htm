@@ -43,3 +43,30 @@
         {% endif %}
     </ul>
 {% endif %}
+
+<table class="table table-bordered" id="users-table"></table>
+
+<script type="text/javascript">
+    $(function() {
+        $('#users-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                'type': 'POST',
+                'data': function (data) {
+                },
+                beforeSend: function (request) {
+                    request.setRequestHeader('X-OCTOBER-REQUEST-HANDLER', 'onGetData');
+                }
+            },
+            columns: [
+                { data: 'id', name: 'id', title: '#' },
+                { data: 'title', name: 'title', title: 'Title' },
+                { data: 'description', name: 'description', title: 'Description' },
+                { data: 'status', name: 'status', title: 'Status' },
+                { data: 'start_at', name: 'start_at', title: 'Start at' },
+                { data: 'end_at', name: 'end_at', title: 'End at' }
+            ]
+        });
+    });
+</script>
