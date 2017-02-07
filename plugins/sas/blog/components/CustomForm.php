@@ -7,6 +7,10 @@ use Lang;
 use Cms\Classes\ComponentBase;
 use RainLab\Builder\Classes\ComponentHelper;;
 use SystemException;
+use Redirect;
+use Carbon\Carbon;
+use Cms\Classes\Page;
+use Debugbar;
 
 class CustomForm extends ComponentBase
 {
@@ -15,25 +19,25 @@ class CustomForm extends ComponentBase
      * @var \October\Rain\Database\Model
      */
     public $record = null;
-    
+
     /**
      * Message to display if the record is not found.
      * @var string
      */
     public $notFoundMessage;
-    
+
     /**
      * Model column to display on the details page.
      * @var string
      */
     public $displayColumn;
-    
+
     /**
      * Model column to use as a record identifier for fetching the record from the database.
      * @var string
      */
     public $modelKeyColumn;
-    
+
     /**
      * Identifier value to load the record from the database.
      * @var string
@@ -95,6 +99,19 @@ class CustomForm extends ComponentBase
                 ],
                 'showExternalParam' => false
             ],
+            'sasEmbedCode' => [
+                'title'       => 'sas.blog::lang.embedposts.embed_title',
+                'description' => 'sas.blog::lang.embedposts.embed_desc',
+                'default' => '{{:slug}}',
+                'type'        => 'string',
+            ],
+            'slugType'       => [
+                'title' => 'sas.erp::lang.account.slug_type',
+                'description' => 'sas.erp::lang.account.slug_type_desc',
+                'default' => 'PLACE',
+                'type' => 'dropdown',
+                'options' => ['PLACE', 'USER']
+            ],
             'notFoundMessage' => [
                 'title'       => 'rainlab.builder::lang.components.details_not_found_message',
                 'description' => 'rainlab.builder::lang.components.details_not_found_message_description',
@@ -105,27 +122,26 @@ class CustomForm extends ComponentBase
         ];
     }
 
-    public function getModelClassOptions()
-    {
+    public function getModelClassOptions() {
         return ComponentHelper::instance()->listGlobalModels();
     }
 
-    public function getModelKeyColumnOptions()
-    {
+    public function getModelKeyColumnOptions() {
+        return ComponentHelper::instance()->listModelColumnNames();
+    }
+
+    public function getDisplayColumnOptions() {
         return ComponentHelper::instance()->listModelColumnNames();
     }
 
     //
     // Rendering and processing
     //
-
-    public function onRun()
-    {
+    public function onRun() {
         $this->prepareVars();
     }
 
-    protected function prepareVars()
-    {
+    protected function prepareVars() {
         $this->notFoundMessage = $this->page['notFoundMessage'] = Lang::get($this->property('notFoundMessage'));
         $this->displayColumn = $this->page['displayColumn'] = $this->property('displayColumn');
         $this->modelKeyColumn = $this->page['modelKeyColumn'] = $this->property('modelKeyColumn');
@@ -140,18 +156,23 @@ class CustomForm extends ComponentBase
         }
     }
 
-    public function onCustomFormSubmit()
-    {
-        /** @var \Indikator\News\Components\Form $component */
-        //$component = app('Indikator\News\Components\Form');
-        //$component->onSubscription();
-
-
+    public function onCustomFormSubmit() {
         $data = post();
 
+        $redirectLink = '';
+        switch ($this->property('slugType')) {
+            case '0':
+                $redirectLink = '/place/';
+                break;
+            case '1':
+                    $redirectLink = '/profile/';
+                    break;
+        }
+        $redirectLink .= $this->property('sasEmbedCode') . "/blogs";
+
         $rules = [
-            'name' => 'required',
-            'email' => 'required|email',
+            'postTitle' => 'required',
+            'postContent' => 'required',
         ];
 
         $validation = Validator::make($data, $rules);
@@ -160,10 +181,21 @@ class CustomForm extends ComponentBase
             throw new ValidationException($validation);
         }
 
-        Flash::success('Jobs done!');
+        $new_post = new \Sas\Blog\Models\Post([
+            'title' => $data['postTitle'],
+            'content' => $data['postContent'],
+            'slug' => str_slug($data['postTitle']),
+            'published' => 1,
+            'sas_embed_code' => $this->property('sasEmbedCode'),
+            'published_at' => Carbon::now(),
+        ]);
+        $new_post->save();
 
-        return [
-            '#myDiv' => $this->renderPartial('@result')
-        ];
+        return Redirect::to($redirectLink)->withInput();
+        //return Redirect::to($redirectLink)->with('message', 'Đã lưu dữ liệu thành công!');
+        //return Redirect::back()->with('message', 'Đã lưu dữ liệu thành công!');
+        // return [
+        //     '#myDiv' => $this->renderPartial('@result')
+        // ];
     }
 }

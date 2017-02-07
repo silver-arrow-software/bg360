@@ -5,6 +5,7 @@ use Sas\Blog\Models\Post as BlogPost;
 use Exception;
 use Str;
 use Config;
+use Auth;
 
 class EmbedPosts extends ComponentBase
 {
@@ -24,13 +25,19 @@ class EmbedPosts extends ComponentBase
                     'title'       => 'sas.blog::lang.embedposts.embed_title',
                     'description' => 'sas.blog::lang.embedposts.embed_desc',
                     'type'        => 'string',
-                ]
+                ],
+                'slugType'       => [
+                    'title' => 'sas.erp::lang.account.slug_type',
+                    'description' => 'sas.erp::lang.account.slug_type_desc',
+                    'default' => 'PLACE',
+                    'type' => 'dropdown',
+                    'options' => ['PLACE', 'USER']
+                ],
             ], parent::defineProperties()
         );
     }
 
-    public function init()
-    {
+    public function init() {
         $code = $this->property('sasEmbedCode');
 
         if (!$code) {
@@ -43,8 +50,26 @@ class EmbedPosts extends ComponentBase
         $this->assetPath = Config::get('cms.pluginsPath', '/plugins').dirname(dirname($this->dirName));
     }
 
-    protected function listPosts()
-    {
+    public function onRun() {
+        $owner_id = $this->page['owner_id'] = $this->property('sasEmbedCode');
+        $owner = null;
+        switch ($this->property('slugType')) {
+            case "0":
+                $owner = \Sas\Erp\Models\Place::where('code_id', $owner_id)->first();
+                break;
+            case "1":
+                $owner = \RainLab\User\Models\User::whereSlug($owner_id)->first();
+                $this->page['isModerator'] = false;
+                if ($owner && Auth::getUser()->id == $owner->id) $this->page['isModerator'] = true;
+                break;
+        }
+        $this->page['owner'] = $owner;
+        $this->page['isGuest'] = true;
+        if (Auth::check()) $this->page['isGuest'] = false;
+        $this->page['posts'] = $this->listPosts();
+    }
+
+    protected function listPosts() {
         $category = $this->category ? $this->category->id : null;
 
         $code = $this->property('sasEmbedCode');
@@ -67,7 +92,7 @@ class EmbedPosts extends ComponentBase
          * Add a "url" helper attribute for linking to each post and category
          */
         $posts->each(function($post) {
-            $post->setUrl($this->postPage, $this->controller);
+            $post->setUrl($this->property('postPage'), $this->controller, $this->property('sasEmbedCode'));
 
             $post->categories->each(function($category) {
                 $category->setUrl($this->categoryPage, $this->controller);

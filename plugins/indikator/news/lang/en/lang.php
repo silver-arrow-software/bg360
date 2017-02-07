@@ -53,6 +53,7 @@ return [
         'view' => 'view',
         'published' => 'Published at',
         'send' => 'Send the e-mail to subscribers.',
+        'length' => 'Length',
         // Subscribers
         'name' => 'Name',
         'email' => 'E-mail',
@@ -71,7 +72,7 @@ return [
     'flash' => [
         'activate' => 'Successfully activated those posts.',
         'deactivate' => 'Successfully deactivated those posts.',
-        'delete' => 'Do you really want to delete this items?',
+        'delete' => 'Do you want to delete this items?',
         'remove' => 'Successfully removed those items.'
     ],
     'widget' => [

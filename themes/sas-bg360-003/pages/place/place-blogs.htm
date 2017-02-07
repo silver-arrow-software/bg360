@@ -1,0 +1,29 @@
+title = "Place - Blogs"
+url = "/place/:slug/blogs"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/place-blogs"
+
+[sasBlogEmbedPosts placePosts]
+sasEmbedCode = "{{ :slug }}"
+slugType = 0
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "place/place-blog"
+==
+<?php
+function onStart() {
+    $this["backLink"] = "/place/" . $this->param('slug');
+}
+?>
+==
+<div class="container">
+    <div class="well">
+        {% component "placePosts" %}
+    </div>
+</div>

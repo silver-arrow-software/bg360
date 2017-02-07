@@ -28,7 +28,7 @@ function onEnd() {
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_title">
-                <h2>Thông tin cá nhân</h2>
+                <h2>Trang cá nhân</h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -52,6 +52,10 @@ function onEnd() {
         				<li><i class="fa fa-birthday-cake cyan-text text-darken-2"></i> </li>
         				<li><i class="fa fa-map cyan-text text-darken-2"></i> {{ profile.street_addr }}</li>
                     </ul>
+                    <div class="profile-actions btn-group-vertical">
+                        <a href="{{user.slug}}/money" class="btn btn-raised">Thu chi cá nhân</a>
+                        <a href="{{user.slug}}/blogs" class="btn btn-raised">Blog</a>
+                    </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     {% component "socialWallStream" %}

@@ -1,0 +1,33 @@
+description = "Default layout"
+
+[localePicker]
+forceUrl = 0
+
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header id="layout-header">
+        </header>
+
+        <!-- Nav -->
+        {% partial 'site/nav' %}
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Help Popups -->
+        {% placeholder help %}
+
+        <!-- Scripts -->
+        {% partial 'site/scripts' %}
+
+    </body>
+</html>

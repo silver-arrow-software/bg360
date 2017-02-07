@@ -3,8 +3,8 @@
 /**
  * Blog Markdown tag processor.
  *
- * @package sas\blog
- * @author
+ * @package rainlab\blog
+ * @author Alexey Bobkov, Samuel Georges
  */
 class TagProcessor
 {

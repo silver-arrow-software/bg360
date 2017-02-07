@@ -664,52 +664,6 @@
         ]
     },
     {
-        "name": "mtdowling/cron-expression",
-        "version": "v1.1.0",
-        "version_normalized": "1.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mtdowling/cron-expression.git",
-            "reference": "c9ee7886f5a12902b225a1a12f36bb45f9ab89e5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/c9ee7886f5a12902b225a1a12f36bb45f9ab89e5",
-            "reference": "c9ee7886f5a12902b225a1a12f36bb45f9ab89e5",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0|~5.0"
-        },
-        "time": "2016-01-26 21:23:30",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Cron": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Michael Dowling",
-                "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
-            }
-        ],
-        "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
-        "keywords": [
-            "cron",
-            "schedule"
-        ]
-    },
-    {
         "name": "paragonie/random_compat",
         "version": "v1.4.1",
         "version_normalized": "1.4.1.0",
@@ -1279,150 +1233,6 @@
             "log",
             "psr",
             "psr-3"
-        ]
-    },
-    {
-        "name": "league/flysystem",
-        "version": "1.0.32",
-        "version_normalized": "1.0.32.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "1b5c4a0031697f46e779a9d1b309c2e1b24daeab"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1b5c4a0031697f46e779a9d1b309c2e1b24daeab",
-            "reference": "1b5c4a0031697f46e779a9d1b309c2e1b24daeab",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "conflict": {
-            "league/flysystem-sftp": "<1.0.6"
-        },
-        "require-dev": {
-            "ext-fileinfo": "*",
-            "mockery/mockery": "~0.9",
-            "phpspec/phpspec": "^2.2",
-            "phpunit/phpunit": "~4.8"
-        },
-        "suggest": {
-            "ext-fileinfo": "Required for MimeType",
-            "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
-            "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
-            "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
-            "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
-            "league/flysystem-copy": "Allows you to use Copy.com storage",
-            "league/flysystem-dropbox": "Allows you to use Dropbox storage",
-            "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
-            "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
-            "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
-            "league/flysystem-webdav": "Allows you to use WebDAV storage",
-            "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
-        },
-        "time": "2016-10-19 20:38:46",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.1-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "League\\Flysystem\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Frank de Jonge",
-                "email": "info@frenky.net"
-            }
-        ],
-        "description": "Filesystem abstraction: Many filesystems, one API.",
-        "keywords": [
-            "Cloud Files",
-            "WebDAV",
-            "abstraction",
-            "aws",
-            "cloud",
-            "copy.com",
-            "dropbox",
-            "file systems",
-            "files",
-            "filesystem",
-            "filesystems",
-            "ftp",
-            "rackspace",
-            "remote",
-            "s3",
-            "sftp",
-            "storage"
-        ]
-    },
-    {
-        "name": "league/csv",
-        "version": "8.1.2",
-        "version_normalized": "8.1.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thephpleague/csv.git",
-            "reference": "33447984f7a7038fefaa5a6177e8407b66bc85b4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/csv/zipball/33447984f7a7038fefaa5a6177e8407b66bc85b4",
-            "reference": "33447984f7a7038fefaa5a6177e8407b66bc85b4",
-            "shasum": ""
-        },
-        "require": {
-            "ext-mbstring": "*",
-            "php": ">=5.5.0"
-        },
-        "require-dev": {
-            "friendsofphp/php-cs-fixer": "^1.9",
-            "phpunit/phpunit": "^4.0"
-        },
-        "time": "2016-10-27 11:21:24",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "8.1-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "League\\Csv\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Ignace Nyamagana Butera",
-                "email": "nyamsprod@gmail.com",
-                "homepage": "https://github.com/nyamsprod/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Csv data manipulation made easy in PHP",
-        "homepage": "http://csv.thephpleague.com",
-        "keywords": [
-            "csv",
-            "export",
-            "filter",
-            "import",
-            "read",
-            "write"
         ]
     },
     {
@@ -2465,342 +2275,6 @@
         ]
     },
     {
-        "name": "doctrine/dbal",
-        "version": "v2.5.9",
-        "version_normalized": "2.5.9.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/dbal.git",
-            "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/dbal/zipball/0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
-            "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/common": ">=2.4,<2.8-dev",
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*",
-            "symfony/console": "2.*||^3.0"
-        },
-        "suggest": {
-            "symfony/console": "For helpful console commands such as SQL execution and import of files."
-        },
-        "time": "2017-01-19 13:27:33",
-        "bin": [
-            "bin/doctrine-dbal"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.5.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\DBAL\\": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org"
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            },
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com"
-            },
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com"
-            }
-        ],
-        "description": "Database Abstraction Layer",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "dbal",
-            "persistence",
-            "queryobject"
-        ]
-    },
-    {
-        "name": "october/rain",
-        "version": "v1.0.392",
-        "version_normalized": "1.0.392.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octobercms/library.git",
-            "reference": "d51e539614068ba9f55910f55eea2f68aa02a4bf"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octobercms/library/zipball/d51e539614068ba9f55910f55eea2f68aa02a4bf",
-            "reference": "d51e539614068ba9f55910f55eea2f68aa02a4bf",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/dbal": "~2.4",
-            "erusev/parsedown-extra": "~0.7",
-            "jenssegers/date": "~3.0",
-            "kriswallsmith/assetic": "~1.3",
-            "leafo/scssphp": "~0.6",
-            "league/csv": "~8.0",
-            "linkorb/jsmin-php": "~1.0",
-            "oyejorge/less.php": "~1.7",
-            "php": ">=5.5.9",
-            "symfony/yaml": "2.8.*|3.0.*",
-            "twig/twig": "~1.30"
-        },
-        "replace": {
-            "october/auth": "self.version",
-            "october/config": "self.version",
-            "october/database": "self.version",
-            "october/extension": "self.version",
-            "october/filesystem": "self.version",
-            "october/halcyon": "self.version",
-            "october/html": "self.version",
-            "october/mail": "self.version",
-            "october/network": "self.version",
-            "october/parse": "self.version",
-            "october/router": "self.version",
-            "october/support": "self.version",
-            "october/translation": "self.version"
-        },
-        "require-dev": {
-            "illuminate/database": "5.1.*",
-            "illuminate/events": "5.1.*",
-            "illuminate/filesystem": "5.1.*",
-            "illuminate/log": "5.1.*",
-            "illuminate/mail": "5.1.*",
-            "illuminate/pagination": "5.1.*",
-            "illuminate/queue": "5.1.*",
-            "illuminate/routing": "5.1.*",
-            "illuminate/support": "5.1.*",
-            "illuminate/validation": "5.1.*",
-            "illuminate/view": "5.1.*",
-            "phpunit/phpunit": "~4.0",
-            "swiftmailer/swiftmailer": "~5.1",
-            "symfony/config": "2.7.*"
-        },
-        "time": "2017-01-09 21:32:24",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "src/Support/helpers.php",
-                "src/Html/helpers.php"
-            ],
-            "psr-4": {
-                "October\\Rain\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "October Rain Library",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "cms",
-            "october",
-            "rain"
-        ]
-    },
-    {
-        "name": "october/system",
-        "version": "v1.0.392",
-        "version_normalized": "1.0.392.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/system.git",
-            "reference": "22d2506c45a14af7e97d7f809563dc0837503ecf"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/system/zipball/22d2506c45a14af7e97d7f809563dc0837503ecf",
-            "reference": "22d2506c45a14af7e97d7f809563dc0837503ecf",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2017-01-08 21:37:36",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "System\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "System module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "october",
-            "october cms",
-            "system"
-        ]
-    },
-    {
-        "name": "october/backend",
-        "version": "v1.0.392",
-        "version_normalized": "1.0.392.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/backend.git",
-            "reference": "a21ad49ef34b3c45d6e085e2f534b7f37c83b3a0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/backend/zipball/a21ad49ef34b3c45d6e085e2f534b7f37c83b3a0",
-            "reference": "a21ad49ef34b3c45d6e085e2f534b7f37c83b3a0",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2017-01-09 19:08:51",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Backend\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "Backend module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "backend",
-            "october",
-            "october cms"
-        ]
-    },
-    {
-        "name": "october/cms",
-        "version": "v1.0.392",
-        "version_normalized": "1.0.392.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/cms.git",
-            "reference": "766fbd76839d65bea7cf1319075b5017b4407368"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/cms/zipball/766fbd76839d65bea7cf1319075b5017b4407368",
-            "reference": "766fbd76839d65bea7cf1319075b5017b4407368",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2017-01-12 04:13:03",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Cms\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "CMS module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "cms",
-            "october",
-            "october cms"
-        ]
-    },
-    {
         "name": "symfony/debug",
         "version": "v2.7.23",
         "version_normalized": "2.7.23.0",
@@ -3423,6 +2897,532 @@
         "keywords": [
             "debug",
             "dump"
+        ]
+    },
+    {
+        "name": "league/csv",
+        "version": "8.2.0",
+        "version_normalized": "8.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thephpleague/csv.git",
+            "reference": "ef7eef710810c8bd0cf9371582ccd0123ff96d4b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thephpleague/csv/zipball/ef7eef710810c8bd0cf9371582ccd0123ff96d4b",
+            "reference": "ef7eef710810c8bd0cf9371582ccd0123ff96d4b",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^1.9",
+            "phpunit/phpunit": "^4.0"
+        },
+        "time": "2017-01-25 13:32:07",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "8.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "League\\Csv\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ignace Nyamagana Butera",
+                "email": "nyamsprod@gmail.com",
+                "homepage": "https://github.com/nyamsprod/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Csv data manipulation made easy in PHP",
+        "homepage": "http://csv.thephpleague.com",
+        "keywords": [
+            "csv",
+            "export",
+            "filter",
+            "import",
+            "read",
+            "write"
+        ]
+    },
+    {
+        "name": "doctrine/dbal",
+        "version": "v2.5.10",
+        "version_normalized": "2.5.10.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/dbal.git",
+            "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/dbal/zipball/fc376f7a61498e18520cd6fa083752a4ca08072b",
+            "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/common": ">=2.4,<2.8-dev",
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*",
+            "symfony/console": "2.*||^3.0"
+        },
+        "suggest": {
+            "symfony/console": "For helpful console commands such as SQL execution and import of files."
+        },
+        "time": "2017-01-23 23:17:10",
+        "bin": [
+            "bin/doctrine-dbal"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.5.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\DBAL\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            }
+        ],
+        "description": "Database Abstraction Layer",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "dbal",
+            "persistence",
+            "queryobject"
+        ]
+    },
+    {
+        "name": "mtdowling/cron-expression",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mtdowling/cron-expression.git",
+            "reference": "9504fa9ea681b586028adaaa0877db4aecf32bad"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/9504fa9ea681b586028adaaa0877db4aecf32bad",
+            "reference": "9504fa9ea681b586028adaaa0877db4aecf32bad",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2017-01-23 04:29:33",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cron\\": "src/Cron/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+        "keywords": [
+            "cron",
+            "schedule"
+        ]
+    },
+    {
+        "name": "league/flysystem",
+        "version": "1.0.34",
+        "version_normalized": "1.0.34.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thephpleague/flysystem.git",
+            "reference": "469ad53c13ea19a0e54e3e5d70f61227ddcc0299"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
+            "reference": "469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "conflict": {
+            "league/flysystem-sftp": "<1.0.6"
+        },
+        "require-dev": {
+            "ext-fileinfo": "*",
+            "mockery/mockery": "~0.9",
+            "phpspec/phpspec": "^2.2",
+            "phpunit/phpunit": "~4.8"
+        },
+        "suggest": {
+            "ext-fileinfo": "Required for MimeType",
+            "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+            "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
+            "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+            "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
+            "league/flysystem-copy": "Allows you to use Copy.com storage",
+            "league/flysystem-dropbox": "Allows you to use Dropbox storage",
+            "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
+            "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
+            "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
+            "league/flysystem-webdav": "Allows you to use WebDAV storage",
+            "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
+        },
+        "time": "2017-01-30 17:41:17",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "League\\Flysystem\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Frank de Jonge",
+                "email": "info@frenky.net"
+            }
+        ],
+        "description": "Filesystem abstraction: Many filesystems, one API.",
+        "keywords": [
+            "Cloud Files",
+            "WebDAV",
+            "abstraction",
+            "aws",
+            "cloud",
+            "copy.com",
+            "dropbox",
+            "file systems",
+            "files",
+            "filesystem",
+            "filesystems",
+            "ftp",
+            "rackspace",
+            "remote",
+            "s3",
+            "sftp",
+            "storage"
+        ]
+    },
+    {
+        "name": "october/rain",
+        "version": "v1.0.396",
+        "version_normalized": "1.0.396.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octobercms/library.git",
+            "reference": "76ed5ad9b5da5b9390b6d283318a064b9b64f283"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octobercms/library/zipball/76ed5ad9b5da5b9390b6d283318a064b9b64f283",
+            "reference": "76ed5ad9b5da5b9390b6d283318a064b9b64f283",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/dbal": "~2.4",
+            "erusev/parsedown-extra": "~0.7",
+            "jenssegers/date": "~3.0",
+            "kriswallsmith/assetic": "~1.3",
+            "leafo/scssphp": "~0.6",
+            "league/csv": "~8.0",
+            "linkorb/jsmin-php": "~1.0",
+            "oyejorge/less.php": "~1.7",
+            "php": ">=5.5.9",
+            "symfony/yaml": "2.8.*|3.0.*",
+            "twig/twig": "~1.30"
+        },
+        "replace": {
+            "october/auth": "self.version",
+            "october/config": "self.version",
+            "october/database": "self.version",
+            "october/extension": "self.version",
+            "october/filesystem": "self.version",
+            "october/halcyon": "self.version",
+            "october/html": "self.version",
+            "october/mail": "self.version",
+            "october/network": "self.version",
+            "october/parse": "self.version",
+            "october/router": "self.version",
+            "october/support": "self.version",
+            "october/translation": "self.version"
+        },
+        "require-dev": {
+            "illuminate/database": "5.1.*",
+            "illuminate/events": "5.1.*",
+            "illuminate/filesystem": "5.1.*",
+            "illuminate/log": "5.1.*",
+            "illuminate/mail": "5.1.*",
+            "illuminate/pagination": "5.1.*",
+            "illuminate/queue": "5.1.*",
+            "illuminate/routing": "5.1.*",
+            "illuminate/support": "5.1.*",
+            "illuminate/validation": "5.1.*",
+            "illuminate/view": "5.1.*",
+            "phpunit/phpunit": "~4.0",
+            "swiftmailer/swiftmailer": "~5.1",
+            "symfony/config": "2.7.*"
+        },
+        "time": "2017-02-01 18:15:20",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/Support/helpers.php",
+                "src/Html/helpers.php"
+            ],
+            "psr-4": {
+                "October\\Rain\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "October Rain Library",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "cms",
+            "october",
+            "rain"
+        ]
+    },
+    {
+        "name": "october/system",
+        "version": "v1.0.396",
+        "version_normalized": "1.0.396.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/system.git",
+            "reference": "080b8d751f7062f767b2e5281ae07b2f47effa2b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/system/zipball/080b8d751f7062f767b2e5281ae07b2f47effa2b",
+            "reference": "080b8d751f7062f767b2e5281ae07b2f47effa2b",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2017-01-30 11:38:03",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "System\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "System module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "october",
+            "october cms",
+            "system"
+        ]
+    },
+    {
+        "name": "october/backend",
+        "version": "v1.0.396",
+        "version_normalized": "1.0.396.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/backend.git",
+            "reference": "ee3df77efc2062b43a407ddf259475d861901310"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/backend/zipball/ee3df77efc2062b43a407ddf259475d861901310",
+            "reference": "ee3df77efc2062b43a407ddf259475d861901310",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2017-01-31 01:05:16",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Backend\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "Backend module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "backend",
+            "october",
+            "october cms"
+        ]
+    },
+    {
+        "name": "october/cms",
+        "version": "v1.0.396",
+        "version_normalized": "1.0.396.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/cms.git",
+            "reference": "ea30ef0853cf9284dedafc34aee7386281ca3b9e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/cms/zipball/ea30ef0853cf9284dedafc34aee7386281ca3b9e",
+            "reference": "ea30ef0853cf9284dedafc34aee7386281ca3b9e",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2017-01-30 20:23:58",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cms\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "CMS module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "cms",
+            "october",
+            "october cms"
         ]
     }
 ]

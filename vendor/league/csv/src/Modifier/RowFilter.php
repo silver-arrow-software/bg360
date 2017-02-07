@@ -4,7 +4,7 @@
 *
 * @license http://opensource.org/licenses/MIT
 * @link https://github.com/thephpleague/csv/
-* @version 8.1.1
+* @version 8.2.0
 * @package League.csv
 *
 * For the full copyright and license information, please view the LICENSE
@@ -54,6 +54,10 @@ trait RowFilter
     /**
      * Remove a formatter from the collection
      *
+     * DEPRECATION WARNING! This method will be removed in the next major point release
+     *
+     * @deprecated deprecated since version 8.2
+     *
      * @param callable $callable
      *
      * @return $this
@@ -69,6 +73,10 @@ trait RowFilter
     /**
      * Detect if the formatter is already registered
      *
+     * DEPRECATION WARNING! This method will be removed in the next major point release
+     *
+     * @deprecated deprecated since version 8.2
+     *
      * @param callable $callable
      *
      * @return bool
@@ -80,6 +88,10 @@ trait RowFilter
 
     /**
      * Remove all registered formatter
+     *
+     * DEPRECATION WARNING! This method will be removed in the next major point release
+     *
+     * @deprecated deprecated since version 8.2
      *
      * @return $this
      */
@@ -115,6 +127,10 @@ trait RowFilter
     /**
      * Remove a validator from the collection
      *
+     * DEPRECATION WARNING! This method will be removed in the next major point release
+     *
+     * @deprecated deprecated since version 8.2
+     *
      * @param string $name the validator name
      *
      * @return $this
@@ -130,6 +146,10 @@ trait RowFilter
     /**
      * Detect if a validator is already registered
      *
+     * DEPRECATION WARNING! This method will be removed in the next major point release
+     *
+     * @deprecated deprecated since version 8.2
+     *
      * @param string $name the validator name
      *
      * @return bool
@@ -143,6 +163,10 @@ trait RowFilter
 
     /**
      * Remove all registered validators
+     *
+     * DEPRECATION WARNING! This method will be removed in the next major point release
+     *
+     * @deprecated deprecated since version 8.2
      *
      * @return $this
      */

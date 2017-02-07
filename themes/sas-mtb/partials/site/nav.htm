@@ -1,0 +1,66 @@
+[staticMenu mainMenu]
+code = "main-menu"
+==
+{% import _self as nav %}
+
+{% macro render_menu(items) %}
+    {% import _self as nav %}
+
+    {% for item in items %}
+        {% if item.items %}
+            <li role="presentation" class="dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+                <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">
+                    {{ item.code ? ('nav.'~item.code)|_ : item.title }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    {{ nav.render_menu(item.items) }}
+                </ul>
+            </li>
+        {% else %}
+            <li role="presentation" class="{{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+                <a href="{{ item.url }}">{{ item.code ? ('nav.'~item.code)|_ : item.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+<nav id="layout-nav" class="navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ 'home'|page }}"></a>
+        </div>
+        <div class="collapse navbar-collapse navbar-main-collapse">
+            {% if mainMenu.menuItems %}
+                <ul class="nav navbar-nav">
+                    {{ nav.render_menu(mainMenu.menuItems) }}
+                </ul>
+            {% endif %}
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="javascript:toggleHelp('#localeHelp')">
+                        <i class="icon-question-sign hidden-xs"></i>
+                        <span class="visible-xs">{{ 'Help'|_ }}</span>
+                    </a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                {% component 'localePicker' %}
+            </form>
+        </div>
+    </div>
+</nav>
+
+{% put help %}
+    <!-- Locale Help -->
+    <div id="localeHelp" class="help-popup">
+        <button class="setup-close" type="button" onclick="toggleHelp('#localeHelp')">&times;</button>
+        <div class="setup-content">
+            {% content 'locale-help.htm' %}
+        </div>
+    </div>
+{% endput %}

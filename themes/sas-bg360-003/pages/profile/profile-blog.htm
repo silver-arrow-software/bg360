@@ -1,0 +1,22 @@
+title = "Personal - Blog"
+url = "/profile/:slug/blog/:id"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/profile-blog"
+
+[sasBlogEmbedPost profilePost]
+slugCode = "{{ :id }}"
+==
+<?php
+function onStart() {
+    $this["backLink"] = "/profile/" . $this->param('slug') . "/blogs/";
+}
+?>
+==
+<div class="container">
+    <div class="well">
+        {% component "profilePost" %}
+    </div>
+</div>

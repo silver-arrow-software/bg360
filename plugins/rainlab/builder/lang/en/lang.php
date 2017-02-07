@@ -77,6 +77,8 @@ return [
         'error_boolean_default_value' => "Invalid default value for the boolean column ':column'. The allowed values are '0' and '1'.",
         'error_unsigned_negative_value' => "The default value for the unsigned column ':column' can't be negative.",
         'error_table_already_exists' => "The table ':name' already exists in the database.",
+        'error_table_name_too_long' => "The table name should not be longer than 64 characters.",
+        'error_column_name_too_long' => "The column name ':column' is too long. Column names should not be longer than 64 characters."
     ],
     'model' => [
         'menu_label' => 'Models',
@@ -254,6 +256,8 @@ return [
         'property_group_relation' => 'Relation',
         'property_relation_prompt' => 'Prompt',
         'property_relation_prompt_description' => 'Text to display when there is no available selections.',
+        'property_empty_option' => 'Empty option',
+        'property_empty_option_description' => 'The empty option corresponds to the empty selection, but unlike the placeholder it can be reselected.',
         'control_group_standard' => 'Standard',
         'control_group_widgets' => 'Widgets',
         'click_to_add_control' => 'Add control',
@@ -361,6 +365,8 @@ return [
         'column_label_format' => 'Format',
         'column_label_value_from' => 'Value from',
         'error_duplicate_column' => "Duplicate column field name: ':column'.",
+        'btn_add_database_columns' => 'Add database columns',
+        'all_database_columns_exist' => 'All database columns are already defined in the list'
     ],
     'controller' => [
         'menu_label' => 'Controllers',
@@ -557,6 +563,7 @@ return [
         'string_key_comment' => 'Enter the string key using period as a section separator. For example: plugin.search. The string will be created in the plugin\'s default language localization file.',
         'string_value' => 'String value',
         'string_key_is_empty' => 'String key should not be empty',
+        'string_key_is_a_string' => ':key is a string and cannot contain other strings.',
         'string_value_is_empty' => 'String value should not be empty',
         'string_key_exists' => 'The string key already exists',
     ],
@@ -637,7 +644,7 @@ return [
         'list_scope' => 'Scope',
         'list_scope_description' => 'Optional model scope to fetch the records',
         'list_scope_default' => '--select a scope, optional--',
-        'list_detalis_page_link' => 'Link to the details page',
+        'list_details_page_link' => 'Link to the details page',
         'list_details_key_column' => 'Details key column',
         'list_details_key_column_description' => 'Model column to use as a record identifier in the details page links.',
         'list_details_url_parameter' => 'URL parameter name',

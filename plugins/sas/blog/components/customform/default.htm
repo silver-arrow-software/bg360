@@ -1,20 +1,20 @@
 <form data-request="onCustomFormSubmit"
-      data-request-success="alert('Thank you for your subscription to our newsletter!')"
+      data-request-success=""
       data-request-validate
       data-request-flash>
-    <div class="form-group">
-        <label for="subscribersName">Name</label>
-        <input name="name" type="text" class="form-control" id="subscribersName" placeholder="Enter your name">
-        <span data-validate-for="name"></span>
+    <div class="form-group label-floating">
+        <label for="postTitle" class="control-label">Tiêu đề bài viết</label>
+        <input name="postTitle" type="text" class="form-control" id="postTitle">
+        <span data-validate-for="title"></span>
     </div>
 
     <div class="form-group">
-        <label for="subscribersEmail">Email</label>
-        <input name="email" type="email" class="form-control" id="subscribersEmail" placeholder="Enter your email">
-        <span data-validate-for="email"></span>
+        <label for="postContent">Nội dung</label>
+        <textarea name="postContent" class="" id="postContent" placeholder="Nội dung bài viết" data-provide="markdown" rows="20"></textarea>
+        <span data-validate-for="content"></span>
     </div>
 
-    <button type="submit" class="btn btn-default" data-attach-loading>Submit</button>
+    <button type="submit" class="btn btn-raised btn-primary" data-attach-loading>Lưu</button>
     <div class="alert alert-danger" data-validate-error>
         <p data-message></p>
     </div>

@@ -93,6 +93,8 @@ class Post extends Model
 
     public $preview = null;
 
+    protected $fillable = ['title', 'slug', 'excerpt', 'content', 'content_html', 'published', 'sas_embed_code', 'published_at'];
+
     /**
      * Limit visibility of the published-button
      * @return void
@@ -134,12 +136,12 @@ class Post extends Model
      * @param string $pageName
      * @param Cms\Classes\Controller $controller
      */
-    public function setUrl($pageName, $controller)
-    {
+    public function setUrl($pageName, $controller, $placeSlug = 0) {
         $params = [
             'id' => $this->id,
             'slug' => $this->slug,
         ];
+        if ($placeSlug) $params['slug'] = $placeSlug;
 
         if (array_key_exists('categories', $this->getRelations())) {
             $params['category'] = $this->categories->count() ? $this->categories->first()->slug : null;

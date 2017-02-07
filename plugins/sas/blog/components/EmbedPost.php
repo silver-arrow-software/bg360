@@ -27,13 +27,13 @@ class EmbedPost extends ComponentBase
                 'title'       => 'sas.blog::lang.settings.post_slug',
                 'description' => 'sas.blog::lang.settings.post_slug_desc',
                 'type'        => 'string',
-            ],
+            ]/*,
             'memberPage' => [
                 'title'       => 'sas.blog::lang.settings.posts_post',
                 'description' => 'sas.blog::lang.settings.posts_post_description',
                 'type'        => 'dropdown',
                 'group'       => 'Links',
-            ]
+            ]*/
         ];
     }
 
@@ -55,7 +55,10 @@ class EmbedPost extends ComponentBase
         /*
          * Proxy as post
          */
-        if ($post = PostModel::whereSlug($code)->first()) {
+        // if ($post = PostModel::whereSlug($code)->first()) {
+        //     $properties['slug'] = $post->slug;
+        // }
+        if ($post = PostModel::whereId($code)->first()) {
             $properties['slug'] = $post->slug;
         }
 
