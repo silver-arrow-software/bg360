@@ -26,6 +26,11 @@ navigation:
                 label: 'sas.erp::lang.plugin.orders'
                 url: /sas/erp/orders
                 icon: icon-money
+            side-menu-feedbacks:
+                label: 'sas.erp::lang.feedback.navigation.menu.side.feedbacks'
+                url: /sas/erp/feedbacks
+                icon: icon-inbox
+                permissions: ['sas.erp.manage_feedback']
 permissions:
     sas.erp.manage_profiles:
         tab: 'sas.erp::lang.plugin.name'
@@ -39,3 +44,9 @@ permissions:
     sas.erp.delete_place:
         tab: 'sas.erp::lang.plugin.name'
         label: 'sas.erp::lang.permission.perm_delete_place'
+    sas.erp.manage_feedback:
+        tab: 'cms::lang.permissions.name'
+        label: 'sas.erp::lang.permissions.manage_feedback'
+    sas.erp.config_feedback:
+        tab: 'system::lang.permissions.name'
+        label: 'sas.erp::lang.permissions.config_feedback'

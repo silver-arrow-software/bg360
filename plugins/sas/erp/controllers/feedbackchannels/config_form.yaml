@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: sas.erp::lang.feedback.channel.one
+
+# Model Form Field configuration
+form: $/sas/erp/models/feedbackchannel/fields.yaml
+
+# Model Class name
+modelClass: Sas\Erp\Models\FeedbackChannel
+
+# Default redirect location
+defaultRedirect: sas/erp/feedbackchannels
+
+# Create page
+create:
+    title: sas.erp::lang.feedback.channel.action.create
+    redirect: sas/erp/feedbackchannels/update/:id
+    redirectClose: sas/erp/feedbackchannels
+
+# Update page
+update:
+    title: sas.erp::lang.feedback.channel.action.update
+    redirect: sas/erp/feedbackchannels
+    redirectClose: sas/erp/feedbackchannels
+
+# Preview page
+preview:
+    title: sas.erp::lang.feedback.channel.action.preview

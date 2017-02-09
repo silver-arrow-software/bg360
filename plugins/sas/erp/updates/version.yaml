@@ -28,3 +28,7 @@
 1.0.9:
     - 'Updates: Product, ProductItem.'
     - updates170112.php
+1.0.10:
+    - 'New feature: Feedback.'
+    - create_feedbacks_table.php
+    - seed_feedback_default_channel.php

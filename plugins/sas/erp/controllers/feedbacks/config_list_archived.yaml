@@ -1,0 +1,52 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/sas/erp/models/feedback/columns.yaml
+
+# Model Class name
+modelClass: Sas\Erp\Models\Feedback
+
+# List Title
+title: sas.erp::lang.feedback.navigation.feedbacks.archived_title
+
+# Link URL for each record
+recordUrl: sas/erp/feedbacks/preview/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 20
+
+# Displays the list column set up button
+showSetup: true
+
+# Displays the sorting link on each column
+showSorting: true
+
+# Default sorting column
+# defaultSort:
+#     column: created_at
+#     direction: desc
+
+# Display checkboxes next to each record
+# showCheckboxes: true
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+#    buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt
+
+filter:
+    scopes:
+        channel:
+            label: sas.erp::lang.feedback.channel.one
+            modelClass: \Sas\Erp\Models\FeedbackChannel
+            nameFrom: name
+            conditions: channel_id in (:filtered)

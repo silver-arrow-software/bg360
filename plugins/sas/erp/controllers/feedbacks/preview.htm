@@ -1,0 +1,34 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('sas/erp/feedbacks') ?>"><?= e(trans('sas.erp::lang.feedback.many')) ?></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="form-preview">
+        <?= $this->formRenderPreview() ?>
+    </div>
+
+    <?php if (!$this->formGetModel()->archived) :?>
+        <div class="form-buttons">
+            <div class="loading-indicator-container">
+                <button class="btn btn-danger" data-request="onArchive"><?= e(trans('sas.erp::lang.feedback.action.archive')) ?></button>
+                <span class="btn-text">
+                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('sas/erp/feedbacks') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                </span>
+            </div>
+        </div>
+    <?php endif?>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p>
+        <a href="<?= Backend::url('sas/erp/feedbacks') ?>" class="btn btn-default">
+            <?= e(trans('sas.erp::lang.navigation.feedbacks.return_to_list')) ?>
+        </a>
+    </p>
+
+<?php endif ?>

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: sas.erp::lang.feedback.one
+
+# Model Form Field configuration
+form: $/sas/erp/models/feedback/fields.yaml
+
+# Model Class name
+modelClass: Sas\Erp\Models\Feedback
+
+# Default redirect location
+defaultRedirect: sas/erp/feedbacks
+
+# Create page
+create:
+    title: Create feedback
+    redirect: sas/erp/feedbacks/update/:id
+    redirectClose: sas/erp/feedbacks
+
+# Update page
+update:
+    title: Edit feedback
+    redirect: sas/erp/feedbacks
+    redirectClose: sas/erp/feedbacks
+
+# Preview page
+preview:
+    title: sas.erp::lang.feedback.action.preview

@@ -1,0 +1,25 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: sas.erp::lang.feedback.name
+        searchable: true
+    email:
+        label: sas.erp::lang.feedback.email
+        searchable: true
+    message:
+        label: sas.erp::lang.feedback.message
+        searchable: true
+    channel:
+        label: sas.erp::lang.feedback.channel.one
+        relation: channel
+        select: name
+    created_at:
+        label: sas.erp::lang.feedback.created_at
+        searchable: true
+        type: datetime

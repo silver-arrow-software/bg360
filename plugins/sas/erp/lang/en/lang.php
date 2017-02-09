@@ -20,6 +20,8 @@
         'orders' => 'Orders',
         'accounts' => 'Accounts',
         'account' => 'Account',
+        'feedbacks' => 'Feedbacks',
+        'feedback' => 'Feedback',
     ],
     'profile' => [
         'name' => 'Profile name',
@@ -75,6 +77,8 @@
         'perm_create_product' => 'Create Product',
         'perm_edit_product' => 'Edit Product',
         'perm_delete_product' => 'Delete Product',
+        'manage_feedback' => 'Manage Feedbacks',
+        'config_feedback' => 'Manage Feedback Channels',
     ],
     'message' => [
         'create_success' => 'Successfully create item(s).',
@@ -233,5 +237,108 @@
     ],
     'account' => [
         'name' => 'Account Name',
+    ],
+    'feedback' => [
+        'channel' => [
+            'one' => 'Feedback Channel',
+            'many' => 'Feedback Channels',
+
+            'action' => [
+                'create' => 'Create feedback channel',
+                'update' => 'Edit feedback channel',
+                'preview' => 'Preview feedback channel',
+                'creating' => 'Creating feedback channel...',
+                'saving' => 'Saving feedback channel...',
+                'delete_confirm' => 'Do you really want to delete this feedback channel?',
+                'deleting' => 'Deleting feedback channel...'
+            ],
+
+            'name' => 'Name',
+            'code' => 'Code',
+            'method' => 'Method',
+            'prevent_save_database' => 'Do not save feedbacks in a database',
+            'no_action_warning' => 'Warning! This configuration have no action: you will not recive any feedback messages'
+        ],
+
+        'one' => 'Feedback',
+        'many' => 'Feedbacks',
+
+        'action' => [
+            'archive' => 'Archive',
+            'preview' => 'Preview feedback'
+        ],
+
+        'method' => [
+            'email' => [
+                'destination' => 'Email destination',
+                'destination_comment' => 'An address where to send the feedback. Use comma (,) to add more than 1 address. Leave it blank to use the admin\'s address',
+                'subject' => 'Subject',
+                'template' => 'Template',
+                'template_comment' => 'The variables available here are these on the form'
+            ],
+            'group' => [
+                'channels_comment' => 'Select one or more channels'
+            ]
+        ],
+
+        'name' => 'Name',
+        'email' => 'Email',
+        'message' => 'Message',
+        'created_at' => 'Created at',
+
+        'mail_template' => [
+            'description' => 'The template is used to send messages from the feedback form'
+        ],
+
+        'navigation' => [
+            'menu' => [
+                'side' => [
+                    'feedbacks' => 'Feedbacks',
+                    'archived' => 'Feedbacks Archived'
+                ],
+                'settings' => [
+                    'channels' => [
+                        'description' => 'Manage feedback channels'
+                    ]
+                ]
+            ],
+            'channels' => [
+                'list_title' => 'Feedback Channels list',
+                'return_to_list' => 'Return to feedback channels list'
+            ],
+            'feedbacks' => [
+                'list_title' => 'Feedbacks list',
+                'archived_title' => 'Archived feedbacks',
+                'return_to_list' => 'Return to feedbacks list'
+            ]
+        ],
+
+        'component' => [
+            'feedback' => [
+                'name' => 'Feedback',
+                'description' => 'Adds a feedback form to your page',
+
+                'channelCode' => [
+                    'description' => 'Select the feedback channel you want to use with this form'
+                ],
+                'successMessage' => [
+                    'title' => 'Custom success message',
+                    'description' => 'You can specify a custom message that will be shown to a user after successful form submit'
+                ],
+                'redirectTo' => [
+                    'title' => 'Redirect to',
+                    'description' => 'You can choose a page to redirect to after successful form submit'
+                ]
+            ],
+
+            'onSend' => [
+                'success' => 'Thank you for your message!',
+                'error' => [
+                    'email' => [
+                        'email' => 'Invalid email address, please provide a valid email'
+                    ]
+                ]
+            ]
+        ],
     ],
 ];

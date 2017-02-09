@@ -5,6 +5,11 @@ is_hidden = 0
 
 [viewBag]
 localeUrl[en] = "/lien-he"
+
+[feedback contact_us]
+channelCode = "default"
+successMessage = "Cám ơn ý kiến đóng góp của quý khách. Chúng tôi sẽ phản hồi trong thời gian sớm nhất. Chân thành cám ơn!"
+redirectTo = "/"
 ==
 <!-- Page Content -->
     <div class="container">
@@ -60,37 +65,7 @@ localeUrl[en] = "/lien-he"
         <div class="row">
             <div class="col-md-8">
                 <h3>Để lại lời nhắn</h3>
-
-                <form data-request="onTest" data-request-update="thankyou: '#success'" data-request-confirm="Bạn thật sự muốn gửi lời nhắn đến chúng tôi!">
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Họ tên:</label>
-                            <input type="text" class="form-control" name="name" id="name" required data-validation-required-message="Please enter your name.">
-                            <p class="help-block"></p>
-                        </div>
-                    </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Số điện thoại:</label>
-                            <input type="tel" class="form-control" name="phone" id="phone" required data-validation-required-message="Please enter your phone number.">
-                        </div>
-                    </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Email:</label>
-                            <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter your email address.">
-                        </div>
-                    </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Nội dung lời nhắn:</label>
-                            <textarea rows="10" cols="100" class="" name="message" id="message" data-provide="markdown"  required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
-                        </div>
-                    </div>
-                    <div id="success"></div>
-                    <!-- For success/fail messages -->
-                    <input type="submit" class="btn btn-primary btn-raised" value="Gửi lời nhắn">
-                </form>
+                {% component 'contact_us' %}
             </div>
 
         </div>

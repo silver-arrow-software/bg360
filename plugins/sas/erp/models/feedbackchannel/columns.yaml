@@ -1,0 +1,12 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    code:
+        label: sas.erp::lang.feedback.channel.code
+        searchable: true
+
+    name:
+        label: sas.erp::lang.feedback.channel.name
+        searchable: true

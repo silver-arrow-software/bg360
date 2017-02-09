@@ -1,0 +1,16 @@
+<div data-control="toolbar">
+    <button id="archive-button" class="btn btn-danger oc-icon-archive"><?= e(trans('sas.erp::lang.feedback.action.archive')) ?></button>
+</div>
+
+<script>
+    $('#archive-button').click(function() {
+        $.request('onBulkArchive', {
+            data: {
+                ids: $('.list-checkbox input[type="checkbox"]:checked').not('#Lists-checkboxAll')
+                        .map(function(index, item) {
+                            return item.value
+                        }).toArray()
+            }
+        });
+    });
+</script>

@@ -1,0 +1,27 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: sas.erp::lang.feedback.channel.name
+        required: true
+
+    code:
+        label: sas.erp::lang.feedback.channel.code
+        required: true
+        preset:
+            field: name
+            type: slug
+
+    method:
+        label: sas.erp::lang.feedback.channel.method
+        type: dropdown
+
+    prevent_save_database:
+        label: sas.erp::lang.feedback.channel.prevent_save_database
+        type: checkbox
+
+    warning:
+        type: hint
+        path: $/sas/erp/controllers/feedbackchannels/_no_action_warning.htm

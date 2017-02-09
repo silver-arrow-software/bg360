@@ -140,6 +140,31 @@ class Plugin extends PluginBase
         App::singleton('cart', function() {
             return new \Sas\Erp\Classes\Cart;
         });
+
+        \Validator::extend("emails", function($attribute, $value, $parameters) {
+            $rules = [
+                'email' => 'required|email',
+            ];
+
+            if (!is_array($value)) {
+                $emails = explode(',', $value);
+            }
+            else {
+                $emails = [$value];
+            }
+
+            foreach ($emails as $email) {
+                $data = [
+                    'email' => trim($email)
+                ];
+                $validator = \Validator::make($data, $rules);
+                if ($validator->fails()) {
+                    return false;
+                }
+            }
+
+            return true;
+        });
     }
 
     /**
@@ -159,6 +184,7 @@ class Plugin extends PluginBase
             'Sas\Erp\Components\Place' => 'place',
             'Sas\Erp\Components\MoneyAccounts' => 'moneyAccounts',
             'Sas\Erp\Components\MoneyAccount' => 'moneyAccount',
+            'Sas\Erp\Components\Feedback' => 'feedback',
         ];
     }
 
@@ -172,6 +198,16 @@ class Plugin extends PluginBase
                 'class' => 'Sas\Erp\Models\Settings',
                 'order' => 200
             ],
+            'channels' => [
+                'label' => 'sas.erp::lang.feedback.channel.many',
+                'description' => 'sas.erp::lang.feedback.navigation.menu.settings.channels.description',
+                'category' => 'SAS',
+                'icon' => 'icon-arrows',
+                'url' => \Backend::url('sas/erp/feedbackchannels'),
+                'order' => 500,
+                'keywords' => 'feedback channel',
+                'permissions' => ['sas.erp.config_feedback']
+            ]
         ];
     }
 
@@ -213,6 +249,18 @@ class Plugin extends PluginBase
     public function viewQRCode($value, $column, $record) {
         $return_value = "<img src='data:image/png;base64, {{ barcodePNG({data: '". $value . "', type: 'QRCODE', color: [0,0,0], width: '5', height: '5'}) }}' alt='barcode' />";
         return $return_value;
+    }
+
+    /**
+     * Registers any mail templates implemented by this plugin.
+     * The templates must be returned in the following format:
+     * ['acme.blog::mail.welcome' => 'This is a description of the welcome template'],
+     * ['acme.blog::mail.forgot_password' => 'This is a description of the forgot password template'],
+     */
+    public function registerMailTemplates() {
+        return [
+            'sas.erp::base-email' => \Lang::get('sas.erp::lang.mail_template.description')
+        ];
     }
 
     /*
