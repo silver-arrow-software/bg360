@@ -1,0 +1,31 @@
+title = "Place - Projects"
+url = "/place/:slug/projects"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/place-projects"
+
+[sasErpList projects]
+modelClass = "Sas\Erp\Models\Project"
+scope = "scopeBelongPlace"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "place/place-project"
+detailsKeyColumn = "id"
+detailsUrlParameter = "id"
+recordsPerPage = 20
+pageNumber = "{{ :page }}"
+slug = "{{ :slug }}"
+==
+<?php
+function onStart() {
+    $this["backLink"] = "/place/" . $this->param('slug');
+}
+?>
+==
+<div class="container">
+    <div class="well">
+        {% component "projects" %}
+    </div>
+</div>

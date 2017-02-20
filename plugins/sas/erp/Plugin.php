@@ -8,10 +8,11 @@ use App;
 use System\Classes\PluginBase;
 use RainLab\User\Models\User as UserModel;
 use RainLab\User\Controllers\Users as UsersController;
-use RainLab\Blog\Controllers\Posts as PostsController;
-use RainLab\Blog\Models\Post as PostModel;
+use Sas\Blog\Controllers\Posts as PostsController;
+use Sas\Blog\Models\Post as PostModel;
 use Sas\Erp\Models\Tag;
 use Illuminate\Foundation\AliasLoader;
+use Config;
 
 class Plugin extends PluginBase
 {
@@ -28,6 +29,8 @@ class Plugin extends PluginBase
      * @return array
      */
     public function boot() {
+        //$this->bootPackages();
+
         Event::listen('backend.menu.extendItems', function($manager) {
            $manager->addSideMenuItems('RainLab.User', 'user', [
                 'sas-erp-side-menu-profiles' => [
@@ -185,6 +188,9 @@ class Plugin extends PluginBase
             'Sas\Erp\Components\MoneyAccounts' => 'moneyAccounts',
             'Sas\Erp\Components\MoneyAccount' => 'moneyAccount',
             'Sas\Erp\Components\Feedback' => 'feedback',
+            'Sas\Erp\Components\RecordList' => 'sasErpList',
+            'Sas\Erp\Components\RecordDetail' => 'sasErpDetail',
+            'Sas\Erp\Components\ProjectDetail' => 'sasErpProject',
         ];
     }
 

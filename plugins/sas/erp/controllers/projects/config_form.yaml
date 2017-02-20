@@ -1,0 +1,11 @@
+name: Projects
+modelClass: Sas\Erp\Models\Project
+form: $/sas/erp/models/project/fields.yaml
+defaultRedirect: sas/erp/projects
+create:
+    redirect: 'sas/erp/projects/update/:id'
+    redirectClose: sas/erp/projects
+update:
+    redirect: sas/erp/projects
+    redirectClose: sas/erp/projects
+preview: {  }

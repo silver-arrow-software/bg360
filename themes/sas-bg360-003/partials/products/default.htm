@@ -1,6 +1,51 @@
 {% set products = __SELF__.products %}
 
 <div class="container-fluid">
+{% if can('place.admin') %}
+    <div class="row">
+        <h4>Quản lý sản phẩm</h4>
+        <hr>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <th></th>
+                <th>Tên trò chơi</th>
+                <th>Giá</th>
+                <th>SL</th>
+                <th></th>
+            </thead>
+            <tbody>
+        {% for product in products %}
+            <tr>
+                <td>
+                    {% if product.product.images.count %}
+                        {% for image in product.product.images|slice(0, 1) %}
+                            <img data-src="{{ image.filename }}"
+                                 src="{{ product.product.getSquareThumb(50, image) }}"
+                                 class="img-responsive"
+                                 alt="{{ product.product.title }}" />
+                        {% endfor %}
+                    {% else %}
+                        <img src="http://placehold.it/210x210" class="img-responsive" alt="{{ product.product.title }}">
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ product.url }}">{{ product.product.title }}</a>
+                </td>
+                <td>
+                    {{ product.price|number_format(0,',','.') }} {{ currency }}
+                </td>
+                <td>{{ product.quantity }}</td>
+                <td></td>
+            </tr>
+        {% else %}
+            <tr><td colspan="5"><h4 class="text-center">{{ noProductsMessage }}</h4></td></tr>
+        {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
     <div class="row">
         {% for product in products %}
             <div class="col-sm-3">
@@ -66,6 +111,7 @@
         {% else %}
             <h4 class="text-center">{{ noProductsMessage }}</h4>
         {% endfor %}
-    </div>
-    {{ products.render|raw }}
+{% endif %}
+</div>
+{{ products.render|raw }}
 </div>

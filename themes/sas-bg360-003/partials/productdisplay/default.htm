@@ -50,9 +50,14 @@
 					</p>
 				{% endif %}
 
-				<div class="description space-bottom-2x">
+				<div class="product-desc space-bottom-2x text-justify">
 					{{ product.product.description|md }}
 				</div>
+
+				<div class="product-price">
+					Giá: <strong>{{ product.price|number_format(0,',','.') }} {{ currency }}</strong>
+				</div>
+
 				<div class="add-to-cart">
 					{{ form_open({ 'data-request': 'onAddToCart', 'data-request-success': 'location.reload()' }) }}
 
@@ -95,9 +100,9 @@
 			<div class="col-md-12">
 				<!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#tab1" aria-controls="home" role="tab" data-toggle="tab">Thông tin chi tiết</a></li>
-					<li role="presentation"><a href="#tab2" aria-controls="profile" role="tab" data-toggle="tab">Nhận xét của khách hàng</a></li>
-					<li role="presentation"><a href="#tab3" aria-controls="messages" role="tab" data-toggle="tab">Sản phẩm liên quan</a></li>
+					<li role="presentation" class="active"><a href="#tab1" aria-controls="informaton" role="tab" data-toggle="tab">Thông tin chi tiết</a></li>
+					<li role="presentation"><a href="#tab2" aria-controls="profile" role="comments" data-toggle="tab">Nhận xét của khách hàng</a></li>
+					<li role="presentation"><a href="#tab3" aria-controls="relations" role="tab" data-toggle="tab">Sản phẩm liên quan</a></li>
 				</ul>
 
 				<!-- Tab panes -->
@@ -108,6 +113,16 @@
 						{% else %}
 						<p>Đang cập nhật thông tin. Vui lòng quay lại sau!</p>
 						{% endif %}
+						<ul class="gallery_shop">
+							{% for image in product.images %}
+								<li class="">
+									<img 	data-src="{{ image.filename }}"
+											src="{{ image.path }}"
+											class="img-responsive"
+											alt="{{ product.product.title }}" />
+								</li>
+							{% endfor %}
+						</ul>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="tab2"><p>Hãy là người đầu tiên đánh giá sản phẩm này ...</p></div>
 					<div role="tabpanel" class="tab-pane" id="tab3"><p>Những sản phẩm liên quan ...</p></div>
@@ -192,8 +207,14 @@
 				maxSlides: visibleThumbs,
 				slideMargin: 10
 			});
-
 		}
+
+		$('.gallery_shop').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 4,
+		  slideWidth: 170,
+		  slideMargin: 10
+		});
 	});
 </script>
 {% endput %}

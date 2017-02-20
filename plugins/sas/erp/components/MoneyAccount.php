@@ -7,6 +7,7 @@ use Cms\Classes\Page;
 use Flash;
 use Auth;
 use Debugbar;
+use Db;
 
 class MoneyAccount extends ComponentBase {
 
@@ -79,6 +80,7 @@ class MoneyAccount extends ComponentBase {
             //tạo mới money account cho place
             $this->page['isNew'] = true;
         }
+
         $this->page['isGuest'] = true;
         if ((Auth::check())) {
             switch ($this->property('slugType')) {
@@ -90,6 +92,8 @@ class MoneyAccount extends ComponentBase {
                     break;
             }
         }
+
+        $this->getAccountReport();
     }
 
     public function onAddAccount() {
@@ -140,6 +144,8 @@ class MoneyAccount extends ComponentBase {
 
         $this->page['account'] = $account;
 
+        $this->getAccountReport();
+
         Flash::success('Thông tin đã được lưu trữ thành công.');
     }
 
@@ -155,10 +161,22 @@ class MoneyAccount extends ComponentBase {
         $this->page['account'] = $account;
 
         $old_transaction->delete();
+
+        $this->getAccountReport();
+
         Flash::success('Dữ liệu đã được cập nhật thành công.');
     }
 
     public function getUserOptions() {
         return RainLab\User\Models\User::lists('name', 'id');
+    }
+
+    protected function getAccountReport() {
+        $report_transactions = AccountTransaction::where('account_id', $this->property('id'))
+            ->join('users', 'user_id', '=', 'users.id')
+            ->select('users.name', Db::raw('SUM(amount) as total_amount'))
+            ->groupBy('user_id')
+            ->get();
+        $this->page['report_transactions'] = $report_transactions;
     }
 }

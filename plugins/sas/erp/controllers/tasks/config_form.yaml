@@ -1,0 +1,11 @@
+name: Tasks
+modelClass: Sas\Erp\Models\Task
+form: $/sas/erp/models/task/fields.yaml
+defaultRedirect: sas/erp/tasks
+create:
+    redirect: 'sas/erp/tasks/update/:id'
+    redirectClose: sas/erp/tasks
+update:
+    redirect: sas/erp/tasks
+    redirectClose: sas/erp/tasks
+preview: {  }

@@ -1,0 +1,12 @@
+columns:
+    name:
+        label: 'sas.erp::lang.team.name'
+        type: text
+        searchable: true
+        sortable: true
+    users:
+        label: 'sas.erp::lang.team.users'
+        type: text
+        searchable: true
+        select: name
+        relation: users

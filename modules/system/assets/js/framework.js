@@ -75,6 +75,7 @@ if (window.jQuery.request !== undefined) {
 
         var requestOptions = {
             url: window.location.href,
+            crossDomain: false,
             context: context,
             headers: requestHeaders,
             success: function(data, textStatus, jqXHR) {

@@ -22,6 +22,12 @@
         'account' => 'Account',
         'feedbacks' => 'Feedbacks',
         'feedback' => 'Feedback',
+        'project' => 'Project',
+        'team' => 'Team',
+        'task' => 'Task',
+        'projects' => 'Projects',
+        'teams' => 'Teams',
+        'tasks' => 'Tasks',
     ],
     'profile' => [
         'name' => 'Profile name',
@@ -79,6 +85,9 @@
         'perm_delete_product' => 'Delete Product',
         'manage_feedback' => 'Manage Feedbacks',
         'config_feedback' => 'Manage Feedback Channels',
+        'manage_projects' => 'Manage Projects',
+        'manage_teams' => 'Manage Teams',
+        'manage_tasks' => 'Manage Tasks',
     ],
     'message' => [
         'create_success' => 'Successfully create item(s).',
@@ -341,4 +350,37 @@
             ]
         ],
     ],
+
+    'project' => [
+        'name' => 'Name',
+        'start_at' => 'Start At',
+        'end_at' => 'End At',
+        'team_id' => 'Team',
+        'place_id' => 'Place',
+        'description' => 'Description',
+        'component_name' => 'Project Details',
+        'component_desc' => 'Display details of the project.',
+        'slug' => 'Project ID',
+        'slug_description' => 'Project ID'
+    ],
+    'team' => [
+        'name' => 'Name',
+        'place_id' => 'Place',
+        'users' => 'Users',
+    ],
+    'task' => [
+        'title' => 'Title',
+        'status' => 'Status',
+        'start_at' => 'Start At',
+        'end_at' => 'End At',
+        'project_id' => 'Project',
+        'description' => 'Description',
+    ],
+    'task_status' => [
+        'deleted'   => 'Deleted',
+        'draft' => 'Draft',
+        'doing' => 'Doing',
+        'testing'   => 'Testing',
+        'completed' => 'Completed'
+    ]
 ];

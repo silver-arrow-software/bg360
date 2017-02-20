@@ -1,0 +1,40 @@
+fields:
+    name:
+        label: 'sas.erp::lang.project.name'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text
+    start_at:
+        label: 'sas.erp::lang.project.start_at'
+        oc.commentPosition: ''
+        mode: datetime
+        minDate: '2016-01-01'
+        span: auto
+        type: datepicker
+    end_at:
+        label: 'sas.erp::lang.project.end_at'
+        oc.commentPosition: ''
+        mode: datetime
+        minDate: '2016-01-01'
+        span: auto
+        type: datepicker
+    team_id:
+        label: 'sas.erp::lang.project.team_id'
+        oc.commentPosition: ''
+        span: auto
+        type: dropdown
+    place_id:
+        label: 'sas.erp::lang.project.place_id'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        context:
+            - create
+        type: dropdown
+    description:
+        label: 'sas.erp::lang.project.description'
+        span: full
+        size: large
+        oc.commentPosition: ''
+        type: richeditor

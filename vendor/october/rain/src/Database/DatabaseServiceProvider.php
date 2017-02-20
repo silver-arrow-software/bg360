@@ -5,6 +5,7 @@ use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Connectors\ConnectionFactory;
 use Illuminate\Database\DatabaseServiceProvider as DatabaseServiceProviderBase;
 use Illuminate\Database\DatabaseManager;
+use October\Rain\Database\MemoryCache;
 
 class DatabaseServiceProvider extends DatabaseServiceProviderBase
 {
@@ -32,6 +33,8 @@ class DatabaseServiceProvider extends DatabaseServiceProviderBase
         Model::clearBootedModels();
 
         Model::clearExtendedClasses();
+
+        Model::flushDuplicateCache();
 
         $this->registerEloquentFactory();
 

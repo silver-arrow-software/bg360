@@ -2,7 +2,7 @@
     "name": "sas/erp",
     "description": "ERP for everyone.",
     "homepage": "http://github.com/sas/erp",
-    "keywords": ["october", "rainlab", "blog", "sas"],
+    "keywords": ["octobercms", "muitenbac", "silverarrow", "sas"],
     "authors": [
         {
             "name": "Silver Arrow Software",
@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "owl/library": "dev-master"
+        "owl/library": "dev-master",
+		"yajra/laravel-datatables-oracle": "^7.2"
     }
 }

@@ -31,6 +31,24 @@ navigation:
                 url: /sas/erp/feedbacks
                 icon: icon-inbox
                 permissions: ['sas.erp.manage_feedback']
+            side-menu-item-projects:
+                label: 'sas.erp::lang.plugin.projects'
+                url: sas/erp/projects
+                icon: icon-briefcase
+                permissions:
+                    - sas.erp.manage_projects
+            side-menu-item-teams:
+                label: 'sas.erp::lang.plugin.teams'
+                url: sas/erp/teams
+                icon: icon-users
+                permissions:
+                    - sas.erp.manage_teams
+            side-menu-item-tasks:
+                label: 'sas.erp::lang.plugin.tasks'
+                url: sas/erp/tasks
+                icon: icon-tasks
+                permissions:
+                    - sas.erp.manage_tasks
 permissions:
     sas.erp.manage_profiles:
         tab: 'sas.erp::lang.plugin.name'
@@ -50,3 +68,12 @@ permissions:
     sas.erp.config_feedback:
         tab: 'system::lang.permissions.name'
         label: 'sas.erp::lang.permissions.config_feedback'
+    sas.erp.manage_projects:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_projects'
+    sas.erp.manage_teams:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_teams'
+    sas.erp.manage_tasks:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_tasks'

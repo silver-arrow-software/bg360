@@ -1,0 +1,17 @@
+fields:
+    name:
+        label: 'sas.erp::lang.team.name'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text
+    place_id:
+        label: 'sas.erp::lang.team.place_id'
+        oc.commentPosition: ''
+        span: auto
+        context:
+            - create
+        type: dropdown
+    users:
+        label: 'sas.erp::lang.team.users'
+        type: relation

@@ -61,6 +61,7 @@ class ProductDisplay extends ComponentBase {
         //$this->categoryPage = $this->page['categoryPage'] = $settings->categoryPage;
 
         $this->product = $this->page['product'] = $this->loadProduct();
+        $this->page['currency'] = $settings->currency;
     }
 
     protected function loadProduct() {

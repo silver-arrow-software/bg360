@@ -28,7 +28,7 @@
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h4 class="panel-title">{{ 'Account Transactions'|_ }}</h4>
+                <h4 class="panel-title">{{ 'Account Transactions'|_ }} <a data-toggle="modal" href="#contentReport"><i class="fa fa-bar-chart"></i></a></h4>
             </div>
             <div class="panel-body" id="transaction-list">
                 {% partial __SELF__ ~ '::transaction_list' %}
@@ -61,6 +61,36 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-raised">{{ 'Submit'|_ }}</button>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="control-popup modal fade" id="contentReport" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Tổng kết tiền quỹ theo thành viên</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="control-list">
+                        <table class="table data">
+                            <thead>
+                                <tr>
+                                    <th class="sort-desc">Tên thành viên</th>
+                                    <th class="text-right">Số tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for report_tran in report_transactions %}
+                                <tr>
+                                    <td>{{ report_tran.name }}</td>
+                                    <td class="text-right">{{ report_tran.total_amount|number_format(0, ',', '.') }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,26 @@
+columns:
+    title:
+        label: 'sas.erp::lang.task.title'
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: 'sas.erp::lang.task.status'
+        searchable: true
+        type: partial
+        path: ~/plugins/sas/erp/models/task/_status.htm
+    start_at:
+        label: 'sas.erp::lang.task.start_at'
+        type: datetime
+        sortable: true
+    end_at:
+        label: 'sas.erp::lang.task.end_at'
+        type: datetime
+        sortable: true
+    project_id:
+        label: 'sas.erp::lang.task.project_id'
+        type: text
+        searchable: false
+        sortable: true
+        select: name
+        relation: project
