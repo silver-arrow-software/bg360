@@ -219,31 +219,4 @@ class Plugin extends PluginBase
         return $value;
     }
 
-    /**
-     * @return array
-     */
-    /*public function registerNavigation() {
-        return [
-            'sas-erp-main-menu-item' => [
-                'label' => 'sas.erp::lang.plugin.name',
-                'url' => Backend::url('sas/erp/profiles'),
-                'icon' => 'icon-location-arrow',
-                'order' => 500,
-                'sideMenu' => [
-                    'sas-erp-side-menu-teams' => [
-                        'label' => 'Teams',
-                        'icon' => 'icon-users',
-                        'url' => Backend::url('sas/project/teams'),
-                        'permissions' => ['sas.project.manage_teams']
-                    ],
-                    'sas-erp-side-menu-projects' => [
-                        'label' => 'Projects',
-                        'icon' => 'icon-files',
-                        'url' => Backend::url('sas/project/projects'),
-                        'permissions' => ['sas.project.manage_projects']
-                    ]
-                ]
-            ]
-        ];
-    }*/
 }

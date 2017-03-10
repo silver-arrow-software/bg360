@@ -1,7 +1,6 @@
 <?php namespace Indikator\Backend;
 
 use System\Classes\PluginBase;
-use System\Classes\PluginManager;
 use System\Classes\SettingsManager;
 use Backend\Classes\Controller as BackendController;
 use Backend;
@@ -84,32 +83,6 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function registerComponents()
-    {
-        return [
-            'Indikator\Backend\Components\Image' => 'image',
-            'Indikator\Backend\Components\Text'  => 'text'
-        ];
-    }
-
-    public function registerFormWidgets()
-    {
-        return [
-            'Indikator\Backend\FormWidgets\Pickadate' => [
-                'label' => 'Pickadate',
-                'code'  => 'pickadate'
-            ],
-            'Indikator\Backend\FormWidgets\TimePicki' => [
-                'label' => 'TimePicki',
-                'code'  => 'timepicki'
-            ],
-            'Indikator\Backend\FormWidgets\MiniColors' => [
-                'label' => 'MiniColors',
-                'code'  => 'minicolors'
-            ]
-        ];
-    }
-
     public function registerPermissions()
     {
         return [
@@ -122,10 +95,6 @@ class Plugin extends PluginBase
 
     public function boot()
     {
-        if ((bool)File::get(base_path().'/plugins/indikator/backend/assets/gzip.txt')) {
-            ob_start('ob_gzhandler');
-        }
-
         Event::listen('backend.form.extendFields', function($form)
         {
             if ($form->model instanceof Backend\Models\Preference) {
@@ -161,12 +130,11 @@ class Plugin extends PluginBase
                         'type'    => 'switch',
                         'default' => false
                     ],
-                    'more_themes' => [
+                    'display_elite' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_display',
-                        'label'   => 'indikator.backend::lang.settings.themes_label',
-                        'comment' => 'indikator.backend::lang.settings.themes_comment',
-                        'type'    => 'switch',
-                        'default' => false
+                        'label'   => 'More cool features',
+                        'comment' => 'Change the Account menu and the Profile image style, etc. See the Backend Elite plugin on the Market.',
+                        'type'    => 'section'
                     ],
 
                     /*
@@ -186,13 +154,6 @@ class Plugin extends PluginBase
                         'type'    => 'switch',
                         'default' => false
                     ],
-                    'form_clearbutton' => [
-                        'tab'     => 'indikator.backend::lang.settings.tab_behavior',
-                        'label'   => 'indikator.backend::lang.settings.clearbutton_label',
-                        'comment' => 'indikator.backend::lang.settings.clearbutton_comment',
-                        'type'    => 'switch',
-                        'default' => false
-                    ],
                     'virtual_keyboard' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_behavior',
                         'label'   => 'indikator.backend::lang.settings.keyboard_label',
@@ -200,12 +161,11 @@ class Plugin extends PluginBase
                         'type'    => 'switch',
                         'default' => false
                     ],
-                    'enabled_gzip' => [
+                    'behavior_elite' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_behavior',
-                        'label'   => 'indikator.backend::lang.settings.enabled_gzip_label',
-                        'comment' => 'indikator.backend::lang.settings.enabled_gzip_comment',
-                        'type'    => 'switch',
-                        'default' => false
+                        'label'   => 'More cool features',
+                        'comment' => 'Enable the gzip compression, use the wysiwyg editor instead of code editor, etc. See the Backend Elite plugin on the Market.',
+                        'type'    => 'section'
                     ]
                 ]);
             }
@@ -242,10 +202,6 @@ class Plugin extends PluginBase
                     $controller->addCss('/plugins/indikator/backend/assets/css/sidebar-description.css');
                 }
 
-                if (isset($preferences['more_themes']) && $preferences['more_themes']) {
-                    $controller->addJs('/plugins/indikator/backend/assets/js/setting-theme.js');
-                }
-
                 /*
                  * Behavior settings
                  */
@@ -259,20 +215,9 @@ class Plugin extends PluginBase
                     $controller->addJs('/plugins/indikator/backend/assets/js/context-menu.js');
                 }
 
-                if (isset($preferences['form_clearbutton']) && $preferences['form_clearbutton']) {
-                    $controller->addJs('/plugins/indikator/backend/assets/js/form-clearbutton.js');
-                }
-
                 if (isset($preferences['virtual_keyboard']) && $preferences['virtual_keyboard']) {
                     $controller->addCss('/plugins/indikator/backend/assets/css/ml-keyboard.css');
                     $controller->addJs('/plugins/indikator/backend/assets/js/ml-keyboard.js');
-                }
-
-                if (isset($preferences['enabled_gzip']) && $preferences['enabled_gzip']) {
-                    File::put(base_path().'/plugins/indikator/backend/assets/gzip.txt', 1);
-                }
-                else {
-                    File::put(base_path().'/plugins/indikator/backend/assets/gzip.txt', 0);
                 }
             }
         });

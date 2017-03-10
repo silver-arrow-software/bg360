@@ -7,7 +7,6 @@ div[data-field-name="productItems"] .btn:nth-child(4) {
 
 /* kanban css */
 .background{background-color: white; cursor: auto;font-family: 'Karla', sans-serif;}
-#project{width:100%;text-align:center;margin:0 auto;}
 .table{margin:30px auto;min-width:600px;border: 0; width: auto !important}
 .table th{width:240px;text-align:center;border: 0;margin:2px;color:#555555}
 .header_input{margin:5px;}
@@ -48,4 +47,128 @@ div[data-field-name="productItems"] .btn:nth-child(4) {
     float: left;
     padding: 10px 0;
     color: #666666;
+}
+
+
+#sas-project {
+    position: relative;
+}
+
+.board-list-view {
+    -ms-flex-align: start;
+    -moz-box-align: start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -moz-box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    overflow-x: inherit \9;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+.board-list-view .list {
+    padding: 7px 10px;
+    background-color: #f3f5f7;
+    color: #555;
+    margin: 0 5px;
+    margin: 0 20px \9;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -moz-box-flex: 0;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 260px;
+    -webkit-flex: 0 0 260px;
+    flex: 0 0 260px;
+    max-height: 100%;
+    position: relative;
+    width: 260px;
+}
+
+.board-list-view .list .list-header, .board-list-view .list .list-footer {
+    flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    position: relative;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+}
+
+.board-list-view .list .list-header {
+    min-height: 19px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    max-width: 260px;
+}
+
+.board-list-view .list .list-footer {
+    margin: 2px -3px -3px;
+    padding: 7px 10px;
+}
+
+.board-list-view .list .list-content {
+    max-width: 260px;
+    flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    position: relative;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    line-height: 1.3;
+    margin-bottom: 0;
+    word-wrap: break-word;
+    overflow-x: hidden\9;
+    overflow-y: auto\9;
+}
+
+.board-list-view .list .panel {
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.15);
+    box-shadow: 0 1px 1px rgba(0,0,0,.15);
+}
+
+.item-list-placeholder {
+    margin-bottom: 20px;
+    min-height: 40px;
+    background: #eee;
+    border: 1px dashed #c2c2c2;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.board-list-view .board-list-placeholder.list{
+    border:1px dashed #999;
+    height:150px
+}
+
+.hide {
+    display: none!important;
+}
+
+.text-muted {
+    color: #999;
+}
+
+.right-mar {
+    margin-right: 10px;
 }

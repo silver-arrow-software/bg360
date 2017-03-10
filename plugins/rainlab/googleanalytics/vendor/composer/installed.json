@@ -113,30 +113,30 @@
     },
     {
         "name": "guzzlehttp/promises",
-        "version": "1.3.0",
-        "version_normalized": "1.3.0.0",
+        "version": "v1.3.1",
+        "version_normalized": "1.3.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/promises.git",
-            "reference": "2693c101803ca78b27972d84081d027fca790a1e"
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/promises/zipball/2693c101803ca78b27972d84081d027fca790a1e",
-            "reference": "2693c101803ca78b27972d84081d027fca790a1e",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.0"
+            "phpunit/phpunit": "^4.0"
         },
-        "time": "2016-11-18 17:47:58",
+        "time": "2016-12-20 10:07:11",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0-dev"
+                "dev-master": "1.4-dev"
             }
         },
         "installation-source": "dist",
@@ -373,17 +373,17 @@
     },
     {
         "name": "monolog/monolog",
-        "version": "1.21.0",
-        "version_normalized": "1.21.0.0",
+        "version": "1.22.0",
+        "version_normalized": "1.22.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952"
+            "reference": "bad29cb8d18ab0315e6c477751418a82c850d558"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
-            "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bad29cb8d18ab0315e6c477751418a82c850d558",
+            "reference": "bad29cb8d18ab0315e6c477751418a82c850d558",
             "shasum": ""
         },
         "require": {
@@ -394,7 +394,7 @@
             "psr/log-implementation": "1.0.0"
         },
         "require-dev": {
-            "aws/aws-sdk-php": "^2.4.9",
+            "aws/aws-sdk-php": "^2.4.9 || ^3.0",
             "doctrine/couchdb": "~1.0@dev",
             "graylog2/gelf-php": "~1.0",
             "jakub-onderka/php-parallel-lint": "0.9",
@@ -419,7 +419,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2016-07-29 03:23:52",
+        "time": "2016-11-26 00:15:39",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -498,23 +498,23 @@
     },
     {
         "name": "google/apiclient-services",
-        "version": "v0.8",
-        "version_normalized": "0.8.0.0",
+        "version": "v0.9",
+        "version_normalized": "0.9.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/google/google-api-php-client-services.git",
-            "reference": "26bcd71cb4fcf78020ec24052ddfb28550e01bc8"
+            "reference": "c400c655d1b7ca412ad4dd344e569c6865e74a83"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/26bcd71cb4fcf78020ec24052ddfb28550e01bc8",
-            "reference": "26bcd71cb4fcf78020ec24052ddfb28550e01bc8",
+            "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/c400c655d1b7ca412ad4dd344e569c6865e74a83",
+            "reference": "c400c655d1b7ca412ad4dd344e569c6865e74a83",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4"
         },
-        "time": "2016-10-18 01:01:16",
+        "time": "2017-01-11 18:53:21",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -632,28 +632,28 @@
     },
     {
         "name": "google/apiclient",
-        "version": "v2.1.0",
-        "version_normalized": "2.1.0.0",
+        "version": "v2.1.2",
+        "version_normalized": "2.1.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/google/google-api-php-client.git",
-            "reference": "f4a8ef0642cdbea0a07f6966158337bab846d4de"
+            "reference": "360e656f48c3262a6f7fefc0207521efa66caedf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-api-php-client/zipball/f4a8ef0642cdbea0a07f6966158337bab846d4de",
-            "reference": "f4a8ef0642cdbea0a07f6966158337bab846d4de",
+            "url": "https://api.github.com/repos/google/google-api-php-client/zipball/360e656f48c3262a6f7fefc0207521efa66caedf",
+            "reference": "360e656f48c3262a6f7fefc0207521efa66caedf",
             "shasum": ""
         },
         "require": {
             "firebase/php-jwt": "~2.0|~3.0|~4.0",
-            "google/apiclient-services": "^0.8",
+            "google/apiclient-services": "^0.9",
             "google/auth": "^0.11",
             "guzzlehttp/guzzle": "~5.2|~6.0",
             "guzzlehttp/psr7": "^1.2",
             "monolog/monolog": "^1.17",
             "php": ">=5.4",
-            "phpseclib/phpseclib": "~2.0"
+            "phpseclib/phpseclib": "~0.3.10|~2.0"
         },
         "require-dev": {
             "cache/filesystem-adapter": "^0.3.2",
@@ -665,7 +665,7 @@
         "suggest": {
             "cache/filesystem-adapter": "For caching certs and tokens (using Google_Client::setCache)"
         },
-        "time": "2016-11-02 14:28:02",
+        "time": "2017-01-11 19:44:46",
         "type": "library",
         "extra": {
             "branch-alias": {

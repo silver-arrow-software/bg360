@@ -1,0 +1,11 @@
+name: ProjectColumns
+modelClass: Sas\Erp\Models\ProjectColumn
+form: $/sas/erp/models/projectcolumn/fields.yaml
+defaultRedirect: sas/erp/projectcolumns
+create:
+    redirect: 'sas/erp/projectcolumns/update/:id'
+    redirectClose: sas/erp/projectcolumns
+update:
+    redirect: sas/erp/projectcolumns
+    redirectClose: sas/erp/projectcolumns
+preview: {  }

@@ -17,7 +17,7 @@ class Task extends Model
     public $rules = [
         'title'    => 'required',
         'project_id'    => 'required|numeric',
-        'status'   => 'required|between:1,3|numeric'
+        'status'   => 'required|between:0,4|numeric'
     ];
 
     /*
@@ -40,7 +40,7 @@ class Task extends Model
         return Project::lists('name', 'id');
     }
 
-    public function getStatusOptions()
+    public static function getStatusOptions()
     {
         return [
             0 => 'sas.erp::lang.task_status.deleted',

@@ -16,3 +16,6 @@
 1.0.5:
     - 'New features: Account, Income, Expense.'
     - sas_create_accounts_table.php
+1.0.6:
+    - 'New features: Kanban board support.'
+    - sas_create_project_columns.php

@@ -1,47 +1,206 @@
 {% set project = __SELF__.project %}
 {% set columns = __SELF__.columns %}
-{% set tasks = project.tasks %}
+{% set linked_statuses = __SELF__.linked_statuses %}
 
 <h3>{{ project.title|e }}</h3>
 <div class="content">{{ project.description|raw }}</div>
 
 <p class="info"></p>
 
-<div id="project">
-    <div>
-        <input id="add_task" type="button"   value="NEW TASK" class="btn btn-info"/>
-        <input id="add_col" type="button"    value="NEW COLUMN"  class="btn btn-primary"></button>
-        <input id="remove_col" type="button" value="DELETE COLUMN"  class="btn btn-danger" ></button>
+<div class="row" id="sas-project">
+    <div class="board-list-view">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 btn-block list" id="js-add-list-block">
+            <div class="js-list-form">
+                <a href="#" class="js-show-add-list-form toggle-show text-muted" title="Add a list">Add a list</a>
+                <form class="js-add-list hide" name="listAddForm">
+                    <div class="form-group">
+                        <label for="inputListName" class="sr-only">Name</label>
+                        <input type="text" id="inputListName" autocomplete="off" name="name" class="form-control" placeholder="Add a list" required="" maxlength="255" title="Whitespace alone not allowed" pattern=".*\S+.*">
+                    </div>
+                    <div class="form-group">
+                        <label for="selectStatus" class="sr-only">Name</label>
+                        <select id="selectStatus" class="form-control" name="ls">
+                            {% for val,txt in linked_statuses if val > 0 %}
+                            <option value="{{ val }}">{{ txt }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="Save" class="btn btn-primary js-listAddForm-btn" value="Save">
+                        <i class="icon-remove js-hide-add-list-form btn btn-link pull-right" title="Cancel"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <table class="table rounded project" border="1" n="{{ project.id | e }}">
-        <tr id="task_pool_header_container"></tr>
-        <tr id="task_pool_container"></tr>
-    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                ...
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Delete</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        $('#add_col').click(function(){
-            addColumn();
-        });
-
-        $('#remove_col').click(function(){
-            removeColumn();
-        });
-
-        /* Manipulación de tareas */
-        $('#add_task').click(function(){
-            updateTask({prj: $(".project:first").attr('n')}, addTask);
-        });
-
-        {% for col in columns %}
-        addColumn({{ col|json_encode()|raw }});
-        {% endfor %}
-
-        {% for task in tasks %}
-        addTask({{ attribute(task, 'toArray') | json_encode() | raw }});
-        {% endfor %}
-
+    var cols = {{ columns|json_encode()|raw }};
+    $('#sas-project').kanbanB({
+        columns: cols,
+        project_id: {{ project.id|e }}
     });
+
+});
+</script>
+
+<script id="hidden-template-column" type="text/x-custom-template">
+    <div data-var="id" data-list_id="$$LIST_ID$$" class="col-lg-3 col-md-3 col-sm-4 col-xs-12 js-board-list list">
+        <div class="list-header js-list-head cur-grab">
+            <div class="clearfix">
+                <a href="#" class="col-xs-8 js-show-edit-list-form">
+                    <span>
+                        <span class="clearfix row show">
+                            <strong class="get-name" data-var="name">$$NAME$$</strong>
+                            <span class="pull-right"><i class="icon-eye-open hide"></i></span>
+                        </span>
+                        <span data-var="linked_status" class="clearfix row show">
+                            $$LINKED_STATUS$$
+                        </span>
+                    </span>
+                </a>
+
+                <form role="form" name="listEditForm" class="form-horizontal js-edit-list hide">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label hide" for="inputListName">Name</label>
+                        <div class="col-sm-12">
+                            <input type="text" maxlength="255" autocomplete="off" name="name" title="Whitespace alone not allowed" required="" pattern=".*\S+.*" data-var="name" value="$$NAME$$" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only col-sm-4 control-label hide">Submit</label>
+                        <div class="col-sm-12">
+                            <input type="submit" name="Save" class="btn btn-primary js-listEditForm-btn" value="Save">
+                            <i class="icon-remove js-hide-edit-list-form btn btn-link cur" title="Cancel"></i>
+                        </div>
+                    </div>
+                </form>
+
+
+                <div class="pull-right col-xs-4 clearfix">
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle pull-right js-show-list-actions" data-toggle="dropdown" title="List Actions"><i class="icon-cog text-primary"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right arrow arrow-right js-list-actions-response">
+                            <li class="text-center"><strong>List Actions</strong><a class="pull-right"><i class=" icon-remove"></i></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" title="Add Item" class="js-show-add-item-form">Add Item</a></li>
+                            <li><a href="#" title="Archive All Items in this List" class="js-show-confirm-archive-items">Archive All Items in this List</a></li>
+                            <li><a href="#" title="Delete this List" class="js-show-confirm-list-delete" ><i class="icon-sm icon-warning-sign icon-type text-primary"></i>Delete this List</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="list-content vertical-scrollbar vertical-scrollbar-box js-board-list-items">&nbsp;</div>
+
+        <div class="list-footer clearfix">
+            <div class="pull-left">
+                <a href="#" title="Add an item" class="js-show-add-item-form js-bottom text-muted">Add an item</a>
+            </div>
+            <div class="panel js-show-modal-item-view js-board-list-item hide">
+                <form method="post" role="form" class="form-horizontal js-itemAddForm col-xs-12" name="itemAddForm">
+                    <div class="form-group">
+                        <textarea placeholder=" Add a item" rows="3" class="form-control" name="name" required="required"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="pull-left">
+                            <input type="submit" value="Add" class="btn btn-primary js-itemAddForm-btn">
+                        </div>
+                        <ul class="list-unstyled pull-right">
+                            <li class="pull-left">
+                                <a title="Cancel" href="#" class="btn btn-link js-hide-add-item-form"><i class="icon-remove text-muted"></i></a>
+                            </li>
+                            <li class="pull-right dropdown inner-dropdown">
+                                <a title="Options" data-toggle="dropdown" class="btn btn-link btn-block dropdown-toggle js-show-item-action-list" href="#"><i class="icon-cog text-muted"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+<script id="hidden-template-item" type="text/x-custom-template">
+    <div class="panel js-show-modal-item-view js-board-list-item" data-var="id" data-item_id="$$ITEM_ID$$">
+        <ul class="unstyled  hide js-item-labels">
+            <li data-var="title" title="$$TITLE$$">$$TITLE$$</li>
+        </ul>
+        <ul class="unstyled  js-item-users hide"><li>.</li></ul>
+        <ul class="unstyled  js-item-due hide"></ul>
+        <div class="panel-body">
+            <div class="clearfix js-item-label-section-4 hide">
+                <span class="cur"><i style="color:#19b19f;" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="gh" title="" class="icon-circle cur"></i></span>
+            </div>
+
+            <div class="clearfix">
+                <a href="#" data-var="title" title="$$TITLE$$">$$TITLE$$</a>
+            </div>
+
+            <div class="pull-left navbar-btn">
+                <ul class="list-unstyled list-inline text-muted clearfix">
+                    <li class="$$VOTE_CLASS$$"><small title="1 Vote "><span class="icon-thumbs-up"></span><span>1</span></small></li>
+                    <li class="$$DESC_CLASS$$">
+                        <small class="js-tooltip" title="" data-container="body" data-placement="bottom" title="" data-toggle="tooltip" data-original-title="$$DESCRIPTION$$">
+                            <span class="icon-align-left"></span>
+                            <span></span>
+                        </small>
+                    </li>
+                    <li class="pull-right item-id"><strong data-var="id">#$$ITEM_ID$$</strong></li>
+                </ul>
+            </div>
+
+            <div class="clearfix pull-right">
+                <ul class="list-unstyled list-inline text-muted clearfix">
+                    <li class="pull-left js-tooltip navbar-btn hide" data-container="body" data-placement="bottom" title="" data-toggle="tooltip" data-original-title="$$USER$$">
+                        <i class="avatar avatar-color-194 img-rounded">U</i>
+                    </li>
+                    <li class="pull-left js-tooltip navbar-btn" data-container="body" data-placement="bottom" title="" data-toggle="tooltip" data-original-title="Delete this item">
+                        <a href="#" class="js-delete-item-btn" title="Delete item"><i class="icon-remove text-primary"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </script>

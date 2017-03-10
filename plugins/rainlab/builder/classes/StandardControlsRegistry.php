@@ -127,7 +127,14 @@ class StandardControlsRegistry
     protected function registerDropdownControl()
     {
         $properties = [
-            'options' =>  [
+            'emptyOption' => [
+                'title' => Lang::get('rainlab.builder::lang.form.property_empty_option'),
+                'description' => Lang::get('rainlab.builder::lang.form.property_empty_option_description'),
+                'type' => 'string',
+                'ignoreIfEmpty' => true,
+                'sortOrder' => 82
+            ],
+            'options' => [
                 'title' => Lang::get('rainlab.builder::lang.form.property_options'),
                 'type' => 'dictionary',
                 'ignoreIfEmpty' => true,
@@ -331,7 +338,6 @@ class StandardControlsRegistry
             'required',
             'defaultFrom',
             'dependsOn',
-            'trigger', 
             'preset',
             'attributes'
         ];
@@ -629,6 +635,19 @@ class StandardControlsRegistry
                     ]
                 ],
                 'sortOrder' => 83
+            ],
+            'yearRange' => [
+                'title' => Lang::get('rainlab.builder::lang.form.property_datepicker_year_range'),
+                'description' => Lang::get('rainlab.builder::lang.form.property_datepicker_year_range_description'),
+                'type' => 'string',
+                'ignoreIfEmpty' => true,
+                'validation' => [
+                    'regex' => [
+                        'pattern' => '^([0-9]+|\[[0-9]{4},[0-9]{4}\])$',
+                        'message' => Lang::get('rainlab.builder::lang.form.property_datepicker_year_range_invalid_format')
+                    ]
+                ],
+                'sortOrder' => 84
             ]
         ];
 
@@ -841,7 +860,6 @@ class StandardControlsRegistry
             'dependsOn',
             'preset',
             'attributes',
-            'trigger',
             'disabled'
         ];
 

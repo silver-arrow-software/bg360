@@ -24,7 +24,7 @@ navigation:
                 icon: icon-dropbox
             side-menu-item-orders:
                 label: 'sas.erp::lang.plugin.orders'
-                url: /sas/erp/orders
+                url: sas/erp/orders
                 icon: icon-money
             side-menu-item-projects:
                 label: 'sas.erp::lang.plugin.projects'
@@ -32,6 +32,10 @@ navigation:
                 icon: icon-briefcase
                 permissions:
                     - sas.erp.manage_projects
+            side-menu-item-project-columns:
+                label: 'sas.erp::lang.plugin.project_columns'
+                url: sas/erp/projectcolumns
+                icon: icon-columns
             side-menu-item-teams:
                 label: 'sas.erp::lang.plugin.teams'
                 url: sas/erp/teams
@@ -60,6 +64,9 @@ permissions:
     sas.erp.manage_projects:
         tab: 'sas.erp::lang.plugin.name'
         label: 'sas.erp::lang.permission.manage_projects'
+    sas.erp.manage_columns:
+        tab: 'sas.erp::lang.plugin.name'
+        label: 'sas.erp::lang.permission.manage_columns'
     sas.erp.manage_teams:
         tab: 'sas.erp::lang.plugin.name'
         label: 'sas.erp::lang.permission.manage_teams'

@@ -1,0 +1,14 @@
+columns:
+    name:
+        label: 'sas.erp::lang.project_columns.name'
+        type: text
+        searchable: true
+        sortable: true
+    project_id:
+        label: 'sas.erp::lang.project_columns.project'
+        select: name
+        sortable: true
+        relation: project
+    position:
+        label: 'sas.erp::lang.project_columns.position'
+        sortable: true

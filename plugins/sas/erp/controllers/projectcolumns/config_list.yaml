@@ -1,0 +1,14 @@
+title: ProjectColumns
+modelClass: Sas\Erp\Models\ProjectColumn
+list: $/sas/erp/models/projectcolumn/columns.yaml
+recordUrl: 'sas/erp/projectcolumns/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: position
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

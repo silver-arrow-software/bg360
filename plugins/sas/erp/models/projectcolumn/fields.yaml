@@ -1,0 +1,18 @@
+fields:
+    name:
+        label: 'sas.erp::lang.project_columns.name'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text
+    project_id:
+        label: 'sas.erp::lang.project_columns.project'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: dropdown
+    position:
+        label: 'sas.erp::lang.project_columns.position'
+        oc.commentPosition: ''
+        span: auto
+        type: text

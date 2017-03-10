@@ -8,7 +8,7 @@ class SeedAllTables extends Seeder
     public function run()
     {
         /*
-         * The countries and states table were previously seeded 
+         * The countries and states table were previously seeded
          * by RainLab.User so this occurance is detected and halt.
          * @deprecated Safe to remove if year >= 2017
          */
@@ -189,7 +189,7 @@ class SeedAllTables extends Seeder
             ['is_enabled' => 0, 'code' => 'OM', 'name' => 'Oman'],
             ['is_enabled' => 0, 'code' => 'PK', 'name' => 'Pakistan'],
             ['is_enabled' => 0, 'code' => 'PW', 'name' => 'Palau'],
-            ['is_enabled' => 0, 'code' => 'PS', 'name' => 'Palestinian Territory, Occupied'],
+            ['is_enabled' => 0, 'code' => 'PS', 'name' => 'Palestine'],
             ['is_enabled' => 0, 'code' => 'PA', 'name' => 'Panama'],
             ['is_enabled' => 0, 'code' => 'PG', 'name' => 'Papua New Guinea'],
             ['is_enabled' => 0, 'code' => 'PY', 'name' => 'Paraguay'],
@@ -331,6 +331,37 @@ class SeedAllTables extends Seeder
             ['code' => 'WY', 'name' => 'Wyoming']
         ]);
 
+        $br = Country::whereCode('BR')->first();
+        $br->states()->createMany([
+            ['code' => 'AC', 'name' => 'Acre'],
+            ['code' => 'AL', 'name' => 'Alagoas'],
+            ['code' => 'AP', 'name' => 'Amapá'],
+            ['code' => 'AM', 'name' => 'Amazonas'],
+            ['code' => 'BA', 'name' => 'Bahia'],
+            ['code' => 'CE', 'name' => 'Ceará'],
+            ['code' => 'DF', 'name' => 'Distrito Federal'],
+            ['code' => 'ES', 'name' => 'Espírito Santo'],
+            ['code' => 'GO', 'name' => 'Goiás'],
+            ['code' => 'MA', 'name' => 'Maranhão'],
+            ['code' => 'MT', 'name' => 'Mato Grosso'],
+            ['code' => 'MS', 'name' => 'Mato Grosso do Sul'],
+            ['code' => 'MG', 'name' => 'Minas Gerais'],
+            ['code' => 'PA', 'name' => 'Pará'],
+            ['code' => 'PB', 'name' => 'Paraíba'],
+            ['code' => 'PR', 'name' => 'Paraná'],
+            ['code' => 'PE', 'name' => 'Pernambuco'],
+            ['code' => 'PI', 'name' => 'Piauí'],
+            ['code' => 'RJ', 'name' => 'Rio de Janeiro'],
+            ['code' => 'RN', 'name' => 'Rio Grande do Norte'],
+            ['code' => 'RS', 'name' => 'Rio Grande do Sul'],
+            ['code' => 'RO', 'name' => 'Rondônia'],
+            ['code' => 'RR', 'name' => 'Roraima'],
+            ['code' => 'SC', 'name' => 'Santa Catarina'],
+            ['code' => 'SP', 'name' => 'São Paulo'],
+            ['code' => 'SE', 'name' => 'Sergipe'],
+            ['code' => 'TO', 'name' => 'Tocantins']
+        ]);
+
         $ca = Country::whereCode('CA')->first();
         $ca->states()->createMany([
             ['code' => 'AB', 'name' => 'Alberta'],
@@ -378,6 +409,25 @@ class SeedAllTables extends Seeder
             ['code' => 'ST', 'name' => 'Saxony-Anhalt'],
             ['code' => 'SH', 'name' => 'Schleswig-Holstein'],
             ['code' => 'TH', 'name' => 'Thuringia']
+        ]);
+
+        $ee = Country::whereCode('EE')->first();
+        $ee->states()->createMany([
+            ['code' => 'HA', 'name' => 'Harju'],
+            ['code' => 'HI', 'name' => 'Hiiu'],
+            ['code' => 'IV', 'name' => 'Ida-Viru'],
+            ['code' => 'JR', 'name' => 'Jõgeva'],
+            ['code' => 'JN', 'name' => 'Järva'],
+            ['code' => 'LN', 'name' => 'Lääne'],
+            ['code' => 'LV', 'name' => 'Lääne-Viru'],
+            ['code' => 'PL', 'name' => 'Põlva'],
+            ['code' => 'PR', 'name' => 'Pärnu'],
+            ['code' => 'RA', 'name' => 'Rapla'],
+            ['code' => 'SA', 'name' => 'Saare'],
+            ['code' => 'TA', 'name' => 'Tartu'],
+            ['code' => 'VG', 'name' => 'Valga'],
+            ['code' => 'VD', 'name' => 'Viljandi'],
+            ['code' => 'VR', 'name' => 'Võru']
         ]);
 
         $ie = Country::whereCode('IE')->first();
@@ -482,7 +532,7 @@ class SeedAllTables extends Seeder
             ['code' => 'LON', 'name' => 'London'],
             ['code' => 'MAN', 'name' => 'Manchester'],
             ['code' => 'MER', 'name' => 'Merionethshire'],
-            ['code' => 'MER', 'name' => 'Merseyside'],
+            ['code' => 'MSY', 'name' => 'Merseyside'],
             ['code' => 'MDX', 'name' => 'Middlesex'],
             ['code' => 'MID', 'name' => 'Midlands'],
             ['code' => 'MLT', 'name' => 'Midlothian'],

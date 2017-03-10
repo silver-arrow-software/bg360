@@ -35,7 +35,7 @@ class Project extends Model
     ];
 
     public $hasMany = [
-        'tasks' => [ 'Sas\Erp\Models\Task' ]
+        'tasks' => [ 'Sas\Erp\Models\Task', 'order' => 'position' ]
     ];
 
     public function getTeamIdOptions()
