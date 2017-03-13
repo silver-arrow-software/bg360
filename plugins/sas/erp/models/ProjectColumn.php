@@ -26,6 +26,10 @@ class ProjectColumn extends Model
         'project' => ['Sas\Erp\Models\Project']
     ];
 
+    public $hasMany = [
+        'tasks' => [ 'Sas\Erp\Models\Task', 'order' => 'position', 'key' => 'column_id' ]
+    ];
+
     public function getProjectIdOptions()
     {
         return \Sas\Erp\Models\Project::lists('name', 'id');

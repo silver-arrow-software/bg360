@@ -172,3 +172,11 @@ div[data-field-name="productItems"] .btn:nth-child(4) {
 .right-mar {
     margin-right: 10px;
 }
+
+.hover-show {
+    display: none !important;
+}
+
+.panel:hover .hover-show {
+    display: block !important;
+}

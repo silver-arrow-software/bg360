@@ -1,7 +1,164 @@
 +function ($) { "use strict";
+    var replacementSplitter = /^(html|class|attr|data|value)\s*(.*)$/;
     function resetFormValues(f) {
         $(f).find('input[type="text"], textarea').val('');
     }
+    function getJTemplate(key) {
+        return $('#hidden-template-' + key).html();
+    }
+    function bindJTemplate(tcontent, jobj) {
+        var jcontent = $(tcontent);
+        var vars = jcontent.find('[data-var]');
+        if(jcontent.data('var')){
+            vars.push(jcontent);
+        }
+        vars.each(function (k, ve) {
+            var jve = $(ve);
+            var vk = jve.data('var'),
+                vr = jve.data('replacement');
+            var match = (vr||"").match(replacementSplitter);
+            if(match && match.length > 1 && typeof jobj[vk] != "undefined"){
+                var rval = jobj[vk];
+                switch (match[1]) {
+                    case 'html':
+                        jve.html(rval || match[2]);
+                        break;
+                    case 'data':
+                        jve.data(match[2], rval);
+                        break;
+                    case 'class':
+                        jve.find('.' + match[2]).html(rval || "");
+                        break;
+                    case 'value':
+                        jve.val(rval);
+                        break;
+                    case 'attr':
+                        jve.attr(match[2], rval);
+                        break;
+                }
+            }
+        });
+        return jcontent;
+    }
+    function parseJTemplate(tcontent) {
+        var jcontent = $(tcontent);
+        var jobj = {};
+        var vars = jcontent.find('[data-var]');
+        if(jcontent.data('var')){
+            vars.push(jcontent);
+        }
+        vars.each(function (k, ve) {
+            var jve = $(ve);
+            var vk = jve.data('var'),
+                vr = jve.data('replacement');
+            var match = (vr||"").match(replacementSplitter);
+            if(match && match.length > 1){
+                var v = null;
+                switch (match[1]) {
+                    case 'html':
+                        v = jve.html();
+                        break;
+                    case 'data':
+                        v = jve.data(match[2]);
+                        break;
+                    case 'class':
+                        v = jve.find('.' + match[2]).html();
+                        break;
+                    case 'value':
+                        v = jve.val();
+                        break;
+                    case 'attr':
+                        if(match[2] == "title" && jve.data('original-title')){
+                            match[2] = "data-original-title";
+                        }
+                        v = jve.attr(match[2]);
+                        break;
+                }
+                jobj[vk] = v;
+            }
+        });
+        return jobj;
+    }
+
+    var ConfirmModal = {
+        modal: null,
+        item: {},
+        modal_selector: '#confirmModal',
+        _construct: function () {
+            var that = this;
+            var modal = $(this.modal_selector);
+            modal.on('show.bs.modal', function (event) {
+                bindJTemplate($(this), that.item);
+            });
+            return modal;
+        },
+        init: function (modal, message) {
+            this.item = parseJTemplate(modal);
+            if (this.item.name) {
+                // column
+                this.item.title = this.item.name;
+            }
+
+            if (message) {
+                this.item.message = message;
+            }
+
+            if (!this.modal) {
+                this.modal = this._construct();
+                this.modal.on('click', '.js-confirm-modal-agree-btn', $.proxy(this._agreeBtn, this));
+            }
+
+            this.modal.modal('show');
+        },
+        _agreeBtn: function () {
+            this.agree();
+        },
+        agree: function () {
+            // todo implement agree handler
+            alert('agree');
+        },
+        close: function () {
+            this.modal.modal('hide');
+        }
+    };
+    var ItemModal = $.extend({}, ConfirmModal, {
+        modal_selector: '#itemModal',
+        init: function (modal) {
+            this.item = parseJTemplate(modal);
+
+            if (!this.modal) {
+                this.modal = this._construct();
+                this.modal.on("click", ".js-item-modal-edit-btn", $.proxy(this.showEditForm, this));
+                this.modal.on("click", ".js-item-modal-save-btn", $.proxy(this._submitEditForm, this));
+            }
+
+            this.hideEditForm();
+            this.modal.modal('show');
+        },
+        showEditForm: function (ev) {
+            this.modal.find(".view-group").addClass("hide");
+            this.modal.find(".form-group").removeClass("hide");
+        },
+        hideEditForm: function () {
+            this.modal.find(".view-group").removeClass("hide");
+            this.modal.find(".form-group").addClass("hide");
+        },
+        _submitEditForm: function () {
+            var data = {};
+            this.modal.find('input, textarea').each(function (k, el) {
+                var jel = $(el);
+                var val = jel.val();
+                if(el.tagName == "textarea" && !val){
+                    val = jel.html();
+                }
+                data[jel.attr('name')] = val;
+            });
+            this.submitEditForm(data);
+        },
+        submitEditForm: function (data) {
+            // todo implement submit handler
+        }
+    });
 
     var KanbanB = function (board, modelCfg, viewCfg) {
         this.$board = $(board);
@@ -38,7 +195,9 @@
             },
             saveItem: function (data, task) {
                 if(!this.project_id) return false;
-                data.id = this.item_id;
+                if(!data.id){
+                    data.id = this.item_id;
+                }
                 if(this.list_id) {
                     data.list_id = this.list_id;
                 }
@@ -57,10 +216,9 @@
                 }
                 $.request(task, {
                     data: data,
-                    complete: function (d) {
-                        console.log(arguments);
+                    complete: function (d, s) {
                         if(callback){
-                            callback(d);
+                            callback(d,s);
                         }
                         $.oc.stripeLoadIndicator.hide();
                         //$('#'+loadingId).toggleLoading();
@@ -73,8 +231,6 @@
 
         this.$view = $.extend(true, {
             listSort: function (e, ev, ui) {
-                console.log('list sort');
-                console.log(arguments);
 
                 var target = $(ui.item);
                 this.$model.list_id = target.data('list_id');
@@ -97,8 +253,6 @@
                 }
             },
             itemSort: function (e, ev, ui) {
-                console.log('item sort');
-                console.log(arguments);
 
                 var target = $(ui.item);
                 this.$model.list_id = this.findColumnId(target);
@@ -125,8 +279,6 @@
                 this._toggleItemButton(this.findColumnId(ev.target), true);
             },
             submitItemAdd: function (ev) {
-                console.log('submit item');
-                console.log(arguments);
                 ev.preventDefault();
 
                 var formValues = $(ev.target).closest('form[name="itemAddForm"]').serializeArray();
@@ -141,9 +293,13 @@
                 if(previous_item_id){
                     data.previous_item_id = previous_item_id;
                 }
-                data.callback = $.proxy(function (cdata) {
-                    this.addItem(cdata.responseJSON.column_id, cdata.responseJSON);
-                    this._toggleItemButton(cdata.responseJSON.column_id, true, true);
+                data.callback = $.proxy(function (cdata, cstatus) {
+                    if(cstatus == "success" && cdata.responseJSON){
+                        this.addItem(cdata.responseJSON.column_id, cdata.responseJSON);
+                        this._toggleItemButton(cdata.responseJSON.column_id, true, true);
+                    } else {
+                        // show error
+                    }
                 }, this);
 
                 this.$model.saveItem(data);
@@ -157,8 +313,6 @@
                 this._toggleListButton(true);
             },
             submitListAdd: function (ev) {
-                console.log('submit list');
-                console.log(arguments);
                 ev.preventDefault();
 
                 var formValues = $(ev.target).closest('form[name="listAddForm"]').serializeArray();
@@ -173,9 +327,11 @@
                 if(previous_list_id){
                     data.previous_list_id = previous_list_id;
                 }
-                data.callback = $.proxy(function (cdata) {
-                    this.addColumn(cdata.responseJSON);
-                    $.proxy(this.$view.hideAddListForm, this)(ev);
+                data.callback = $.proxy(function (cdata, cstatus) {
+                    if (cstatus == "success" && cdata.responseJSON) {
+                        this.addColumn(cdata.responseJSON);
+                        $.proxy(this.$view.hideAddListForm, this)(ev);
+                    }
                 }, this);
 
                 this.$model.saveList(data);
@@ -199,17 +355,19 @@
                 }
 
                 this.$model.list_id = this.findColumnId(ev.target);
-                data.callback = $.proxy(function (cdata) {
-                    // bind new value
-                    this.findColumn(cdata.responseJSON.id).find('[data-var="name"]').each(function () {
-                        var je = $(this);
-                        if(je.prop('tagName') == 'input') {
-                            je.val(cdata.responseJSON.name);
-                        } else {
-                            je.html(cdata.responseJSON.name);
-                        }
-                    });
-                    $.proxy(this.$view.hideEditListForm, this)(ev);
+                data.callback = $.proxy(function (cdata, cstatus) {
+                    if (cstatus == "success" && cdata.responseJSON){
+                        // bind new value
+                        this.findColumn(cdata.responseJSON.id).find('[data-var="name"]').each(function () {
+                            var je = $(this);
+                            if(je.prop('tagName') == 'input') {
+                                je.val(cdata.responseJSON.name);
+                            } else {
+                                je.html(cdata.responseJSON.name);
+                            }
+                        });
+                        $.proxy(this.$view.hideEditListForm, this)(ev);
+                    }
                 }, this);
 
                 this.$model.saveList(data);
@@ -220,21 +378,87 @@
                 var data = {};
                 this.$model.item_id = this.findItemId(ev.target);
                 data.del = 1;
-                data.callback = $.proxy(function (cdata) {
-                    // remove item
-                    this.removeItem(this.$model.item_id);
+                data.callback = $.proxy(function (cdata, cstatus) {
+                    if (cstatus == "success") {
+                        // remove item
+                        this.removeItem(this.$model.item_id);
+                    }
                 }, this);
                 this.$model.saveItem(data);
             },
-            showConfirmListDelete: function (ev) {
-                var data = {};
-                this.$model.list_id = this.findColumnId(ev.target);
-                data.del = 1;
-                data.callback = $.proxy(function (cdata) {
-                    // remove column
-                    this.removeColumn(this.$model.list_id);
+            showConfirmItemDelete: function (ev) {
+                ev.preventDefault();
+
+                var target = this.findItem(ev.target);
+                ConfirmModal.init(target);
+                ConfirmModal.agree = $.proxy(function () {
+                    var data = {};
+                    this.$model.item_id = this.findItemId(ev.target);
+                    data.del = 1;
+                    data.callback = $.proxy(function (cdata, cstatus) {
+                        if (cstatus == "success") {
+                            // remove column
+                            this.removeItem(this.$model.item_id);
+                            ConfirmModal.close();
+                        }
+                    }, this);
+                    this.$model.saveItem(data);
                 }, this);
-                this.$model.saveList(data);
+            },
+            showConfirmArchiveItems: function (ev) {
+                ev.preventDefault();
+
+                var target = this.findColumn(ev.target);
+                ConfirmModal.init(target, "Are you sure to archive all items");
+                ConfirmModal.agree = $.proxy(function () {
+                    var data = {};
+                    this.$model.list_id = this.findColumnId(ev.target);
+                    data.archive = 1;
+                    data.callback = $.proxy(function (cdata, cstatus) {
+                        if (cstatus == "success") {
+                            // remove column
+                            cdata.responseJSON.items = [];
+                            this.addColumn(cdata.responseJSON);
+                            ConfirmModal.close();
+                        }
+                    }, this);
+                    this.$model.saveList(data);
+                }, this);
+            },
+            showConfirmListDelete: function (ev) {
+                ev.preventDefault();
+
+                var target = this.findColumn(ev.target);
+                ConfirmModal.init(target);
+                ConfirmModal.agree = $.proxy(function () {
+                    var data = {};
+                    this.$model.list_id = this.findColumnId(ev.target);
+                    data.del = 1;
+                    data.callback = $.proxy(function (cdata, cstatus) {
+                        if (cstatus == "success") {
+                            // remove column
+                            this.removeColumn(this.$model.list_id);
+                            ConfirmModal.close();
+                        }
+                    }, this);
+                    this.$model.saveList(data);
+                }, this);
+            },
+            showItemModal: function (ev) {
+                ev.preventDefault();
+
+                var target = this.findItem(ev.target);
+                ItemModal.init(target);
+
+                ItemModal.submitEditForm = $.proxy(function (data) {
+                    data.callback = $.proxy(function (cdata, cstatus) {
+                        if(cstatus == "success" && cdata.responseJSON){
+                            this.addItem(cdata.responseJSON.column_id, cdata.responseJSON);
+                            ItemModal.close();
+                        }
+                    }, this);
+                    this.$model.saveItem(data);
+                }, this);
             }
         }, viewCfg);
 
@@ -297,8 +521,10 @@
         'click .js-show-edit-list-form': 'showEditListForm',
         'click .js-hide-edit-list-form': 'hideEditListForm',
         'click .js-listEditForm-btn': 'submitListEdit',
-        'click .js-delete-item-btn': 'removeItem',
+        'click .js-delete-item-btn': 'showConfirmItemDelete',
         'click .js-show-confirm-list-delete': 'showConfirmListDelete',
+        'click .js-show-modal-item-btn': 'showItemModal',
+        'click .js-show-confirm-archive-items': 'showConfirmArchiveItems',
         'itemSort': 'itemSort',
         'listSort': 'listSort'
     };
@@ -361,14 +587,19 @@
         // add last column
         var boardList = this.findBoardList();
         if (boardList && boardList.length) {
-            var template = $( "#hidden-template-column" ).html();
-            var linked_status = $('#selectStatus option[value="'+column.linked_status+'"]').html();
-            var jColumn = $(template
-                .replace(/\${2}LIST_ID\${2}/g, column.id)
-                .replace(/\${2}LINKED_STATUS\${2}/g, linked_status)
-                .replace(/\${2}NAME\${2}/g, column.name));
-
-            boardList.find("#js-add-list-block").before(jColumn);
+            var template = getJTemplate("column");
+            column.linked_status = $('#selectStatus option[value="'+column.linked_status+'"]').html();
+            var jColumn = bindJTemplate(template, column);
+            var col = column.id ? this.findColumn(column.id) : null;
+            if(col && col.length){
+                if(column.items && column.items.length == 0){
+                    col.replaceWith(jColumn);
+                } else {
+                    col.find('.js-list-head').replaceWith(jColumn.find('.js-list-head'));
+                }
+            } else {
+                boardList.find("#js-add-list-block").before(jColumn);
+            }
             if (trigger) {
                 this.$board.trigger('columnAdded', column);
             }
@@ -436,14 +667,12 @@
             this._toggleListForm(null, false, true);
             target.find(".js-edit-list").removeClass('hide');
             target.find(".js-show-edit-list-form").addClass('hide');
+            target.find(".js-show-edit-list-config").addClass('hide');
         } else {
             target.find(".js-edit-list").addClass('hide');
             target.find(".js-show-edit-list-form").removeClass('hide');
+            target.find(".js-show-edit-list-config").removeClass('hide');
         }
-    };
-
-    KanbanB.prototype._toggleItemForm = function (itemId, toggle, forceAll) {
-        //
     };
 
     KanbanB.prototype.removeItem = function (itemId, trigger) {
@@ -463,15 +692,18 @@
         // add last item
         var column = this.findColumn(columnId);
         if (column && column.length) {
-            var template = $( "#hidden-template-item" ).html();
-            var jItem = $(template
-                .replace(/\${2}ITEM_ID\${2}/g, item.id)
-                .replace(/\${2}VOTE_CLASS\${2}/g, 'hide')
-                .replace(/\${2}DESC_CLASS\${2}/g, item.description ? "" : 'hide')
-                .replace(/\${2}DESCRIPTION\${2}/g, item.description)
-                .replace(/\${2}TITLE\${2}/g, item.title));
+            var template = getJTemplate("item");
+            item.vote_class = "hide";
+            item.desc_class = item.description ? "" : "hide";
+            var jItem = bindJTemplate(template, item);
 
-            column.find(".js-board-list-items").append(jItem);
+            var itm = item.id ? this.findItem(item.id) : null;
+            if(itm && itm.length){
+                itm.replaceWith(jItem);
+            } else {
+                column.find(".js-board-list-items").append(jItem);
+            }
+
             if (trigger) {
                 this.$board.trigger('itemAdded', item);
             }
@@ -526,251 +758,3 @@
     });
 
 }(window.jQuery);
-
-/*
-function addTask(data) { console.log(arguments);
-    if(!data || !data.id){ return false; }
-
-    var id = data.id,
-        boxId = "box_itm" + id,
-        head = $('.task_pool_header[n="'+data.column_id+'"]'),
-        idx = head.index();
-
-    var wip = check_number(head.find('[n=wip]').attr("wip"));
-    if ((wip != 0) && ($('.task_pool:eq(' + idx + ') .big_container').length >= wip)) {
-        return false;
-    }
-
-    $('.task_pool:eq(' + idx + ')').append(' \
-       <div class="big_container"> \
-          <div id="'+ boxId +'" class="box_itm rounded" n="' + id + '"> \
-              <div class="read-mode"> \
-                  <div class="name box-data" n="name">' + data.title + '</div> \
-                  <div class="name box-data" n="desc">' + data.description + '</div> \
-                  <progress max="100" class="pbar box-data" n="progress" value="0"></progress> \
-                  <div class="small"> \
-                      <div class="itm_box_option"><input class="color colorete" type="color" data-text="hidden" data-colorlink="' + boxId +'" value="#F6E788"></div> \
-                      <div class="option close itm_box_option"><button class="btn btn-danger btn-sm"><i class="icon-white icon-remove"></i></button></div> \
-                      <div class="option edit itm_box_option"><button class="btn btn-info btn-sm"><i class="icon-white icon-pencil"></i></button></div> \
-                  </div> \
-              </div> \
-              <div class="edit-mode" style="display: none;"> \
-                <div><span class="small">Name:</span><input name="name" class="input box-data"/></div>  \
-                <div><span class="small">Responsible:</span><input name="desc" class="input box-data"/></div>  \
-                <div><span class="small">Progress:</span><input name="progress" class="input box-data"/></div>  \
-                <div class="small"> \
-                    <div class="option save"><button class="btn btn-success btn-mini"><i class="icon-white icon-ok">&nbsp;</i></button></div> \
-                </div> \
-              </div> \
-              <div class="clear"></div> \
-          </div> \
-       <div> \
-    ');
-
-    $('#' + boxId).hover(function(){
-        $(this).find('.itm_box_option').show();
-    }, function(){
-        $('.itm_box_option').hide();
-    });
-
-    //$('#' + boxId).find('progress').progressbar();
-    $('#' + boxId).find('.edit-mode input').on('keypress', function (e) {
-        var code;
-        if (!e) var e = window.event;
-        if (e.keyCode) code = e.keyCode;
-        else if (e.which) code = e.which;
-        if(code==13) { $(this).closest('.box_itm').find('.save').trigger('click'); }
-    });
-    $('#' + boxId).find('.colorete').on('change', function () {
-        $(this).closest(".box_itm").css('background', $(this).val());
-    });
-    $('#' + boxId).find('.close').on('click', function() {
-        var box = $(this).closest(".box_itm");
-        updateTask({
-            tsk: box.attr("n"),
-            del: 1
-        }, function () {
-            box.remove();
-        }, box.attr("id"));
-    });
-    $('#' + boxId).find(".save,.edit").on('click', function(){
-        var box = $(this).closest(".box_itm");
-        if (box.find(".edit-mode").is(':visible')) {
-            var src = box.find(".edit-mode");
-            var tar = box.find(".read-mode");
-            tar.find('[n=name]').html(src.find('input[name=name]').val());
-            tar.find('[n=desc]').html(src.find('input[name=desc]').val());
-            tar.find('[n=progress]').val(src.find('input[name=progress]').val());
-
-            updateTask({
-                tsk: box.attr('n'),
-                title: src.find('input[name=name]').val(),
-                description: src.find('input[name=desc]').val()
-            }, null, box.attr('id'));
-        } else {
-            var src = box.find(".read-mode");
-            var tar = box.find(".edit-mode");
-            tar.find('[name=name]').val(src.find('[n=name]').html());
-            tar.find('[name=desc]').val(src.find('[n=desc]').html());
-            tar.find('[name=progress]').val(src.find('[n=progress]').val());
-        }
-
-        box.find(".edit-mode, .read-mode").toggle();
-    });
-
-    $('.itm_box_option').hide();
-}
-
-function addColumn(colData) {
-    colData = colData || {};
-
-    $('#'+loadingId).toggleLoading();
-    $.oc.stripeLoadIndicator.show();
-
-    $.request('onAddColumn', {
-        data: colData,
-        success: function(data) {
-            typeof cback == "function" ? cback.call(this, data) : false;
-        },
-        complete: function () {
-            $.oc.stripeLoadIndicator.hide();
-            $('#'+loadingId).toggleLoading();
-        }
-    });
-
-    if(typeof colData.id == "undefined") colData.id = $(".task_pool").size();
-    if(typeof colData.wip == "undefined") colData.wip = 0;
-    if(typeof colData.name == "undefined") colData.name = "New Column";
-
-    var headerId = "headBox" + colData.id;
-
-    $(".task_pool_header:last").addClass("dotted_separator");
-    $(".task_pool:last").addClass("dotted_separator");
-
-    $("#task_pool_header_container").append(
-        '<th id="' + headerId + '" class="task_pool_header" n="' + colData.id + '">' +
-            '<div class="read-mode">' +
-                '<div class="header_name edit_head"><i class="icon icon-th-large"><span class="column-data" n="name">' + colData.name + '</span></i></div>' +
-                '<div wip="' + colData.wip + '" class="WIP column-data" n="wip">' + (colData.wip || "WIP: Unlimited") + '</div>' +
-            '</div>' +
-            '<div class="edit-mode" style="display: none;">' +
-                '<div class="header_input">' +
-                    'Name<br/><input name="name" class="input column-data" />' +
-                '</div>' +
-                '<div class="header_input">' +
-                    'WIP<br/><input name="wip" class="input column-data" />' +
-                '</div>' +
-                '<div class="small">' +
-                    '<div class="option save_header"><button class="btn btn-success btn-mini save_head"><i class="icon-white icon-ok">&nbsp;</i></button>' +
-                '</div>' +
-            '</div>' +
-            '<div class="clear"></div>' +
-        '</th>'
-    );
-    $("#task_pool_container").append('<td class="task_pool"><div /></td>');
-
-    $('#' + headerId).find('.edit-mode input').on('keypress', function (e) {
-        var code;
-        if (!e) var e = window.event;
-        if (e.keyCode) code = e.keyCode;
-        else if (e.which) code = e.which;
-        if(code==13) { $(this).closest('.task_pool_header').find('.save_head').trigger('click'); }
-    });
-
-    $('#' + headerId).find(".save_head,.edit_head").on('click', function(){
-        var head = $(this).closest(".task_pool_header");
-        if (head.find(".edit-mode").is(':visible')) {
-            var src = head.find(".edit-mode");
-            var tar = head.find(".read-mode");
-            var wip = check_number(src.find('input[name=wip]').val());
-            tar.find('[n=name]').html(src.find('input[name=name]').val());
-            tar.find('[n=wip]').attr("wip", wip);
-            tar.find('[n=wip]').html(wip || "WIP: Unlimited");
-
-        } else {
-            var src = head.find(".read-mode");
-            var tar = head.find(".edit-mode");
-            tar.find('[name=name]').val(src.find('[n=name]').html());
-            tar.find('[name=wip]').val(src.find('[n=wip]').attr("wip"));
-        }
-
-        head.find(".edit-mode, .read-mode").toggle();
-    });
-
-    intialize_sortables();
-}
-
-function removeColumn(idx) {
-    if($(".task_pool_header").size() > 1 || typeof idx == "undefined" || $(".task_pool_header").size() <= idx){
-
-        idx = idx || $(".task_pool_header").size() - 1;
-
-        if($(".task_pool_header").size() == idx + 1){
-            $('.task_pool_header:eq('+(idx-1)+')').addClass("dotted_separator");
-            $('.task_pool:eq('+(idx-1)+')').addClass("dotted_separator");
-        }
-
-        $('.task_pool_header:eq('+idx+')').remove();
-        $('.task_pool:eq('+idx+')').remove();
-
-        intialize_sortables();
-    }
-}
-
-function intialize_sortables(){
-    $( ".task_pool" ).sortable({
-        connectWith: ".task_pool",
-        delay: 25,
-        revert: true,
-        dropOnEmpty: true,
-        forcePlaceHolderSize: true,
-        helper: 'clone',
-        forceHelperSize: true,
-        receive: function(event, ui) {
-            var itms = $(this).children(".big_container").length;
-            var index = $(this).index();
-            var colId = $(this).closest("table").find('th:eq('+index+')').attr('n');
-            var tskId = $(ui.item).find('.box_itm').attr('n');
-
-            var wip = check_number($(this).closest("table").find('th:eq('+index+') [n=wip]').attr("wip"));
-            if ( (wip != 0 && itms > wip) || !colId || !tskId) {
-                $(ui.sender).sortable('cancel');
-            }
-
-            updateTask({col: colId, tsk: tskId}, null, $(ui.item).find('.box_itm').attr('id'));
-        }
-    });
-    $('.itm_box_option').hide();
-}
-
-function updateTask(submitData, cback, loadingId) {
-    $('#'+loadingId).toggleLoading();
-    $.oc.stripeLoadIndicator.show();
-
-    $.request('onUpdateTask', {
-        data: submitData,
-        success: function(data) {
-            typeof cback == "function" ? cback.call(this, data) : false;
-        },
-        complete: function () {
-            $.oc.stripeLoadIndicator.hide();
-            $('#'+loadingId).toggleLoading();
-        }
-    });
-}
-
-function find_next_box_itm_free(id){
-    if($('#box_itm'+id).length)
-    {
-        id++;
-        return find_next_box_itm_free(id);
-    }
-    else
-    {
-        return id;
-    }
-}
-function check_number(number){
-    return isNaN(number) || number < 0 ? 0 : (number > 100 ? 100 : parseInt(number));
-}
-*/

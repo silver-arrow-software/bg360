@@ -119,6 +119,7 @@ class ProjectDetail extends ComponentBase
             $task->position = $this->_calculateItemPosition($params);
 
         } else {
+            /** @var Task $task */
             if ($task = Task::find($params['id'])) {
                 if (empty($params['del'])) {
                     if( isset($params['list_id']) ) {
@@ -127,6 +128,9 @@ class ProjectDetail extends ComponentBase
 
                     if( isset($params['name']) ) {
                         $task->title = $params['name'];
+                    }
+                    if( isset($params['title'])) {
+                        $task->title = $params['title'];
                     }
                     if( isset($params['description']) ) {
                         $task->description = $params['description'];
@@ -167,7 +171,11 @@ class ProjectDetail extends ComponentBase
                     if (isset($params['ls'])) {
                         $column->linked_status = $params['ls'];
                     }
+                    if (!empty($params['archive'])) {
+                        $column->tasks()->delete();
+                    }
                 } else {
+                    $column->tasks()->update(['column_id' => 1]);
                     $column->delete();
                     $column = null;
                 }
