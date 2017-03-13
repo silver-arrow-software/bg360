@@ -1,0 +1,124 @@
+title = "Profile"
+url = "/profile/:slug/:page?"
+layout = "octaskin"
+is_hidden = 0
+
+[socialProfile]
+slug = "{{ :slug }}"
+
+[socialWallStream]
+slug = "{{ :slug }}"
+profilePage = "profile"
+type = "user"
+limit = 10
+
+[session]
+security = "user"
+redirect = "home"
+==
+<?php
+function onEnd() {
+    $this->page->title = $this->profile->name;
+    $this->page->description = $this->profile->slug;
+}
+?>
+==
+<section id="lt-header" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-header-content">
+      {% partial "pages-all/header" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+		<!-- profile-page-header -->
+		<div id="profile-page-header" class="card">
+			<div class="card-image waves-effect waves-block waves-light">
+				<img class="activator" src="{{ 'assets/img/user-profile-bg.jpg'|theme }}" alt="user background">                    
+			</div>
+			<figure class="card-profile-image">
+				{% if user and user.id == profile.id %}
+					{% component 'imageUploader' %}
+				{% else %}
+					<img src="{{ profile.getAvatarThumb(150) }}"
+						alt="{{ profile.name }}"
+						class="circle z-depth-2 responsive-img activator"/>
+				{% endif %}
+			</figure>
+			<div class="card-content">
+			  <div class="row">                    
+				<div class="col s3 offset-s2">                        
+					<h4 class="card-title grey-text text-darken-4">{{ profile.name }}</h4>
+					<p class="medium-small grey-text">{{ profile.point }} oDo</p>                        
+				</div>
+				<div class="col s3 center-align">
+					<h4 class="card-title grey-text text-darken-4">{{ profile.followers.count }}</h4>
+					<p class="medium-small grey-text">Quan tâm bạn</p>
+				</div>
+				<div class="col s3 center-align">
+					<h4 class="card-title grey-text text-darken-4">{{ profile.follows.count }}</h4>
+					<p class="medium-small grey-text">Bạn quan tâm</p>
+				</div>                                      
+				<div class="col s1 right-align">
+				  <a class="btn-floating activator waves-effect waves-light darken-2 right">
+					  <i class="material-icons">perm_identity</i>
+				  </a>
+				</div>
+			  </div>
+			</div>
+			<div style="display: none; transform: translateY(0px);" class="card-reveal">
+				<p>
+				  <span class="card-title grey-text text-darken-4">{{ profile.name }}<i class="fa fa-close right"></i></span>
+				  <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> </span>
+				</p>
+
+				<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+				
+				<p><i class="fa fa-phone cyan-text text-darken-2"></i> {{ profile.mobile }}</p>
+				<p><i class="fa fa-envelope cyan-text text-darken-2"></i> {{ profile.email }}</p>
+				<p><i class="fa fa-birthday-cake cyan-text text-darken-2"></i> </p>
+				<p><i class="fa fa-map cyan-text text-darken-2"></i> {{ profile.street_addr }}</p>
+			</div>
+		</div>
+		<!--/ profile-page-header -->
+
+		<!-- profile-page-content -->
+		<div id="profile-page-content" class="row">
+		  <!-- profile-page-sidebar-->
+		  <div id="profile-page-sidebar" class="col s12 m4">
+			<!-- Profile About  -->
+			<div class="card light-blue">
+			  <div class="card-content white-text">
+				<span class="card-title">About Me!</span>
+				<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+			  </div>                  
+			</div>
+			<!-- Profile About  -->
+		  </div>
+		  <!-- profile-page-sidebar-->
+
+		  <!-- profile-page-wall -->
+		  <div id="profile-page-wall" class="col s12 m8">
+			{% component "socialWallStream" %}
+		  </div>
+		  <!--/ profile-page-wall -->
+
+		</div>
+		
+		<script>
+			function setFollow(id) {
+				$("#button_follow_" + id).addClass('hide');
+				$("#button_unfollow_" + id).removeClass('hide');
+			}
+		
+			function setUnfollow(id) {
+				$("#button_follow_" + id).removeClass('hide');
+				$("#button_unfollow_" + id).addClass('hide');
+			}
+		</script>
+	</div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+title = "Test Page"
+url = "/test/:slug"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/test-page"
+
+[sasErpList]
+modelClass = "Sas\Erp\Models\ProductItem"
+scope = "scopeBelongPlace"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+slug = "{{ :slug }}"
+==
+<div class="container">
+    <div class="well">
+        {% component "sasErpList" %}
+    </div>
+</div>

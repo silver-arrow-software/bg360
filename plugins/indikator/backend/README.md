@@ -63,6 +63,7 @@ The brand new, re-design style is available in the [Backend Elite](http://octobe
 * ru - Русский
 * es - Español
 * hu - Magyar
+* pt-br - Português
 * tr - Türkçe
 
 <a name="installation"></a>

@@ -135,35 +135,36 @@
         "homepage": "https://github.com/dompdf/dompdf"
     },
     {
-        "name": "paragonie/random_compat",
-        "version": "v1.4.1",
-        "version_normalized": "1.4.1.0",
+        "name": "danielstjules/stringy",
+        "version": "1.10.0",
+        "version_normalized": "1.10.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/paragonie/random_compat.git",
-            "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
+            "url": "https://github.com/danielstjules/Stringy.git",
+            "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
-            "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
+            "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
+            "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.2.0"
+            "ext-mbstring": "*",
+            "php": ">=5.3.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "4.*|5.*"
+            "phpunit/phpunit": "~4.0"
         },
-        "suggest": {
-            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
-        },
-        "time": "2016-03-18 20:34:03",
+        "time": "2015-07-23 00:54:12",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
+            "psr-4": {
+                "Stringy\\": "src/"
+            },
             "files": [
-                "lib/random.php"
+                "src/Create.php"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -172,16 +173,23 @@
         ],
         "authors": [
             {
-                "name": "Paragon Initiative Enterprises",
-                "email": "security@paragonie.com",
-                "homepage": "https://paragonie.com"
+                "name": "Daniel St. Jules",
+                "email": "danielst.jules@gmail.com",
+                "homepage": "http://www.danielstjules.com"
             }
         ],
-        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "description": "A string manipulation library with multibyte support",
+        "homepage": "https://github.com/danielstjules/Stringy",
         "keywords": [
-            "csprng",
-            "pseudorandom",
-            "random"
+            "UTF",
+            "helpers",
+            "manipulation",
+            "methods",
+            "multibyte",
+            "string",
+            "utf-8",
+            "utility",
+            "utils"
         ]
     },
     {
@@ -255,27 +263,27 @@
     },
     {
         "name": "illuminate/contracts",
-        "version": "v5.2.45",
-        "version_normalized": "5.2.45.0",
+        "version": "v5.1.41",
+        "version_normalized": "5.1.41.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/contracts.git",
-            "reference": "22bde7b048a33c702d9737fc1446234fff9b1363"
+            "reference": "6e828a355b7a467232efad3dbe76df17463178e3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/contracts/zipball/22bde7b048a33c702d9737fc1446234fff9b1363",
-            "reference": "22bde7b048a33c702d9737fc1446234fff9b1363",
+            "url": "https://api.github.com/repos/illuminate/contracts/zipball/6e828a355b7a467232efad3dbe76df17463178e3",
+            "reference": "6e828a355b7a467232efad3dbe76df17463178e3",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.9"
         },
-        "time": "2016-08-08 11:46:08",
+        "time": "2015-09-24 11:16:48",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "5.2-dev"
+                "dev-master": "5.1-dev"
             }
         },
         "installation-source": "dist",
@@ -291,49 +299,94 @@
         "authors": [
             {
                 "name": "Taylor Otwell",
-                "email": "taylor@laravel.com"
+                "email": "taylorotwell@gmail.com"
             }
         ],
         "description": "The Illuminate Contracts package.",
         "homepage": "http://laravel.com"
     },
     {
-        "name": "illuminate/support",
-        "version": "v5.2.45",
-        "version_normalized": "5.2.45.0",
+        "name": "paragonie/random_compat",
+        "version": "v1.4.1",
+        "version_normalized": "1.4.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/illuminate/support.git",
-            "reference": "510230ab62a7d85dc70203f4fdca6fb71a19e08a"
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/support/zipball/510230ab62a7d85dc70203f4fdca6fb71a19e08a",
-            "reference": "510230ab62a7d85dc70203f4fdca6fb71a19e08a",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
+            "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
             "shasum": ""
         },
         "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2016-03-18 20:34:03",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/random.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "pseudorandom",
+            "random"
+        ]
+    },
+    {
+        "name": "illuminate/support",
+        "version": "v5.1.41",
+        "version_normalized": "5.1.41.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/support.git",
+            "reference": "510163046dc50a467621448d6905f0c819ee8b4a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/support/zipball/510163046dc50a467621448d6905f0c819ee8b4a",
+            "reference": "510163046dc50a467621448d6905f0c819ee8b4a",
+            "shasum": ""
+        },
+        "require": {
+            "danielstjules/stringy": "~1.8",
             "doctrine/inflector": "~1.0",
             "ext-mbstring": "*",
-            "illuminate/contracts": "5.2.*",
+            "illuminate/contracts": "5.1.*",
             "paragonie/random_compat": "~1.4",
             "php": ">=5.5.9"
         },
-        "replace": {
-            "tightenco/collect": "self.version"
-        },
         "suggest": {
-            "illuminate/filesystem": "Required to use the composer class (5.2.*).",
-            "jeremeamia/superclosure": "Required to be able to serialize closures (~2.2).",
-            "symfony/polyfill-php56": "Required to use the hash_equals function on PHP 5.5 (~1.0).",
-            "symfony/process": "Required to use the composer class (2.8.*|3.0.*).",
-            "symfony/var-dumper": "Improves the dd function (2.8.*|3.0.*)."
+            "jeremeamia/superclosure": "Required to be able to serialize closures (~2.0).",
+            "symfony/var-dumper": "Improves the dd function (2.7.*)."
         },
-        "time": "2016-08-05 14:49:58",
+        "time": "2016-06-11 16:44:59",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "5.2-dev"
+                "dev-master": "5.1-dev"
             }
         },
         "installation-source": "dist",
@@ -352,7 +405,7 @@
         "authors": [
             {
                 "name": "Taylor Otwell",
-                "email": "taylor@laravel.com"
+                "email": "taylorotwell@gmail.com"
             }
         ],
         "description": "The Illuminate Support package.",
@@ -360,25 +413,25 @@
     },
     {
         "name": "barryvdh/laravel-dompdf",
-        "version": "v0.7.0",
-        "version_normalized": "0.7.0.0",
+        "version": "v0.7.1",
+        "version_normalized": "0.7.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/barryvdh/laravel-dompdf.git",
-            "reference": "9b8bd179262ad6b200a11edfe7b53516afcfc42a"
+            "reference": "6cb20d3f397d739163d2d743a4600009e52cd453"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/9b8bd179262ad6b200a11edfe7b53516afcfc42a",
-            "reference": "9b8bd179262ad6b200a11edfe7b53516afcfc42a",
+            "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/6cb20d3f397d739163d2d743a4600009e52cd453",
+            "reference": "6cb20d3f397d739163d2d743a4600009e52cd453",
             "shasum": ""
         },
         "require": {
             "dompdf/dompdf": "^0.7",
-            "illuminate/support": "5.1.x|5.2.x|5.3.x",
+            "illuminate/support": "5.1.x|5.2.x|5.3.x|5.4.x",
             "php": ">=5.5.9"
         },
-        "time": "2016-08-17 08:17:33",
+        "time": "2017-01-24 18:12:54",
         "type": "library",
         "extra": {
             "branch-alias": {

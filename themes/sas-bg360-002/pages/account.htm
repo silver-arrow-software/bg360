@@ -1,0 +1,30 @@
+title = "Account"
+url = "/account/:code?"
+layout = "octaskin"
+description = "Sign in, registration and account management."
+is_hidden = 0
+
+[account]
+redirect = "home"
+paramCode = "code"
+
+[sociallogin]
+==
+<section id="lt-header" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-header-content">
+      {% partial "pages-all/header" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+        {% component 'account' %}
+        <p></p>
+        <hr />
+        <p><a href="{{ 'forgot-password'|page }}">Forgotten your password?</a></p>
+    </div>
+  </div>
+</section>

@@ -72,6 +72,7 @@
         'active' => 'Active',
         'belongs_to' => 'Belongs to',
         'owner' => 'Owner',
+        'component_view_type' => 'Type of component view',
     ],
     'permission' => [
         'manage_profiles' => 'Manage Profiles',
@@ -147,6 +148,7 @@
         'name' => 'Place name',
         'component_desc' => 'Display a single place.',
         'logo' => 'Logo',
+        'code' => 'Place code',
     ],
     'places' => [
         'component_name' => 'Places',

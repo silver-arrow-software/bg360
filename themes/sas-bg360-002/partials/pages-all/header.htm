@@ -1,0 +1,18 @@
+{% set bkgr_r = random(255) %}
+{% set bkgr_g = random(255) %}
+{% set bkgr_b = random(255) %}
+<div class="lt-row row">
+  <div class="lt-col col s12">
+    <div class="lt-parallax-header parallax-container" style="height: 250px;">
+      <div class="lt-parallax parallax" style="background-color: rgb({{ bkgr_r }},{{ bkgr_g }},{{ bkgr_b }});"></div>
+      <div class="lt-parallax-content">
+        <div class="valign-wrapper" style="height: 250px;">
+          <div class="valign">
+            <h2 class="lt-title">{{ this.page.title }}</h2>
+            <p class="lt-subtitle flow-text">{{ this.page.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

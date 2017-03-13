@@ -1,6 +1,14 @@
 {% set products = __SELF__.products %}
 
 <div class="container-fluid">
+    <div class="row">
+        <div class="front-toolbar">
+            <form method="post" data-request="onSearch" data-request-success="" data-request-flash class="form-inline">
+                <input type="text" name="search" id="search" />
+                <button type="submit" class="btn btn-xs"><i class="material-icons">search</i></button>
+            </form>
+        </div>
+    </div>
 {% if can('place.admin') %}
     <div class="row">
         <h4>Quản lý sản phẩm</h4>

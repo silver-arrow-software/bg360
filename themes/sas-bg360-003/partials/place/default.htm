@@ -26,13 +26,16 @@
 					<li class="collection-item">
 							<a href="/place/{{ place.code_id }}/blogs/">Tin tức<i class="material-icons secondary-content">chat_bubble</i></a>
 					</li>
+					<li class="collection-item">
+							<a href="/place/{{ place.code_id }}/orders/">Đơn hàng<i class="material-icons secondary-content">shopping_cart</i></a>
+					</li>
 				</ul>
 				{% for account in place.accounts %}
 				<div class="panel">
 					<div class="panel-heading">
 						<h3 class="panel-title">
 							{{ account.name }}
-							<a href="/place/{{ place.code_id }}/money/{{ account.id }}" class="secondary-content"><i class="fa fa-pencil"></i></a>
+							<a href="/place/{{ place.code_id }}/money/{{ account.id }}"><i class="fa fa-pencil secondary-content"></i></a>
 						</h3>
 					</div>
 					<div class="panel-body">
@@ -86,6 +89,19 @@
 								</div>
 							</li>
 						</ul>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="collection">
+							<div class="collection-item">
+								<a href="/place/{{ place.code_id }}/blogs/">Tin tức<i class="material-icons  secondary-content">chat_bubble</i></a>
+							</div>
+							<div class="collection-item">
+								<a href="/products/{{ place.id }}">Sản phẩm<i class="material-icons secondary-content">view_module</i></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

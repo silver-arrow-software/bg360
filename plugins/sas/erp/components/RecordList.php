@@ -1,8 +1,7 @@
 <?php namespace Sas\Erp\Components;
 
-use Yajra\Datatables\Datatables;
+use Datatables;
 use RainLab\Builder\Components\RecordList as ComponentBase;
-use Sas\Erp\Models\Task;
 
 class RecordList extends ComponentBase
 {
@@ -41,11 +40,13 @@ class RecordList extends ComponentBase
         $scope = $this->getScopeName($model);
 
         if ($scope !== null) {
-            if ($scope = "belongPlace") {
+            if ($scope == "belongPlace") {
                 $owner = \Sas\Erp\Models\Place::where('code_id', '=', $this->property('slug'))->first();
                 $this->page['owner'] = $owner;
+                $model = $model->$scope($owner->id);
+            } else {
+                $model = $model->$scope();
             }
-            $model = $model->$scope($owner->id);
         }
 
         $model = $this->sort($model);
@@ -60,7 +61,25 @@ class RecordList extends ComponentBase
      * @return \Illuminate\Http\JsonResponse
      */
     public function onGetData() {
-        return Datatables::of(Task::query())->make(true);
+        $modelClassName = $this->property('modelClass');
+        if (!strlen($modelClassName) || !class_exists($modelClassName)) {
+            throw new SystemException('Invalid model class name');
+        }
+
+        $model = new $modelClassName();
+        $scope = $this->getScopeName($model);
+
+        if ($scope !== null) {
+            if ($scope == "belongPlace") {
+                $owner = \Sas\Erp\Models\Place::where('code_id', '=', $this->property('slug'))->first();
+                $this->page['owner'] = $owner;
+                return Datatables::of($model->$scope($owner->id))->make(true);
+            } else {
+                return Datatables::of($model->$scope())->make(true);
+            }
+        }
+
+        return Datatables::of($model->query())->make(true);
     }
 
 }

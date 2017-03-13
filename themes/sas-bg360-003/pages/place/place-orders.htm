@@ -1,0 +1,24 @@
+title = "Place Orders"
+url = "/place/:placeCode?/orders"
+layout = "default"
+is_hidden = 0
+
+[orders]
+placeCode = "{{ :placeCode }}"
+viewType = "PLACE"
+noOrdersMessage = "Hiện tại không có đơn hàng."
+
+[session]
+security = "user"
+redirect = "home"
+==
+<div class="container">
+    <div class="well">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Quản lý đơn hàng</h1>
+            </div>
+        </div>
+        {% component 'orders' %}{% component 'session' %}
+    </div>
+</div>
