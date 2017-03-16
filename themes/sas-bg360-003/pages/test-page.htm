@@ -6,18 +6,10 @@ is_hidden = 0
 [viewBag]
 localeUrl[en] = "/test-page"
 
-[sasErpList]
-modelClass = "Sas\Erp\Models\ProductItem"
-scope = "scopeBelongPlace"
-displayColumn = "title"
-noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
-pageNumber = "{{ :page }}"
-slug = "{{ :slug }}"
+[productForm]
 ==
 <div class="container">
     <div class="well">
-        {% component "sasErpList" %}
+        {% component "productForm" %}
     </div>
 </div>
