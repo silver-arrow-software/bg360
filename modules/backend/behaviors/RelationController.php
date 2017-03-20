@@ -36,12 +36,12 @@ class RelationController extends ControllerBehavior
     const PARAM_EXTRA_CONFIG = '_relation_extra_config';
 
     /**
-     * @var Backend\Classes\WidgetBase Reference to the search widget object.
+     * @var Backend\Widgets\Search Reference to the search widget object.
      */
     protected $searchWidget;
 
     /**
-     * @var Backend\Classes\WidgetBase Reference to the toolbar widget object.
+     * @var Backend\Widgets\Toolbar Reference to the toolbar widget object.
      */
     protected $toolbarWidget;
 
@@ -61,7 +61,7 @@ class RelationController extends ControllerBehavior
     protected $pivotWidget;
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     protected $requiredProperties = ['relationConfig'];
 
