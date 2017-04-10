@@ -1,0 +1,12 @@
+name: 'Kim Thủy Tùng'
+description: 'Trang web chính thức của công ty Kim Thủy Tùng.'
+author: 'Silver Arrow Software'
+homepage: 'http://kimthuytung.com'
+code: kimthuytung
+authorUrl: 'http://www.templatemo.com/'
+form:
+    fields:
+        site_name:
+            label: 'Site name'
+            comment: 'The website name as it should appear on the front-end'
+            default: 'Grill Template by templatemo'

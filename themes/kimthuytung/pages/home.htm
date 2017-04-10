@@ -1,0 +1,37 @@
+title = "Home"
+url = "/"
+layout = "default"
+description = "Home Page"
+meta_author = "Silver Arrow Software"
+meta_description = "OctoberCMS theme for Kim Thủy Tùng website"
+meta_keywords = "kimthuytung, silverarrowsoftare, octobercms"
+==
+<div id="slider">
+    {% partial "slider" %}
+</div>
+
+<div id="services">
+    {% partial "services" %}
+</div>
+
+<div id="products">
+    {% partial "products" %}
+</div>
+
+<div id="latest-blog">
+    {% partial "latest-blog" %}
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="heading-section">
+                <h2>Phản hồi từ khách hàng</h2>
+                <img src="{{ 'assets/images/under-heading.png'|theme }}" alt="" >
+            </div>
+        </div>
+    </div>
+	<div id="testimonails">
+		{% partial "testimonials" %}
+	</div>
+</div>

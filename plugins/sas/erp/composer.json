@@ -12,6 +12,7 @@
     "require": {
         "php": ">=5.4.0",
         "owl/library": "dev-master",
-		"yajra/laravel-datatables-oracle": "^7.2"
+		"yajra/laravel-datatables-oracle": "^7.2",
+		"cebe/markdown": "*"
     }
 }

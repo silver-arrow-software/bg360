@@ -13,6 +13,10 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
     );
 
     public static $prefixLengthsPsr4 = array (
+        'c' => 
+        array (
+            'cebe\\markdown\\' => 14,
+        ),
         'Y' => 
         array (
             'Yajra\\Datatables\\' => 17,
@@ -54,6 +58,10 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
     );
 
     public static $prefixDirsPsr4 = array (
+        'cebe\\markdown\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cebe/markdown',
+        ),
         'Yajra\\Datatables\\' => 
         array (
             0 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
