@@ -2539,171 +2539,6 @@
         "homepage": "https://symfony.com"
     },
     {
-        "name": "october/system",
-        "version": "v1.0.410",
-        "version_normalized": "1.0.410.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/system.git",
-            "reference": "9845a2b1dd5ffe2ba347116a8419817767c4641e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/system/zipball/9845a2b1dd5ffe2ba347116a8419817767c4641e",
-            "reference": "9845a2b1dd5ffe2ba347116a8419817767c4641e",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2017-04-02 22:18:12",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "System\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "System module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "october",
-            "october cms",
-            "system"
-        ]
-    },
-    {
-        "name": "october/backend",
-        "version": "v1.0.410",
-        "version_normalized": "1.0.410.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/backend.git",
-            "reference": "57926ed5e7d9eb7e2ea9a66e1b7d95b5774dc694"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/backend/zipball/57926ed5e7d9eb7e2ea9a66e1b7d95b5774dc694",
-            "reference": "57926ed5e7d9eb7e2ea9a66e1b7d95b5774dc694",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2017-04-01 13:43:14",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Backend\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "Backend module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "backend",
-            "october",
-            "october cms"
-        ]
-    },
-    {
-        "name": "october/cms",
-        "version": "v1.0.410",
-        "version_normalized": "1.0.410.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/octoberrain/cms.git",
-            "reference": "86e15475b5548f479add43a0aaa91982a278a812"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/cms/zipball/86e15475b5548f479add43a0aaa91982a278a812",
-            "reference": "86e15475b5548f479add43a0aaa91982a278a812",
-            "shasum": ""
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "october/rain": "~1.0",
-            "php": ">=5.5.9"
-        },
-        "time": "2017-04-01 13:43:14",
-        "type": "october-module",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Cms\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Bobkov",
-                "email": "aleksey.bobkov@gmail.com"
-            },
-            {
-                "name": "Samuel Georges",
-                "email": "daftspunky@gmail.com"
-            }
-        ],
-        "description": "CMS module for October CMS",
-        "homepage": "http://octobercms.com",
-        "keywords": [
-            "cms",
-            "october",
-            "october cms"
-        ]
-    },
-    {
         "name": "symfony/debug",
         "version": "v2.7.26",
         "version_normalized": "2.7.26.0",
@@ -3333,8 +3168,8 @@
     },
     {
         "name": "october/rain",
-        "version": "v1.0.411",
-        "version_normalized": "1.0.411.0",
+        "version": "v1.0.412",
+        "version_normalized": "1.0.412.0",
         "source": {
             "type": "git",
             "url": "https://github.com/octobercms/library.git",
@@ -3427,6 +3262,171 @@
             "cms",
             "october",
             "rain"
+        ]
+    },
+    {
+        "name": "october/system",
+        "version": "v1.0.412",
+        "version_normalized": "1.0.412.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/system.git",
+            "reference": "452dabc7567702cd88a88107f27b42abaafbe5b0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/system/zipball/452dabc7567702cd88a88107f27b42abaafbe5b0",
+            "reference": "452dabc7567702cd88a88107f27b42abaafbe5b0",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2017-04-05 22:08:50",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "System\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "System module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "october",
+            "october cms",
+            "system"
+        ]
+    },
+    {
+        "name": "october/backend",
+        "version": "v1.0.412",
+        "version_normalized": "1.0.412.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/backend.git",
+            "reference": "4f7734e4687a70edb4f035e6c9de0d34e283ae7c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/backend/zipball/4f7734e4687a70edb4f035e6c9de0d34e283ae7c",
+            "reference": "4f7734e4687a70edb4f035e6c9de0d34e283ae7c",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2017-04-06 21:48:04",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Backend\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "Backend module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "backend",
+            "october",
+            "october cms"
+        ]
+    },
+    {
+        "name": "october/cms",
+        "version": "v1.0.412",
+        "version_normalized": "1.0.412.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/octoberrain/cms.git",
+            "reference": "6f986083cb66942b786a98ade97a4f2cb6867dec"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/octoberrain/cms/zipball/6f986083cb66942b786a98ade97a4f2cb6867dec",
+            "reference": "6f986083cb66942b786a98ade97a4f2cb6867dec",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "october/rain": "~1.0",
+            "php": ">=5.5.9"
+        },
+        "time": "2017-04-05 12:07:15",
+        "type": "october-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cms\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Bobkov",
+                "email": "aleksey.bobkov@gmail.com"
+            },
+            {
+                "name": "Samuel Georges",
+                "email": "daftspunky@gmail.com"
+            }
+        ],
+        "description": "CMS module for October CMS",
+        "homepage": "http://octobercms.com",
+        "keywords": [
+            "cms",
+            "october",
+            "october cms"
         ]
     }
 ]
