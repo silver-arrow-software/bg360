@@ -41,23 +41,23 @@ class Plugin extends PluginBase
     {
         return [
             'sas.blog.access_posts' => [
-                'tab'   => 'sas.blog::lang.blog.tab',
+                'tab'   => 'sas.blog::lang.plugin.name',
                 'label' => 'sas.blog::lang.blog.access_posts'
             ],
             'sas.blog.access_categories' => [
-                'tab'   => 'sas.blog::lang.blog.tab',
+                'tab'   => 'sas.blog::lang.plugin.name',
                 'label' => 'sas.blog::lang.blog.access_categories'
             ],
             'sas.blog.access_other_posts' => [
-                'tab'   => 'sas.blog::lang.blog.tab',
+                'tab'   => 'sas.blog::lang.plugin.name',
                 'label' => 'sas.blog::lang.blog.access_other_posts'
             ],
             'sas.blog.access_import_export' => [
-                'tab'   => 'sas.blog::lang.blog.tab',
+                'tab'   => 'sas.blog::lang.plugin.name',
                 'label' => 'sas.blog::lang.blog.access_import_export'
             ],
             'sas.blog.access_publish' => [
-                'tab'   => 'sas.blog::lang.blog.tab',
+                'tab'   => 'sas.blog::lang.plugin.name',
                 'label' => 'sas.blog::lang.blog.access_publish'
             ]
         ];

@@ -3168,17 +3168,17 @@
     },
     {
         "name": "october/rain",
-        "version": "v1.0.412",
-        "version_normalized": "1.0.412.0",
+        "version": "v1.0.413",
+        "version_normalized": "1.0.413.0",
         "source": {
             "type": "git",
             "url": "https://github.com/octobercms/library.git",
-            "reference": "4b7e200214aac2a44c09579839151b85d58bb662"
+            "reference": "48ea7e96c0ff9fa679d2c39e7f6a65ae1bbd410d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/octobercms/library/zipball/4b7e200214aac2a44c09579839151b85d58bb662",
-            "reference": "4b7e200214aac2a44c09579839151b85d58bb662",
+            "url": "https://api.github.com/repos/octobercms/library/zipball/48ea7e96c0ff9fa679d2c39e7f6a65ae1bbd410d",
+            "reference": "48ea7e96c0ff9fa679d2c39e7f6a65ae1bbd410d",
             "shasum": ""
         },
         "require": {
@@ -3225,7 +3225,7 @@
             "swiftmailer/swiftmailer": "~5.1",
             "symfony/config": "2.7.*"
         },
-        "time": "2017-03-30 23:15:46",
+        "time": "2017-04-08 22:19:22",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3266,17 +3266,17 @@
     },
     {
         "name": "october/system",
-        "version": "v1.0.412",
-        "version_normalized": "1.0.412.0",
+        "version": "v1.0.413",
+        "version_normalized": "1.0.413.0",
         "source": {
             "type": "git",
             "url": "https://github.com/octoberrain/system.git",
-            "reference": "452dabc7567702cd88a88107f27b42abaafbe5b0"
+            "reference": "b8de22d203722a7eac6733d6a3c13a9c38583603"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/system/zipball/452dabc7567702cd88a88107f27b42abaafbe5b0",
-            "reference": "452dabc7567702cd88a88107f27b42abaafbe5b0",
+            "url": "https://api.github.com/repos/octoberrain/system/zipball/b8de22d203722a7eac6733d6a3c13a9c38583603",
+            "reference": "b8de22d203722a7eac6733d6a3c13a9c38583603",
             "shasum": ""
         },
         "require": {
@@ -3284,7 +3284,7 @@
             "october/rain": "~1.0",
             "php": ">=5.5.9"
         },
-        "time": "2017-04-05 22:08:50",
+        "time": "2017-04-08 22:00:56",
         "type": "october-module",
         "extra": {
             "branch-alias": {
@@ -3321,17 +3321,17 @@
     },
     {
         "name": "october/backend",
-        "version": "v1.0.412",
-        "version_normalized": "1.0.412.0",
+        "version": "v1.0.413",
+        "version_normalized": "1.0.413.0",
         "source": {
             "type": "git",
             "url": "https://github.com/octoberrain/backend.git",
-            "reference": "4f7734e4687a70edb4f035e6c9de0d34e283ae7c"
+            "reference": "4f0d12419956bf3367100cef30d95f2d12870b59"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/backend/zipball/4f7734e4687a70edb4f035e6c9de0d34e283ae7c",
-            "reference": "4f7734e4687a70edb4f035e6c9de0d34e283ae7c",
+            "url": "https://api.github.com/repos/octoberrain/backend/zipball/4f0d12419956bf3367100cef30d95f2d12870b59",
+            "reference": "4f0d12419956bf3367100cef30d95f2d12870b59",
             "shasum": ""
         },
         "require": {
@@ -3339,7 +3339,7 @@
             "october/rain": "~1.0",
             "php": ">=5.5.9"
         },
-        "time": "2017-04-06 21:48:04",
+        "time": "2017-04-10 22:40:39",
         "type": "october-module",
         "extra": {
             "branch-alias": {
@@ -3376,17 +3376,17 @@
     },
     {
         "name": "october/cms",
-        "version": "v1.0.412",
-        "version_normalized": "1.0.412.0",
+        "version": "v1.0.413",
+        "version_normalized": "1.0.413.0",
         "source": {
             "type": "git",
             "url": "https://github.com/octoberrain/cms.git",
-            "reference": "6f986083cb66942b786a98ade97a4f2cb6867dec"
+            "reference": "b5bcec28e77dc64b8b11b05c55d4407b5e253734"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/octoberrain/cms/zipball/6f986083cb66942b786a98ade97a4f2cb6867dec",
-            "reference": "6f986083cb66942b786a98ade97a4f2cb6867dec",
+            "url": "https://api.github.com/repos/octoberrain/cms/zipball/b5bcec28e77dc64b8b11b05c55d4407b5e253734",
+            "reference": "b5bcec28e77dc64b8b11b05c55d4407b5e253734",
             "shasum": ""
         },
         "require": {
@@ -3394,7 +3394,7 @@
             "october/rain": "~1.0",
             "php": ">=5.5.9"
         },
-        "time": "2017-04-05 12:07:15",
+        "time": "2017-04-10 06:02:05",
         "type": "october-module",
         "extra": {
             "branch-alias": {

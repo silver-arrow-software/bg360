@@ -78,7 +78,8 @@ return [
         'banned_comment' => 'Place a tick in this box if this user is banned from posting to the forum.',
         'forum_username' => 'Forum Username',
         'channels' => 'Forum channels',
-        'channels_desc' => 'Manage available forum channels.'
+        'channels_desc' => 'Manage available forum channels.',
+		'perm_manage_channels' => 'Manage forum channels'
     ],
     'embedch' => [
         'channel_name' => 'Embed Channel',

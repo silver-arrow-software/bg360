@@ -113,7 +113,8 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-comments',
                 'url'         => Backend::url('sas/forum/channels'),
                 'category'    => 'SAS',
-                'order'       => 500
+                'order'       => 500,
+				'permissions' => ['sas.forum.manage_channels']
             ]
         ];
     }
@@ -125,4 +126,13 @@ class Plugin extends PluginBase
             'sas.forum::mail.member_report' => 'Notification to moderators when a member is reported to be a spammer.'
         ];
     }
+	
+	public function registerPermissions() {
+		return [
+			'sas.forum.manage_channels' => [
+				'label' => 'sas.forum::lang.settings.perm_manage_channels',
+				'tab' => 'sas.forum::lang.plugin.name'
+			],
+		];
+	}
 }

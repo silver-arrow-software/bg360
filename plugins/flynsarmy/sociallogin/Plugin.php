@@ -31,6 +31,15 @@ class Plugin extends PluginBase
 			'icon'        => 'icon-users'
 		];
 	}
+	
+	public function registerPermissions() {
+		return [
+			'flynsarmy.sociallogin.configuration' => [
+				'label' => 'Manage the social login settings',
+				'tab' => 'Social Logins'
+			],
+		];
+	}
 
 	public function registerSettings()
 	{
@@ -40,7 +49,8 @@ class Plugin extends PluginBase
 				'description' => 'Manage Social Login providers.',
 				'icon'        => 'icon-users',
 				'class'       => 'Flynsarmy\SocialLogin\Models\Settings',
-				'order'       => 600
+				'order'       => 600,
+                'permissions' => ['flynsarmy.sociallogin.configuration']
 			]
 		];
 	}
