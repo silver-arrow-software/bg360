@@ -19,7 +19,9 @@ return array(
     'Symfony\\Component\\CssSelector\\' => array($vendorDir . '/symfony/css-selector'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Owl\\' => array($vendorDir . '/owl/library/src'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\Fractal\\' => array($vendorDir . '/league/fractal/src'),
+    'JiraRestApi\\' => array($vendorDir . '/lesstif/php-jira-rest-client/src'),
     'Illuminate\\View\\' => array($vendorDir . '/illuminate/view'),
     'Illuminate\\Support\\' => array($vendorDir . '/illuminate/support'),
     'Illuminate\\Session\\' => array($vendorDir . '/illuminate/session'),
@@ -33,7 +35,7 @@ return array(
     'Illuminate\\Container\\' => array($vendorDir . '/illuminate/container'),
     'Illuminate\\Config\\' => array($vendorDir . '/illuminate/config'),
     'Illuminate\\Cache\\' => array($vendorDir . '/illuminate/cache'),
-    'Dompdf\\' => array($vendorDir . '/dompdf/dompdf/src'),
+    'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
 );

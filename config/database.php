@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => 'mysql',
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -48,17 +48,17 @@ return [
 
         'sqlite' => [
             'driver'   => 'sqlite',
-            'database' => 'storage/database.sqlite',
+            'database' => env('DB_DATABASE', 'storage/database.sqlite'),
             'prefix'   => '',
         ],
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'port'      => 3306,
-            'database'  => 'bg360_20161207',
-            'username'  => 'root',
-            'password'  => 'root',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', 3306),
+            'database' => env('DB_DATABASE', 'bg360_20161207'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -66,11 +66,11 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => 'localhost',
-            'port'     => '',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => '',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', ''),
+            'database' => env('DB_DATABASE', 'database'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
@@ -78,11 +78,11 @@ return [
 
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
-            'host'     => 'localhost',
-            'port'     => '',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => '',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', ''),
+            'database' => env('DB_DATABASE', 'database'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
             'prefix'   => '',
         ],
 
@@ -116,7 +116,7 @@ return [
 
         'cluster' => false,
 
-        'default' => 'mysql',
+        'default' => env('DB_CONNECTION', 'mysql'),
 
     ],
 

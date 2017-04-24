@@ -38,6 +38,10 @@ class Project extends Model
         'tasks' => [ 'Sas\Erp\Models\Task', 'order' => 'position' ]
     ];
 
+    public $attachMany = [
+        'files' => 'System\Models\File',
+    ];
+
     public function getTeamIdOptions()
     {
         return Team::lists('name', 'id');

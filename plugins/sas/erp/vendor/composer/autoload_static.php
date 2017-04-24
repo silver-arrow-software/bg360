@@ -42,9 +42,17 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
         array (
             'Owl\\' => 4,
         ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
         'L' => 
         array (
             'League\\Fractal\\' => 15,
+        ),
+        'J' => 
+        array (
+            'JiraRestApi\\' => 12,
         ),
         'I' => 
         array (
@@ -64,7 +72,7 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
         ),
         'D' => 
         array (
-            'Dompdf\\' => 7,
+            'Dotenv\\' => 7,
         ),
         'C' => 
         array (
@@ -126,9 +134,17 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
         array (
             0 => __DIR__ . '/..' . '/owl/library/src',
         ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
         'League\\Fractal\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/fractal/src',
+        ),
+        'JiraRestApi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lesstif/php-jira-rest-client/src',
         ),
         'Illuminate\\View\\' => 
         array (
@@ -182,9 +198,9 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
         array (
             0 => __DIR__ . '/..' . '/illuminate/cache',
         ),
-        'Dompdf\\' => 
+        'Dotenv\\' => 
         array (
-            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
         'Collective\\Html\\' => 
         array (
@@ -197,13 +213,6 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
     );
 
     public static $prefixesPsr0 = array (
-        'S' => 
-        array (
-            'Svg\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src',
-            ),
-        ),
         'P' => 
         array (
             'PHPExcel' => 
@@ -218,11 +227,11 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
                 0 => __DIR__ . '/..' . '/maatwebsite/excel/src',
             ),
         ),
-        'F' => 
+        'J' => 
         array (
-            'FontLib\\' => 
+            'JsonMapper' => 
             array (
-                0 => __DIR__ . '/..' . '/phenx/php-font-lib/src',
+                0 => __DIR__ . '/..' . '/netresearch/jsonmapper/src',
             ),
         ),
         'D' => 
@@ -235,12 +244,6 @@ class ComposerStaticInit91bb6abb067ef627ecfe581fc2549e1e
     );
 
     public static $classMap = array (
-        'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
-        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
-        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
-        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
-        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
-        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
         'Maatwebsite\\Excel\\Classes\\Cache' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/Cache.php',
         'Maatwebsite\\Excel\\Classes\\FormatIdentifier' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/FormatIdentifier.php',
         'Maatwebsite\\Excel\\Classes\\LaravelExcelWorksheet' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/LaravelExcelWorksheet.php',

@@ -5,5 +5,19 @@ is_hidden = 1
 
 [sasErpProject]
 slug = "{{ :slug }}"
+
+[fileUploader]
+placeholderText = "Click or drag files to upload"
+maxSize = 5
+fileTypes = "*"
+==
+<?php
+function onInit()
+{
+    $this->fileUploader->bindModel('files', new \Sas\Erp\Models\Project);
+}
+?>
 ==
 {% component "sasErpProject" %}
+
+{% component 'fileUploader' %}

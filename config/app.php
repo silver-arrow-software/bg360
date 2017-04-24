@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'debug' => true,
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'url' => 'http://bg360.local',
+    'url' => env('APP_URL', 'http://bg360.local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'key' => 'bVrqVyoqphJGZF6lwJCsOwNP6b9C01tE',
+    'key' => env('APP_KEY', 'bVrqVyoqphJGZF6lwJCsOwNP6b9C01tE'),
 
     'cipher' => 'AES-256-CBC',
 
