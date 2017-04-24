@@ -30,11 +30,13 @@ class Plugin extends PluginBase
     public function boot() {
 
         // Service provider
-        App::register('\Yajra\Datatables\DatatablesServiceProvider');
+        App::register(\Yajra\Datatables\DatatablesServiceProvider::class);
+        App::register(\Barryvdh\Elfinder\ElfinderServiceProvider::class);
 
         // Register alias
         $alias = AliasLoader::getInstance();
-        $alias->alias('Datatables', '\Yajra\Datatables\Facades\Datatables');
+        $alias->alias('Datatables', \Yajra\Datatables\Facades\Datatables::class);
+        $alias->alias('Elfinder', \Barryvdh\Elfinder\Elfinder::class);
 
         Event::listen('backend.menu.extendItems', function($manager) {
            $manager->addSideMenuItems('RainLab.User', 'user', [
@@ -164,6 +166,7 @@ class Plugin extends PluginBase
             'Sas\Erp\Components\RecordList' => 'sasErpList',
             'Sas\Erp\Components\RecordDetail' => 'sasErpDetail',
             'Sas\Erp\Components\ProjectDetail' => 'sasErpProject',
+            'Sas\Erp\Components\FroalaEditor' => 'froalaeditor'
         ];
     }
 

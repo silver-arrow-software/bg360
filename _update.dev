@@ -1,0 +1,3 @@
+\plugins\rainlab\forum\components\EmbedChannel.php line 54
+protected => public
+

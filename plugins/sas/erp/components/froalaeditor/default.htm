@@ -1,0 +1,197 @@
+
+<textarea data-froala-name="{{ editorName }}" style="width: 320px;" name="froalaeditor" cols="50" rows="10"></textarea>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" frameborder="0"></iframe>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<button data-request="{{ __SELF__ }}::onUpload">Go</button>
+{% put scripts %}
+<script type="text/javascript">
+    var sasFE;
+    $(function(){
+        sasFE = $("[data-froala-name='{{ editorName }}']").froalaEditor({
+            toolbarButtons: [
+                'fullscreen', 'print', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|',
+                'specialCharacters', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|',
+                'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertHR', '-',
+                'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'
+            ],
+            height: 300,
+            requestHeaders: {
+                'X-Requested-With': 'XMLHttpRequest',
+                "X-OCTOBER-REQUEST-HANDLER":"{{ __SELF__ }}::onUpload"
+            },
+            fileUploadParam: 'upload[]',
+            fileUploadURL: "{{ route('elfinder.connector', {froala:1}) }}",
+            fileUploadParams: {
+                'cmd': 'upload',
+                'target': 'l1_Lw'
+            }
+        }).on('froalaEditor.image.beforeUpload', function (e, editor, files) {
+            if (files.length) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var result = e.target.result;
+
+                    editor.image.insert(result, null, null, editor.image.get());
+                };
+
+                reader.readAsDataURL(files[0]);
+            }
+
+            return false;
+        }).on('froalaEditor.file.uploaded', function (e, editor, response) {
+            console.log(arguments);
+        })
+    });
+
+    (function ($) {
+        $.FroalaEditor.PLUGINS.mediaManager = function (editor) {
+            function iframeModalOpen(callback){
+                var src = '{{ route("elfinder.popup", "abc") }}';
+                var width = $(this).attr('data-width') || 900;
+                var height = $(this).attr('data-height') || 420;
+
+                var allowfullscreen = $(this).attr('data-video-fullscreen');
+
+                $("#myModal iframe").attr({
+                    'src': src,
+                    'height': height,
+                    'width': width,
+                    'allowfullscreen':''
+                });
+
+                showSelector();
+
+                $('#myModal').on('hidden.bs.modal', function(){
+                    $(this).find('iframe').html("");
+                    $(this).find('iframe').attr("src", "");
+                });
+                sasFE.callback = callback;
+            }
+
+            function checkFile(file) {
+                if (!file || !file.url) {
+                    return false;
+                }
+                return true;
+            }
+
+            function showSelector() {
+                $("#myModal").modal();
+            }
+            function hideSelector() {
+                $('#myModal').modal('hide');
+            }
+
+            function onInsertFile() {
+                iframeModalOpen(function (file) {
+                    if (!checkFile(file)) return;
+                    var link,
+                        text = editor.selection.text(),
+                        textIsEmpty = $.trim(text) === '';
+                    var text = textIsEmpty ? file.name : text;
+                    link = file.url;
+
+                    editor.events.focus(true);
+                    editor.selection.restore();
+                    editor.html.insert('<a href="' + link + '" id="fr-inserted-file" class="fr-file">' + text + '</a>');
+                    var $file = editor.$el.find('#fr-inserted-file');
+                    $file.removeAttr('id');
+                    editor.undo.saveStep();
+                    hideSelector();
+                });
+            }
+            function onInsertImage() {
+                iframeModalOpen(function (file) {
+                    if (!checkFile(file)) return;
+
+                    var $currentImage = editor.image.get();
+                    if (file.mime.split('/').shift() === 'image') {
+                        editor.image.insert(file.url, false, {}, $currentImage)
+                    }
+                    hideSelector();
+                    editor.undo.saveStep()
+                });
+            }
+            function onInsertVideo() {
+                iframeModalOpen(function (file) {
+                    if (!checkFile(file)) return;
+
+                    if (file.mime.split('/').shift() === 'video') {
+                        editor.video.insert(item.url);
+                    }
+                    hideSelector();
+                });
+            }
+            function _insertVideoFallback(link) {
+//                var $richEditorNode = editor.$el.closest('[data-control="richeditor"]');
+//                var title = link.substring(link.lastIndexOf('/') + 1);
+//                $richEditorNode.richEditor('insertVideo', link, title);
+                editor.popups.hide('video.insert')
+            }
+            function _init() {
+                editor.events.on('destroy', _destroy, true);
+                editor.events.on('video.linkError', _insertVideoFallback);
+            }
+            function _destroy() {}
+            return {
+                _init: _init,
+                insertFile: onInsertFile,
+                insertImage: onInsertImage,
+                insertVideo: onInsertVideo
+            }
+        };
+        if (!$.FE.PLUGINS.link || !$.FE.PLUGINS.file || !$.FE.PLUGINS.image || !$.FE.PLUGINS.video) {
+            throw new Error('Media manager plugin requires link, file, image and video plugin.');
+        }
+
+        $.FE.DEFAULTS.imageInsertButtons = ['imageBack', '|', 'imageByURL', 'mmImageManager'];
+        $.FE.RegisterCommand('mmImageManager', {
+            title: 'Browse',
+            undo: false,
+            focus: false,
+            callback: function () {
+                this.mediaManager.insertImage();
+            },
+            plugin: 'mediaManager'
+        });
+        $.FE.DefineIcon('mmImageManager', {
+            NAME: 'folder'
+        });
+        $.FE.DEFAULTS.fileInsertButtons = ["fileBack", "|", "mmFileManager"];
+        $.FE.RegisterCommand('mmFileManager', {
+            title: 'Browse',
+            undo: false,
+            focus: false,
+            callback: function () {
+                this.mediaManager.insertFile();
+            },
+            plugin: 'mediaManager'
+        });
+        $.FE.DefineIcon('mmFileManager', {
+            NAME: 'folder'
+        });
+
+        $.FE.DEFAULTS.videoInsertButtons = ["videoBack", "|", "videoByURL", "videoEmbed", "mmVideoManager"];
+        $.FE.RegisterCommand('mmVideoManager', {
+            title: 'Browse',
+            undo: false,
+            focus: false,
+            callback: function () {
+                this.mediaManager.insertVideo();
+            },
+            plugin: 'mediaManager'
+        });
+        $.FE.DefineIcon('mmVideoManager', {
+            NAME: 'folder'
+        });
+    })(jQuery);
+</script>
+{% endput %}

@@ -13,6 +13,7 @@
         "php": ">=5.4.0",
         "owl/library": "dev-master",
         "lesstif/php-jira-rest-client": "^1.7.0",
-        "yajra/laravel-datatables-oracle": "~6.0"
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "barryvdh/laravel-elfinder": "^0.3.10"
     }
 }

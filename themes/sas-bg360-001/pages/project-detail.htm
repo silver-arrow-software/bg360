@@ -10,6 +10,9 @@ slug = "{{ :slug }}"
 placeholderText = "Click or drag files to upload"
 maxSize = 5
 fileTypes = "*"
+
+[froalaeditor]
+editorName = "froalaEditor"
 ==
 <?php
 function onInit()
@@ -21,3 +24,5 @@ function onInit()
 {% component "sasErpProject" %}
 
 {% component 'fileUploader' %}
+
+{% component 'froalaeditor' %}
